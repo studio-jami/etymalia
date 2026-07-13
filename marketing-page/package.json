@@ -1,0 +1,8 @@
+{
+  "name": "entymalia-marketing",
+  "version": "1.0.0",
+  "description": "Marketing landing page for Entymalia",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

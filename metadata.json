@@ -1,5 +1,5 @@
 {
-  "name": "BrandForge",
+  "name": "Entymalia",
   "description": "AI-powered brand identity builder and media assets creator ensuring design consistency across platforms.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

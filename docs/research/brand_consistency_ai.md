@@ -1,6 +1,6 @@
 # Research Report: AI-Driven Multi-Modal Brand Consistency Operations
 
-**Author:** BrandForge Engineering Research Team  
+**Author:** Entymalia Engineering Research Team  
 **Date:** June 2026  
 **Classification:** Corporate Whitepaper  
 
@@ -10,7 +10,7 @@
 Ensuring visual, typographical, and color consistency across distributed marketing pipelines presents a major operational bottleneck for modern enterprises. Traditional brand guidelines rely on manual review cycles, inducing slow lead times. This paper details how multi-modal generative networks (specifically Gemini Pro and Veo systems) can automate brand kit construction, direct-to-vector SVG asset synthesis, and instant consistency auditing.
 
 ## 1. Vector Logo Synthesis via SVG Prompt Injection
-Traditional text-to-image models operate over pixel raster lattices (PNG, JPEG), rendering them unsuitable for core identity designs due to resolution constraints. BrandForge leverages prompt-engineering over advanced language models (`gemini-3.1-pro-preview`) to synthesize raw XML SVG elements. 
+Traditional text-to-image models operate over pixel raster lattices (PNG, JPEG), rendering them unsuitable for core identity designs due to resolution constraints. Entymalia leverages prompt-engineering over advanced language models (`gemini-3.1-pro-preview`) to synthesize raw XML SVG elements. 
 
 ```xml
 <!-- Example Generated Scale-Independent Asset -->
@@ -28,10 +28,10 @@ Traditional text-to-image models operate over pixel raster lattices (PNG, JPEG),
 By forcing the model to restrict its output exclusively to structured SVG XML schemas, we ensure immediate, responsive rendering on Android viewports using high-speed off-screen WebViews. This guarantees transparent backgrounds and crisp lossless scaling.
 
 ## 2. Cross-Channel Bundle Orchestration
-To prevent design fragmentation, the system automatically translates brand profiles (consisting of Primary, Secondary, Accent colors and descriptions) into a master prompt bundle. By compiling 32x32px Favicons and 1080x1080px social avatars simultaneously, BrandForge guarantees identical visual layouts across all external networks.
+To prevent design fragmentation, the system automatically translates brand profiles (consisting of Primary, Secondary, Accent colors and descriptions) into a master prompt bundle. By compiling 32x32px Favicons and 1080x1080px social avatars simultaneously, Entymalia guarantees identical visual layouts across all external networks.
 
 ## 3. High-Fidelity Video Campaigns (Veo Engine)
-Utilizing `veo-3.1-fast-generate-preview`, BrandForge provides dual motion tracks:
+Utilizing `veo-3.1-fast-generate-preview`, Entymalia provides dual motion tracks:
 1. **Text-to-Video**: Realizes brand taglines as fully animated cinematic promos.
 2. **Image-to-Video**: Animate high-res product photos, preserving packaging fidelity while introducing fluid kinetic camera sweeps.
 

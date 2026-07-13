@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "BrandForge"
+rootProject.name = "Entymalia"
 
 include(":app")

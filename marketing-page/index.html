@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entymalia | AI-Powered Brand Identity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans antialiased">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header class="p-6 flex justify-between items-center max-w-6xl w-full mx-auto">
+            <div class="text-2xl font-bold tracking-tighter">Brand<span class="text-blue-500">Forge</span></div>
+            <nav>
+                <a href="#features" class="px-4 hover:text-blue-400 transition">Features</a>
+                <a href="https://github.com/Entymalia" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition ml-2">Download App</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="flex-grow flex flex-col justify-center items-center text-center px-4 max-w-4xl mx-auto mt-16">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                Forge your brand's identity with <span class="gradient-text">AI Precision.</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl">
+                Generate consistent logos, marketing assets, color palettes, and high-quality video promos—all natively from your Android device using Gemini and Veo models.
+            </p>
+            <div class="flex space-x-4">
+                <a href="#" class="px-8 py-4 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-200 transition text-lg">Get the Android App</a>
+                <a href="#demo" class="px-8 py-4 border border-gray-600 rounded-full hover:border-gray-400 transition text-lg">Watch Demo</a>
+            </div>
+
+            <div class="mt-20 relative w-full max-w-3xl">
+                <div class="absolute inset-0 bg-blue-500 blur-[100px] opacity-20"></div>
+                <img src="https://placehold.co/800x500/1e293b/ffffff?text=App+Screenshot" alt="Entymalia App Screenshot" class="relative rounded-2xl shadow-2xl border border-gray-800">
+            </div>
+        </main>
+
+        <!-- Features -->
+        <section id="features" class="py-24 bg-gray-950 mt-20">
+            <div id="demo"></div>
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+                    <div class="w-12 h-12 bg-blue-900/50 rounded-xl flex items-center justify-center mb-4 text-blue-400 text-2xl">🎨</div>
+                    <h3 class="text-xl font-bold mb-2">Vector Logos</h3>
+                    <p class="text-gray-400">Generate scalable, production-ready SVG logos using Gemini 3.1 Pro.</p>
+                </div>
+                <div class="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+                    <div class="w-12 h-12 bg-purple-900/50 rounded-xl flex items-center justify-center mb-4 text-purple-400 text-2xl">🎥</div>
+                    <h3 class="text-xl font-bold mb-2">Video Promos</h3>
+                    <p class="text-gray-400">Instantly render cinematic promotional videos directly on-device using Veo 3.1.</p>
+                </div>
+                <div class="p-6 bg-gray-900 rounded-2xl border border-gray-800">
+                    <div class="w-12 h-12 bg-green-900/50 rounded-xl flex items-center justify-center mb-4 text-green-400 text-2xl">📱</div>
+                    <h3 class="text-xl font-bold mb-2">Icon Bundles</h3>
+                    <p class="text-gray-400">Automatically scale and crop your branding for Favicons, Instagram, X, and LinkedIn.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-800">
+            &copy; 2026 Entymalia. Built with Android Studio & Gemini.
+        </footer>
+    </div>
+</body>
+</html>
