@@ -1,9 +1,18 @@
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { createClient } from "@/lib/supabase/server";
+import { AuthButton } from "@/components/auth-button";
 
 export const dynamic = "force-dynamic";
 
-export default function Home() {
+export default async function Home() {
   const configured = isSupabaseConfigured();
+
+  let email: string | null = null;
+  if (configured) {
+    const supabase = await createClient();
+    const { data } = await supabase.auth.getUser();
+    email = data.user?.email ?? null;
+  }
 
   return (
     <main className="wrap">
@@ -15,12 +24,14 @@ export default function Home() {
         palettes, and video promos. Web experience coming soon.
       </p>
 
-      <span className="status">
-        <span className={`dot ${configured ? "ok" : "warn"}`} />
-        {configured
-          ? "Supabase connected"
-          : "Supabase not configured yet"}
-      </span>
+      {configured ? (
+        <AuthButton email={email} />
+      ) : (
+        <span className="status">
+          <span className="dot warn" />
+          Supabase not configured yet
+        </span>
+      )}
 
       <p className="muted">
         Backend health: <a href="/api/health">/api/health</a>

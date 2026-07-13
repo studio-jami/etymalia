@@ -88,6 +88,51 @@ body {
   font-size: 0.85rem;
 }
 
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  cursor: pointer;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn.google {
+  background: #ffffff;
+  color: #111827;
+  border-color: #ffffff;
+}
+
+.btn.google:not(:disabled):hover {
+  filter: brightness(0.94);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #e5e7eb;
+}
+
+.btn.ghost:not(:disabled):hover {
+  background: #111a2e;
+}
+
+.authrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.who {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
 a {
   color: #60a5fa;
 }
