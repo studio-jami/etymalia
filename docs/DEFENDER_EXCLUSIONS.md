@@ -7,7 +7,7 @@ To drastically improve build speeds on Windows, you should add the following dir
 ## Required Exclusions
 
 1. **Android Studio IDE**: `C:\Program Files\Android\Android Studio`
-2. **Your Project Directory**: The folder containing this project (e.g., `C:\Users\james\orgs\oss\brand-design`)
+2. **Your Project Directory**: The folder containing this project (for this checkout: `C:\Users\james\orgs\oss\etymaria`)
 3. **Gradle Cache**: `C:\Users\YourUsername\.gradle`
 4. **Android SDK**: `C:\Users\YourUsername\AppData\Local\Android\Sdk`
 

@@ -1,10 +1,23 @@
+import java.util.Properties
+
 plugins {
   id("com.android.application")
   alias(libs.plugins.kotlin.compose)
   alias(libs.plugins.google.devtools.ksp)
   alias(libs.plugins.roborazzi)
-  alias(libs.plugins.secrets)
 }
+
+val publicBuildConfigProperties = Properties().apply {
+  val envFile = rootProject.file(".env")
+  if (envFile.isFile) {
+    envFile.inputStream().use(::load)
+  }
+}
+
+fun publicBuildConfigValue(name: String): String =
+  "\"" + publicBuildConfigProperties.getProperty(name).orEmpty()
+    .replace("\\", "\\\\")
+    .replace("\"", "\\\"") + "\""
 
 android {
   namespace = "studio.jami.etymalia"
@@ -18,6 +31,10 @@ android {
     versionName = "1.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    // Only public client configuration is included in the APK. Provider, service-role,
+    // and deployment credentials remain server-side and must never be read from `.env` here.
+    buildConfigField("String", "SUPABASE_URL", publicBuildConfigValue("SUPABASE_URL"))
+    buildConfigField("String", "SUPABASE_ANON_KEY", publicBuildConfigValue("SUPABASE_ANON_KEY"))
   }
 
   signingConfigs {
@@ -51,12 +68,6 @@ android {
   testOptions { unitTests { isIncludeAndroidResources = true } }
 }
 
-// Configure the Secrets Gradle Plugin to use .env and .env.example files
-// to match the convention used in Web projects.
-secrets {
-  propertiesFileName = ".env"
-  defaultPropertiesFileName = ".env.example"
-}
 
 // Some unused dependencies are commented out below instead of being removed.
 // This makes it easy to add them back in the future if needed.
@@ -82,7 +93,7 @@ dependencies {
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.room.ktx)
   implementation(libs.androidx.room.runtime)
-  implementation(libs.coil.compose)
+
   implementation(libs.converter.moshi)
   implementation(libs.kotlinx.coroutines.android)
   implementation(libs.kotlinx.coroutines.core)

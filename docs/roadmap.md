@@ -1,54 +1,88 @@
 # Etymalia Roadmap
 
-*Updated July 2026*
+**Audited baseline:** July 14, 2026
 
-Etymalia is evolving from a native Android brand-asset app into a **professional-grade brand generator platform** (web + Android), with the resurrected **Etymaria** etymology name engine as its signature capability.
+**Current source of truth:** [`CURRENT_STATUS.md`](./CURRENT_STATUS.md)
 
-> The web platform's full architecture and tooling choices live in
-> [`docs/research/webapp_master_plan.md`](./research/webapp_master_plan.md).
-> This roadmap is the high-level sequencing view.
+Etymalia is becoming a professional brand-identity platform. The web app is the primary product track; Android remains a separate native client and must meet its own security and reliability release bar.
 
-## Guiding constraints (see `AGENTS.md`)
-- Backend is **Supabase** (Auth + Postgres + Storage + Edge Functions). No Firebase.
-- AI never called from clients — routed via server (Edge Function `gemini-proxy` on Android; server route handlers / provider-direct SDKs on web).
-- Android UI is **Jetpack Compose + Material 3**; DI is **manual by design** (no Hilt/Dagger).
-- Web is **Next.js 15 + React 19 on Vercel**, not Compose Multiplatform.
+## Non-negotiable end shape
 
----
+- AI credentials never reach a browser or Android APK.
+- Every AI request is authenticated, authorized, validated, rate/usage limited, observable, and attributable.
+- Brand tokens are the source of truth; all rendered deliverables derive deterministically from them.
+- Long-running media work is durable, idempotent, observable, and reflected in both the UI and the export package.
+- Claims of deployment, availability, and vendor support are evidence-bound—not inferred from source configuration.
 
-## Track A — Android app (stabilize)
-1. **Remove leftover key guard**: `BrandViewModel.generateBrandColorPalette()` still references `BuildConfig.GEMINI_API_KEY`; it already routes through `gemini-proxy` — delete the guard.
-2. **UiState/UiEvent**: adopt an MVI-style `UiState`/`UiEvent` wrapper for clean error, rate-limit, and loading handling.
-3. **Externalize strings**: move hardcoded UI text into `strings.xml`.
-4. **Native share/export**: `Intent.ACTION_SEND` for SVG/MP4 export.
+## Current baseline
 
-## Track B — Web platform (build) — *primary focus*
+| Area | Status |
+| --- | --- |
+| Monorepo, Supabase workspace schema/RLS, Google AI adapters | Implemented in source. |
+| Vault-backed Google credential store | Implemented server-side only; no user-facing BYOK flow. |
+| Phase 1 web: names, palette, SVG identity, SVG favicon, ZIP export | Implemented; historical live verification exists but was not re-run in this audit. |
+| Phase 2 social renderer and Trigger task | Implemented in source; deployment/run completion is unverified in this audit. Assets are not yet surfaced or exported. |
+| Android Compose / Room client | Implemented as a prototype; AI proxy authentication and hardening are release blockers. |
+| Phase 3 and Phase 4 product capabilities | Not implemented, except the Phase 4 membership schema/RLS foundation. |
 
-### UI system decision (July 2026)
-- **Dark is the default theme; light is a first-class semantic theme override.** Theme selection must persist per user/browser.
-- **Global styling only:** colors, typography, spacing, borders, radii, elevation, focus states, and responsive behavior are expressed as reusable tokens and shared primitives. Do not introduce page-local visual systems or one-off styling.
-- **Visual direction:** compact, editorial, and professional—hairline separation, restrained radii, controlled type scale, and muted accents. See `docs/references/ui-design/terra-proposal/`.
-- **Workspace model:** one brand workspace supports both Quick Build (reference + brief to first direction) and Directed Build (step-by-step). They share the same brief, tokens, assets, and export source of truth.
+## 0. Release integrity — do first
 
-Phased per the master plan:
+### Android AI gateway
 
-- **Phase 0 — Foundations:** ✅ Turborepo + pnpm workspace and package skeletons (`apps/web`, `@etymalia/{ai,tokens,name-engine,availability,asset-forge,exporters}`); ✅ additive workspace/brand schema + membership RLS migration; ✅ Google AI Studio/Vertex provider port, Studio credential store, and allowlisted Node-runtime smoke route. Next: configure a Studio user ID and verify the live Google smoke call; then add the Vault-backed production credential store.
-- **Phase 1 — MVP:** 🟩 *Implemented (pending live verification).* Brand workspace route (`/workspace/[workspaceId]/brand/[brandId]`) with brief intake into `brands.brief`; **Etymaria naming** (270-entry curated corpus → blended candidates + provenance + composite scoring, saved to `name_candidates`) with on-demand **RDAP** domain checks; **OKLCH palette** (culori, WCAG-AA contrast-verified) saved as DTCG `brand_tokens`; one **logo direction** + variant matrix (SVG, `currentColor` mono) and **SVG favicon**; **zip export** (fflate) with manifest, tokens, names, and a `<head>` snippet. Raster (PNG/ICO) derivation is deferred to the Phase 2 durable-jobs asset pipeline.
-- **Phase 2 — Full kit:** social kits (satori) · brand guide book (**prototype Typst *and* react-pdf**) · reference import (Uppy) · **Trigger.dev** orchestration for full-kit generation.
-- **Phase 3 — Deliverable depth + monetization:** email signature (MJML) · digital business card + branded QR + vCard · letterhead · templates gallery · **Stripe** subscription over BYOK · social/SEO availability behind flags · registrar **buy-through + affiliate**.
-- **Phase 4 — Scale:** multi-member workspaces · brand-audit loop · premium templates · export API.
+1. Implement Supabase authentication/session handling in Android.
+2. Make the Edge Function require authenticated users; authorize a fixed server-side operation/model allowlist.
+3. Validate request shape and media bounds; enforce rate/usage limits and safe error mapping.
+4. Remove fabricated video-success behavior and implement real operation polling, retrieval, storage, playback, and export—or remove video from the product until it is real.
+5. Define backup/retention policy for generated and reference media; avoid storing unbounded Base64 blobs in Room.
 
-## Track C — Etymaria name engine (signature moat)
-1. ✅ **Corpus converted & bundled** — the 270-row curated seed (`docs/references/etymology-table/…csv`, clean UTF-8) is parsed by `packages/name-engine/scripts/build-corpus.mjs` into `packages/name-engine/src/corpus.json` and consumed by the deterministic blend/score engine (curated · affixation · portmanteau · compounding · truncation across language families, with provenance).
-2. Load into **Postgres + pgvector** (roots, semantic fields, cross-linguistic layers, drift notes, tone, syllables, candidates) for semantic retrieval at scale.
-3. Add **AI polish** (`generateObject`) over the deterministic candidates, and CMUdict-based pronounceability.
-4. Grow the curated corpus beyond the initial rows — the editorial layer is the defensible asset.
+### Web delivery proof
 
----
+1. Authenticate the intended Trigger.dev account and verify the configured project.
+2. Deploy/confirm `generate-full-kit` with scoped Supabase runtime credentials.
+3. Run a real job for an authenticated brand with valid DTCG tokens.
+4. Verify its terminal status, 12 private Storage files, and 12 `assets` rows.
+5. Add workspace gallery/listing and ZIP-export support for generated social assets.
 
-## Two deliberate lanes (internal vs prod)
-Same AI port, different credential resolver — see master plan §5.1 and §11:
-- **Studio lane (internal):** our pooled credits (Vertex now), all premium models, high limits.
-- **Prod lane (users):** BYOK (zero COGS) or charge-through (Stripe-metered); optional OAuth-Google.
+### Verification foundation
 
-They need not be feature-equal.
+- Repair and run Android unit/snapshot tests; add repository and proxy-contract coverage.
+- Add web unit/integration tests for the deterministic engines, server actions, export route, and Trigger task boundaries.
+- Select monitoring and analytics vendors before adding integrations; do not claim Sentry or PostHog coverage while neither is configured.
+
+## 1. Web Phase 2 — complete the full kit
+
+- Reference import with explicit MIME/size limits, private Storage paths, deletion, and palette/vibe extraction.
+- Real raster derivatives: PNG/ICO and a standards-complete favicon package.
+- Prototype the brand guide in Typst and React-PDF, assess output/operations/accessibility, and record one chosen renderer.
+- Include social assets, guide, and raster identity derivatives in the export manifest and ZIP.
+
+## 2. Etymaria name engine
+
+- Maintain the current 270-entry curated corpus with named ownership, licensing/provenance, review standards, and versioned releases.
+- Add CMUdict pronounceability and optional server-side AI polish only with structured, validated outputs.
+- Add Postgres + pgvector semantic retrieval only after the extension, schema, embeddings, RLS behavior, and refresh process are implemented and tested.
+- Keep RDAP as the first availability signal; add social/SEO signals only after provider and terms-of-service review.
+
+## 3. Web Phase 3 — deliverable depth and monetization
+
+- Email signature, digital business card/QR/vCard, letterhead, and templates gallery.
+- Product-ready BYOK setup/execution, secure deletion/rotation, and entitlement-aware UX.
+- Stripe Billing only once plans, limits, tax/merchant responsibilities, webhook lifecycle, and managed-credit economics are defined.
+- Registrar buy-through/affiliate integration only after selecting a compliant partner.
+
+## 4. Web Phase 4 — collaboration and scale
+
+- Member invitations, membership/role management, and audit trail on the existing workspace schema.
+- Brand-audit feedback loop, premium templates, and documented public export API.
+- Capacity, cost, privacy, retention, incident response, and observability runbooks before scaling user media workloads.
+
+## Android quality track
+
+- Move user-visible strings to resources and add accessibility semantics.
+- Replace destructive Room migration fallback with explicit migrations and schema export.
+- Implement native share/export for only genuinely generated assets.
+- Remove unused dependencies and legacy Firebase catalog entries.
+
+## Planned tooling versus implementation
+
+The master plan lists potential tools such as Vercel AI Gateway, OpenAI/xAI/fal providers, Style Dictionary, Uppy, Typst, React-PDF, Stripe, MJML, QR tooling, and vectorization libraries. None is a current implementation merely because it appears in that plan. Add a dependency and verified code path before promoting a proposal to the implemented architecture.

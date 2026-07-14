@@ -1,7 +1,6 @@
 package studio.jami.etymalia.data.repository
 
 import android.util.Log
-import studio.jami.etymalia.BuildConfig
 import studio.jami.etymalia.data.api.*
 import studio.jami.etymalia.data.database.*
 import kotlinx.coroutines.Dispatchers
@@ -52,11 +51,6 @@ class BrandRepository(private val brandDao: BrandDao) {
         referenceImageBase64: String? = null,
         referenceMimeType: String? = null
     ): String = withContext(Dispatchers.IO) {
-        val apiKey = BuildConfig.GEMINI_API_KEY
-        if (apiKey.isEmpty() || apiKey == "MY_GEMINI_API_KEY") {
-            throw Exception("Gemini API Key is not configured. Please use the Secrets panel in AI Studio to set GEMINI_API_KEY.")
-        }
-
         var prompt = """
             Generate a modern, minimalist, fully vector SVG logo for a brand with the following details:
             - Brand Name: "${profile.name}"
@@ -169,11 +163,6 @@ class BrandRepository(private val brandDao: BrandDao) {
         referenceImageBase64: String? = null,
         referenceMimeType: String? = null
     ): String = withContext(Dispatchers.IO) {
-        val apiKey = BuildConfig.GEMINI_API_KEY
-        if (apiKey.isEmpty() || apiKey == "MY_GEMINI_API_KEY") {
-            throw Exception("Gemini API Key is not configured.")
-        }
-
         // Selected model depending on user preference
         val modelName = if (isStudioQuality) "gemini-3-pro-image-preview" else "gemini-3.1-flash-image-preview"
 
@@ -236,11 +225,6 @@ class BrandRepository(private val brandDao: BrandDao) {
         base64Image: String,
         mimeType: String
     ): String = withContext(Dispatchers.IO) {
-        val apiKey = BuildConfig.GEMINI_API_KEY
-        if (apiKey.isEmpty() || apiKey == "MY_GEMINI_API_KEY") {
-            throw Exception("Gemini API Key is not configured.")
-        }
-
         val prompt = """
             You are an expert Brand Auditor and Director of Brand Consistency.
             Analyze this uploaded marketing image and evaluate its brand consistency against this corporate Brand Kit:
@@ -292,11 +276,6 @@ class BrandRepository(private val brandDao: BrandDao) {
         referenceImageBase64: String? = null,
         referenceImageMime: String? = null
     ): String = withContext(Dispatchers.IO) {
-        val apiKey = BuildConfig.GEMINI_API_KEY
-        if (apiKey.isEmpty() || apiKey == "MY_GEMINI_API_KEY") {
-            throw Exception("Gemini API Key is not configured.")
-        }
-
         val basePrompt = """
             Branded marketing video promo for "${profile.name}" (${profile.industry}).
             Vibe and colors: Primary color: ${profile.primaryColor}, Accent color: ${profile.accentColor}.

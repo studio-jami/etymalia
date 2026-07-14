@@ -10,12 +10,12 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [36])
-class ExampleRobolectricTest {
+class AppResourcesTest {
 
   @Test
-  fun `read string from context`() {
+  fun `exposes the Etymalia application name`() {
     val context = ApplicationProvider.getApplicationContext<Context>()
     val appName = context.getString(R.string.app_name)
-    assertEquals("My Application", appName)
+    assertEquals("Etymalia", appName)
   }
 }

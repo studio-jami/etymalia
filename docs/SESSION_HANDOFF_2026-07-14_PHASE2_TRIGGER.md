@@ -1,5 +1,7 @@
 # Etymalia — Phase 2 Trigger.dev Deployment & Verification Handoff
 
+> **Historical record (July 14, 2026):** This handoff contains deployment assertions that were not independently revalidated in the current audit. Use [`CURRENT_STATUS.md`](./CURRENT_STATUS.md) for the active status; the required terminal run, Storage, and asset-row verification remains the release gate.
+
 **Date:** July 14, 2026
 **Status:** Trigger.dev production deployment is configured and live. The social-kit worker has been exercised against production and its packaging/runtime defects were corrected. A deterministic DTCG palette was seeded for the only available production brand; the final successful render/storage verification remains the next command.
 

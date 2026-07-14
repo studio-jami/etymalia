@@ -362,10 +362,6 @@ class BrandViewModel(
 
     // --- Helper color generator ---
     fun generateBrandColorPalette(brandDescription: String, onGenerated: (String, String, String) -> Unit) {
-        val apiKey = BuildConfig.GEMINI_API_KEY
-        if (apiKey.isEmpty() || apiKey == "MY_GEMINI_API_KEY") {
-            return
-        }
         viewModelScope.launch {
             try {
                 val prompt = "Generate a highly harmonious professional brand color palette in hex strings for: $brandDescription. Return ONLY a single raw valid JSON object with keys \"primary\", \"secondary\", \"accent\" containing hex codes including '#'. No markdown, no explanations."

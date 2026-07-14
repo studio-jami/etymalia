@@ -1,4 +1,6 @@
-en a file it prompts me to sync # Etymalia — Session Handoff & Phase 0 Kickoff
+# Etymalia — Session Handoff & Phase 0 Kickoff
+
+> **Historical record (July 2026):** This initial kickoff contains superseded Phase 0 tasks and stale credential notes. Use [`CURRENT_STATUS.md`](./CURRENT_STATUS.md) and [`roadmap.md`](./roadmap.md) for active work.
 
 *Prepared July 2026. Public-safe (no secrets). Secrets live in git-ignored `.env`; internal notes in git-ignored `docs/internal/`.*
 
@@ -64,6 +66,6 @@ en a file it prompts me to sync # Etymalia — Session Handoff & Phase 0 Kickoff
 - This machine's terminal sometimes swallows/echoes long multi-line PowerShell — prefer short commands or write-to-file-then-read.
 - **Never edit applied Supabase migrations** (`supabase/migrations/*` already applied) — always add new ones.
 - `web/.env.local` does not exist yet (Vercel injects in prod) — create it for local dev.
-- Android has a leftover `BuildConfig.GEMINI_API_KEY` guard in `BrandViewModel.generateBrandColorPalette()` — remove (Track A), don't extend.
+- Android no longer packages `GEMINI_API_KEY`; it still requires authenticated proxy authorization and abuse controls before its AI actions can ship.
 
 op

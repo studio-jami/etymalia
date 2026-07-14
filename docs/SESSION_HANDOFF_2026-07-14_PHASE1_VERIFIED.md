@@ -1,5 +1,7 @@
 # Etymalia — Phase 1 Verification & Ship Session Handoff
 
+> **Historical record (July 14, 2026):** This document records prior-session assertions. For the current evidence-bound implementation and deployment status, use [`CURRENT_STATUS.md`](./CURRENT_STATUS.md).
+
 **Date:** July 14, 2026
 **Predecessor:** `docs/SESSION_HANDOFF_2026-07-14_PHASE1.md` (implementation session)
 **Status:** Phase 1 MVP is **implemented, committed, pushed, and verified against

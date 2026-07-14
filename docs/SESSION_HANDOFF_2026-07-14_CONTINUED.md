@@ -1,5 +1,7 @@
 # Etymalia — Continued Session Handoff
 
+> **Historical record (July 14, 2026):** This document predates later Vercel and Phase 1 handoffs and contains superseded deployment configuration. Use [`CURRENT_STATUS.md`](./CURRENT_STATUS.md) for active status.
+
 **Date:** July 14, 2026
 **Status:** Phase 0 workspace, Vault credential, and initial brand-library foundations are complete locally and applied to the linked Supabase project.
 

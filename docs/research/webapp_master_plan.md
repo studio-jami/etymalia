@@ -1,7 +1,9 @@
 # Etymalia Web Platform — Product & Engineering Master Plan
 
-**Status:** Draft v1 (planning)
+**Status:** Forward architecture plan — not an implementation inventory
 **Date:** July 2026
+
+> **Implementation boundary:** Current verified implementation and release blockers are maintained in [`docs/CURRENT_STATUS.md`](../CURRENT_STATUS.md). A library, vendor, OAuth flow, or deployment described below is a proposal unless it is present in package manifests and source and has an explicit verification record. Current AI runtime support is Google AI Studio and Vertex only; Vercel AI Gateway, OpenAI, xAI, fal, and OAuth-linked provider execution are not implemented.
 **Owners:** James / Etymalia
 **Scope:** The `etymalia.jami.studio` web app — a professional-grade, payment-gated brand generator, including the resurrection of the original **Etymaria** name engine.
 
@@ -96,7 +98,7 @@ We are explicitly benchmarking against the best payment-gated products in this s
 - **BYOK path:** for user-supplied keys, instantiate a per-request provider with the user's key (pulled from Supabase Vault, §11); for managed/subscription users, route through the Gateway with *our* key.
 - **Structured brand output:** all AI that produces brand data returns a **Zod-validated object** (`generateObject`) — palette, name candidates, guideline copy — never free-form text we then regex.
 
-> Naming note: `BrandViewModel.generateBrandColorPalette()` in the Android app still references `BuildConfig.GEMINI_API_KEY` as a leftover guard (already routed through the `gemini-proxy` edge function). The web app must **never** hold provider keys client-side; all calls go through server route handlers or the Gateway.
+> Android no longer packages or checks `GEMINI_API_KEY`; it calls the Edge Function using public Supabase client configuration. The web app must never hold provider keys client-side; server routes may use only server-side credential resolvers. The Android proxy still needs authenticated-user authorization and abuse controls before production release.
 
 ---
 
@@ -104,21 +106,14 @@ We are explicitly benchmarking against the best payment-gated products in this s
 
 Provider (which model vendor) and **credential source** (whose account pays) are **orthogonal**. The AI port resolves them separately: feature code asks for a logical model; a **credential resolver** decides which key/account fulfills it.
 
-### Credential modes (per provider)
-| Mode | How | Works for |
-|------|-----|-----------|
-| **OAuth-linked account** | User signs in with the provider; we hold refreshable OAuth tokens and call the API on their behalf against *their* account/subscription. | **Google/Vertex, OpenAI, xAI** (verified live — see below). |
-| **BYOK API key** | User pastes a provider API key → stored in **Supabase Vault**, decrypted server-side at call time. | All providers. |
-| **Pooled / managed** | Our server-side keys/tokens (internal Studio lane, or charge-through for prod). | All providers. |
+### Credential modes (proposed; validate before implementation)
+| Mode | Intended approach | Current state |
+|------|-------------------|---------------|
+| **OAuth-linked account** | Use only a documented provider OAuth program with explicit third-party API entitlement, PKCE, token storage/rotation, revocation, and terms approval. | Not implemented; do not infer API rights from consumer chat subscriptions or OIDC discovery. |
+| **BYOK API key** | Store user key material in Supabase Vault and decrypt only in server runtime. | Google storage/resolution infrastructure exists; no user-facing configuration or execution flow exists. |
+| **Pooled / managed** | Server-held provider credentials with explicit entitlements, spend limits, and metering. | Studio smoke infrastructure exists for Google; managed production offering is not implemented. |
 
-> ✅ **OAuth-to-API is real for all three targets (probed July 2026).** Live OIDC discovery confirms public-client PKCE OAuth servers with refresh:
-> - **xAI** (`auth.x.ai`): `authorization_code` + `refresh_token` + **device flow**; PKCE `S256`; scopes include **`api:access`**, `grok-cli:access`, `offline_access`. First-class OAuth API access (the pattern behind Grok CLI / proxy harnesses).
-> - **OpenAI** (`auth.openai.com`): `authorization_code` + `refresh_token`; PKCE `S256`; public clients (`none`). This is the "Sign in with ChatGPT" / Codex-CLI machinery; API-access scopes exist but are undocumented in discovery.
-> - **Google**: OAuth with `cloud-platform` scope → the user's Vertex/GCP.
->
-> These are **account/subscription-backed** flows (like Codex "Sign in with ChatGPT", Gemini CLI, Claude Code on Max) — distinct from, and complementary to, BYOK API keys.
-
-> ⚠️ **Caveats, not blockers.** (1) The consumer *chat* subs and these OAuth-API flows may have different entitlements/rate limits than raw API billing — verify per provider. (2) OpenAI's API scopes are undocumented; treat as semi-private and watch ToS for third-party programmatic use. (3) We must store + refresh OAuth tokens securely (Supabase Vault) and handle revocation. Internal credit-pool specifics live in the git-ignored `docs/internal/PROVIDER_ACCOUNTS.md`.
+Any future OpenAI, xAI, fal, Gateway, or Google OAuth implementation must be based on current official provider documentation and an explicit entitlement/terms review at the time of implementation. OAuth discovery alone is not evidence that a third-party product may use a token for API inference.
 
 ### Concrete credential matrix (our actual setup)
 | Provider | Auth we use | Notes |
@@ -155,11 +150,11 @@ Default path is **provider-direct SDKs** (`@ai-sdk/google|openai|xai|fal`). The 
 | Word associations / rhyme / "means-like" | **Datamuse API** | Free, no key; `rel_*`, `ml=`, `sl=` queries for semantic + phonetic neighbors. |
 | Lexical relations | **WordNet** (Princeton) / Open English WordNet | Synonyms, hypernyms for semantic expansion. |
 | Phonetics / syllables | **CMUdict** | Syllable counts, pronounceability scoring. |
-| Roots (cross-linguistic) | **Our curated seed corpus** — `docs/references/etymology_brand_table` (281 rows) — expanded from Wiktextract | The proprietary curation layer = the moat (see below). |
+| Roots (cross-linguistic) | **Our curated seed corpus** — bundled as 270 entries in `packages/name-engine/src/corpus.json` | The proprietary curation layer = the moat (see below). |
 
 **The moat is the curated corpus, not the raw etymology.** Wiktionary/Wiktextract have the raw data; anyone can get it. What's defensible is our seed spreadsheet's editorial layer: **281 rows spanning PIE → Proto-Germanic → Old English → Old Norse → Middle English → Classical/Medieval Latin → Ancient Greek → Old French → Sanskrit → Arabic → Persian/Avestan → Hebrew/Aramaic → Celtic**, each tagged with **semantic field, meaning-drift notes, tone/register, syllable count, and hand-picked brand candidates** — plus the **blending engine** that recombines roots *across* language families into novel names with provenance. That editorial+algorithmic corpus, versioned and grown over time, is the durable advantage.
 
-> 🧹 **Data task:** the source CSV has encoding corruption (mangled em-dashes, Greek, and diacritics). Re-export to clean UTF-8 before loading into Postgres/pgvector.
+> **Data status:** the bundled 270-entry corpus is the current deterministic runtime source. Postgres/pgvector hosting and any expanded import pipeline are future work; validate source encoding, licensing, provenance, and editorial review before import.
 
 
 ### 6.2 Generation pipeline
@@ -198,7 +193,7 @@ workspaces (id, owner_id, name, plan)          -- billing boundary
 ```
 
 - **RLS pattern:** access via `workspace_id → membership(user_id = auth.uid())`. One policy family, reused everywhere.
-- **Storage:** Supabase Storage (S3-compatible, already configured — bucket `ENTYMALIA`). Path convention `workspace/{id}/brand/{id}/{asset}`.
+- **Storage:** Supabase Storage (S3-compatible; current private bucket `etymalia`). Path convention `workspace/{id}/brand/{id}/{asset}`.
 - **Tokens table** holds DTCG JSON so the whole kit is regenerable from one row.
 
 ---
@@ -401,7 +396,7 @@ The following docs were rewritten to match reality (Supabase + Next.js) and this
 - `docs/AUDIT.md` — corrected tech-debt items (manual DI is deliberate; backend is Supabase, not Firebase).
 - `README.md` — reframed as a platform (Android + web + Etymaria); fixed doc links.
 
-Canonical source of truth for the web platform is **this document**.
+The current implementation source of truth is [`docs/CURRENT_STATUS.md`](../CURRENT_STATUS.md). This document remains the forward architecture and vendor-evaluation plan.
 
 ---
 

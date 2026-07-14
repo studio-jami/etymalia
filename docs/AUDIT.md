@@ -1,38 +1,68 @@
-# Project Audit: Etymalia
+# Android Application Audit — Etymalia
 
-**Date**: July 2026
-**Target SDK**: 36
-**Min SDK**: 24
+**Audited:** July 14, 2026
 
-## Architecture Overview
-Etymalia is an Android application built natively using Jetpack Compose and Kotlin. It follows the standard modern Android architecture recommended by Google:
-- **UI Layer**: Jetpack Compose (`BrandNavigation`, `BrandListScreen`, `BrandDetailScreen`, `AddBrandScreen`).
-- **State Management**: `ViewModel` (`BrandViewModel`) managing state via `StateFlow` and Coroutines.
-- **Data Layer**: 
-  - **Local Persistence**: Room Database (`BrandDatabase`, `BrandDao`) to store user-created brand profiles and generated assets.
-  - **Network / API**: Retrofit for interacting with Gemini APIs (using models like `gemini-3.1-pro-preview`, `gemini-3-pro-image-preview`, `veo-3.1-fast-generate-preview`).
+**Target SDK:** 36
 
-## Current Features
-1. **Brand Profiles**: Create and manage local brand profiles (name, industry, description).
-2. **AI Asset Generation**:
-   - SVG Logos
-   - Marketing Images
-   - Branding Icons Bundle (Favicons, Social Avatars)
-   - Video Promos (Veo 3.1)
-   - Brand Color Palettes
-3. **Gallery**: Local storage and retrieval of generated assets using Room.
-4. **Brand Audit**: AI-driven evaluation of brand consistency based on uploaded imagery.
+**Min SDK:** 24
 
-## Technical Debt & Areas for Improvement
-- **Leftover key guard**: `BrandViewModel.generateBrandColorPalette()` still references `BuildConfig.GEMINI_API_KEY`. AI already routes through the Supabase `gemini-proxy` Edge Function — the guard should be **removed**, not extended.
-- **Hardcoded Strings**: UI components have hardcoded text; should be moved to `strings.xml` for localization.
-- **Error Handling**: Basic error surfacing in the ViewModel. Could benefit from a unified `UiState`/`UiEvent` (MVI-style) wrapper.
-- **Dependency Injection**: Manual DI (`BrandViewModelFactory`) is a **deliberate choice** (see `AGENTS.md`) — Hilt/Dagger were removed as incompatible with AGP 9 and unnecessary at this size. Do **not** reintroduce them unless the app splits into multiple modules.
+**Status:** native prototype; not ready to release AI workflows until the gateway/authentication blockers below are resolved.
 
-## Dependencies Audit
-- Compose BOM and Material 3 are up-to-date.
-- **Backend is Supabase** (Auth + Postgres + Storage + Edge Functions). Firebase/`google-services` were fully removed — any Firebase reference in older notes is obsolete.
-- AI calls go through the Supabase Edge Function `gemini-proxy`; the client never holds the Gemini key.
-- Navigation Compose is set up nicely.
-- Coil used for async image loading.
-- KSP used for Room compilation.
+## Confirmed architecture
+
+- **UI:** Kotlin, Jetpack Compose, Material 3, and Navigation Compose.
+- **State:** `BrandViewModel`, coroutines, and `StateFlow`.
+- **Persistence:** Room (`BrandDatabase`, `BrandDao`, `BrandProfile`, `GeneratedAsset`).
+- **Composition:** manual construction in `MainActivity` and `BrandViewModelFactory`; Hilt/Dagger are intentionally absent.
+- **Network:** Retrofit posts to Supabase `functions/v1/gemini-proxy`.
+- **Configuration:** Android `BuildConfig` now contains only public `SUPABASE_URL` and `SUPABASE_ANON_KEY`; private `.env` values are not automatically embedded in the APK.
+
+## Implemented user flows
+
+- Create, edit, list, and delete local brand profiles.
+- Store SVG text, generated-image Base64 data, and video-operation metadata in Room.
+- Request logo, image, palette, consistency-audit, and video-generation initiation through the Edge Function.
+- Copy SVG text to the clipboard.
+
+## Do not overstate these flows
+
+- **Video is not an end-to-end feature.** The app initiates a request and stores an operation-like name. It does not poll completion, retrieve media, persist playable video, or provide video export. Failure currently returns a simulated operation identifier; this must be removed before release.
+- **The branding-icons bundle is not a real transformed asset bundle.** The app reuses one generated image with different metadata; it does not derive ICO/PNG sizes or platform-safe crops.
+- **Current image rendering decodes Base64 content directly.** The unused Coil dependency was removed in this audit; a managed image-loading strategy remains future work.
+- **Android does not implement Supabase Auth, Postgres, or Storage clients.** It uses local Room plus the Edge Function endpoint.
+
+## Release blockers
+
+### 1. AI proxy security
+
+The Edge Function currently accepts caller-supplied `model`, `action`, and `payload`, with permissive CORS and no code-level allowlist, payload validation, per-user authorization, or rate limiting. Android supplies the public anon key rather than a user session.
+
+Before release:
+
+1. add Android Supabase authentication and propagate the user access token;
+2. require a verified user in the Edge Function;
+3. replace caller-controlled model/action selection with a server-side operation allowlist;
+4. validate and bound request/media payloads;
+5. enforce rate/usage limits and structured safe errors; and
+6. monitor usage and failures.
+
+### 2. Local media and backups
+
+Room stores user reference images and generated images as Base64 strings. Android backup configuration does not exclude this data. Decide retention/backup behavior, impose upload limits, and move larger media to managed files or private Storage before broad use.
+
+### 3. Data preservation
+
+The Room database has `exportSchema = false` and uses a destructive migration fallback. This conflicts with the project requirement that schema changes include migrations. Export schemas and add explicit migrations before shipping data that users rely on.
+
+## Quality backlog
+
+- Externalize hardcoded user-facing strings into resources.
+- Introduce operation-scoped state/events so independent generation errors and loading states cannot collide.
+- Validate SVG and input media before rendering/sending; preserve true selected MIME type and bound size.
+- Add native share/export with `FileProvider` for actual rendered assets.
+- Add DAO, repository, view-model, and Compose UI tests. The prior screenshot test used deleted template symbols and has been repaired during this audit; rerun the Gradle test task after the change.
+- Keep unused Android dependencies and catalog aliases out of the build; unused Coil and legacy Firebase/Google Services entries were removed in this audit.
+
+## Validation record
+
+Before the test repair, `./gradlew :app:testDebugUnitTest` compiled production Kotlin but failed compiling obsolete test references (`MyApplicationTheme`, `Greeting`). The web `pnpm check` passed separately. See [`CURRENT_STATUS.md`](./CURRENT_STATUS.md) for the complete audit record.
