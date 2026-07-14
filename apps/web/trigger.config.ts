@@ -15,6 +15,7 @@ export default defineConfig({
   logLevel: "log",
   retries: { enabledInDev: false, default: { maxAttempts: 3 } },
   build: {
+    external: ["@resvg/resvg-js"],
     extensions: [
       syncEnvVars(async () => [
         { name: "SUPABASE_URL", value: requiredEnv("SUPABASE_URL") },
