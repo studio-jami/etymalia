@@ -38,7 +38,7 @@
 
 ### Confirmed healthy
 
-- **GitHub:** CLI authenticated as `JamiStudio`; `main` tracks `Jami-Studio/main`.
+- **GitHub:** CLI authenticated as `JamiStudio`; `main` tracks `Jami-Studio/main`. After removal of the non-runtime Trigger CLI, Dependabot cleared all seven `tar` alerts and the `esbuild` alert. Five older alerts (`ws`, `cookie`, `postcss`, and an auto-dismissed OpenTelemetry record) remained while GitHub's dependency graph refreshed, even though their vulnerable lockfile ranges are absent locally. Do not dismiss those records without a completed GitHub graph rescan.
 - **Vercel:** project `jami-studio/etymalia` is linked; Root Directory is `apps/web`; latest production deployment was Ready at audit time. Three earlier failed deployments remain in historical records, but the current deployment is healthy.
 - **Supabase:** linked Etymalia project is reachable; all four local migrations exactly match remote history.
 
