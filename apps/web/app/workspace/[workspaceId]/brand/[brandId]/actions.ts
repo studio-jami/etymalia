@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { generateNames as generateEtymariaNames } from "@etymalia/name-engine";
 import { generatePalette, paletteToDtcg } from "@etymalia/tokens";
 import { checkDomainAvailability, toDomain } from "@etymalia/availability";
+import { tasks } from "@trigger.dev/sdk/v3";
 import { createClient } from "@/lib/supabase/server";
 import {
   briefKeywords,
@@ -140,6 +141,26 @@ export async function checkDomain(formData: FormData) {
 
   if (error) done(target, "?error=names#names");
   done(target, "#names");
+}
+
+export async function generateFullKit(formData: FormData) {
+  const target = ids(formData);
+  const supabase = await requireSession();
+  const { data: tokenRow, error: tokenError } = await supabase
+    .from("brand_tokens")
+    .select("brand_id")
+    .eq("brand_id", target.brandId)
+    .maybeSingle();
+  if (tokenError || !tokenRow) done(target, "?error=export-needs-palette#identity");
+
+  try {
+    await tasks.trigger("generate-full-kit", target, {
+      idempotencyKey: `full-kit:${target.brandId}`,
+    });
+  } catch {
+    done(target, "?error=full-kit#identity");
+  }
+  done(target, "?full-kit=queued#identity");
 }
 
 export async function generateBrandPalette(formData: FormData) {

@@ -18,6 +18,7 @@
     "@etymalia/tokens": "workspace:*",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.4",
+    "@trigger.dev/sdk": "^4.5.4",
     "next": "^15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -32,4 +33,3 @@
     "postcss": "^8.5.10"
   }
 }
-

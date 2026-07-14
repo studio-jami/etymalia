@@ -10,6 +10,7 @@ import { buildIdentity } from "@/lib/brand/identity";
 import {
   checkDomain,
   generateBrandPalette,
+  generateFullKit,
   generateNames,
   saveBrief,
   toggleShortlist,
@@ -25,6 +26,7 @@ const ERRORS: Record<string, string> = {
   select: "We could not select that name.",
   palette: "Palette generation failed. Please try again.",
   "export-needs-palette": "Generate a palette before exporting the kit.",
+  "full-kit": "The full-kit job could not be queued. Please try again."
 };
 
 export default async function BrandPage({
@@ -32,7 +34,7 @@ export default async function BrandPage({
   searchParams,
 }: {
   params: Promise<{ workspaceId: string; brandId: string }>;
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; "full-kit"?: string }>;
 }) {
   const { workspaceId, brandId } = await params;
   const supabase = await createClient();
@@ -42,8 +44,9 @@ export default async function BrandPage({
   if (!loaded) redirect("/workspace");
 
   const { brand, tokens, candidates } = loaded;
-  const { error } = await searchParams;
+  const { error, "full-kit": fullKit } = await searchParams;
   const errorMessage = error ? ERRORS[error] : null;
+  const fullKitQueued = fullKit === "queued";
 
   const hidden = (
     <>
@@ -88,6 +91,7 @@ export default async function BrandPage({
       </section>
 
       {errorMessage ? <p className="status status--warning">{errorMessage}</p> : null}
+      {fullKitQueued ? <p className="status">Full-kit generation is queued. Social assets will appear when the durable job finishes.</p> : null}
 
       <section className="brand-block" id="brief" aria-labelledby="brief-title">
         <div className="brand-block__head">
@@ -212,6 +216,10 @@ export default async function BrandPage({
               <a className="button button--primary" href={`/workspace/${workspaceId}/brand/${brandId}/export`}>
                 Download brand kit (.zip)
               </a>
+              <form action={generateFullKit}>
+                {hidden}
+                <button className="button" type="submit">Generate full social kit</button>
+              </form>
               <span className="hint">
                 {candidates.some((candidate) => candidate.isShortlisted)
                   ? "Includes shortlisted names."

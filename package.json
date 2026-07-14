@@ -13,6 +13,7 @@
     "check": "pnpm run typecheck && pnpm run build"
   },
   "devDependencies": {
+    "trigger.dev": "^4.5.4",
     "turbo": "^2.6.3"
   }
 }
