@@ -9,10 +9,14 @@ export default async function Home() {
   const configured = isSupabaseConfigured();
 
   let email: string | null = null;
+  let avatarUrl: string | null = null;
   if (configured) {
     const supabase = await createClient();
     const { data } = await supabase.auth.getUser();
     email = data.user?.email ?? null;
+    avatarUrl = typeof data.user?.user_metadata.avatar_url === "string"
+      ? data.user.user_metadata.avatar_url
+      : null;
   }
 
   return (
@@ -23,7 +27,7 @@ export default async function Home() {
         </a>
         <div className="header-actions">
           <ThemeToggle />
-          {configured ? <AuthButton email={email} /> : null}
+          {configured ? <AuthButton avatarUrl={avatarUrl} email={email} /> : null}
         </div>
       </header>
 

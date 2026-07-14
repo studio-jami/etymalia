@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createBrand, createWorkspace } from "./actions";
+import { AuthButton } from "@/components/auth-button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { createClient } from "@/lib/supabase/server";
 
 type Workspace = {
@@ -44,7 +46,13 @@ export default async function WorkspacePage({
     <main className="app-shell">
       <header className="app-header">
         <Link className="wordmark" href="/">etymalia</Link>
-        <p className="who">{auth.user.email}</p>
+        <div className="header-actions">
+          <ThemeToggle />
+          <AuthButton
+            avatarUrl={typeof auth.user.user_metadata.avatar_url === "string" ? auth.user.user_metadata.avatar_url : null}
+            email={auth.user.email ?? null}
+          />
+        </div>
       </header>
 
       <section className="workspace-heading" aria-labelledby="workspace-title">
