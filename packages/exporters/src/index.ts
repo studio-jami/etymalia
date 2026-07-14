@@ -25,6 +25,12 @@ export interface KitSwatch {
   oklch: string;
 }
 
+/** A server-authorized persisted derivative to include in the kit. */
+export interface KitGeneratedAsset {
+  path: string;
+  bytes: Uint8Array;
+}
+
 export interface BrandKitInput {
   brandName: string;
   slug: string;
@@ -37,6 +43,7 @@ export interface BrandKitInput {
   tokensCss: string;
   names: KitName[];
   palette: KitSwatch[];
+  generatedAssets?: KitGeneratedAsset[];
 }
 
 export interface BrandKitManifest {
@@ -79,6 +86,7 @@ function readme(input: BrandKitInput): string {
     "- `tokens/` — DTCG design tokens (`tokens.json`) and CSS custom properties (`tokens.css`).",
     "- `names/` — shortlisted name candidates with provenance.",
     "- `palette/` — colour swatches with HEX and OKLCH values.",
+    ...(input.generatedAssets?.length ? ["- `social/` — rendered platform-ready social assets."] : []),
     "",
     "## Palette",
     "",
@@ -116,6 +124,10 @@ export function buildBrandKit(input: BrandKitInput): BrandKitOutput {
   files["tokens/tokens.css"] = strToU8(input.tokensCss);
   files["names/names.json"] = strToU8(json(input.names));
   files["palette/palette.json"] = strToU8(json(input.palette));
+  for (const asset of input.generatedAssets ?? []) {
+    const path = safeGeneratedAssetPath(asset.path);
+    if (path) files[path] = asset.bytes;
+  }
   files["README.md"] = strToU8(readme(input));
 
   const manifest: BrandKitManifest = {
@@ -129,4 +141,10 @@ export function buildBrandKit(input: BrandKitInput): BrandKitOutput {
 
   const bytes = zipSync(files, { level: 6 });
   return { filename: `${input.slug || "brand"}-kit.zip`, bytes, manifest };
+}
+
+function safeGeneratedAssetPath(path: string): string | null {
+  const filename = path.split("/").at(-1);
+  if (!filename || !/^[a-z0-9][a-z0-9._-]*$/i.test(filename)) return null;
+  return `social/${filename}`;
 }

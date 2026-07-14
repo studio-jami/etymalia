@@ -8,6 +8,7 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
     "build:corpus": "node scripts/build-corpus.mjs"
   },
   "devDependencies": {

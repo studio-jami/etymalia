@@ -3,6 +3,7 @@ import { dtcgToCss, readColors } from "@etymalia/tokens";
 import { buildBrandKit, type KitName } from "@etymalia/exporters";
 import { loadBrand } from "@/lib/brand/load";
 import { buildIdentity } from "@/lib/brand/identity";
+import { createClient } from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -40,6 +41,17 @@ export async function GET(
     composite: candidate.scores?.composite ?? 0,
   }));
 
+  const supabase = await createClient();
+  const generatedAssets = await Promise.all(
+    loaded.assets
+      .filter((asset) => asset.kind === "social" && asset.format === "png")
+      .map(async (asset) => {
+        const { data, error } = await supabase.storage.from("etymalia").download(asset.storagePath);
+        if (error || !data) return null;
+        return { path: asset.storagePath, bytes: new Uint8Array(await data.arrayBuffer()) };
+      }),
+  );
+
   const kit = buildBrandKit({
     brandName: brand.name,
     slug,
@@ -60,6 +72,7 @@ export async function GET(
       hex: color.hex,
       oklch: color.oklch,
     })),
+    generatedAssets: generatedAssets.filter((asset): asset is NonNullable<typeof asset> => asset !== null),
   });
 
   const body = new Blob([new Uint8Array(kit.bytes)], { type: "application/zip" });

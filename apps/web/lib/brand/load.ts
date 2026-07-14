@@ -27,11 +27,24 @@ export interface NameCandidateRecord {
   isShortlisted: boolean;
 }
 
+export interface BrandAssetRecord {
+  id: string;
+  kind: string;
+  variant: string;
+  lockup: string;
+  format: string;
+  storagePath: string;
+  meta: { width?: number; height?: number; source?: string };
+  createdAt: string;
+  signedUrl: string | null;
+}
+
 export interface LoadedBrand {
   userId: string;
   brand: BrandRecord;
   tokens: DtcgDocument | null;
   candidates: NameCandidateRecord[];
+  assets: BrandAssetRecord[];
 }
 
 const UUID = /^[0-9a-fA-F-]{36}$/;
@@ -60,13 +73,18 @@ export async function loadBrand(
 
   if (brandError || !brand) return null;
 
-  const [{ data: tokenRow }, { data: candidateRows }] = await Promise.all([
+  const [{ data: tokenRow }, { data: candidateRows }, { data: assetRows }] = await Promise.all([
     supabase.from("brand_tokens").select("dtcg_json").eq("brand_id", brandId).maybeSingle(),
     supabase
       .from("name_candidates")
       .select("id, term, provenance, scores, availability_json, is_shortlisted")
       .eq("brand_id", brandId)
       .order("created_at", { ascending: true }),
+    supabase
+      .from("assets")
+      .select("id, kind, variant, lockup, format, storage_path, meta, created_at")
+      .eq("brand_id", brandId)
+      .order("created_at", { ascending: false }),
   ]);
 
   const workspace = brand.workspaces as { name?: string } | { name?: string }[] | null;
@@ -75,6 +93,8 @@ export async function loadBrand(
   const tokens = tokenRow && isDtcgDocument(tokenRow.dtcg_json)
     ? (tokenRow.dtcg_json as DtcgDocument)
     : null;
+
+  const assets = await toBrandAssets(supabase, assetRows ?? []);
 
   const candidates: NameCandidateRecord[] = (candidateRows ?? []).map((row) => ({
     id: row.id as string,
@@ -99,7 +119,35 @@ export async function loadBrand(
     },
     tokens,
     candidates,
+    assets,
   };
+}
+
+async function toBrandAssets(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  rows: Array<Record<string, unknown>>,
+): Promise<BrandAssetRecord[]> {
+  const paths = rows.map((row) => row.storage_path).filter((path): path is string => typeof path === "string");
+  const { data: signed } = paths.length
+    ? await supabase.storage.from("etymalia").createSignedUrls(paths, 60 * 10)
+    : { data: [] };
+  const urls = new Map((signed ?? []).map((entry) => [entry.path, entry.signedUrl ?? null]));
+
+  return rows.map((row) => ({
+    id: row.id as string,
+    kind: row.kind as string,
+    variant: row.variant as string,
+    lockup: row.lockup as string,
+    format: row.format as string,
+    storagePath: row.storage_path as string,
+    meta: isAssetMeta(row.meta) ? row.meta : {},
+    createdAt: row.created_at as string,
+    signedUrl: urls.get(row.storage_path as string) ?? null,
+  }));
+}
+
+function isAssetMeta(value: unknown): value is BrandAssetRecord["meta"] {
+  return Boolean(value && typeof value === "object");
 }
 
 function hasAvailability(value: unknown): boolean {

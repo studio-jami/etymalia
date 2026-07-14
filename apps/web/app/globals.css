@@ -895,6 +895,56 @@ h3 {
   color: var(--color-accent-strong);
 }
 
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.asset-card {
+  overflow: hidden;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.asset-card img,
+.asset-card__missing {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.91 / 1;
+  background: var(--color-surface-raised);
+  object-fit: cover;
+}
+
+.asset-card__missing {
+  display: grid;
+  place-items: center;
+  color: var(--color-text-subtle);
+  font-size: 0.78rem;
+}
+
+.asset-card__meta {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.asset-card__meta strong {
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.asset-card__meta span {
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+}
+
+.asset-card__meta .text-link {
+  margin-top: var(--space-1);
+}
+
 @media (max-width: 720px) {
   .app-shell {
     padding: var(--space-3) var(--space-4) var(--space-8);

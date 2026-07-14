@@ -43,7 +43,7 @@ export default async function BrandPage({
   const loaded = await loadBrand(workspaceId, brandId);
   if (!loaded) redirect("/workspace");
 
-  const { brand, tokens, candidates } = loaded;
+  const { brand, tokens, candidates, assets } = loaded;
   const { error, "full-kit": fullKit } = await searchParams;
   const errorMessage = error ? ERRORS[error] : null;
   const fullKitQueued = fullKit === "queued";
@@ -86,7 +86,7 @@ export default async function BrandPage({
         <dl className="brand-meta">
           <div><dt>Names</dt><dd>{candidates.length ? `${candidates.length} candidates` : "Not generated"}</dd></div>
           <div><dt>Palette</dt><dd>{tokens ? "Generated" : "Not generated"}</dd></div>
-          <div><dt>Kit</dt><dd>{tokens ? "Ready to export" : "Awaiting palette"}</dd></div>
+          <div><dt>Kit</dt><dd>{assets.length ? `${assets.length} generated assets` : tokens ? "Ready to generate" : "Awaiting palette"}</dd></div>
         </dl>
       </section>
 
@@ -198,6 +198,28 @@ export default async function BrandPage({
           <p className="brand-block__empty">No palette yet. Generate one from the brief.</p>
         )}
       </section>
+
+      {assets.length ? (
+        <section className="brand-block" id="assets" aria-labelledby="assets-title">
+          <div className="brand-block__head">
+            <p className="eyebrow">Generated kit</p>
+            <h2 id="assets-title">Delivered assets</h2>
+            <p className="brand-block__lede">Private, platform-ready derivatives generated from this brand’s current tokens.</p>
+          </div>
+          <div className="asset-grid">
+            {assets.map((asset) => (
+              <article className="asset-card" key={asset.id}>
+                {asset.signedUrl ? <img alt={`${asset.variant} ${asset.lockup}`} src={asset.signedUrl} /> : <div className="asset-card__missing">Preview unavailable</div>}
+                <div className="asset-card__meta">
+                  <strong>{asset.variant || asset.kind}</strong>
+                  <span>{asset.lockup || asset.format}{asset.meta.width && asset.meta.height ? ` · ${asset.meta.width}×${asset.meta.height}` : ""}</span>
+                  {asset.signedUrl ? <a className="text-link" href={asset.signedUrl} download>Download PNG</a> : null}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="brand-block" id="identity" aria-labelledby="identity-title">
         <div className="brand-block__head">

@@ -10,9 +10,11 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
     "check": "pnpm run typecheck && pnpm run build"
   },
   "devDependencies": {
-    "turbo": "^2.6.3"
+    "turbo": "^2.6.3",
+    "vitest": "^4.1.10"
   }
 }
