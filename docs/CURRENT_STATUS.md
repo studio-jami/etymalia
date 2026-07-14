@@ -43,7 +43,7 @@ A July 14 handoff records live Supabase verification of this flow. This audit ve
 - UI action to queue the task only after a DTCG palette exists.
 - Trigger Cloud production deployment **`20260714.7`** is verified live with the `generate-full-kit` task detected. The associated additive `generation_jobs` migration was applied to the linked remote Supabase database.
 
-Persisted assets are loaded through RLS, rendered with short-lived signed previews, individually downloadable, and included in authenticated ZIP exports once a job completes. An actual post-deployment production task run and its Storage/database artifact counts remain to be verified.
+Persisted assets are loaded through RLS, rendered with short-lived signed previews, individually downloadable, and included in authenticated ZIP exports once a job completes. A real production verification run (`run_cmrlas9yz992t0poanewtq6yi`) was accepted by Trigger Cloud after deployment but remained `QUEUED` after a bounded follow-up wait; no worker lifecycle record existed yet. Storage/database artifact counts therefore remain unverified.
 
 ### Android application
 

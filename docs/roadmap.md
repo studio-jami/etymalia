@@ -37,8 +37,8 @@ Etymalia is becoming a professional brand-identity platform. The web app is the 
 
 ### Web delivery proof
 
-1. Run a real job for an authenticated brand with valid DTCG tokens against deployed Trigger version `20260714.7`.
-2. Verify its terminal status, expected stored artifact count, and matching `assets` rows.
+1. Diagnose why accepted production run `run_cmrlas9yz992t0poanewtq6yi` remains `QUEUED` without a `generation_jobs` record after deployed Trigger version `20260714.7`.
+2. Re-run only after the queue/worker condition is resolved; verify terminal status, expected stored artifact count, and matching `assets` rows.
 3. Confirm the workspace gallery/listing and ZIP-export path against the verified production output.
 
 ### Verification foundation
