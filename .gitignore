@@ -26,3 +26,5 @@ node_modules/
 # Internal, non-public ops notes (account/credit-pool mappings, etc.)
 /docs/internal/
 
+
+.vercel
