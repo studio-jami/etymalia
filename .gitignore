@@ -18,6 +18,11 @@ local.properties
 .env
 debug.keystore
 
+# JavaScript workspace artifacts
+node_modules/
+.next/
+.turbo/
+
 # Internal, non-public ops notes (account/credit-pool mappings, etc.)
 /docs/internal/
 

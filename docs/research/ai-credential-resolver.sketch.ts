@@ -26,31 +26,14 @@ export type ProviderId = 'google' | 'google-vertex' | 'openai' | 'xai';
 
 export type Lane = 'studio' | 'prod';
 
-/** Logical model IDs — feature code references these, never a vendor string. */
-export type LogicalModel =
-  | 'brand:fast-text'
-  | 'brand:reasoning'
-  | 'brand:vision'
-  | 'brand:image'
-  | 'brand:video';
-
-export type Modality = 'text' | 'image' | 'video';
-
-interface ModelBinding {
-  provider: ProviderId;
-  modelId: string;
-  modality: Modality;
-}
-
-/** The one place vendor model names live. Swap freely without touching features. */
-export const MODEL_REGISTRY: Record<LogicalModel, ModelBinding> = {
-  'brand:fast-text': { provider: 'google', modelId: 'gemini-3.5-flash', modality: 'text' },
-  'brand:reasoning': { provider: 'google', modelId: 'gemini-3-pro', modality: 'text' },
-  'brand:vision':    { provider: 'google', modelId: 'gemini-3-pro', modality: 'text' },
-  'brand:image':     { provider: 'google-vertex', modelId: 'imagen-4.0-generate', modality: 'image' },
-  'brand:video':     { provider: 'google-vertex', modelId: 'veo-3.1-fast-generate-preview', modality: 'video' },
-  // OpenAI / xAI bindings slot in here once their OAuth login flow ships.
-};
+/**
+ * Model discovery is provider-owned, not source-owned. The production port
+ * queries each provider's model-list API at runtime, retains returned IDs and
+ * capabilities in a short-lived server cache, then selects from candidates
+ * matching the requested provider actions/token limits. Do not add a static
+ * MODEL_REGISTRY or hardcode vendor model IDs here.
+ */
+export type ProviderAction = 'generateContent' | 'predict' | 'embedContent';
 
 // ────────────────────────────────────────────────────────────────────────────
 // 2. Stored credential SOURCE (what lives in Vault / server secrets)

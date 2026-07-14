@@ -6,20 +6,20 @@ It is one of two clients of the same Supabase backend (the other is the native A
 
 ## Vercel setup
 
-- **Root Directory:** `web/`  ← set this in the Vercel project settings
+- **Root Directory:** `apps/web/`  ← set this in the Vercel project settings
 - **Framework Preset:** Next.js (auto-detected)
 - **Production Branch:** `main`
 - **Env vars:** provided by the official **Supabase ↔ Vercel integration**. The app resolves the URL + client key from any of these names (see `lib/supabase/env.ts`):
   - `NEXT_PUBLIC_SUPABASE_URL` (or `SUPABASE_URL`)
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` / `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (or `SUPABASE_ANON_KEY`)
+  - `ETYMALIA_STUDIO_USER_IDS` — comma-separated authenticated user IDs allowed to invoke the internal Google smoke route. This is server-only and must not be exposed with a `NEXT_PUBLIC_` prefix.
 
 ## Local development
 
 ```bash
-cd web
-cp .env.local.example .env.local   # fill in values
-npm install
-npm run dev
+pnpm install
+cp apps/web/.env.local.example apps/web/.env.local   # fill in values
+pnpm --filter etymalia-web dev
 ```
 
 - `GET /` — landing page with a live "Supabase connected" indicator.

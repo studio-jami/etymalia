@@ -7,7 +7,7 @@ It is **not** a port of the Android Compose UI. The web product is a *different,
 > Full architecture, tooling, and phasing: [`docs/research/webapp_master_plan.md`](./research/webapp_master_plan.md).
 
 ## Current state
-- `web/` — Next.js 15, React 19, TypeScript, `@supabase/ssr`. Google OAuth sign-in is live.
+- `apps/web/` — Next.js 15, React 19, TypeScript, `@supabase/ssr`, managed by the root pnpm/Turborepo workspace. Google OAuth sign-in is live.
 - Supabase provides Auth, Postgres, Storage, and Edge Functions.
 - Deployed on Vercel.
 

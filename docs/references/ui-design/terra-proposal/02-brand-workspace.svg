@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+  <title id="title">Consolidated brand workspace wireframe</title><desc id="desc">A desktop brand identity workspace with navigation, an expandable generation drawer, canvas previews, and action controls.</desc>
+  <style>.bg{fill:#101114}.panel{fill:#181a20;stroke:#535866;stroke-width:1.4}.soft{fill:#20232b;stroke:#535866;stroke-width:1.2}.accent{fill:#be4cff}.outline{fill:none;stroke:#be4cff;stroke-width:2}.text{fill:#f4f2f7;font-family:Arial,sans-serif}.muted{fill:#aaa7b2;font-family:Arial,sans-serif}.heading{font-size:21px;font-weight:bold}.body{font-size:15px}.small{font-size:13px}.label{font-size:11px;font-weight:bold;letter-spacing:1px}</style>
+  <rect class="bg" width="1440" height="860"/>
+  <text class="text heading" x="46" y="42">B. Brand workspace — visual canvas first, configuration on demand</text>
+  <rect class="panel" x="38" y="66" width="1364" height="752" rx="14"/>
+  <rect fill="#15171c" x="39" y="67" width="190" height="750" rx="14"/>
+  <text class="text heading" x="68" y="112">etymalia</text><text class="muted small" x="68" y="138">Alder &amp; Co.</text>
+  <rect class="accent" x="55" y="176" width="158" height="42" rx="8"/><text class="text body" x="83" y="202">Overview</text>
+  <text class="muted body" x="75" y="258">Brief</text><text class="muted body" x="75" y="300">Name</text><text class="text body" x="75" y="342">Identity</text><text class="muted body" x="75" y="384">Assets</text><text class="muted body" x="75" y="426">Guide</text><text class="muted body" x="75" y="468">Export</text>
+  <line x1="55" y1="736" x2="213" y2="736" stroke="#535866"/><text class="muted small" x="75" y="773">Workspace settings</text>
+  <rect fill="#15171c" x="230" y="67" width="1171" height="64"/>
+  <text class="muted small" x="260" y="104">BRANDS / ALDER &amp; CO.</text><text class="text heading" x="456" y="108">Identity</text>
+  <text class="muted small" x="1012" y="104">All changes saved</text><circle cx="994" cy="99" r="5" fill="#75d99a"/>
+  <rect class="accent" x="1194" y="84" width="170" height="34" rx="7"/><text class="text small" x="1230" y="106">Export kit</text>
+  <rect class="panel" x="255" y="154" width="270" height="618" rx="12"/>
+  <text class="muted label" x="280" y="185">IDENTITY SYSTEM</text><text class="text heading" x="280" y="216">Alder &amp; Co.</text><text class="muted small" x="280" y="241">Selected name · locked</text>
+  <rect class="soft" x="276" y="268" width="228" height="56" rx="8"/><text class="text body" x="296" y="302">Logo <tspan class="muted">3 directions</tspan></text>
+  <rect class="soft" x="276" y="334" width="228" height="56" rx="8"/><text class="text body" x="296" y="368">Color <tspan class="muted">5 tokens</tspan></text>
+  <rect class="soft" x="276" y="400" width="228" height="56" rx="8"/><text class="text body" x="296" y="434">Type <tspan class="muted">2 families</tspan></text>
+  <rect class="soft" x="276" y="466" width="228" height="56" rx="8"/><text class="text body" x="296" y="500">Voice <tspan class="muted">editorial</tspan></text>
+  <text class="muted label" x="280" y="572">DIRECTION HISTORY</text><text class="text small" x="280" y="603">01  Quiet geometry</text><text class="muted small" x="280" y="630">02  Coastal ledger</text><text class="muted small" x="280" y="657">03  Modern archive</text>
+  <rect class="soft" x="276" y="700" width="228" height="45" rx="8"/><text class="text body" x="307" y="728">Edit direction</text>
+  <text class="muted label" x="554" y="184">SELECTED LOGO DIRECTION</text><text class="text heading" x="554" y="215">Quiet geometry</text>
+  <rect class="soft" x="554" y="235" width="492" height="278" rx="12"/>
+  <circle cx="800" cy="343" r="82" fill="none" stroke="#d8c7ad" stroke-width="12"/><path d="M760 385l40-120 40 120" fill="none" stroke="#d8c7ad" stroke-width="11"/><text class="text heading" x="693" y="462">ALDER &amp; CO.</text>
+  <rect class="soft" x="554" y="533" width="151" height="188" rx="10"/><text class="muted small" x="573" y="562">WEB HEADER</text><rect fill="#d8c7ad" x="573" y="578" width="112" height="15" rx="4"/><rect fill="#344a62" x="573" y="609" width="78" height="9" rx="3"/>
+  <rect class="soft" x="721" y="533" width="151" height="188" rx="10"/><text class="muted small" x="742" y="562">SOCIAL AVATAR</text><circle cx="796" cy="632" r="47" fill="#344a62"/><path d="M774 654l22-62 22 62" fill="none" stroke="#d8c7ad" stroke-width="7"/>
+  <rect class="soft" x="888" y="533" width="158" height="188" rx="10"/><text class="muted small" x="906" y="562">BUSINESS CARD</text><rect fill="#344a62" x="906" y="582" width="122" height="93" rx="5"/><text fill="#d8c7ad" font-family="Arial" font-size="12" x="919" y="615">ALDER &amp; CO.</text><text fill="#d8c7ad" font-family="Arial" font-size="8" x="919" y="643">precise books. human terms.</text>
+  <rect class="panel" x="1070" y="154" width="306" height="618" rx="12"/>
+  <text class="muted label" x="1095" y="185">GENERATION DRAWER</text><text class="text heading" x="1095" y="216">Refine this direction</text>
+  <text class="text small" x="1095" y="260">Style</text><rect class="accent" x="1095" y="274" width="79" height="29" rx="14"/><text class="text small" x="1110" y="294">editorial</text><rect class="soft" x="1182" y="274" width="82" height="29" rx="14"/><text class="muted small" x="1195" y="294">minimal</text>
+  <text class="text small" x="1095" y="344">Color behavior</text><rect class="soft" x="1095" y="358" width="255" height="42" rx="7"/><text class="text small" x="1110" y="384">Keep current palette</text>
+  <text class="text small" x="1095" y="438">Reference emphasis</text><rect class="soft" x="1095" y="452" width="255" height="42" rx="7"/><rect class="accent" x="1102" y="459" width="102" height="28" rx="14"/><text class="text small" x="1127" y="478">Balanced</text>
+  <text class="text small" x="1095" y="532">Advanced prompt</text><rect class="soft" x="1095" y="546" width="255" height="96" rx="7"/><text class="muted small" x="1110" y="574">Refine the mark toward a calm,</text><text class="muted small" x="1110" y="594">architectural monogram…</text>
+  <rect class="accent" x="1095" y="688" width="255" height="47" rx="8"/><text class="text body" x="1132" y="718">Generate variations</text>
+  <text class="muted small" x="554" y="751">Token edits update live previews. Existing PNG/PDF assets are clearly marked out of date until regenerated.</text>
+</svg>

@@ -23,9 +23,16 @@ Etymalia is evolving from a native Android brand-asset app into a **professional
 4. **Native share/export**: `Intent.ACTION_SEND` for SVG/MP4 export.
 
 ## Track B — Web platform (build) — *primary focus*
+
+### UI system decision (July 2026)
+- **Dark is the default theme; light is a first-class semantic theme override.** Theme selection must persist per user/browser.
+- **Global styling only:** colors, typography, spacing, borders, radii, elevation, focus states, and responsive behavior are expressed as reusable tokens and shared primitives. Do not introduce page-local visual systems or one-off styling.
+- **Visual direction:** compact, editorial, and professional—hairline separation, restrained radii, controlled type scale, and muted accents. See `docs/references/ui-design/terra-proposal/`.
+- **Workspace model:** one brand workspace supports both Quick Build (reference + brief to first direction) and Directed Build (step-by-step). They share the same brief, tokens, assets, and export source of truth.
+
 Phased per the master plan:
 
-- **Phase 0 — Foundations:** Turborepo; `@etymalia/ai` provider port (Google/Vertex default, credential resolver for internal/BYOK/OAuth); data model + RLS; Supabase Vault for BYOK keys.
+- **Phase 0 — Foundations:** ✅ Turborepo + pnpm workspace and package skeletons (`apps/web`, `@etymalia/{ai,tokens,name-engine,availability,asset-forge,exporters}`); ✅ additive workspace/brand schema + membership RLS migration; ✅ Google AI Studio/Vertex provider port, Studio credential store, and allowlisted Node-runtime smoke route. Next: configure a Studio user ID and verify the live Google smoke call; then add the Vault-backed production credential store.
 - **Phase 1 — MVP:** Etymaria naming (keyword → blended candidates + provenance → **RDAP** domain availability) · OKLCH palette (contrast-checked) · one logo → vectorize → variant matrix · favicons · **zip export**.
 - **Phase 2 — Full kit:** social kits (satori) · brand guide book (**prototype Typst *and* react-pdf**) · reference import (Uppy) · **Trigger.dev** orchestration for full-kit generation.
 - **Phase 3 — Deliverable depth + monetization:** email signature (MJML) · digital business card + branded QR + vCard · letterhead · templates gallery · **Stripe** subscription over BYOK · social/SEO availability behind flags · registrar **buy-through + affiliate**.

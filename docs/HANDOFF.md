@@ -13,12 +13,12 @@ en a file it prompts me to sync # Etymalia — Session Handoff & Phase 0 Kickoff
 > 4. `docs/roadmap.md` (track/phase view)
 >
 > **Goal of Phase 0 (Foundations):** stand up the monorepo and the AI + data spine so feature work can begin. Deliver, in order:
-> 1. **Turborepo + pnpm workspaces**: migrate the existing `web/` (Next.js 15) into `apps/web`; create empty `packages/` for `@etymalia/{ai,tokens,name-engine,availability,asset-forge,exporters}`.
-> 2. **`@etymalia/ai`**: promote the resolver sketch into real code — `MODEL_REGISTRY`, `CredentialSource`/`ResolvedCredential`, `CredentialResolver` (apiKey passthrough / Vertex SA / OAuth refresh), `buildProvider()` wired to the real `@ai-sdk/{google,google-vertex,openai,xai}`, and `AiPort`. Zod schemas for structured brand output.
-> 3. **`CredentialStore`**: server-side impl reading the `.env` slots for the Studio lane (Google API key + Vertex SA + OpenAI/xAI OAuth). Prod-lane (Vault) can be stubbed.
-> 4. **Data model + RLS**: Supabase migration for `workspaces / memberships / brands / brand_tokens / name_candidates / references / assets / exports` with RLS keyed on workspace membership. **New migration file — never edit applied ones.**
-> 5. **Smoke test**: a server route that calls one logical model (`brand:fast-text`) through the Studio lane and returns structured JSON — proving Google works end-to-end; then confirm OpenAI + xAI resolve.
-> 6. Generate `web/.env.local` from root `.env` for local dev.
+1. ✅ **Turborepo + pnpm workspaces**: migrated the existing Next.js 15 app to `apps/web`; created package skeletons for `@etymalia/{ai,tokens,name-engine,availability,asset-forge,exporters}`.
+2. ✅ **`@etymalia/ai` (Google/Vertex slice):** implemented a cached live provider-model catalog sourced from the Gemini and Vertex model-list APIs, Google API-key/Vertex-service-account credential contracts, `CredentialResolver`, `buildProvider()`, `AiPort`, and Zod schemas. No model ID is maintained in source. The Vercel AI SDK is the abstraction; concrete initial providers are Google AI Studio and Vertex. OpenAI/xAI OAuth resolution remains deliberately deferred.
+3. ✅ **Studio `CredentialStore`:** `apps/web/lib/ai/studio-credential-store.ts` reads only the server-side Gemini key and Vertex service-account path at runtime. Prod-lane (Supabase Vault) remains the next credential-store task.
+4. ✅ **Data model + RLS**: added `20260714110000_add_workspace_brand_schema.sql` for `workspaces / memberships / brands / brand_tokens / name_candidates / brand_references / assets / exports`, membership RLS, and scoped Storage policies. **New migration file — never edit applied ones.**
+5. **Smoke test (implemented, pending live invocation):** `GET /api/ai/smoke` calls `brand:fast-text` through the Studio lane and returns structured JSON. It requires an authenticated user ID included in server-only `ETYMALIA_STUDIO_USER_IDS`; configure that allowlist before the live Google verification. OpenAI/xAI remain out of scope until their ordered provider phase.
+6. Generate `apps/web/.env.local` from root `.env` for local dev.
 >
 > Respect all constraints in `AGENTS.md`. Ask me before introducing any new paid dependency. Work in small, verifiable steps.
 
@@ -37,7 +37,7 @@ en a file it prompts me to sync # Etymalia — Session Handoff & Phase 0 Kickoff
 - ✅ **Provider OAuth verified live** — OpenAI (`auth.openai.com`) and xAI (`auth.x.ai`, scope `api:access`) both run public-client PKCE OAuth; subscription-backed OAuth-to-API is real.
 - ✅ **Credentials loaded** — Google (Vertex SA + AI Studio key) + OpenAI & xAI OAuth refresh tokens adopted from `~/.codex` and `~/.grok` into `.env`.
 
-**Not started:** all implementation (Phase 0 onward). This is a greenfield build on top of the existing `web/` scaffold.
+**In progress:** Phase 0. The pnpm/Turborepo monorepo, shared package skeletons, global web token foundation, and additive workspace/brand migration are complete. Next is the real `@etymalia/ai` provider/credential port, followed by workspace bootstrap and brand-library data binding.
 
 ---
 

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+  <title id="title">Quick build and review direction wireframe</title>
+  <desc id="desc">A desktop wireframe showing a fast brand intake alongside the first generated direction review.</desc>
+  <style>
+    .bg{fill:#101114}.panel{fill:#181a20;stroke:#535866;stroke-width:1.5}.soft{fill:#20232b;stroke:#535866;stroke-width:1.5}.accent{fill:#be4cff}.accentStroke{fill:none;stroke:#be4cff;stroke-width:2}.line{stroke:#535866;stroke-width:1}.text{fill:#f4f2f7;font-family:Arial,sans-serif}.muted{fill:#a8a5b0;font-family:Arial,sans-serif}.small{font-size:13px}.body{font-size:15px}.heading{font-size:23px;font-weight:700}.label{font-size:12px;font-weight:700;letter-spacing:1px}
+  </style>
+  <rect class="bg" width="1440" height="860"/>
+  <text class="text heading" x="70" y="54">A. Quick build — one short intake, then a reviewable first direction</text>
+  <text class="muted body" x="70" y="82">Reference-led automatic route. Advanced choices remain available but do not block first value.</text>
+  <rect class="panel" x="70" y="116" width="610" height="666" rx="16"/>
+  <text class="muted label" x="108" y="158">NEW BRAND</text>
+  <text class="text heading" x="108" y="194">Tell us what you’re building</text>
+  <text class="muted body" x="108" y="220">Three inputs are enough to begin. You can tune every choice later.</text>
+  <text class="text label" x="108" y="270">WHAT ARE YOU CREATING?</text>
+  <rect class="soft" x="108" y="286" width="532" height="72" rx="8"/>
+  <text class="muted body" x="128" y="315">A calm, premium bookkeeping studio for independent</text>
+  <text class="muted body" x="128" y="337">creative businesses.</text>
+  <text class="text label" x="108" y="398">KEY IDEAS</text>
+  <rect class="soft" x="108" y="414" width="532" height="55" rx="8"/>
+  <rect class="accent" x="128" y="428" width="88" height="28" rx="14"/><text class="text small" x="148" y="447">clarity</text>
+  <rect class="accent" x="226" y="428" width="79" height="28" rx="14"/><text class="text small" x="245" y="447">trust</text>
+  <rect class="accent" x="315" y="428" width="104" height="28" rx="14"/><text class="text small" x="335" y="447">craft</text>
+  <text class="text label" x="108" y="508">REFERENCE IMAGE <tspan class="muted">OPTIONAL</tspan></text>
+  <rect class="soft" x="108" y="524" width="250" height="154" rx="8"/>
+  <path d="M136 638l48-48 35 34 28-27 77 73H136z" fill="#535866"/>
+  <circle cx="298" cy="560" r="15" fill="#be4cff" opacity=".75"/>
+  <text class="text small" x="130" y="658">coastal-stationery.jpg</text>
+  <rect class="accentStroke" x="378" y="524" width="262" height="154" rx="8" stroke-dasharray="6 5"/>
+  <text class="text body" x="424" y="581">Drop another reference</text>
+  <text class="muted small" x="435" y="606">image, PDF, or video</text>
+  <rect class="soft" x="108" y="710" width="170" height="38" rx="19"/><text class="text small" x="128" y="734">Advanced options</text>
+  <rect class="accent" x="420" y="704" width="220" height="48" rx="8"/><text class="text body" x="453" y="734">Create first direction →</text>
+  <path class="accentStroke" d="M708 432h46"/><path d="M748 423l16 9-16 9z" class="accent"/>
+  <rect class="panel" x="780" y="116" width="590" height="666" rx="16"/>
+  <text class="muted label" x="818" y="158">REVIEW YOUR DIRECTION</text>
+  <text class="text heading" x="818" y="194">A coherent draft—not a black box</text>
+  <rect class="soft" x="818" y="224" width="514" height="88" rx="8"/>
+  <circle cx="850" cy="258" r="13" class="accent"/><text class="text body" x="878" y="254">1. Pick a name to continue</text><text class="muted small" x="878" y="278">Logo generation waits for a confirmed name.</text>
+  <text class="text label" x="818" y="354">TOP NAME CANDIDATES</text>
+  <rect class="soft" x="818" y="370" width="250" height="160" rx="10"/><rect class="accentStroke" x="818" y="370" width="250" height="160" rx="10"/>
+  <text class="text heading" x="842" y="410">Lumenry</text><text class="muted small" x="842" y="436">Latin lumen “light” + -ry</text><text class="text small" x="842" y="470">● .com checking</text><text class="accent small" x="842" y="502">Select direction</text>
+  <rect class="soft" x="1082" y="370" width="250" height="160" rx="10"/>
+  <text class="text heading" x="1106" y="410">Verita</text><text class="muted small" x="1106" y="436">Latin veritas “truth”</text><text class="text small" x="1106" y="470">✓ .studio available</text><text class="muted small" x="1106" y="502">Compare details</text>
+  <text class="text label" x="818" y="576">EXTRACTED DIRECTION</text>
+  <rect fill="#d8c7ad" x="818" y="592" width="74" height="74" rx="8"/><rect fill="#344a62" x="902" y="592" width="74" height="74" rx="8"/><rect fill="#c66e4b" x="986" y="592" width="74" height="74" rx="8"/>
+  <text class="text body" x="1090" y="616">Warm, editorial, grounded</text><text class="muted small" x="1090" y="642">Based on brief + reference</text>
+  <rect class="soft" x="818" y="700" width="260" height="48" rx="8"/><text class="text body" x="845" y="730">Refine brief</text>
+  <rect class="accent" x="1090" y="700" width="242" height="48" rx="8"/><text class="text body" x="1120" y="730">Choose a name →</text>
+</svg>
