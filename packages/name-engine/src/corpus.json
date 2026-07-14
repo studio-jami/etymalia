@@ -1,0 +1,5363 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-14",
+  "layerLabels": {
+    "pie": "Proto-Indo-European",
+    "protoGermanic": "Proto-Germanic",
+    "oldEnglish": "Old English",
+    "oldNorse": "Old Norse",
+    "middleEnglish": "Middle English",
+    "classicalLatin": "Latin",
+    "vulgarLatin": "Medieval Latin",
+    "ancientGreek": "Ancient Greek",
+    "oldFrench": "Old French",
+    "sanskrit": "Sanskrit",
+    "arabic": "Arabic",
+    "persian": "Persian",
+    "hebrew": "Hebrew",
+    "celtic": "Celtic"
+  },
+  "entries": [
+    {
+      "word": "Abundance",
+      "semanticField": "Plenty / Overflow",
+      "layers": {
+        "pie": "*wed- (water, wave)",
+        "middleEnglish": "habundance",
+        "classicalLatin": "abundantia",
+        "ancientGreek": "perisseia (περισσεία)",
+        "oldFrench": "abondance",
+        "sanskrit": "pūrṇatā (पूर्णता)"
+      },
+      "driftNotes": "ab+unda=overflow from waves; rich watery root gives flooding, overflowing imagery",
+      "candidates": [
+        "ABUNDA",
+        "UNDHA",
+        "ABUNDIS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Accomplishment",
+      "semanticField": "Achievement / Completion",
+      "layers": {
+        "pie": "*pleh₁- (to fill)",
+        "middleEnglish": "acomplisshment",
+        "classicalLatin": "complementum",
+        "ancientGreek": "plērōsis (πλήρωσις)",
+        "oldFrench": "acomplissement",
+        "sanskrit": "sampūrti (संपूर्ति)"
+      },
+      "driftNotes": "From à chef=to a head; the completion metaphor via Latin caput (head); brought to its crown",
+      "candidates": [
+        "COMPLEN",
+        "PLEROS",
+        "PLENOR"
+      ],
+      "tone": "French/Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Achievement",
+      "semanticField": "Mastery / Attainment",
+      "layers": {
+        "pie": "*kaput- (head)",
+        "middleEnglish": "achevement",
+        "oldFrench": "achever (to finish)",
+        "sanskrit": "siddhi (सिद्धि)"
+      },
+      "driftNotes": "Old French achever=to finish, from à chef=to a head; reaching the very top",
+      "candidates": [
+        "ACHEV",
+        "KAPHOS",
+        "SIDDH"
+      ],
+      "tone": "French",
+      "syllables": 3
+    },
+    {
+      "word": "Acme",
+      "semanticField": "Peak / Summit / Prime",
+      "layers": {
+        "pie": "*ak- (sharp, pointed)",
+        "middleEnglish": "acme",
+        "ancientGreek": "akmē (ἀκμή)",
+        "sanskrit": "agra (अग्र)"
+      },
+      "driftNotes": "Directly from Greek; the sharpest/highest point; same root as acid, acute, acne",
+      "candidates": [
+        "AKME",
+        "AKRA",
+        "AKMIS"
+      ],
+      "tone": "Greek",
+      "syllables": 2
+    },
+    {
+      "word": "Actualization",
+      "semanticField": "Realization / Becoming",
+      "layers": {
+        "pie": "*ag- (to drive, do)",
+        "classicalLatin": "actualis",
+        "vulgarLatin": "actualizare",
+        "ancientGreek": "energeia (ἐνέργεια)",
+        "sanskrit": "sākṣātkāra (साक्षात्कार)"
+      },
+      "driftNotes": "From actus (done); making real what was potential; Aristotle's energeia is the Greek parallel",
+      "candidates": [
+        "AKTIV",
+        "AGEIN",
+        "ACTUS"
+      ],
+      "tone": "Latin",
+      "syllables": 6
+    },
+    {
+      "word": "Acumen",
+      "semanticField": "Sharpness / Insight",
+      "layers": {
+        "pie": "*ak- (sharp, pointed)",
+        "middleEnglish": "acumen",
+        "classicalLatin": "acumen",
+        "ancientGreek": "oxytēs (ὀξύτης)",
+        "sanskrit": "tīkṣṇatā (तीक्ष्णता)"
+      },
+      "driftNotes": "Latin acuere=to sharpen; mental sharpness as a pointed weapon; the cutting edge of mind",
+      "candidates": [
+        "ACUMEN",
+        "AKUTOS",
+        "OXYN"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Adamantine",
+      "semanticField": "Indestructible / Unyielding",
+      "layers": {
+        "pie": "*n-dm̥H- (untameable)",
+        "middleEnglish": "adamauntyne",
+        "ancientGreek": "adamantinos (ἀδαμάντινος)",
+        "oldFrench": "adamantin",
+        "sanskrit": "vajra (वज्र)"
+      },
+      "driftNotes": "Greek a-daman=unconquerable; shares root with diamond; the hardest imaginable substance",
+      "candidates": [
+        "ADAMAN",
+        "VAJRIN",
+        "DIAMIS"
+      ],
+      "tone": "Greek",
+      "syllables": 5
+    },
+    {
+      "word": "Adaptation",
+      "semanticField": "Fitting / Adjusting",
+      "layers": {
+        "pie": "*ap- (to take, reach)",
+        "classicalLatin": "adaptatio",
+        "vulgarLatin": "adaptare",
+        "ancientGreek": "harmogē (ἁρμογή)",
+        "oldFrench": "adaptation",
+        "sanskrit": "anukūlana (अनुकूलन)"
+      },
+      "driftNotes": "Latin aptare=to fit; sense of adjusting precisely to fit a changed context",
+      "candidates": [
+        "ADAPTO",
+        "APTIS",
+        "HARMOG"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Advancement",
+      "semanticField": "Progress / Forward Motion",
+      "layers": {
+        "pie": "*ab-ante- (from before)",
+        "middleEnglish": "avancement",
+        "vulgarLatin": "abantiare",
+        "ancientGreek": "proagōgē (προαγωγή)",
+        "oldFrench": "avancement",
+        "sanskrit": "pragatī (प्रगति)"
+      },
+      "driftNotes": "Via French from Vulgar Latin ab ante (from before); moving ahead through time",
+      "candidates": [
+        "AVANT",
+        "ABANTIS",
+        "PROAG"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Aegis",
+      "semanticField": "Protection / Divine Authority",
+      "layers": {
+        "pie": "*ayg- (shine) or *aig- (goat)",
+        "middleEnglish": "egis",
+        "ancientGreek": "aigis (αἰγίς)",
+        "oldFrench": "egide",
+        "sanskrit": "kavaca (कवच)"
+      },
+      "driftNotes": "Shield of Zeus and Athena; possibly from goat-skin or divine radiance; supreme patronage",
+      "candidates": [
+        "AEGIS",
+        "AIGOS",
+        "EGIDA"
+      ],
+      "tone": "Greek",
+      "syllables": 2
+    },
+    {
+      "word": "Agility",
+      "semanticField": "Nimbleness / Speed",
+      "layers": {
+        "pie": "*ag- (to drive, do)",
+        "middleEnglish": "agilitee",
+        "classicalLatin": "agilitas",
+        "ancientGreek": "elaphria (ἐλαφρία)",
+        "oldFrench": "agilité",
+        "sanskrit": "spandana (स्पन्दन)"
+      },
+      "driftNotes": "Latin agilis=nimble; same root as act, agitate, agony; driven, responsive motion",
+      "candidates": [
+        "AGIL",
+        "AGEIS",
+        "LAPHIS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Alacrity",
+      "semanticField": "Eagerness / Ready Energy",
+      "layers": {
+        "pie": "*al- (beyond)",
+        "middleEnglish": "alacryte",
+        "classicalLatin": "alacritas",
+        "ancientGreek": "prothumia (προθυμία)",
+        "oldFrench": "alacrité",
+        "sanskrit": "utsāha (उत्साह)"
+      },
+      "driftNotes": "Latin alacer=lively, eager; the immediate willingness to spring into motion",
+      "candidates": [
+        "ALACRIS",
+        "ALACER",
+        "PROTH"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Alchemical",
+      "semanticField": "Transformative / Mysterious",
+      "layers": {
+        "middleEnglish": "alchemical",
+        "vulgarLatin": "alchimia",
+        "ancientGreek": "khēmeia (χημεία)",
+        "oldFrench": "alchimique",
+        "sanskrit": "rasāyana (रसायन)",
+        "arabic": "al-kīmiyā (الكيمياء)",
+        "persian": "kīmīyā (کیمیا)"
+      },
+      "driftNotes": "Arabic via Greek; possibly from Khemia (Egypt) or khymos (juice); transformation of base to gold",
+      "candidates": [
+        "ALKHEM",
+        "KHEMIA",
+        "RASAYN"
+      ],
+      "tone": "Arabic/Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Alignment",
+      "semanticField": "Order / Harmony / Direction",
+      "layers": {
+        "pie": "*lino- (flax, thread)",
+        "middleEnglish": "alinement",
+        "classicalLatin": "lineamentum",
+        "ancientGreek": "euthygammia (εὐθυγραμμία)",
+        "oldFrench": "alignement",
+        "sanskrit": "samarpaṇa (समर्पण)"
+      },
+      "driftNotes": "From Latin linea (flax thread) via French ligne; the thread pulled taut becomes a line of order",
+      "candidates": [
+        "ALIGN",
+        "LINEA",
+        "LINEIS"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Alliance",
+      "semanticField": "Union / Bond / Partnership",
+      "layers": {
+        "pie": "*leig- (to bind)",
+        "middleEnglish": "alliance",
+        "vulgarLatin": "alligare",
+        "ancientGreek": "symmachia (συμμαχία)",
+        "oldFrench": "alliance",
+        "sanskrit": "sandhi (सन्धि)"
+      },
+      "driftNotes": "Latin alligare=to bind to; a binding together of parties for common purpose",
+      "candidates": [
+        "ALLIG",
+        "LIGA",
+        "SANDHI"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Ambrosia",
+      "semanticField": "Divine Food / Immortality",
+      "layers": {
+        "pie": "*mer- (to die) + neg. *n-",
+        "middleEnglish": "ambrosia",
+        "classicalLatin": "ambrosia",
+        "ancientGreek": "ambrosia (ἀμβροσία)",
+        "oldFrench": "ambroisie",
+        "sanskrit": "amṛta (अमृत)"
+      },
+      "driftNotes": "Greek a-mbrotos=not-mortal; food that grants immortality; exact parallel to Sanskrit amṛta",
+      "candidates": [
+        "AMBROS",
+        "AMRIT",
+        "AMRIA"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Amplification",
+      "semanticField": "Expansion / Enlargement",
+      "layers": {
+        "pie": "*amp- (large)",
+        "middleEnglish": "amplificacion",
+        "classicalLatin": "amplificatio",
+        "ancientGreek": "auxēsis (αὔξησις)",
+        "oldFrench": "amplification",
+        "sanskrit": "vistāra (विस्तार)"
+      },
+      "driftNotes": "Latin amplus+facere=to make large; the making-large of a signal or idea",
+      "candidates": [
+        "AMPLI",
+        "AMPLOS",
+        "AUXEN"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Apex",
+      "semanticField": "Tip / Peak / Pinnacle",
+      "layers": {
+        "pie": "*ap- (off, away, tip)",
+        "middleEnglish": "apex",
+        "classicalLatin": "apex",
+        "ancientGreek": "koruphē (κορυφή)",
+        "oldFrench": "apex",
+        "sanskrit": "agra (अग्र)"
+      },
+      "driftNotes": "Latin apex=tip of a priest's cap, then any peak; the absolute highest tip",
+      "candidates": [
+        "APEX",
+        "APIX",
+        "APEK"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Apogee",
+      "semanticField": "Farthest / Highest Point",
+      "layers": {
+        "pie": "*ghdhem- (earth)",
+        "middleEnglish": "apogee",
+        "ancientGreek": "apogaion (ἀπόγαιον)",
+        "oldFrench": "apogée",
+        "sanskrit": "uttamabindu (उत्तमबिन्दु)"
+      },
+      "driftNotes": "Greek apo+gaia=away from earth; the farthest point from center; beyond gravity's pull",
+      "candidates": [
+        "APOG",
+        "APOGEA",
+        "GAION"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Apotheosis",
+      "semanticField": "Deification / Ultimate Perfection",
+      "layers": {
+        "pie": "*dhes- (sacred)",
+        "middleEnglish": "apotheosis",
+        "classicalLatin": "apotheosis",
+        "ancientGreek": "apotheōsis (ἀποθέωσις)",
+        "oldFrench": "apothéose",
+        "sanskrit": "divyatā (दिव्यता)"
+      },
+      "driftNotes": "Greek apo+theos=from god; elevation to divine status; the supreme perfection of a form",
+      "candidates": [
+        "APOTH",
+        "THEOS",
+        "APODIA"
+      ],
+      "tone": "Greek",
+      "syllables": 5
+    },
+    {
+      "word": "Archetypal",
+      "semanticField": "Original / Primal Pattern",
+      "layers": {
+        "pie": "*ar- (to fit) + *tup- (strike)",
+        "middleEnglish": "archetypal",
+        "vulgarLatin": "archetypum",
+        "ancientGreek": "archetupon (ἀρχέτυπον)",
+        "oldFrench": "archétype",
+        "sanskrit": "mūla-rūpa (मूलरूप)"
+      },
+      "driftNotes": "Greek arkhe+typos=first-mold; the original impression from which all copies derive",
+      "candidates": [
+        "ARKHE",
+        "TYPOS",
+        "ARKEIP"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Arrival",
+      "semanticField": "Reaching / Coming to Shore",
+      "layers": {
+        "pie": "*rei- (to scratch, flow)",
+        "middleEnglish": "arrivaille",
+        "vulgarLatin": "arripare",
+        "ancientGreek": "aphixis (ἄφιξις)",
+        "oldFrench": "arriver",
+        "sanskrit": "āgamana (आगमन)"
+      },
+      "driftNotes": "Vulgar Latin ad+ripa=to the shore; the reaching of a destination; landfall",
+      "candidates": [
+        "ARRIV",
+        "RIPA",
+        "APHIX"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Ascend",
+      "semanticField": "Rise / Climb Upward",
+      "layers": {
+        "pie": "*skand- (to spring, jump)",
+        "middleEnglish": "ascenden",
+        "classicalLatin": "ascendere",
+        "ancientGreek": "anabainō (ἀναβαίνω)",
+        "oldFrench": "ascendre",
+        "sanskrit": "ārohana (आरोहण)"
+      },
+      "driftNotes": "Latin ad+scandere=to climb toward; active upward motion; same root as scan, scan, descend",
+      "candidates": [
+        "ASCEN",
+        "SKAND",
+        "ANABL"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Ascendancy",
+      "semanticField": "Rising Power / Dominance",
+      "layers": {
+        "pie": "*skand- (to spring, jump)",
+        "middleEnglish": "ascendance",
+        "classicalLatin": "ascendentia",
+        "oldFrench": "ascendance",
+        "sanskrit": "ārohaṇa-śakti (आरोहणशक्ति)"
+      },
+      "driftNotes": "Derived from ascend; the state of being in the climbing, dominant position",
+      "candidates": [
+        "ASCEND",
+        "SKANDOR",
+        "KADIS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Ascension",
+      "semanticField": "Rising / Elevation",
+      "layers": {
+        "pie": "*skand- (to spring, jump)",
+        "middleEnglish": "ascensioun",
+        "classicalLatin": "ascensio",
+        "ancientGreek": "anabasis (ἀνάβασις)",
+        "oldFrench": "ascension",
+        "sanskrit": "uttaraṇa (उत्तरण)"
+      },
+      "driftNotes": "Latin ascensio=a climbing; the completed act of rising to a higher realm",
+      "candidates": [
+        "ASCENS",
+        "ANABAS",
+        "SKANDA"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Aspiration",
+      "semanticField": "Breath / Desire / Aim",
+      "layers": {
+        "pie": "*speis- (to blow)",
+        "middleEnglish": "aspiracion",
+        "classicalLatin": "aspiratio",
+        "ancientGreek": "ephesis (ἔφεσις)",
+        "oldFrench": "aspiration",
+        "sanskrit": "abhīpsā (अभीप्सा)"
+      },
+      "driftNotes": "Latin ad+spirare=to breathe toward; desire as breath reaching forward to its goal",
+      "candidates": [
+        "ASPIR",
+        "SPIROS",
+        "EPHES"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Ataraxia",
+      "semanticField": "Undisturbed Peace / Equanimity",
+      "layers": {
+        "pie": "*dhrew- (firm, solid)",
+        "middleEnglish": "ataraxia",
+        "ancientGreek": "ataraxia (ἀταραξία)",
+        "oldFrench": "ataraxie",
+        "sanskrit": "śānti (शान्ति)"
+      },
+      "driftNotes": "Greek a+tarassein=not-disturbed; the Epicurean ideal of the untroubled mind",
+      "candidates": [
+        "ATARAS",
+        "TARAX",
+        "SHANT"
+      ],
+      "tone": "Greek",
+      "syllables": 5
+    },
+    {
+      "word": "Attainment",
+      "semanticField": "Reaching / Achieving / Touching",
+      "layers": {
+        "pie": "*tag- (to touch)",
+        "middleEnglish": "atteignement",
+        "classicalLatin": "attingere",
+        "ancientGreek": "ephapsis (ἐφαψία)",
+        "oldFrench": "atteindre",
+        "sanskrit": "prāpti (प्राप्ति)"
+      },
+      "driftNotes": "Latin ad+tangere=to touch upon; the touching of a goal; arrival at the intended point",
+      "candidates": [
+        "ATTAIN",
+        "TANG",
+        "PRAPTIS"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Aureate",
+      "semanticField": "Golden / Radiant",
+      "layers": {
+        "pie": "*aus- (gold, dawn)",
+        "middleEnglish": "aureate",
+        "classicalLatin": "aureatus",
+        "ancientGreek": "chryseos (χρύσεος)",
+        "oldFrench": "doré",
+        "sanskrit": "sauvarṇa (सौवर्ण)",
+        "arabic": "dhahab (ذهب)",
+        "persian": "zarīn (زرین)"
+      },
+      "driftNotes": "Latin aurum=gold; same PIE root gives aurora (dawn); gold as solidified dawn-light",
+      "candidates": [
+        "AUREA",
+        "AUROS",
+        "AURET"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Awakening",
+      "semanticField": "Consciousness / Rising",
+      "layers": {
+        "pie": "*weg- (to be strong, lively)",
+        "protoGermanic": "*wakaną",
+        "oldEnglish": "awacan / wæcnan",
+        "oldNorse": "vakna",
+        "middleEnglish": "awakening",
+        "ancientGreek": "anypnisis (ἀνύπνισις)",
+        "sanskrit": "prabodhana (प्रबोधन)",
+        "arabic": "yaqẓa (يقظة)",
+        "persian": "bīdārī (بیداری)"
+      },
+      "driftNotes": "Pure Old English root; the Germanic word for waking is the truest form here",
+      "candidates": [
+        "WAKEN",
+        "WAKNA",
+        "VAKNIR"
+      ],
+      "tone": "Germanic",
+      "syllables": 4
+    },
+    {
+      "word": "Bastion",
+      "semanticField": "Stronghold / Defense",
+      "layers": {
+        "pie": "*bhagh- (to fight)",
+        "middleEnglish": "bastioun",
+        "vulgarLatin": "bastire",
+        "oldFrench": "bastion",
+        "sanskrit": "durgā (दुर्ग)"
+      },
+      "driftNotes": "Via Italian bastione from Germanic; a projecting part of a fortification; armed strength",
+      "candidates": [
+        "BAST",
+        "BASTIR",
+        "BASTIO"
+      ],
+      "tone": "French/Italian",
+      "syllables": 3
+    },
+    {
+      "word": "Beacon",
+      "semanticField": "Signal / Light / Guide",
+      "layers": {
+        "pie": "*bha-1 (to shine)",
+        "protoGermanic": "*baukną",
+        "oldEnglish": "bēacen (sign)",
+        "middleEnglish": "bekne",
+        "ancientGreek": "phanos (φανός)",
+        "arabic": "manāra (منارة)",
+        "persian": "fanār (فانار)"
+      },
+      "driftNotes": "Old English root directly; a shining sign for others to navigate by; related to beckon",
+      "candidates": [
+        "BEACEN",
+        "BAUK",
+        "BAKNA"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Beatific",
+      "semanticField": "Blessed / Divinely Happy",
+      "layers": {
+        "pie": "*deu-2 (to do, perform)",
+        "middleEnglish": "beatifik",
+        "classicalLatin": "beatificus",
+        "ancientGreek": "makarios (μακάριος)",
+        "oldFrench": "béatifique",
+        "sanskrit": "ānandita (आनन्दित)"
+      },
+      "driftNotes": "Latin beatus+facere=to make blessed; conveying the fullness of divine happiness",
+      "candidates": [
+        "BEATIF",
+        "BEATA",
+        "MAKARIS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Becoming",
+      "semanticField": "Transformation / Being",
+      "layers": {
+        "pie": "*gwa- (to come, go)",
+        "protoGermanic": "*bikwemaną",
+        "oldEnglish": "becuman",
+        "oldNorse": "verða",
+        "middleEnglish": "bicomen",
+        "ancientGreek": "genesis (γένεσις)",
+        "sanskrit": "sambhavana (संभवन)"
+      },
+      "driftNotes": "Pure Germanic; Old English becuman=to come to be; the philosophical word for emergence",
+      "candidates": [
+        "BECUM",
+        "KWEMA",
+        "WERTHA"
+      ],
+      "tone": "Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Belonging",
+      "semanticField": "Connection / Membership",
+      "layers": {
+        "pie": "*legh- (to lie, belong)",
+        "protoGermanic": "*bilangijaną",
+        "oldEnglish": "belimpan",
+        "oldNorse": "heyra til",
+        "middleEnglish": "belongen",
+        "sanskrit": "sva-bhāva (स्वभाव)"
+      },
+      "driftNotes": "Germanic; the deep sense of fitting within a place or community; inherent relatedness",
+      "candidates": [
+        "BELONG",
+        "LANGIR",
+        "BILANG"
+      ],
+      "tone": "Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Beneficence",
+      "semanticField": "Generosity / Goodness",
+      "layers": {
+        "pie": "*deu-2 (to do) + bene",
+        "middleEnglish": "beneficence",
+        "classicalLatin": "beneficentia",
+        "ancientGreek": "euergesia (εὐεργεσία)",
+        "oldFrench": "bienfaisance",
+        "sanskrit": "kalyāṇa (कल्याण)"
+      },
+      "driftNotes": "Latin bene+facere=to do well; the active performance of goodness; virtue in action",
+      "candidates": [
+        "BENEFIC",
+        "BENEKOR",
+        "EUERG"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Bliss",
+      "semanticField": "Joy / Happiness / Delight",
+      "layers": {
+        "pie": "*bhleidh- (gentle, mild)",
+        "protoGermanic": "*blithsjō",
+        "oldEnglish": "bliss / bliths",
+        "oldNorse": "blíðr (gentle)",
+        "middleEnglish": "blisse",
+        "sanskrit": "ānanda (आनन्द)"
+      },
+      "driftNotes": "Pure Old English/Germanic; blithe+joy merged; one of the most native joy-words in English",
+      "candidates": [
+        "BLISS",
+        "BLITH",
+        "BLIDHA"
+      ],
+      "tone": "Germanic",
+      "syllables": 1
+    },
+    {
+      "word": "Blossom",
+      "semanticField": "Flowering / Growth / Opening",
+      "layers": {
+        "pie": "*bhel-3 (to thrive, bloom)",
+        "protoGermanic": "*blōstmaz",
+        "oldEnglish": "blōstm / blōsma",
+        "oldNorse": "blómstr",
+        "middleEnglish": "blosme",
+        "classicalLatin": "flos",
+        "ancientGreek": "anthos (ἄνθος)",
+        "sanskrit": "puṣpa (पुष्प)"
+      },
+      "driftNotes": "Germanic; same PIE root as bloom, flower, flourish; thriving expressed as opening petals",
+      "candidates": [
+        "BLOSM",
+        "BLOST",
+        "BLOMA"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Breakthrough",
+      "semanticField": "Overcoming / New Advance",
+      "layers": {
+        "pie": "*bhreg- (to break)",
+        "protoGermanic": "*brekaną + *þurhw-",
+        "oldEnglish": "brecan + þurh",
+        "oldNorse": "brjóta + í gegnum",
+        "middleEnglish": "brekthrough"
+      },
+      "driftNotes": "Germanic compound; literally breaking new ground; the forceful penetration of a barrier",
+      "candidates": [
+        "BREKAN",
+        "BREKUR",
+        "THRUBREC"
+      ],
+      "tone": "Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Breakthroughs",
+      "semanticField": "Overcoming / New Advances",
+      "layers": {
+        "pie": "*bhreg- (to break)",
+        "protoGermanic": "*brekaną + *þurhw-",
+        "oldEnglish": "brecan + þurh",
+        "oldNorse": "brjóta + í gegnum",
+        "middleEnglish": "brekthrough"
+      },
+      "driftNotes": "Plural of Breakthrough; same roots apply throughout",
+      "candidates": [
+        "BREKAN",
+        "BREKUR",
+        "THRUBREC"
+      ],
+      "tone": "Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Brilliance",
+      "semanticField": "Radiance / Excellence / Light",
+      "layers": {
+        "pie": "*bhrel- (to shine, glitter)",
+        "middleEnglish": "brilliance",
+        "classicalLatin": "beryllus",
+        "ancientGreek": "bēryllos (βήρυλλος)",
+        "oldFrench": "briller",
+        "sanskrit": "tejasā (तेजस्)"
+      },
+      "driftNotes": "Via Italian brillare from Latin beryllus (bright gem); light expressed through gemstone imagery",
+      "candidates": [
+        "BRILL",
+        "BERYL",
+        "BRILLOS"
+      ],
+      "tone": "French/Italian",
+      "syllables": 3
+    },
+    {
+      "word": "Care",
+      "semanticField": "Concern / Attention / Love",
+      "layers": {
+        "pie": "*gar- (to cry out)",
+        "protoGermanic": "*karō",
+        "oldEnglish": "caru / cearu (sorrow)",
+        "oldNorse": "kǫr (sickbed)",
+        "middleEnglish": "care",
+        "classicalLatin": "cura",
+        "ancientGreek": "merimnē (μέριμνα)",
+        "sanskrit": "sevā (सेवा)"
+      },
+      "driftNotes": "OE root meant grief/sorrow before softening to tender concern; radical semantic warmth",
+      "candidates": [
+        "CARU",
+        "KARA",
+        "KAROS"
+      ],
+      "tone": "Germanic",
+      "syllables": 1
+    },
+    {
+      "word": "Catalyst",
+      "semanticField": "Change Agent / Trigger",
+      "layers": {
+        "pie": "*leu-1 (to loosen)",
+        "middleEnglish": "catalyst",
+        "ancientGreek": "katalusis (κατάλυσις)",
+        "sanskrit": "preraṇā (प्रेरणा)"
+      },
+      "driftNotes": "Greek kata+lusis=a loosening-down; the agent that loosens transformation in another body",
+      "candidates": [
+        "KATAL",
+        "LUSIS",
+        "KATALYN"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Catalyze",
+      "semanticField": "Trigger / Activate Change",
+      "layers": {
+        "pie": "*leu-1 (to loosen)",
+        "ancientGreek": "kataluein (καταλύειν)",
+        "sanskrit": "prerayati (प्रेरयति)"
+      },
+      "driftNotes": "Verb form; to actively perform the catalytic loosening of transformation",
+      "candidates": [
+        "KATALY",
+        "LUSYN",
+        "LUKON"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Celebration",
+      "semanticField": "Honoring / Festivity",
+      "layers": {
+        "pie": "*kwel-1 (to revolve, frequent)",
+        "middleEnglish": "celebracioun",
+        "classicalLatin": "celebratio",
+        "ancientGreek": "heortē (ἑορτή)",
+        "oldFrench": "célébration",
+        "sanskrit": "utsava (उत्सव)"
+      },
+      "driftNotes": "Latin celeber=frequented, famous; celebration=the repeated honoring; frequency as reverence",
+      "candidates": [
+        "CELEB",
+        "CELEBRA",
+        "UTSAV"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Celerity",
+      "semanticField": "Speed / Swiftness",
+      "layers": {
+        "pie": "*kel-1 (to drive, set in motion)",
+        "middleEnglish": "celerite",
+        "classicalLatin": "celeritas",
+        "ancientGreek": "tachos (τάχος)",
+        "oldFrench": "célérité",
+        "sanskrit": "tvaritā (त्वरिता)"
+      },
+      "driftNotes": "Latin celer=swift; the quality of driven, propelled forward motion",
+      "candidates": [
+        "CELER",
+        "CELIR",
+        "TACHOS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Champion",
+      "semanticField": "Victor / Defender / Leader",
+      "layers": {
+        "pie": "*kamp- (field, battle-ground)",
+        "middleEnglish": "champioun",
+        "vulgarLatin": "campio",
+        "oldFrench": "champion",
+        "sanskrit": "vīra (वीर)"
+      },
+      "driftNotes": "Medieval Latin campio=one who fights in the field (campus); the field-warrior; battle-proven leader",
+      "candidates": [
+        "CAMPI",
+        "CAMPO",
+        "VIRON"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Citadel",
+      "semanticField": "Stronghold / Fortified Center",
+      "layers": {
+        "pie": "*kei-1 (to lie, dwell)",
+        "middleEnglish": "citadel",
+        "classicalLatin": "civitas",
+        "ancientGreek": "polis (πόλις)",
+        "oldFrench": "citadelle",
+        "sanskrit": "nagara (नगर)"
+      },
+      "driftNotes": "Via Italian cittadella (small city); the fortified heart of a city; protected center",
+      "candidates": [
+        "CITAD",
+        "CIVIT",
+        "POLIS"
+      ],
+      "tone": "French/Italian",
+      "syllables": 3
+    },
+    {
+      "word": "Clarity",
+      "semanticField": "Clearness / Brightness / Truth",
+      "layers": {
+        "pie": "*kele-2 (to shout; clear sound)",
+        "middleEnglish": "clarite",
+        "classicalLatin": "claritas",
+        "ancientGreek": "saphēneia (σαφήνεια)",
+        "oldFrench": "clarté",
+        "sanskrit": "sphuṭatā (स्फुटता)"
+      },
+      "driftNotes": "Latin clarus=clear+bright; the word captures both visual and intellectual clarity as one thing",
+      "candidates": [
+        "CLAR",
+        "CLARITH",
+        "SAPHON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Coalition",
+      "semanticField": "Alliance / Union of Parts",
+      "layers": {
+        "pie": "*al-2 (to grow, nourish)",
+        "middleEnglish": "coalicioun",
+        "vulgarLatin": "coalitio",
+        "ancientGreek": "sympraxis (συμπραξία)",
+        "oldFrench": "coalition",
+        "sanskrit": "saṃgha (संघ)"
+      },
+      "driftNotes": "Latin coalescere=to grow together; organic unity growing from once-separate parts",
+      "candidates": [
+        "COAL",
+        "COALESK",
+        "ALESCO"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Coexistence",
+      "semanticField": "Mutual Being / Harmony",
+      "layers": {
+        "pie": "*es- (to be)",
+        "middleEnglish": "coexistence",
+        "classicalLatin": "coexistentia",
+        "ancientGreek": "symbiōsis (συμβίωσις)",
+        "oldFrench": "coexistence",
+        "sanskrit": "saha-astitva (सहास्तित्व)"
+      },
+      "driftNotes": "Latin co+existere=to stand out together; the mutual fact of being alongside",
+      "candidates": [
+        "COEXIS",
+        "EXISTAR",
+        "SYNON"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Cohesion",
+      "semanticField": "Binding / Sticking Together",
+      "layers": {
+        "pie": "*ghais- (to adhere)",
+        "middleEnglish": "cohesioun",
+        "classicalLatin": "cohaesio",
+        "ancientGreek": "syndesis (σύνδεσις)",
+        "oldFrench": "cohésion",
+        "sanskrit": "sāmarasya (सामरस्य)"
+      },
+      "driftNotes": "Latin co+haerere=to cling together; the invisible sticking force between parts",
+      "candidates": [
+        "COHER",
+        "HAESIS",
+        "SYNDEX"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Collaborate",
+      "semanticField": "Work Together / Co-create",
+      "layers": {
+        "pie": "*leb- (to hang, allow)",
+        "middleEnglish": "collaboren",
+        "classicalLatin": "collaborare",
+        "ancientGreek": "synergazomai (συνεργάζομαι)",
+        "oldFrench": "collaborer",
+        "sanskrit": "sahakārya (सहकार्य)"
+      },
+      "driftNotes": "Latin col+laborare=to work together; the shared labor of two minds on one thing",
+      "candidates": [
+        "COLLAB",
+        "LABORA",
+        "SYNERG"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Collaboration",
+      "semanticField": "Co-creation / Partnership",
+      "layers": {
+        "pie": "*leb- (to hang, allow)",
+        "middleEnglish": "collaboracioun",
+        "classicalLatin": "collaboratio",
+        "ancientGreek": "synergasia (συνεργασία)",
+        "oldFrench": "collaboration",
+        "sanskrit": "sahakārya (सहकार्य)"
+      },
+      "driftNotes": "Noun of collaborate; the act and quality of working-together",
+      "candidates": [
+        "COLLAB",
+        "LABORIS",
+        "SYNON"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Confidence",
+      "semanticField": "Trust / Assurance / Self-belief",
+      "layers": {
+        "pie": "*bheidh- (to trust, persuade)",
+        "middleEnglish": "confidence",
+        "classicalLatin": "confidentia",
+        "ancientGreek": "pistis (πίστις)",
+        "oldFrench": "confidence",
+        "sanskrit": "viśvāsa (विश्वास)"
+      },
+      "driftNotes": "Latin con+fidere=to trust firmly; total faith directed inward; self as the trusted one",
+      "candidates": [
+        "CONFID",
+        "FIDELIS",
+        "VISWAS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Connection",
+      "semanticField": "Link / Bond / Relationship",
+      "layers": {
+        "pie": "*ned- (to bind, knot)",
+        "middleEnglish": "conneccioun",
+        "classicalLatin": "connexio",
+        "ancientGreek": "syndeos (σύνδεος)",
+        "oldFrench": "connexion",
+        "sanskrit": "sambandha (सम्बन्ध)"
+      },
+      "driftNotes": "Latin con+nectere=to knot together; the knot as the bond between two things",
+      "candidates": [
+        "CONNEX",
+        "NEXIS",
+        "SAMBAN"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Conquest",
+      "semanticField": "Victory / Achievement",
+      "layers": {
+        "pie": "*kwer- (to seek out)",
+        "middleEnglish": "conqueste",
+        "vulgarLatin": "conquirere",
+        "ancientGreek": "kratos (κράτος)",
+        "oldFrench": "conquête",
+        "sanskrit": "vijaya (विजय)"
+      },
+      "driftNotes": "Latin con+quaerere=to seek out together; the active seeking and securing of victory",
+      "candidates": [
+        "CONQUIR",
+        "QUAERE",
+        "KRATOR"
+      ],
+      "tone": "French/Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Consciousness",
+      "semanticField": "Awareness / Mind / Knowing",
+      "layers": {
+        "pie": "*skei- (to cut, separate)",
+        "middleEnglish": "conscience",
+        "classicalLatin": "conscientia",
+        "ancientGreek": "syneidēsis (συνείδησις)",
+        "oldFrench": "conscience",
+        "sanskrit": "cit (चित्)"
+      },
+      "driftNotes": "Latin con+scire=to know within; the internal witness; Sanskrit cit=pure awareness",
+      "candidates": [
+        "CONSCIO",
+        "SCIENT",
+        "CHITTA"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Continuity",
+      "semanticField": "Persistence / Unbroken Flow",
+      "layers": {
+        "pie": "*ten- (to stretch)",
+        "middleEnglish": "continuite",
+        "classicalLatin": "continuitas",
+        "ancientGreek": "synecheia (συνέχεια)",
+        "oldFrench": "continuité",
+        "sanskrit": "sāntatā (सान्तता)"
+      },
+      "driftNotes": "Latin continuus=unbroken; stretching without interruption through time; the taut thread",
+      "candidates": [
+        "CONTINU",
+        "TENUIS",
+        "SYNECH"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Convergence",
+      "semanticField": "Coming Together / Meeting Point",
+      "layers": {
+        "pie": "*wer-3 (to turn)",
+        "middleEnglish": "convergence",
+        "classicalLatin": "convergentia",
+        "ancientGreek": "sygklisis (σύγκλισις)",
+        "oldFrench": "convergence",
+        "sanskrit": "samāgama (समागम)"
+      },
+      "driftNotes": "Latin con+vergere=to incline together; multiple forces turning toward a single point",
+      "candidates": [
+        "CONVERG",
+        "VERGIS",
+        "SYNCL"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Cooperate",
+      "semanticField": "Work Together / Collaborate",
+      "layers": {
+        "pie": "*op-1 (to work, produce)",
+        "middleEnglish": "cooperen",
+        "classicalLatin": "cooperari",
+        "ancientGreek": "synprattō (συμπράττω)",
+        "oldFrench": "coopérer",
+        "sanskrit": "sahakārya (सहकार्य)"
+      },
+      "driftNotes": "Latin co+operari=to work with; the mutual work of two forces on one task",
+      "candidates": [
+        "COOPER",
+        "OPERIS",
+        "SYNPRA"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Coordinate",
+      "semanticField": "Arrange / Order Together",
+      "layers": {
+        "pie": "*ar- (to fit, join)",
+        "middleEnglish": "coordinaten",
+        "classicalLatin": "coordinare",
+        "ancientGreek": "syntassō (συντάσσω)",
+        "oldFrench": "coordonner",
+        "sanskrit": "samāyojana (समायोजन)"
+      },
+      "driftNotes": "Latin co+ordinare=to order together; fitting parts into their proper arrangement",
+      "candidates": [
+        "COORDIN",
+        "ORDINAK",
+        "SYNTA"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Cornucopia",
+      "semanticField": "Abundance / Horn of Plenty",
+      "layers": {
+        "pie": "*ker-1 (horn) + *op-1 (produce)",
+        "middleEnglish": "cornucopia",
+        "classicalLatin": "cornu copiae",
+        "ancientGreek": "keras amaltheias (κέρας Ἀμαλθείας)",
+        "oldFrench": "corne d'abondance",
+        "sanskrit": "pūrṇa-kalaśa (पूर्णकलश)"
+      },
+      "driftNotes": "Latin: horn of plenty; cornu=horn+copia=plenty; Amalthea's overflowing goat-horn",
+      "candidates": [
+        "CORNU",
+        "KOPION",
+        "PURNKAL"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Coruscating",
+      "semanticField": "Sparkling / Flashing / Brilliant",
+      "layers": {
+        "pie": "*ker-3 (to shine, flash)",
+        "middleEnglish": "coruscat",
+        "classicalLatin": "coruscare",
+        "ancientGreek": "stilbōn (στίλβων)",
+        "sanskrit": "bhāsura (भासुर)"
+      },
+      "driftNotes": "Latin coruscare=to flash, glitter; rapid brilliant light in motion; the verb form of brilliance",
+      "candidates": [
+        "CORUSK",
+        "CORSCA",
+        "STILBON"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Courage",
+      "semanticField": "Bravery / Heart / Valor",
+      "layers": {
+        "pie": "*kerd- (heart)",
+        "middleEnglish": "corage",
+        "classicalLatin": "cor (heart)",
+        "ancientGreek": "andreia (ἀνδρεία)",
+        "oldFrench": "corage",
+        "sanskrit": "śaurya (शौर्य)"
+      },
+      "driftNotes": "Old French from Latin cor=heart; courage=what comes from the heart; emotion as source of action",
+      "candidates": [
+        "CORAGE",
+        "CORDIS",
+        "ANDREIA"
+      ],
+      "tone": "French/Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Craft",
+      "semanticField": "Skill / Making / Art",
+      "layers": {
+        "pie": "*grep- (to grasp)",
+        "protoGermanic": "*kraftiz",
+        "oldEnglish": "cræft (strength, skill)",
+        "oldNorse": "kraptr (power)",
+        "middleEnglish": "craft",
+        "classicalLatin": "ars",
+        "ancientGreek": "technē (τέχνη)",
+        "sanskrit": "kauśala (कौशल)"
+      },
+      "driftNotes": "Old English/Norse root; strength that became skill; one of the most Germanic mastery-words",
+      "candidates": [
+        "KRAEFT",
+        "KRAFT",
+        "KRAPTR"
+      ],
+      "tone": "Germanic",
+      "syllables": 1
+    },
+    {
+      "word": "Creativity",
+      "semanticField": "Making / Invention / Originality",
+      "layers": {
+        "pie": "*ker-1 (to grow)",
+        "middleEnglish": "creativite",
+        "classicalLatin": "creativus",
+        "ancientGreek": "poiēsis (ποίησις)",
+        "oldFrench": "créativité",
+        "sanskrit": "sṛjana (सृजन)",
+        "arabic": "ibdā' (إبداع)"
+      },
+      "driftNotes": "Latin creare=to make, produce; same root as crescere (to grow); creation as growth",
+      "candidates": [
+        "CREATIV",
+        "CREATIX",
+        "POIESI"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Culmination",
+      "semanticField": "Peak / Completion / Crown",
+      "layers": {
+        "pie": "*kel-2 (to project, ridge)",
+        "middleEnglish": "culminacioun",
+        "classicalLatin": "culminatio",
+        "ancientGreek": "akroteleuton (ἀκροτελεύτιον)",
+        "oldFrench": "culmination",
+        "sanskrit": "paryavasāna (पर्यवसान)"
+      },
+      "driftNotes": "Latin culmen=peak, ridge of a roof; the highest ridge-point reached",
+      "candidates": [
+        "CULMEN",
+        "KULMIS",
+        "AKROT"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Cultivate",
+      "semanticField": "Grow / Tend / Develop",
+      "layers": {
+        "pie": "*kwel-1 (to revolve, tend)",
+        "middleEnglish": "cultivaten",
+        "classicalLatin": "cultivare",
+        "ancientGreek": "geōrgein (γεωργεῖν)",
+        "oldFrench": "cultiver",
+        "sanskrit": "kṛṣi (कृषि)"
+      },
+      "driftNotes": "Latin colere=to till; same root as culture, cult, colony; to dwell and tend a living thing",
+      "candidates": [
+        "CULTIV",
+        "KOLERE",
+        "GEORGON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Cultivation",
+      "semanticField": "Growing / Development / Tending",
+      "layers": {
+        "pie": "*kwel-1 (to revolve, tend)",
+        "middleEnglish": "cultivacioun",
+        "classicalLatin": "cultivatio",
+        "ancientGreek": "geōrgia (γεωργία)",
+        "oldFrench": "culture",
+        "sanskrit": "kṛṣi (कृषि)"
+      },
+      "driftNotes": "Noun of cultivate; the ongoing practice of tending and nurturing growth",
+      "candidates": [
+        "CULTIVA",
+        "KOLEIS",
+        "KRSHI"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Dedication",
+      "semanticField": "Commitment / Devotion",
+      "layers": {
+        "pie": "*deik- (to show, pronounce)",
+        "middleEnglish": "dedicacioun",
+        "classicalLatin": "dedicatio",
+        "ancientGreek": "anathēma (ἀνάθημα)",
+        "oldFrench": "dédicace",
+        "sanskrit": "nishthā (निष्ठा)"
+      },
+      "driftNotes": "Latin dedicare=to declare, set apart for sacred use; a solemn pronouncement of purpose",
+      "candidates": [
+        "DEDICAT",
+        "DIKEIN",
+        "NISHTH"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Determination",
+      "semanticField": "Resolve / Focused Will",
+      "layers": {
+        "pie": "*ter-1 (to cross over)",
+        "middleEnglish": "determinacioun",
+        "classicalLatin": "determinatio",
+        "ancientGreek": "prothesis (πρόθεσις)",
+        "oldFrench": "détermination",
+        "sanskrit": "nirdhāraṇa (निर्धारण)"
+      },
+      "driftNotes": "Latin determinare=to set limits; setting limits paradoxically becomes focused will",
+      "candidates": [
+        "DETERMIN",
+        "TERMIS",
+        "PROTH"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Discipline",
+      "semanticField": "Training / Order / Mastery",
+      "layers": {
+        "pie": "*dek-1 (to take, accept)",
+        "middleEnglish": "disciplyne",
+        "classicalLatin": "disciplina",
+        "ancientGreek": "paideia (παιδεία)",
+        "oldFrench": "discipline",
+        "sanskrit": "anushāsana (अनुशासन)"
+      },
+      "driftNotes": "Latin discipulus=learner; discipline=the way of the learner; training as joyful acceptance",
+      "candidates": [
+        "DISCIP",
+        "DISCIPL",
+        "PAIDEI"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Discovery",
+      "semanticField": "Finding / Revealing / Uncovering",
+      "layers": {
+        "pie": "*ker-4 (to cover) neg.",
+        "middleEnglish": "discoverie",
+        "vulgarLatin": "discooperire",
+        "ancientGreek": "apokalupsis (ἀποκάλυψις)",
+        "oldFrench": "découvrir",
+        "sanskrit": "anveṣaṇa (अन्वेषण)"
+      },
+      "driftNotes": "Medieval Latin discooperire=to uncover; revealing what lay hidden under the covering",
+      "candidates": [
+        "DISCOV",
+        "COOPERI",
+        "APOKAL"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Dispatch",
+      "semanticField": "Speed / Sending / Efficiency",
+      "layers": {
+        "pie": "*dis- + *pak- (to fasten)",
+        "middleEnglish": "despeche",
+        "oldFrench": "dépêcher"
+      },
+      "driftNotes": "Via Spanish despachar; dis+pacciare=to unfasten and send off quickly; speed of release",
+      "candidates": [
+        "DESPACH",
+        "DESPIK",
+        "PEMPOS"
+      ],
+      "tone": "Spanish/French",
+      "syllables": 2
+    },
+    {
+      "word": "Dynamic",
+      "semanticField": "Power / Energy / Motion",
+      "layers": {
+        "pie": "*deu-2 (to do, perform)",
+        "middleEnglish": "dynamic",
+        "ancientGreek": "dunamikos (δυναμικός)",
+        "oldFrench": "dynamique",
+        "sanskrit": "śaktimat (शक्तिमत्)"
+      },
+      "driftNotes": "Greek dunamis=power; dynamic=of or relating to power in active motion",
+      "candidates": [
+        "DYNAM",
+        "DUNAMOS",
+        "SHAKTIN"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Efficiency",
+      "semanticField": "Effectiveness / Output",
+      "layers": {
+        "pie": "*dhē-1 (to put, do)",
+        "middleEnglish": "efficience",
+        "classicalLatin": "efficientia",
+        "ancientGreek": "energeia (ἐνέργεια)",
+        "oldFrench": "efficacité",
+        "sanskrit": "dakṣatā (दक्षता)"
+      },
+      "driftNotes": "Latin efficiens=effective; ex+facere=to make out; producing maximum output with minimum waste",
+      "candidates": [
+        "EFFICI",
+        "EFFICIS",
+        "ENERGON"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Effulgent",
+      "semanticField": "Radiant / Shining Forth",
+      "layers": {
+        "pie": "*bhel-1 (to shine, flash)",
+        "middleEnglish": "effulgent",
+        "vulgarLatin": "effulgere",
+        "ancientGreek": "eklampon (ἐκλάμπον)",
+        "sanskrit": "ujjvala (उज्ज्वल)"
+      },
+      "driftNotes": "Latin ex+fulgere=to shine forth; outward radiance bursting from an inner source",
+      "candidates": [
+        "EFFULGN",
+        "FULGOR",
+        "EKLAMN"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Élan",
+      "semanticField": "Enthusiasm / Spirit / Flair",
+      "layers": {
+        "pie": "*el- (to go, move)",
+        "oldFrench": "élan (rush, ardor)",
+        "sanskrit": "ūrjā (ऊर्जा)"
+      },
+      "driftNotes": "Pure French word from élancer=to dart forward; the spirit-rush that precedes all great action",
+      "candidates": [
+        "ELAN",
+        "ELANCÉ",
+        "URJAS"
+      ],
+      "tone": "French",
+      "syllables": 2
+    },
+    {
+      "word": "Elation",
+      "semanticField": "Joy / Lifting / Exaltation",
+      "layers": {
+        "pie": "*bher-1 (to carry)",
+        "middleEnglish": "elacioun",
+        "classicalLatin": "elatio",
+        "ancientGreek": "eparsis (ἔπαρσις)",
+        "oldFrench": "élation",
+        "sanskrit": "harṣa (हर्ष)"
+      },
+      "driftNotes": "Latin ex+latus=carried out and up; the state of being lifted out of ordinary feeling",
+      "candidates": [
+        "ELAT",
+        "ELATIO",
+        "EPARS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Elevation",
+      "semanticField": "Lifting / Rising / Height",
+      "layers": {
+        "pie": "*legwh- (light, having little weight)",
+        "middleEnglish": "elevacioun",
+        "classicalLatin": "elevatio",
+        "ancientGreek": "hypsōsis (ὕψωσις)",
+        "oldFrench": "élévation",
+        "sanskrit": "uttolana (उत्तोलन)"
+      },
+      "driftNotes": "Latin ex+levare=to lift by making light; raising through reduction of weight",
+      "candidates": [
+        "ELEV",
+        "ELEVAR",
+        "HYPSOT"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Elixir",
+      "semanticField": "Transformative Essence",
+      "layers": {
+        "middleEnglish": "elixir",
+        "vulgarLatin": "elixir",
+        "ancientGreek": "xērion (ξήριον)",
+        "oldFrench": "élixir",
+        "sanskrit": "rasāyana (रसायन)",
+        "arabic": "al-iksīr (الإكسير)"
+      },
+      "driftNotes": "Arabic al-iksīr possibly from Greek xērion (dry powder); the distilled transformative essence",
+      "candidates": [
+        "ELIXIR",
+        "IKSIR",
+        "RASAYN"
+      ],
+      "tone": "Arabic/Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Emergence",
+      "semanticField": "Arising / Coming Forth",
+      "layers": {
+        "pie": "*mer-2 (to plunge, dip)",
+        "middleEnglish": "emergence",
+        "vulgarLatin": "emergere",
+        "ancientGreek": "anodus (ἄνοδος)",
+        "oldFrench": "émergence",
+        "sanskrit": "utpatti (उत्पत्ति)"
+      },
+      "driftNotes": "Latin e+mergere=to rise from water; surfacing from below into light and visibility",
+      "candidates": [
+        "EMERG",
+        "MERGIS",
+        "ANODOS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Empowerment",
+      "semanticField": "Authority / Strength / Agency",
+      "layers": {
+        "pie": "*poti- (powerful, lord)",
+        "middleEnglish": "empowerment",
+        "classicalLatin": "potestas",
+        "ancientGreek": "dynamōsis (δυνάμωσις)",
+        "oldFrench": "pouvoir",
+        "sanskrit": "śakti (शक्ति)"
+      },
+      "driftNotes": "From Old French poer (power) via Latin potere; the act of making powerful from within",
+      "candidates": [
+        "EMPOWER",
+        "POTIS",
+        "SHAKTIN"
+      ],
+      "tone": "French/Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Empyrean",
+      "semanticField": "Highest Heaven / Divine Fire",
+      "layers": {
+        "pie": "*paəwr (fire)",
+        "middleEnglish": "empyrean",
+        "vulgarLatin": "empyreus",
+        "ancientGreek": "empureios (ἐμπύρειος)",
+        "oldFrench": "empyrée",
+        "sanskrit": "agni-loka (अग्निलोक)"
+      },
+      "driftNotes": "Greek em+pur=in-fire; the highest heaven conceived as pure divine fire; fire as transcendence",
+      "candidates": [
+        "EMPYRE",
+        "PUREOS",
+        "AGNIOX"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Endurance",
+      "semanticField": "Persistence / Hardness / Staying",
+      "layers": {
+        "pie": "*deru- (oak, firm, true)",
+        "middleEnglish": "endurance",
+        "vulgarLatin": "indurare",
+        "ancientGreek": "karteria (καρτερία)",
+        "oldFrench": "endurance",
+        "sanskrit": "dhairyatā (धैर्यता)"
+      },
+      "driftNotes": "Latin in+durus=to make hard; the hardness of oak wood as the metaphor for persistence",
+      "candidates": [
+        "ENDUR",
+        "DURUS",
+        "KARTER"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Energize",
+      "semanticField": "Activate / Invigorate / Charge",
+      "layers": {
+        "pie": "*werg-1 (to work, do)",
+        "middleEnglish": "energisen",
+        "ancientGreek": "energeia (ἐνέργεια)",
+        "oldFrench": "énergiser",
+        "sanskrit": "śakti (शक्ति)"
+      },
+      "driftNotes": "Greek en+ergon=at work; to put something into the state of active working",
+      "candidates": [
+        "ENERGIZ",
+        "ERGON",
+        "SHAKTIV"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Enlightenment",
+      "semanticField": "Wisdom / Light / Understanding",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "protoGermanic": "*leuhtą",
+        "oldEnglish": "lēoht (light)",
+        "oldNorse": "ljós (light)",
+        "middleEnglish": "enlighcening",
+        "classicalLatin": "lumen",
+        "vulgarLatin": "illuminatio",
+        "ancientGreek": "phōtismos (φωτισμός)",
+        "sanskrit": "bodha (बोध)"
+      },
+      "driftNotes": "Germanic lēoht; the metaphor of bringing light into the mind; Old English is the truest root",
+      "candidates": [
+        "LEOHT",
+        "LEUKT",
+        "PHOTISM"
+      ],
+      "tone": "Germanic",
+      "syllables": 4
+    },
+    {
+      "word": "Entelechy",
+      "semanticField": "Perfection / Fulfilled Potential",
+      "layers": {
+        "pie": "*kwel-1 (to complete) + *segh-",
+        "middleEnglish": "entelechy",
+        "ancientGreek": "entelecheia (ἐντελέχεια)",
+        "oldFrench": "entéléchie",
+        "sanskrit": "pūrṇatā (पूर्णता)"
+      },
+      "driftNotes": "Aristotle's term: en+telos+ekhein=having its end within itself; the fulfilled potential",
+      "candidates": [
+        "ENTELECH",
+        "TELIKOS",
+        "PURNIS"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Epiphany",
+      "semanticField": "Revelation / Manifestation",
+      "layers": {
+        "pie": "*bha-1 (to shine, appear)",
+        "middleEnglish": "epiphanie",
+        "ancientGreek": "epiphaneia (ἐπιφάνεια)",
+        "oldFrench": "épiphanie",
+        "sanskrit": "sphūrti (स्फूर्ति)"
+      },
+      "driftNotes": "Greek epi+phainein=to show upon; a sudden divine showing-forth of what was hidden",
+      "candidates": [
+        "EPIPH",
+        "PHANEIA",
+        "SPHURT"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Epochal",
+      "semanticField": "Era-defining / Historic",
+      "layers": {
+        "pie": "*segh- (to hold, hold back)",
+        "middleEnglish": "epochal",
+        "ancientGreek": "epochē (ἐποχή)",
+        "oldFrench": "épocal",
+        "sanskrit": "yuga-sthāpaka (युगस्थापक)"
+      },
+      "driftNotes": "Greek epochē=a pause, a fixed point; a moment so significant it stops and restarts time",
+      "candidates": [
+        "EPOCH",
+        "EPOKHON",
+        "YUGIST"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Eudaimonia",
+      "semanticField": "Flourishing / True Happiness",
+      "layers": {
+        "pie": "*gwei- (to live) + *deu-",
+        "middleEnglish": "eudaimonie",
+        "ancientGreek": "eudaimonia (εὐδαιμονία)",
+        "oldFrench": "eudémonie",
+        "sanskrit": "sukha (सुख)"
+      },
+      "driftNotes": "Greek eu+daimon=well-spirit; Aristotle's highest human good; the flourishing of a whole life",
+      "candidates": [
+        "EUDAIM",
+        "DAIMON",
+        "EUTHOS"
+      ],
+      "tone": "Greek",
+      "syllables": 5
+    },
+    {
+      "word": "Euphoria",
+      "semanticField": "Elation / Well-being / Joy",
+      "layers": {
+        "pie": "*bher-1 (to carry, bear)",
+        "middleEnglish": "euphorie",
+        "ancientGreek": "euphoria (εὐφορία)",
+        "oldFrench": "euphorie",
+        "sanskrit": "harṣātireka (हर्षातिरेक)"
+      },
+      "driftNotes": "Greek eu+pherein=to bear well; the state of carrying joy so effortlessly it overflows",
+      "candidates": [
+        "EUPHOR",
+        "PHORON",
+        "EUBHOR"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Evolution",
+      "semanticField": "Development / Unfolding",
+      "layers": {
+        "pie": "*wel-3 (to turn, roll)",
+        "middleEnglish": "evolucioun",
+        "classicalLatin": "evolutio",
+        "ancientGreek": "anaptuxis (ἀνάπτυξις)",
+        "oldFrench": "évolution",
+        "sanskrit": "vikāsa (विकास)"
+      },
+      "driftNotes": "Latin e+volvere=to unroll; evolution as the unrolling of a scroll revealing what was coiled within",
+      "candidates": [
+        "EVOLV",
+        "VOLVERE",
+        "ANAPTY"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Exaltation",
+      "semanticField": "Lifting / Glory / Raising High",
+      "layers": {
+        "pie": "*al-2 (to grow, nourish)",
+        "middleEnglish": "exaltacioun",
+        "classicalLatin": "exaltatio",
+        "ancientGreek": "hyperepsōsis (ὑπερύψωσις)",
+        "oldFrench": "exaltation",
+        "sanskrit": "unmāda (उन्माद)"
+      },
+      "driftNotes": "Latin ex+altus=out-high; lifting to the highest possible position; above all others",
+      "candidates": [
+        "EXALT",
+        "ALTIOR",
+        "HYPEREL"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Excel",
+      "semanticField": "Surpass / Rise Above / Lead",
+      "layers": {
+        "pie": "*kel-2 (to project, be prominent)",
+        "middleEnglish": "excellen",
+        "classicalLatin": "excellere",
+        "ancientGreek": "hyperechō (ὑπερέχω)",
+        "oldFrench": "exceller",
+        "sanskrit": "śreṣṭha (श्रेष्ठ)"
+      },
+      "driftNotes": "Latin ex+cellere=to rise and project out; to stand demonstrably higher than all around",
+      "candidates": [
+        "EXCEL",
+        "CELLERE",
+        "HYPERON"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Excellence",
+      "semanticField": "Superiority / Virtue / Quality",
+      "layers": {
+        "pie": "*kel-2 (to project, be prominent)",
+        "middleEnglish": "excellence",
+        "classicalLatin": "excellentia",
+        "ancientGreek": "aretē (ἀρετή)",
+        "oldFrench": "excellence",
+        "sanskrit": "śreṣṭhatā (श्रेष्ठता)"
+      },
+      "driftNotes": "Latin excellentia; Greek aretē=excellence-as-virtue; the full realization of a thing's potential",
+      "candidates": [
+        "EXCELL",
+        "CELLENS",
+        "ARETE"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Expansion",
+      "semanticField": "Growth / Extension / Spreading",
+      "layers": {
+        "pie": "*spen-2 (to draw, stretch)",
+        "middleEnglish": "expansioun",
+        "classicalLatin": "expansio",
+        "ancientGreek": "ektasis (ἔκτασις)",
+        "oldFrench": "expansion",
+        "sanskrit": "vistāra (विस्तार)"
+      },
+      "driftNotes": "Latin ex+pandere=to spread out; the spreading of something beyond all former limits",
+      "candidates": [
+        "EXPANS",
+        "PANDORE",
+        "EKTAS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Exuberance",
+      "semanticField": "Overflow / Wild Vitality",
+      "layers": {
+        "pie": "*eudh- (udder, abundance)",
+        "middleEnglish": "exuberance",
+        "classicalLatin": "exuberantia",
+        "ancientGreek": "perissos (περισσός)",
+        "oldFrench": "exubérance",
+        "sanskrit": "utsāha (उत्साह)"
+      },
+      "driftNotes": "Latin ex+uber=out of the udder; fertility overflowing its container; wildly productive abundance",
+      "candidates": [
+        "EXUBER",
+        "UBERON",
+        "PERISOS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Fast",
+      "semanticField": "Speed / Firmness / Swiftness",
+      "layers": {
+        "pie": "*past- (firm, fixed)",
+        "protoGermanic": "*fastaz",
+        "oldEnglish": "fæst (firm, fixed)",
+        "oldNorse": "fastr (firm)",
+        "middleEnglish": "fast",
+        "ancientGreek": "tachys (ταχύς)",
+        "sanskrit": "tīvra (तीव्र)"
+      },
+      "driftNotes": "OE fæst meant firm/fixed; 'moving fast' evolved from 'holding firm to motion'; remarkable semantic shift",
+      "candidates": [
+        "FAEST",
+        "FASTIR",
+        "FASTA"
+      ],
+      "tone": "Germanic",
+      "syllables": 1
+    },
+    {
+      "word": "Fecund",
+      "semanticField": "Fertile / Productive / Rich",
+      "layers": {
+        "pie": "*dhē(i)- (to suckle, produce)",
+        "middleEnglish": "fecunde",
+        "classicalLatin": "fecundus",
+        "ancientGreek": "gonimos (γόνιμος)",
+        "oldFrench": "fécond",
+        "sanskrit": "phala-dāyī (फलदायी)"
+      },
+      "driftNotes": "Latin fecundus=fruitful; same root as femina; the generative earth-principle; nature's creativity",
+      "candidates": [
+        "FECUND",
+        "FECUNDIS",
+        "GONIX"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Fecundity",
+      "semanticField": "Fertility / Abundance / Generativity",
+      "layers": {
+        "pie": "*dhē(i)- (to suckle, produce)",
+        "middleEnglish": "fecundite",
+        "classicalLatin": "fecunditas",
+        "ancientGreek": "gonimotēs (γονιμότης)",
+        "oldFrench": "fécondité",
+        "sanskrit": "phala-śakti (फलशक्ति)"
+      },
+      "driftNotes": "The quality of rich generative fertility; nature's power to produce without ceasing",
+      "candidates": [
+        "FECUNDI",
+        "FECUNDIK",
+        "GONIST"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Fellowship",
+      "semanticField": "Companionship / Community / Bond",
+      "layers": {
+        "pie": "*peku- (wealth) + *legh- (lie)",
+        "protoGermanic": "*felagą",
+        "oldEnglish": "fēolaga",
+        "oldNorse": "félagi (partner, companion)",
+        "middleEnglish": "felawship",
+        "classicalLatin": "societas",
+        "ancientGreek": "koinōnia (κοινωνία)",
+        "sanskrit": "satsaṅga (सत्संग)"
+      },
+      "driftNotes": "Old Norse félagi=one who lays money together; community through shared investment and risk",
+      "candidates": [
+        "FELAGI",
+        "FELAK",
+        "KOINON"
+      ],
+      "tone": "Germanic/Norse",
+      "syllables": 3
+    },
+    {
+      "word": "Festivity",
+      "semanticField": "Celebration / Sacred Joy",
+      "layers": {
+        "pie": "*dhes-1 (sacred, divine)",
+        "middleEnglish": "festivite",
+        "classicalLatin": "festivitas",
+        "ancientGreek": "heortē (ἑορτή)",
+        "oldFrench": "festivité",
+        "sanskrit": "utsava (उत्सव)"
+      },
+      "driftNotes": "Latin festum=sacred feast; festivals were originally religious; joy as sacred communal act",
+      "candidates": [
+        "FESTIV",
+        "FESTUM",
+        "UTSAVE"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Flourish",
+      "semanticField": "Thrive / Bloom / Prosper",
+      "layers": {
+        "pie": "*bhel-3 (to thrive, bloom)",
+        "middleEnglish": "florisshen",
+        "classicalLatin": "florere",
+        "ancientGreek": "anthos (ἄνθος)",
+        "oldFrench": "florir",
+        "sanskrit": "vikāsa (विकास)"
+      },
+      "driftNotes": "Latin florere=to flower; same root as flora, flower, bloom; thriving expressed as blossoming",
+      "candidates": [
+        "FLOUR",
+        "FLORIS",
+        "ANTHOS"
+      ],
+      "tone": "French/Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Flourishing",
+      "semanticField": "Thriving / Blooming / Prospering",
+      "layers": {
+        "pie": "*bhel-3 (to thrive, bloom)",
+        "middleEnglish": "florisshinge",
+        "classicalLatin": "florentia",
+        "ancientGreek": "euthaleia (εὐθαλεία)",
+        "oldFrench": "florissant",
+        "sanskrit": "sampannata (संपन्नता)"
+      },
+      "driftNotes": "Present participle of flourish; the continuous ongoing state of blooming life",
+      "candidates": [
+        "FLORIS",
+        "FLORENS",
+        "EUTHAL"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Flow",
+      "semanticField": "Movement / Ease / Continuity",
+      "layers": {
+        "pie": "*pleu- (to flow, float)",
+        "protoGermanic": "*flōaną",
+        "oldEnglish": "flowan",
+        "oldNorse": "flóa (to flow)",
+        "middleEnglish": "flowen",
+        "classicalLatin": "fluere",
+        "ancientGreek": "rein (ῥεῖν)",
+        "sanskrit": "srava (स्रव)"
+      },
+      "driftNotes": "Pure Germanic root; one of the most primary native English words; water-motion as ease",
+      "candidates": [
+        "FLOW",
+        "FLOA",
+        "PLEUON"
+      ],
+      "tone": "Germanic",
+      "syllables": 1
+    },
+    {
+      "word": "Focus",
+      "semanticField": "Concentration / Center / Hearth",
+      "layers": {
+        "pie": "*dhegwh- (to burn)",
+        "middleEnglish": "focus",
+        "classicalLatin": "focus (hearth)",
+        "ancientGreek": "hestia (ἑστία)",
+        "sanskrit": "kendra (केन्द्र)"
+      },
+      "driftNotes": "Latin focus=hearth, fireplace; the center-fire; where all attention converges and burns",
+      "candidates": [
+        "FOCUS",
+        "FOCAS",
+        "HESTIX"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Foresight",
+      "semanticField": "Vision / Planning / Prescience",
+      "layers": {
+        "pie": "*sek-2 (to see)",
+        "protoGermanic": "*fura + *segwiz",
+        "oldEnglish": "foresēon",
+        "oldNorse": "framsȳn",
+        "middleEnglish": "foresight",
+        "classicalLatin": "providentia",
+        "ancientGreek": "pronoia (πρόνοια)",
+        "oldFrench": "prévoyance",
+        "sanskrit": "dūradarśitā (दूरदर्शिता)"
+      },
+      "driftNotes": "Germanic compound; fore+sight=seeing before; direct Old English seeing-ahead",
+      "candidates": [
+        "FORESEE",
+        "FORSIHT",
+        "PRONOX"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Fortitude",
+      "semanticField": "Courage / Inner Strength",
+      "layers": {
+        "pie": "*bhergh-2 (high, elevated)",
+        "middleEnglish": "fortitude",
+        "classicalLatin": "fortitudo",
+        "ancientGreek": "andreia (ἀνδρεία)",
+        "oldFrench": "fortitude",
+        "sanskrit": "dhairya (धैर्य)"
+      },
+      "driftNotes": "Latin fortis=strong; fortitude=the inner mountain; strength as the quality of an elevated thing",
+      "candidates": [
+        "FORTIT",
+        "FORTIS",
+        "ANDREI"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Fruition",
+      "semanticField": "Fulfillment / Enjoyment / Harvest",
+      "layers": {
+        "pie": "*bhrug-1 (to enjoy, use)",
+        "middleEnglish": "fruicion",
+        "vulgarLatin": "fruitio",
+        "ancientGreek": "apolausis (ἀπόλαυσις)",
+        "oldFrench": "fruition",
+        "sanskrit": "phala-prāpti (फलप्राप्ति)"
+      },
+      "driftNotes": "Latin frui=to enjoy the fruit; fruition=the tasting/enjoying of the result; realization as savoring",
+      "candidates": [
+        "FRUIT",
+        "FRUITIO",
+        "APOLAUN"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Fulfillment",
+      "semanticField": "Completion / Satisfaction / Full",
+      "layers": {
+        "pie": "*pleh₁- (to fill)",
+        "protoGermanic": "*fullaz + *fullijaną",
+        "oldEnglish": "fulfyllan",
+        "oldNorse": "fullnægja (to satisfy)",
+        "middleEnglish": "fulfillment",
+        "classicalLatin": "complementum",
+        "ancientGreek": "plērōma (πλήρωμα)",
+        "sanskrit": "tripti (तृप्ति)"
+      },
+      "driftNotes": "Germanic compound; full+fill=to fill fully; the satisfying completion of a container",
+      "candidates": [
+        "FULFILL",
+        "FULLNAS",
+        "PLEROM"
+      ],
+      "tone": "Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Fusion",
+      "semanticField": "Merging / Union / Blending",
+      "layers": {
+        "pie": "*gheu- (to pour)",
+        "middleEnglish": "fusioun",
+        "classicalLatin": "fusio",
+        "ancientGreek": "krasis (κρᾶσις)",
+        "oldFrench": "fusion",
+        "sanskrit": "saṃyoga (संयोग)"
+      },
+      "driftNotes": "Latin fundere=to pour; fusion=the pouring together of two substances into one new thing",
+      "candidates": [
+        "FUSIO",
+        "FUNDIS",
+        "KRASIS"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Galvanize",
+      "semanticField": "Activate / Electrify / Energize",
+      "layers": {
+        "middleEnglish": "galvanize",
+        "oldFrench": "galvaniser"
+      },
+      "driftNotes": "From Luigi Galvani (1737-1798); to stimulate as if by electric current; shock into action",
+      "candidates": [
+        "GALVAN",
+        "GALVIR",
+        "VOLTIS"
+      ],
+      "tone": "Proper noun/Italian",
+      "syllables": 3
+    },
+    {
+      "word": "Generation",
+      "semanticField": "Birth / Creation / Era",
+      "layers": {
+        "pie": "*gen- (to give birth, beget)",
+        "middleEnglish": "generacioun",
+        "classicalLatin": "generatio",
+        "ancientGreek": "genesis (γένεσις)",
+        "oldFrench": "génération",
+        "sanskrit": "jananā (जनन)"
+      },
+      "driftNotes": "Latin generare=to beget; generatio=a begetting; simultaneously a birth and a span of time",
+      "candidates": [
+        "GENERAT",
+        "GENERIS",
+        "GENON"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Genesis",
+      "semanticField": "Origin / Beginning / First Cause",
+      "layers": {
+        "pie": "*gen- (to give birth, beget)",
+        "middleEnglish": "genesis",
+        "classicalLatin": "genesis",
+        "ancientGreek": "genesis (γένεσις)",
+        "oldFrench": "genèse",
+        "sanskrit": "ādi (आदि)",
+        "hebrew": "bərēʾšīt (בְּרֵאשִׁית)"
+      },
+      "driftNotes": "Greek directly; genesis=origin, beginning, the first creation; Hebrew parallel",
+      "candidates": [
+        "GENES",
+        "GENESOS",
+        "ARCHE"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Genius",
+      "semanticField": "Spirit / Talent / Creative Intelligence",
+      "layers": {
+        "pie": "*gen- (to give birth, beget)",
+        "middleEnglish": "genius",
+        "classicalLatin": "genius (guardian spirit)",
+        "ancientGreek": "daimōn (δαίμων)",
+        "oldFrench": "génie",
+        "sanskrit": "pratibhā (प्रतिभा)"
+      },
+      "driftNotes": "Latin genius=spirit born with a person; one's personal divine creative attendant",
+      "candidates": [
+        "GENIUS",
+        "GENIOS",
+        "DAIMON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Germinal",
+      "semanticField": "Seed / Beginning / Generative",
+      "layers": {
+        "pie": "*gen- (to give birth)",
+        "middleEnglish": "germinal",
+        "classicalLatin": "germinalis",
+        "ancientGreek": "spermatikos (σπερματικός)",
+        "oldFrench": "germinal",
+        "sanskrit": "bīja (बीज)"
+      },
+      "driftNotes": "Latin germen=sprout, bud; germinal=of the first seed stage; the potential held in the seed",
+      "candidates": [
+        "GERMIN",
+        "GERMIS",
+        "SPERMIK"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Gestalt",
+      "semanticField": "Whole Form / Unified Pattern",
+      "layers": {
+        "pie": "*stel-2 (to put, stand)",
+        "ancientGreek": "holon (ὅλον)",
+        "sanskrit": "pūrṇa-rūpa (पूर्णरूप)"
+      },
+      "driftNotes": "German Gestalt=form, shape; the organized whole perceived as more than its parts",
+      "candidates": [
+        "GESTALT",
+        "STELLEN",
+        "HOLON"
+      ],
+      "tone": "German",
+      "syllables": 2
+    },
+    {
+      "word": "Glory",
+      "semanticField": "Honor / Radiance / Fame",
+      "layers": {
+        "pie": "*gno- (to know, fame)",
+        "middleEnglish": "glorie",
+        "classicalLatin": "gloria",
+        "ancientGreek": "doxa (δόξα)",
+        "oldFrench": "gloire",
+        "sanskrit": "yaśas (यशस्)",
+        "arabic": "majd (مجد)"
+      },
+      "driftNotes": "Latin gloria=fame, renown; Greek doxa=glory and opinion; the shining reputation",
+      "candidates": [
+        "GLORI",
+        "GLORIS",
+        "DOXON"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Grandeur",
+      "semanticField": "Greatness / Magnificence",
+      "layers": {
+        "pie": "*meg- (great)",
+        "middleEnglish": "grandeur",
+        "classicalLatin": "grandis",
+        "ancientGreek": "megaloprepeia (μεγαλοπρέπεια)",
+        "oldFrench": "grandeur",
+        "sanskrit": "mahimā (महिमा)"
+      },
+      "driftNotes": "French grandeur from Latin grandis=great; the quality of impressively great scale",
+      "candidates": [
+        "GRAND",
+        "GRANDIS",
+        "MEGALO"
+      ],
+      "tone": "French/Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Groundbreaking",
+      "semanticField": "Pioneering / First / Inaugural",
+      "layers": {
+        "pie": "*ghrendh- (to rub, grind)",
+        "protoGermanic": "*grunduz + *brekaną",
+        "oldEnglish": "grund + brecan",
+        "oldNorse": "grund + brjóta",
+        "middleEnglish": "groundbreking"
+      },
+      "driftNotes": "Germanic compound; literally breaking new ground; the first penetration of virgin soil",
+      "candidates": [
+        "GRUNDBR",
+        "GRUNDER",
+        "BREKEN"
+      ],
+      "tone": "Germanic",
+      "syllables": 4
+    },
+    {
+      "word": "Guardianship",
+      "semanticField": "Protection / Stewardship / Watch",
+      "layers": {
+        "pie": "*wer-4 (to perceive, watch)",
+        "protoGermanic": "*wardaną",
+        "oldEnglish": "weardian",
+        "oldNorse": "varða (to guard)",
+        "middleEnglish": "guardienship",
+        "vulgarLatin": "guardiania",
+        "ancientGreek": "phulakē (φυλακή)",
+        "oldFrench": "gardein",
+        "sanskrit": "rakṣakī (रक्षकी)"
+      },
+      "driftNotes": "Frankish/Germanic wardōn; the trusted office of watching over and protecting another",
+      "candidates": [
+        "GUARD",
+        "WARDAN",
+        "PHYLAK"
+      ],
+      "tone": "Germanic/French",
+      "syllables": 4
+    },
+    {
+      "word": "Harmony",
+      "semanticField": "Agreement / Concord / Balance",
+      "layers": {
+        "pie": "*ar-2 (to fit, join)",
+        "middleEnglish": "harmonye",
+        "classicalLatin": "harmonia",
+        "ancientGreek": "harmonia (ἁρμονία)",
+        "oldFrench": "harmonie",
+        "sanskrit": "sāmarasya (सामरस्य)"
+      },
+      "driftNotes": "Greek harmonia=joint, agreement; harmos=a joining; the fitting together of disparate parts",
+      "candidates": [
+        "HARMON",
+        "HARMIS",
+        "SAMRAS"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Hero",
+      "semanticField": "Champion / Guardian / Warrior",
+      "layers": {
+        "pie": "*ser-1 (to watch over, protect)",
+        "middleEnglish": "hereo",
+        "classicalLatin": "heros",
+        "ancientGreek": "hērōs (ἥρως)",
+        "oldFrench": "héros",
+        "sanskrit": "vīra (वीर)"
+      },
+      "driftNotes": "Greek hērōs; may link to Hera (protector) or *ser- (to protect); the guardian-warrior archetype",
+      "candidates": [
+        "HEROS",
+        "HEROIK",
+        "VIRON"
+      ],
+      "tone": "Greek",
+      "syllables": 2
+    },
+    {
+      "word": "Illuminate",
+      "semanticField": "Light / Reveal / Enlighten",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "middleEnglish": "illuminen",
+        "classicalLatin": "illuminare",
+        "ancientGreek": "phōtizein (φωτίζειν)",
+        "oldFrench": "illuminer",
+        "sanskrit": "prakāśita (प्रकाशित)"
+      },
+      "driftNotes": "Latin in+lumen=to put light into; making visible what was dark; the lamp as mind",
+      "candidates": [
+        "ILLUMIN",
+        "LUMINE",
+        "PHOTIZ"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Illumination",
+      "semanticField": "Light / Understanding / Revelation",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "middleEnglish": "illuminacioun",
+        "classicalLatin": "illuminatio",
+        "ancientGreek": "phōtismos (φωτισμός)",
+        "oldFrench": "illumination",
+        "sanskrit": "prakāśa (प्रकाश)"
+      },
+      "driftNotes": "Noun of illuminate; the state or completed act of bringing light into darkness",
+      "candidates": [
+        "ILLUMIN",
+        "LUMINOS",
+        "PHOTIS"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Illustrious",
+      "semanticField": "Distinguished / Brilliant / Renowned",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "middleEnglish": "illustrious",
+        "classicalLatin": "illustris",
+        "ancientGreek": "lampros (λαμπρός)",
+        "oldFrench": "illustre",
+        "sanskrit": "yaśasvī (यशस्वी)"
+      },
+      "driftNotes": "Latin illustris=bright, distinguished; one who shines with earned distinction",
+      "candidates": [
+        "ILLUSTR",
+        "LUSTRIS",
+        "LAMPR"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Impregnable",
+      "semanticField": "Unconquerable / Inviolable",
+      "layers": {
+        "pie": "*ghend- (to seize)",
+        "middleEnglish": "impregnable",
+        "classicalLatin": "inexpugnabilis",
+        "ancientGreek": "aheires (ἄεirεs)",
+        "oldFrench": "imprenable",
+        "sanskrit": "abhejya (अभेद्य)"
+      },
+      "driftNotes": "Old French in+prenable=not-takeable; a fortress no force can seize or penetrate",
+      "candidates": [
+        "IMPREG",
+        "PRENAB",
+        "AHALOT"
+      ],
+      "tone": "French/Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Individuation",
+      "semanticField": "Self / Becoming Whole / Distinct",
+      "layers": {
+        "pie": "*weidh- (to divide, separate)",
+        "middleEnglish": "individuacioun",
+        "vulgarLatin": "individuatio",
+        "ancientGreek": "idiōsis (ἰδίωσις)",
+        "oldFrench": "individuation",
+        "sanskrit": "svayambhava (स्वयंभव)"
+      },
+      "driftNotes": "Jung's term; Latin individuum=undivided; paradoxically: separating to become whole self",
+      "candidates": [
+        "INDIVID",
+        "INDIVIDUAK",
+        "IDIOM"
+      ],
+      "tone": "Latin",
+      "syllables": 6
+    },
+    {
+      "word": "Indomitable",
+      "semanticField": "Unconquerable / Fierce / Unbroken",
+      "layers": {
+        "pie": "*dem-2 (to constrain, force)",
+        "middleEnglish": "indomitable",
+        "classicalLatin": "indomitabilis",
+        "ancientGreek": "akatamaston (ἀκατάμαστον)",
+        "sanskrit": "ajeya (अजेय)"
+      },
+      "driftNotes": "Latin in+domitare=not-tameable; the spirit that refuses to be broken or domesticated",
+      "candidates": [
+        "INDOMIT",
+        "DOMINUS",
+        "AJEYN"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Infinite",
+      "semanticField": "Endless / Boundless / Without Limit",
+      "layers": {
+        "pie": "*dheigh- (to form, build) neg.",
+        "middleEnglish": "infinite",
+        "classicalLatin": "infinitus",
+        "ancientGreek": "apeiron (ἄπειρον)",
+        "oldFrench": "infini",
+        "sanskrit": "ananta (अनन्त)"
+      },
+      "driftNotes": "Latin in+finis=no-end; Greek apeiron=unbounded; the limitless as a positive quality",
+      "candidates": [
+        "INFIN",
+        "INFINIT",
+        "APEIRON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Ingenuity",
+      "semanticField": "Cleverness / Invention / Native Wit",
+      "layers": {
+        "pie": "*gen- (to give birth, beget)",
+        "middleEnglish": "ingeniousite",
+        "classicalLatin": "ingeniositas",
+        "ancientGreek": "mechanē (μηχανή)",
+        "oldFrench": "ingéniosité",
+        "sanskrit": "pratibhā (प्रतिभा)"
+      },
+      "driftNotes": "Latin ingenium=inborn talent; ingenuus=native, free-born; the spark that is one's native gift",
+      "candidates": [
+        "INGENU",
+        "INGENIUM",
+        "MECHAN"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Inimitable",
+      "semanticField": "Matchless / Unique / Uncopied",
+      "layers": {
+        "pie": "*aim- (to copy)",
+        "middleEnglish": "inimitable",
+        "classicalLatin": "inimitabilis",
+        "ancientGreek": "anamimētos (ἀναμίμητος)",
+        "oldFrench": "inimitable",
+        "sanskrit": "atulyā (अतुल्य)"
+      },
+      "driftNotes": "Latin in+imitabilis=cannot-be-copied; so singular that imitation is impossible",
+      "candidates": [
+        "INIMIT",
+        "IMITAB",
+        "ANAMIM"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Innovation",
+      "semanticField": "Renewal / New Making / Invention",
+      "layers": {
+        "pie": "*newo- (new)",
+        "middleEnglish": "innovacioun",
+        "classicalLatin": "innovatio",
+        "ancientGreek": "kainotomia (καινοτομία)",
+        "oldFrench": "innovation",
+        "sanskrit": "nava-sṛjana (नवसृजन)",
+        "arabic": "ibtikār (ابتكار)"
+      },
+      "driftNotes": "Latin in+novus=renewing into new; Greek kainotomia=cutting new ground",
+      "candidates": [
+        "INNOV",
+        "NOVATIO",
+        "KAINOT"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Insight",
+      "semanticField": "Understanding / Direct Vision",
+      "layers": {
+        "pie": "*sek-2 (to see, follow)",
+        "protoGermanic": "*segwiz",
+        "oldEnglish": "innsihþ",
+        "oldNorse": "innsýni (insight)",
+        "middleEnglish": "insight",
+        "classicalLatin": "perspicacia",
+        "ancientGreek": "dioratikotēs (διορατικότης)",
+        "sanskrit": "antarjñāna (अन्तर्ज्ञान)"
+      },
+      "driftNotes": "Germanic sight-prefix; seeing into the inside of things; the direct vision of what lies within",
+      "candidates": [
+        "INSYHT",
+        "SIHTHE",
+        "INNSIHN"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Inspiration",
+      "semanticField": "Breath / Creativity / Divine Breath",
+      "layers": {
+        "pie": "*speis- (to blow, breathe)",
+        "middleEnglish": "inspiracioun",
+        "classicalLatin": "inspiratio",
+        "ancientGreek": "enthousiosmos (ἐνθουσιασμός)",
+        "oldFrench": "inspiration",
+        "sanskrit": "prāṇaśakti (प्राणशक्ति)"
+      },
+      "driftNotes": "Latin in+spirare=to breathe into; the divine breath blown into the creative artist",
+      "candidates": [
+        "INSPIR",
+        "SPIRARE",
+        "ENTHUS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Inspire",
+      "semanticField": "Breathe Into / Motivate / Awaken",
+      "layers": {
+        "pie": "*speis- (to blow, breathe)",
+        "middleEnglish": "inspiren",
+        "classicalLatin": "inspirare",
+        "ancientGreek": "empsuchoun (ἐμψυχοῦν)",
+        "oldFrench": "inspirer",
+        "sanskrit": "prāṇita (प्राणित)"
+      },
+      "driftNotes": "Latin in+spirare=to breathe divine breath into; to fill another with living spirit",
+      "candidates": [
+        "INSPIR",
+        "SPIRANT",
+        "EMPSY"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Integration",
+      "semanticField": "Wholeness / Unity / Making Whole",
+      "layers": {
+        "pie": "*tag- (to touch, handle)",
+        "middleEnglish": "integracioun",
+        "classicalLatin": "integratio",
+        "ancientGreek": "holoklerōsis (ὁλοκλήρωσις)",
+        "oldFrench": "intégration",
+        "sanskrit": "samāgrahana (समाग्रहण)"
+      },
+      "driftNotes": "Latin integer=whole, untouched; integration=making whole by touching all parts together",
+      "candidates": [
+        "INTEGR",
+        "INTEGRIS",
+        "HOLOK"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Intellect",
+      "semanticField": "Mind / Understanding / Discernment",
+      "layers": {
+        "pie": "*leg-1 (to gather, choose)",
+        "middleEnglish": "intellect",
+        "classicalLatin": "intellectus",
+        "ancientGreek": "nous (νοῦς)",
+        "oldFrench": "intellect",
+        "sanskrit": "buddhi (बुद्धि)"
+      },
+      "driftNotes": "Latin inter+legere=to choose between; the discerning, selecting faculty of the rational mind",
+      "candidates": [
+        "INTELLECT",
+        "LECTUS",
+        "NOUST"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Interconnected",
+      "semanticField": "Linked / Networked / Woven",
+      "layers": {
+        "pie": "*ned- (to bind, knot)",
+        "middleEnglish": "interconnected",
+        "classicalLatin": "connexio",
+        "ancientGreek": "allēlosyndetē (ἀλληλοσύνδετη)",
+        "sanskrit": "parasparasambaddha (परस्परसम्बद्ध)"
+      },
+      "driftNotes": "Modern compound; the mutual knotting of all things within a network of relationship",
+      "candidates": [
+        "INTERCONN",
+        "NEXION",
+        "ALLEL"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Intuition",
+      "semanticField": "Direct Knowing / Inner Sight",
+      "layers": {
+        "pie": "*teu-2 (to pay attention to)",
+        "middleEnglish": "intuicioun",
+        "classicalLatin": "intuitio",
+        "ancientGreek": "aisthēsis (αἴσθησις)",
+        "oldFrench": "intuition",
+        "sanskrit": "anubhava (अनुभव)"
+      },
+      "driftNotes": "Latin in+tueri=to gaze within; the direct inward gazing that bypasses discursive reasoning",
+      "candidates": [
+        "INTUIT",
+        "TUERIS",
+        "AISTH"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Invigorate",
+      "semanticField": "Energize / Strengthen / Animate",
+      "layers": {
+        "pie": "*weg-1 (to be strong, lively)",
+        "middleEnglish": "invigoraten",
+        "vulgarLatin": "invigorare",
+        "ancientGreek": "tonōsis (τόνωσις)",
+        "sanskrit": "ojasvī (ओजस्वी)"
+      },
+      "driftNotes": "Latin in+vigor=to put vigor into; charging a body with life-force from without",
+      "candidates": [
+        "INVIG",
+        "VIGORIS",
+        "TONOS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Joy",
+      "semanticField": "Happiness / Delight / Gladness",
+      "layers": {
+        "pie": "*gau- (to rejoice)",
+        "middleEnglish": "joie",
+        "classicalLatin": "gaudium",
+        "ancientGreek": "chara (χαρά)",
+        "oldFrench": "joie",
+        "sanskrit": "ānanda (आनन्द)"
+      },
+      "driftNotes": "Old French joie from Latin gaudium; Greek chara shares the same warmth and intimacy",
+      "candidates": [
+        "JOY",
+        "JOIE",
+        "CHARON"
+      ],
+      "tone": "French/Latin",
+      "syllables": 1
+    },
+    {
+      "word": "Jubilation",
+      "semanticField": "Rejoicing / Exultation / Triumph",
+      "layers": {
+        "pie": "*yu-1 (to shout for joy)",
+        "middleEnglish": "jubilacion",
+        "classicalLatin": "jubilatio",
+        "ancientGreek": "agalliasis (ἀγαλλίασις)",
+        "oldFrench": "jubilation",
+        "sanskrit": "harṣodbhava (हर्षोद्भव)",
+        "hebrew": "yōbēl (יוֹבֵל)"
+      },
+      "driftNotes": "Latin jubilare=to shout for joy; Hebrew yōbēl=ram's horn (jubilee trumpet); joy as sacred shout",
+      "candidates": [
+        "JUBIL",
+        "JUBILATE",
+        "AGALL"
+      ],
+      "tone": "Latin/Hebrew",
+      "syllables": 4
+    },
+    {
+      "word": "Kinship",
+      "semanticField": "Family / Belonging / Blood-bond",
+      "layers": {
+        "pie": "*gen- (to give birth, beget)",
+        "protoGermanic": "*kunją",
+        "oldEnglish": "cynn (family, kin)",
+        "oldNorse": "kyn (kin)",
+        "middleEnglish": "kinship",
+        "classicalLatin": "genus",
+        "ancientGreek": "syngeneia (συγγένεια)",
+        "sanskrit": "jñāti (ज्ञाति)"
+      },
+      "driftNotes": "Pure Old English/Norse cynn; the blood-bond of family; birth as the original bond",
+      "candidates": [
+        "KYNN",
+        "KYNJE",
+        "SYNGEN"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Knowledge",
+      "semanticField": "Understanding / Wisdom / Knowing",
+      "layers": {
+        "pie": "*gno- (to know)",
+        "protoGermanic": "*knēaną",
+        "oldEnglish": "cnāwan (to know)",
+        "oldNorse": "kenna (to know)",
+        "middleEnglish": "knowleche",
+        "classicalLatin": "cognitio",
+        "ancientGreek": "gnōsis (γνῶσις)",
+        "oldFrench": "connaissance",
+        "sanskrit": "jñāna (ज्ञान)"
+      },
+      "driftNotes": "Germanic cnāwan; same PIE root as Greek gnosis, Latin cognitio; the most direct knowing",
+      "candidates": [
+        "KNOWL",
+        "KNAWEN",
+        "GNOSIS"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Lambent",
+      "semanticField": "Softly Glowing / Flickering Light",
+      "layers": {
+        "pie": "*lab- (to lick)",
+        "middleEnglish": "lambent",
+        "classicalLatin": "lambere",
+        "ancientGreek": "stilbōn (στίλβων)"
+      },
+      "driftNotes": "Latin lambere=to lick; light that licks and plays softly over a surface; the gentlest radiance",
+      "candidates": [
+        "LAMBEN",
+        "LAMBA",
+        "STILBON"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Largesse",
+      "semanticField": "Generosity / Abundance / Noble Giving",
+      "layers": {
+        "pie": "*sleg- (loose, slack)",
+        "middleEnglish": "largesse",
+        "classicalLatin": "largus (abundant)",
+        "ancientGreek": "megalodōria (μεγαλοδωρία)",
+        "oldFrench": "largesse",
+        "sanskrit": "audārya (औदार्य)"
+      },
+      "driftNotes": "Latin largus=abundant, plentiful; the noble giving of abundance with open hands",
+      "candidates": [
+        "LARG",
+        "LARGIS",
+        "MEGALDO"
+      ],
+      "tone": "French/Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Legacy",
+      "semanticField": "Heritage / Inheritance / What Endures",
+      "layers": {
+        "pie": "*leg-1 (to gather, collect)",
+        "middleEnglish": "legacie",
+        "classicalLatin": "legatum",
+        "ancientGreek": "klēronomia (κληρονομία)",
+        "oldFrench": "legs",
+        "sanskrit": "parampara (परम्परा)"
+      },
+      "driftNotes": "Latin legare=to send, bequeath; what is gathered and sent forward through time",
+      "candidates": [
+        "LEGAC",
+        "LEGATUM",
+        "KLEROM"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Liberation",
+      "semanticField": "Freedom / Release / Emancipation",
+      "layers": {
+        "pie": "*leudh-2 (to mount up, grow)",
+        "middleEnglish": "liberacioun",
+        "classicalLatin": "liberatio",
+        "ancientGreek": "eleutherōsis (ἐλευθέρωσις)",
+        "oldFrench": "libération",
+        "sanskrit": "mokṣa (मोक्ष)"
+      },
+      "driftNotes": "Latin liber=free; the free person as one who grows upward; freedom as organic growth",
+      "candidates": [
+        "LIBER",
+        "LIBERIS",
+        "ELEUTHER"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Life",
+      "semanticField": "Living / Existence / Vitality",
+      "layers": {
+        "pie": "*leip- (to stick, adhere; persist)",
+        "protoGermanic": "*lībą",
+        "oldEnglish": "lif",
+        "oldNorse": "líf",
+        "middleEnglish": "lyf",
+        "classicalLatin": "vita",
+        "ancientGreek": "zōē (ζωή)",
+        "sanskrit": "jīvana (जीवन)",
+        "hebrew": "hayyim (חַיִּים)",
+        "celtic": "bith (Old Irish)"
+      },
+      "driftNotes": "Pure Old English; the most primary word; the root of all living and surviving",
+      "candidates": [
+        "LIF",
+        "LYFE",
+        "ZOEN"
+      ],
+      "tone": "Germanic",
+      "syllables": 1
+    },
+    {
+      "word": "Lifeforce",
+      "semanticField": "Vital Energy / Animating Power",
+      "layers": {
+        "pie": "*leip- + *bhergh-",
+        "protoGermanic": "*lībą + *kraftiz",
+        "oldEnglish": "lif + cræft",
+        "oldNorse": "líf + kraptr",
+        "middleEnglish": "lyfforce",
+        "classicalLatin": "vita + vis",
+        "ancientGreek": "zōē + dynamis",
+        "sanskrit": "prāṇa (प्राण)"
+      },
+      "driftNotes": "Germanic compound; the force that animates all living matter; parallel to Sanskrit prāṇa",
+      "candidates": [
+        "LIFECR",
+        "LYFKR",
+        "ZOEDYN"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Lucent",
+      "semanticField": "Glowing / Clear / Shining",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "middleEnglish": "lucent",
+        "classicalLatin": "lucens",
+        "ancientGreek": "lampros (λαμπρός)",
+        "oldFrench": "luisant",
+        "sanskrit": "prakāśa (प्रकाश)"
+      },
+      "driftNotes": "Latin lucere=to shine; lucent=actively shining with clear, translucent light",
+      "candidates": [
+        "LUCEN",
+        "LUCIS",
+        "LAMPROS"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Luminary",
+      "semanticField": "Leader / Light-giver / Beacon",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "middleEnglish": "luminarie",
+        "vulgarLatin": "luminarium",
+        "ancientGreek": "phōstēr (φωστήρ)",
+        "oldFrench": "luminaire",
+        "sanskrit": "jyotiṣa (ज्योतिष)"
+      },
+      "driftNotes": "Medieval Latin luminarium; a body that gives light; extended to mean one who illuminates minds",
+      "candidates": [
+        "LUMIN",
+        "LUMINAR",
+        "PHOTER"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Luminosity",
+      "semanticField": "Radiance / Brightness / Glow",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "middleEnglish": "luminosite",
+        "classicalLatin": "luminosus",
+        "ancientGreek": "phōteinos (φωτεινός)",
+        "oldFrench": "luminosité",
+        "sanskrit": "dīptimattā (दीप्तिमत्ता)"
+      },
+      "driftNotes": "Latin luminosus=full of light; the measurable quality and intensity of light output",
+      "candidates": [
+        "LUMINOS",
+        "LUMINIK",
+        "PHOTIN"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Magnanimity",
+      "semanticField": "Great-spiritedness / Generosity of Soul",
+      "layers": {
+        "pie": "*meg- (great) + *ane-1 (breathe)",
+        "middleEnglish": "magnanymyte",
+        "classicalLatin": "magnanimitas",
+        "ancientGreek": "megalopsychia (μεγαλοψυχία)",
+        "oldFrench": "magnanimité",
+        "sanskrit": "mahattva (महत्त्व)"
+      },
+      "driftNotes": "Latin magnus+animus=great-souled; Aristotle's megalopsychia=the ideal greatness of the proper soul",
+      "candidates": [
+        "MAGNAN",
+        "MAGNANIMIS",
+        "MEGALO"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Magnificence",
+      "semanticField": "Splendor / Greatness / Grandeur",
+      "layers": {
+        "pie": "*meg- (great)",
+        "middleEnglish": "magnificence",
+        "classicalLatin": "magnificentia",
+        "ancientGreek": "megaloprepeia (μεγαλοπρέπεια)",
+        "oldFrench": "magnificence",
+        "sanskrit": "mahiman (महिमन्)"
+      },
+      "driftNotes": "Latin magnus+facere=to make great; the making or showing of greatness in visible form",
+      "candidates": [
+        "MAGNIFIC",
+        "MAGNIFIS",
+        "MEGALPRE"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Majesty",
+      "semanticField": "Greatness / Dignity / Sovereign Power",
+      "layers": {
+        "pie": "*meg- (great)",
+        "middleEnglish": "majeste",
+        "classicalLatin": "majestas",
+        "ancientGreek": "megaleiotes (μεγαλειότης)",
+        "oldFrench": "majesté",
+        "sanskrit": "prabhāva (प्रभाव)"
+      },
+      "driftNotes": "Latin majestas from major=greater; formal greatness of sovereign power and presence",
+      "candidates": [
+        "MAJESTAS",
+        "MAJESTIS",
+        "MEGALIS"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Manifest",
+      "semanticField": "Evident / Made Real / Visible",
+      "layers": {
+        "pie": "*man-2 (hand) + *dhers-",
+        "middleEnglish": "manifeste",
+        "classicalLatin": "manifestus",
+        "ancientGreek": "emphanēs (ἐμφανής)",
+        "oldFrench": "manifeste",
+        "sanskrit": "pratyakṣa (प्रत्यक्ष)"
+      },
+      "driftNotes": "Latin manus+festus=struck by hand; caught in the act; made tangibly undeniable",
+      "candidates": [
+        "MANIF",
+        "MANIFES",
+        "EMPHANE"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Manna",
+      "semanticField": "Divine Gift / Miraculous Sustenance",
+      "layers": {
+        "middleEnglish": "manna",
+        "classicalLatin": "manna",
+        "ancientGreek": "manna (μάννα)",
+        "oldFrench": "manne",
+        "arabic": "mann (مَنّ)",
+        "hebrew": "mānnā (מָן)"
+      },
+      "driftNotes": "Hebrew mānnā='What is it?'; the miraculous food; the gift that comes without explanation",
+      "candidates": [
+        "MANNA",
+        "MANNO",
+        "MANNIS"
+      ],
+      "tone": "Hebrew",
+      "syllables": 2
+    },
+    {
+      "word": "Mastery",
+      "semanticField": "Skill / Command / Excellence",
+      "layers": {
+        "pie": "*meg- (great)",
+        "middleEnglish": "maistrie",
+        "classicalLatin": "magisterium",
+        "ancientGreek": "archē (ἀρχή)",
+        "oldFrench": "maîtrise",
+        "sanskrit": "niṣṇātatā (निष्णातता)"
+      },
+      "driftNotes": "Latin magister=great-one (mag+ister); mastery=being the great one; excellence of command",
+      "candidates": [
+        "MAISTRE",
+        "MAGIST",
+        "ARCHON"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Metamorphic",
+      "semanticField": "Transforming / Changing Form",
+      "layers": {
+        "pie": "*wer-3 (to turn) + *morph-",
+        "middleEnglish": "metamorphik",
+        "ancientGreek": "metamorphikos (μεταμορφικός)",
+        "oldFrench": "métamorphique",
+        "sanskrit": "rūpāntarita (रूपान्तरित)"
+      },
+      "driftNotes": "Greek meta+morphē=beyond-form; transformation through change of essential shape",
+      "candidates": [
+        "METAMOR",
+        "MORPHON",
+        "RUPANT"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Miraculous",
+      "semanticField": "Wonderful / Astonishing / Beyond Nature",
+      "layers": {
+        "pie": "*smei- (to smile, be amazed)",
+        "middleEnglish": "miraculouse",
+        "vulgarLatin": "miraculosus",
+        "ancientGreek": "thaumasios (θαυμάσιος)",
+        "oldFrench": "miraculeux",
+        "sanskrit": "atiśaya (अतिशय)"
+      },
+      "driftNotes": "Latin mirari=to wonder at; mirus=wonderful; wonder that exceeds natural explanation",
+      "candidates": [
+        "MIRACUL",
+        "MIRANDUS",
+        "THAUMAS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Mobilize",
+      "semanticField": "Activate / Put in Motion",
+      "layers": {
+        "pie": "*meue-1 (to push away, move)",
+        "middleEnglish": "mobilisen",
+        "classicalLatin": "mobilis",
+        "ancientGreek": "kinēsis (κίνησις)",
+        "oldFrench": "mobiliser",
+        "sanskrit": "sacal (सचल)"
+      },
+      "driftNotes": "Latin mobilis=movable; from movere=to move; the act of putting into coordinated motion",
+      "candidates": [
+        "MOBIL",
+        "MOBILAK",
+        "KINESIS"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Moksha",
+      "semanticField": "Liberation / Spiritual Freedom",
+      "layers": {
+        "pie": "*√muc (to release)",
+        "sanskrit": "mokṣa (मोक्ष)"
+      },
+      "driftNotes": "Sanskrit root √muc=to release; the final liberation from the cycle of existence; ultimate freedom",
+      "candidates": [
+        "MOKSHA",
+        "MUKTIS",
+        "MOKSHIN"
+      ],
+      "tone": "Sanskrit",
+      "syllables": 2
+    },
+    {
+      "word": "Momentum",
+      "semanticField": "Force / Impetus / Movement",
+      "layers": {
+        "pie": "*meue-1 (to push away, move)",
+        "middleEnglish": "momentum",
+        "classicalLatin": "momentum",
+        "ancientGreek": "ormē (ὁρμή)",
+        "sanskrit": "āvega (आवेग)"
+      },
+      "driftNotes": "Latin momentum=movement, influence; mass × velocity of a moving body or a building idea",
+      "candidates": [
+        "MOMENT",
+        "MOMENTIS",
+        "ORMEON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Munificence",
+      "semanticField": "Generous Giving / Largesse",
+      "layers": {
+        "pie": "*mei-1 (to change, exchange)",
+        "middleEnglish": "munificence",
+        "classicalLatin": "munificentia",
+        "ancientGreek": "philodōria (φιλοδωρία)",
+        "oldFrench": "munificence",
+        "sanskrit": "audārya (औदार्य)"
+      },
+      "driftNotes": "Latin munus+facere=to make/give gifts as duty; generosity as a noble obligation",
+      "candidates": [
+        "MUNIFIC",
+        "MUNERIS",
+        "PHILOD"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Mutualism",
+      "semanticField": "Reciprocity / Interdependence",
+      "layers": {
+        "pie": "*mei-1 (to change, exchange)",
+        "middleEnglish": "mutualisme",
+        "classicalLatin": "mutuus (reciprocal)",
+        "ancientGreek": "allēlepidrasis (ἀλληλεπίδραση)",
+        "oldFrench": "mutualisme",
+        "sanskrit": "parasparāyatana (परस्परायतन)"
+      },
+      "driftNotes": "Latin mutare=to exchange; mutuus=reciprocal; mutual exchange as ecological principle",
+      "candidates": [
+        "MUTUAL",
+        "MUTUAK",
+        "ALLEL"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Nirvana",
+      "semanticField": "Extinction / Bliss / Peace",
+      "layers": {
+        "pie": "*wē-2 (to blow) + nir- (out)",
+        "sanskrit": "nirvāṇa (निर्वाण)"
+      },
+      "driftNotes": "Sanskrit nir+vā=blown out; the extinguishing of the ego-flame; ultimate peace beyond desire",
+      "candidates": [
+        "NIRVAN",
+        "NIRVANI",
+        "SANTHIS"
+      ],
+      "tone": "Sanskrit",
+      "syllables": 3
+    },
+    {
+      "word": "Noosphere",
+      "semanticField": "Mind-sphere / Collective Consciousness",
+      "layers": {
+        "pie": "*gnō- (to know) + *sphairo-",
+        "ancientGreek": "noos + sphaira (νόος + σφαῖρα)",
+        "oldFrench": "noosphère"
+      },
+      "driftNotes": "Coined by Teilhard de Chardin; Greek noos (mind) + sphaira (sphere); the sphere of human thought",
+      "candidates": [
+        "NOOSPH",
+        "NOIKON",
+        "GNOMON"
+      ],
+      "tone": "Greek (modern)",
+      "syllables": 3
+    },
+    {
+      "word": "Nourishment",
+      "semanticField": "Feeding / Sustaining / Growing",
+      "layers": {
+        "pie": "*pa- (to protect, feed)",
+        "middleEnglish": "norissement",
+        "classicalLatin": "nutrimentum",
+        "ancientGreek": "trophē (τροφή)",
+        "oldFrench": "nourriture",
+        "sanskrit": "poṣaṇa (पोषण)"
+      },
+      "driftNotes": "Latin nutrire=to suckle, nourish; the feeding that sustains and enables growth",
+      "candidates": [
+        "NOURIS",
+        "NUTRIT",
+        "TROPHON"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Olympian",
+      "semanticField": "Divine / Supreme / Godlike / Transcendent",
+      "layers": {
+        "middleEnglish": "olimpian",
+        "ancientGreek": "Olympios (Ὀλύμπιος)",
+        "oldFrench": "olympien",
+        "sanskrit": "deva-sama (देवसम)"
+      },
+      "driftNotes": "From Mount Olympus, home of the gods; the divine, sky-dwelling, unbound power",
+      "candidates": [
+        "OLYMP",
+        "OLIMPOS",
+        "DEVON"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Optimism",
+      "semanticField": "Hope / Best-expectation / Positive Vision",
+      "layers": {
+        "pie": "*op-1 (to work, produce)",
+        "middleEnglish": "optimisme",
+        "classicalLatin": "optimum (the best)",
+        "ancientGreek": "elpis (ἐλπίς)",
+        "oldFrench": "optimisme",
+        "sanskrit": "āśāvāda (आशावाद)"
+      },
+      "driftNotes": "Latin optimus=best; the philosophical belief that the best outcome is probable",
+      "candidates": [
+        "OPTIM",
+        "OPTIMIS",
+        "ELPIST"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Optimization",
+      "semanticField": "Perfecting / Best-making / Refining",
+      "layers": {
+        "pie": "*op-1 (to work, produce)",
+        "vulgarLatin": "optimizare",
+        "oldFrench": "optimisation",
+        "sanskrit": "sarvottamatā (सर्वोत्तमता)"
+      },
+      "driftNotes": "Making the best possible version; extracting the maximum from a given set of conditions",
+      "candidates": [
+        "OPTIMA",
+        "OPTIMAK",
+        "ARISTON"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Orchestration",
+      "semanticField": "Coordination / Arrangement / Choreography",
+      "layers": {
+        "pie": "*orkh- (to dance)",
+        "middleEnglish": "orchestracioun",
+        "ancientGreek": "orkhēstra (ὀρχήστρα)",
+        "oldFrench": "orchestration"
+      },
+      "driftNotes": "Greek orkhesthai=to dance; orchestra=dancing place; coordination as choreography of parts",
+      "candidates": [
+        "ORCHEST",
+        "ORKHEON",
+        "ARKHOS"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Organisms",
+      "semanticField": "Living Systems / Life-forms",
+      "layers": {
+        "pie": "*werg-1 (to work) via organon",
+        "middleEnglish": "organismes",
+        "ancientGreek": "organismos (ὀργανισμός)",
+        "oldFrench": "organismes",
+        "sanskrit": "jīva (जीव)"
+      },
+      "driftNotes": "Greek organon=instrument, tool; organism=a living instrument that works itself",
+      "candidates": [
+        "ORGAN",
+        "ORGANIS",
+        "JIVON"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Overcome",
+      "semanticField": "Conquer / Prevail / Surmount",
+      "layers": {
+        "pie": "*uper- (over) + *gwa- (to go)",
+        "protoGermanic": "*uber + *kwemaną",
+        "oldEnglish": "ofercuman",
+        "oldNorse": "yfir-koma",
+        "middleEnglish": "overcome",
+        "sanskrit": "vijaya (विजय)"
+      },
+      "driftNotes": "Pure Old English/Germanic compound; to come over something; to prevail through presence",
+      "candidates": [
+        "OVERCUM",
+        "YFIRKOMA",
+        "UBERK"
+      ],
+      "tone": "Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Panacea",
+      "semanticField": "Universal Cure / Total Solution",
+      "layers": {
+        "pie": "*pant- (all) + *ak- (heal)",
+        "middleEnglish": "panacea",
+        "classicalLatin": "panacea",
+        "ancientGreek": "panakeia (πανάκεια)",
+        "oldFrench": "panacée",
+        "sanskrit": "sarvauṣadha (सर्वौषध)"
+      },
+      "driftNotes": "Greek pan+akeia=all-healing; the mythical herb that cures every ill; the perfect solution",
+      "candidates": [
+        "PANAC",
+        "AKEIA",
+        "SARVOSH"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Panache",
+      "semanticField": "Flair / Style / Bold Elegance",
+      "layers": {
+        "pie": "*pet-1 (to rush, fly)",
+        "oldFrench": "panache (plume)"
+      },
+      "driftNotes": "French from Italian pennacchio=plume; the helmet-feather as symbol of daring and vivid style",
+      "candidates": [
+        "PANACH",
+        "PENNAC",
+        "PLUMER"
+      ],
+      "tone": "French/Italian",
+      "syllables": 2
+    },
+    {
+      "word": "Paradise",
+      "semanticField": "Heaven / Ideal Place / Garden",
+      "layers": {
+        "pie": "*pari- (around) + *dheigh- (build)",
+        "middleEnglish": "paradis",
+        "classicalLatin": "paradisus",
+        "ancientGreek": "paradeisos (παράδεισος)",
+        "oldFrench": "paradis",
+        "sanskrit": "svarga (स्वर्ग)",
+        "arabic": "firdaws (فِرْدَوْس)",
+        "persian": "pairidaēza (پَيرِی‌دَئِزَه)",
+        "hebrew": "pardes (פַּרְדֵּס)"
+      },
+      "driftNotes": "Old Iranian pairidaēza=walled garden enclosure; paradise as the original protected garden",
+      "candidates": [
+        "PARADEIS",
+        "DAEZA",
+        "PARDISH"
+      ],
+      "tone": "Persian/Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Paragon",
+      "semanticField": "Ideal / Perfect Example / Standard",
+      "layers": {
+        "pie": "*ak- (sharp, pointed)",
+        "middleEnglish": "paragon",
+        "ancientGreek": "parakonē (παρακονή)",
+        "oldFrench": "parangon",
+        "sanskrit": "ādarśa (आदर्श)"
+      },
+      "driftNotes": "Greek parakone=whetstone; the standard against which all else is sharpened; the ideal form",
+      "candidates": [
+        "PARAGON",
+        "PARAKONE",
+        "AKONIX"
+      ],
+      "tone": "Greek/Italian",
+      "syllables": 3
+    },
+    {
+      "word": "Partnership",
+      "semanticField": "Alliance / Collaboration / Sharing",
+      "layers": {
+        "pie": "*per-1 (to grant, allot)",
+        "middleEnglish": "partnershippe",
+        "ancientGreek": "koinōnia (κοινωνία)",
+        "oldFrench": "partenariat",
+        "sanskrit": "sāhacārya (साहचार्य)"
+      },
+      "driftNotes": "Latin pars=part; partnership=the holding of parts together; mutual portion-holding",
+      "candidates": [
+        "PARTNE",
+        "PARTIS",
+        "KOINON"
+      ],
+      "tone": "Latin/Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Pellucid",
+      "semanticField": "Clear / Transparent / Luminous",
+      "layers": {
+        "pie": "*leuk- (light, brightness)",
+        "middleEnglish": "pellucide",
+        "classicalLatin": "pellucidus",
+        "ancientGreek": "diaphanes (διαφανής)",
+        "oldFrench": "pellucide",
+        "sanskrit": "svaccha (स्वच्छ)"
+      },
+      "driftNotes": "Latin per+lucere=to shine through completely; perfectly transparent and clear",
+      "candidates": [
+        "PELLUC",
+        "LUCIDUS",
+        "DIAPH"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Perseverance",
+      "semanticField": "Persistence / Steadfastness",
+      "layers": {
+        "pie": "*sewer-2 (severe, strict)",
+        "middleEnglish": "perseveraunce",
+        "classicalLatin": "perseverantia",
+        "ancientGreek": "hypomonē (ὑπομονή)",
+        "oldFrench": "persévérance",
+        "sanskrit": "dhṛti (धृति)"
+      },
+      "driftNotes": "Latin per+severare=to remain strict and true throughout; steadfast adherence to purpose",
+      "candidates": [
+        "PERSEV",
+        "SEVERAR",
+        "HYPOMON"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Pinnacle",
+      "semanticField": "Summit / Peak / Highest Point",
+      "layers": {
+        "pie": "*pet-1 (to rush, fly)",
+        "middleEnglish": "pinacle",
+        "vulgarLatin": "pinnaculum",
+        "ancientGreek": "akra (ἄκρα)",
+        "oldFrench": "pinacle",
+        "sanskrit": "agra (अग्र)"
+      },
+      "driftNotes": "Latin pinna=feather, wing, battlement; pinnaculum=little peak; the highest pointed tip",
+      "candidates": [
+        "PINNAC",
+        "PINNAKUL",
+        "AKROX"
+      ],
+      "tone": "Latin/French",
+      "syllables": 3
+    },
+    {
+      "word": "Pioneer",
+      "semanticField": "Trailblazer / First-mover / Leader",
+      "layers": {
+        "pie": "*ped-1 (foot)",
+        "middleEnglish": "pionier",
+        "vulgarLatin": "pedone (foot soldier)",
+        "oldFrench": "pionnier",
+        "sanskrit": "agraja (अग्रज)"
+      },
+      "driftNotes": "French pionnier=foot soldier going ahead; the one who first clears the path on foot",
+      "candidates": [
+        "PIOYN",
+        "PEDONE",
+        "AGRAJA"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Pioneering",
+      "semanticField": "Trailblazing / Path-making / First",
+      "layers": {
+        "pie": "*ped-1 (foot)"
+      },
+      "driftNotes": "Present participle of pioneer; the active act of going first and clearing the way for others",
+      "candidates": [
+        "PIONYR",
+        "PEDONIS",
+        "AGRAJ"
+      ],
+      "tone": "French/Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Plenitude",
+      "semanticField": "Fullness / Abundance / Completeness",
+      "layers": {
+        "pie": "*pleh₁- (to fill)",
+        "middleEnglish": "plenitude",
+        "classicalLatin": "plenitudo",
+        "ancientGreek": "plēthōra (πληθώρα)",
+        "oldFrench": "plénitude",
+        "sanskrit": "pūrṇatā (पूर्णता)"
+      },
+      "driftNotes": "Latin plenus=full; plenitude=the state of being completely full to overflowing",
+      "candidates": [
+        "PLENIT",
+        "PLENITUDO",
+        "PLETHON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Potential",
+      "semanticField": "Possibility / Latent Power",
+      "layers": {
+        "pie": "*poti- (powerful, lord)",
+        "middleEnglish": "potencial",
+        "classicalLatin": "potentialis",
+        "ancientGreek": "dynamis (δύναμις)",
+        "oldFrench": "potentiel",
+        "sanskrit": "śakti (शक्ति)"
+      },
+      "driftNotes": "Latin potentia=power; potential=what is possible for a thing by its very nature",
+      "candidates": [
+        "POTENT",
+        "POTENIS",
+        "DYNAMOS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Precision",
+      "semanticField": "Exactness / Accuracy / Sharp Focus",
+      "layers": {
+        "pie": "*skei- (to cut, separate)",
+        "middleEnglish": "precisioun",
+        "classicalLatin": "praecisio",
+        "ancientGreek": "akribeia (ἀκρίβεια)",
+        "oldFrench": "précision",
+        "sanskrit": "sūkṣmatā (सूक्ष्मता)"
+      },
+      "driftNotes": "Latin prae+caedere=to cut before; precision as the cutting away of all that is excess",
+      "candidates": [
+        "PRECIS",
+        "PRAECIS",
+        "AKRIBON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Preeminent",
+      "semanticField": "Supreme / Outstanding / Foremost",
+      "layers": {
+        "pie": "*men-2 (to project, stand out)",
+        "middleEnglish": "preminente",
+        "classicalLatin": "praeminens",
+        "ancientGreek": "hyperechōn (ὑπερέχων)",
+        "oldFrench": "prééminent",
+        "sanskrit": "agragaṇya (अग्रगण्य)"
+      },
+      "driftNotes": "Latin prae+eminere=to project forward; standing out demonstrably above and before all others",
+      "candidates": [
+        "PREEM",
+        "PRAEMEN",
+        "HYPERE"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Prevail",
+      "semanticField": "Succeed / Overcome / Be Stronger",
+      "layers": {
+        "pie": "*wal-2 (to be strong)",
+        "middleEnglish": "prevailen",
+        "classicalLatin": "praevalere",
+        "ancientGreek": "kratein (κρατεῖν)",
+        "oldFrench": "prévaloir",
+        "sanskrit": "vijaya (विजय)"
+      },
+      "driftNotes": "Latin prae+valere=to be stronger in front; prevailing through sheer superior strength",
+      "candidates": [
+        "PREVAL",
+        "VALERIS",
+        "KRATON"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Productivity",
+      "semanticField": "Output / Effectiveness / Growth",
+      "layers": {
+        "pie": "*deuk- (to lead, produce)",
+        "middleEnglish": "productivite",
+        "classicalLatin": "productivitas",
+        "ancientGreek": "energeia (ἐνέργεια)",
+        "oldFrench": "productivité",
+        "sanskrit": "utpādakatā (उत्पादकता)"
+      },
+      "driftNotes": "Latin producere=to lead forward; leading resources forward and onward into output",
+      "candidates": [
+        "PRODUC",
+        "PRODUCTIS",
+        "ENERG"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Progress",
+      "semanticField": "Advance / Forward Motion / Growth",
+      "layers": {
+        "pie": "*ghredh- (to walk, go)",
+        "middleEnglish": "progres",
+        "classicalLatin": "progressus",
+        "ancientGreek": "epibasis (ἐπίβασις)",
+        "oldFrench": "progrès",
+        "sanskrit": "pragati (प्रगति)"
+      },
+      "driftNotes": "Latin pro+gradi=to step forward; progress as the sequential stepping toward a chosen goal",
+      "candidates": [
+        "PROGRES",
+        "GRADUS",
+        "EPIBAS"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Promethean",
+      "semanticField": "Bold / Creative / Fire-bringing",
+      "layers": {
+        "pie": "*men-4 (to think) + pro-",
+        "middleEnglish": "promethean",
+        "ancientGreek": "Promētheus (Προμηθεύς)",
+        "oldFrench": "prométhéen"
+      },
+      "driftNotes": "Greek pro+manthanein=forethought; Prometheus stole fire for humanity; creative defiance of limits",
+      "candidates": [
+        "PROMET",
+        "MANTHEUS",
+        "FORET"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Prosper",
+      "semanticField": "Succeed / Flourish / Thrive",
+      "layers": {
+        "pie": "*spe-2 (to thrive, prosper)",
+        "middleEnglish": "prosperen",
+        "classicalLatin": "prosperare",
+        "ancientGreek": "eutuchein (εὐτυχεῖν)",
+        "oldFrench": "prospérer",
+        "sanskrit": "samṛddha (समृद्ध)"
+      },
+      "driftNotes": "Latin prosper=favorable; pro+spes=according to hope; to move in the direction of hope",
+      "candidates": [
+        "PROSP",
+        "SPERAN",
+        "EUTYCH"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Prosperity",
+      "semanticField": "Wealth / Flourishing / Well-being",
+      "layers": {
+        "pie": "*spe-2 (to thrive, prosper)",
+        "middleEnglish": "prosperite",
+        "classicalLatin": "prosperitas",
+        "ancientGreek": "euthumia (εὐθυμία)",
+        "oldFrench": "prospérité",
+        "sanskrit": "samṛddhi (समृद्धि)"
+      },
+      "driftNotes": "Latin prosperitas; the quality of things unfolding according to hope and expectation",
+      "candidates": [
+        "PROSPER",
+        "PROSPERIS",
+        "EUTYM"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Protection",
+      "semanticField": "Defense / Guarding / Safety",
+      "layers": {
+        "pie": "*steg-2 (to cover, thatch)",
+        "middleEnglish": "proteccioun",
+        "classicalLatin": "protectio",
+        "ancientGreek": "skepē (σκέπη)",
+        "oldFrench": "protection",
+        "sanskrit": "rakṣā (रक्षा)"
+      },
+      "driftNotes": "Latin pro+tegere=to cover in front; protection as a forward-placed covering shield",
+      "candidates": [
+        "PROTEC",
+        "TECTIS",
+        "SKEPON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Purpose",
+      "semanticField": "Aim / Intention / Direction",
+      "layers": {
+        "pie": "*apo- + *po(i)- (to put)",
+        "middleEnglish": "purpos",
+        "classicalLatin": "propositum",
+        "ancientGreek": "skopos (σκοπός)",
+        "oldFrench": "propos",
+        "sanskrit": "lakṣya (लक्ष्य)"
+      },
+      "driftNotes": "Via French purpos from Latin pro+positum=that which is placed before; a set intention",
+      "candidates": [
+        "PURPOS",
+        "PROPOS",
+        "SKOPOS"
+      ],
+      "tone": "French/Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Quintessence",
+      "semanticField": "Fifth Element / Pure Essence",
+      "layers": {
+        "pie": "*penkwe (five) + *es- (to be)",
+        "middleEnglish": "quintessence",
+        "classicalLatin": "quinta essentia",
+        "ancientGreek": "pemptē ousia (πέμπτη οὐσία)",
+        "oldFrench": "quinte-essence",
+        "sanskrit": "pañcatattva (पञ्चतत्त्व)"
+      },
+      "driftNotes": "Medieval Latin quinta essentia=fifth essence; beyond the four elements; concentrated pure reality",
+      "candidates": [
+        "QUINTES",
+        "ESSENTIS",
+        "PEMPTE"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Quintessential",
+      "semanticField": "Purest Form / Most Typical",
+      "layers": {
+        "pie": "*penkwe (five) + *es- (to be)",
+        "middleEnglish": "quintessential",
+        "classicalLatin": "quinta essentia",
+        "oldFrench": "quintessentiel"
+      },
+      "driftNotes": "Adjective of quintessence; embodying the purest and most concentrated form of something",
+      "candidates": [
+        "QUINTESSEL",
+        "ESSENT",
+        "PURES"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Radiance",
+      "semanticField": "Light / Brightness / Emanating Glow",
+      "layers": {
+        "pie": "*ret-2 (to run, roll)",
+        "middleEnglish": "radiance",
+        "classicalLatin": "radiantia",
+        "ancientGreek": "aktis (ἀκτίς)",
+        "oldFrench": "radiance",
+        "sanskrit": "prabhā (प्रभा)"
+      },
+      "driftNotes": "Latin radius=ray, spoke; radiantia=the streaming of rays outward in all directions",
+      "candidates": [
+        "RADIAN",
+        "RADIIS",
+        "AKTINOS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Rapture",
+      "semanticField": "Ecstasy / Seizing Joy / Transport",
+      "layers": {
+        "pie": "*rep- (to snatch)",
+        "middleEnglish": "rapture",
+        "classicalLatin": "raptura",
+        "ancientGreek": "harpagē (ἁρπαγή)",
+        "oldFrench": "ravissement",
+        "sanskrit": "harṣāvega (हर्षावेग)"
+      },
+      "driftNotes": "Latin rapere=to seize; rapture=being seized and carried away by overwhelming joy",
+      "candidates": [
+        "RAPTUR",
+        "RAPTIS",
+        "HARPAG"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Realization",
+      "semanticField": "Making Real / Achieving / Fulfilling",
+      "layers": {
+        "pie": "*rei-2 (property, thing)",
+        "middleEnglish": "realizacioun",
+        "vulgarLatin": "realizatio",
+        "ancientGreek": "entelecheia (ἐντελέχεια)",
+        "oldFrench": "réalisation",
+        "sanskrit": "sākṣātkāra (साक्षात्कार)"
+      },
+      "driftNotes": "Latin res=thing; realization=making a thing real from potential; bringing vision into being",
+      "candidates": [
+        "REALIZ",
+        "REALIS",
+        "ENTELEC"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Refulgent",
+      "semanticField": "Brilliant / Gleaming / Radiating",
+      "layers": {
+        "pie": "*bhel-1 (to shine, flash)",
+        "middleEnglish": "refulgent",
+        "vulgarLatin": "refulgere",
+        "ancientGreek": "analampon (ἀναλάμπον)",
+        "sanskrit": "bhāsvara (भास्वर)"
+      },
+      "driftNotes": "Latin re+fulgere=to shine back; the reflected and redirected flash of full brilliance",
+      "candidates": [
+        "REFULG",
+        "FULGORE",
+        "ANALAMP"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Regeneration",
+      "semanticField": "Rebirth / Renewal / New Life",
+      "layers": {
+        "pie": "*gen- (to give birth, beget)",
+        "middleEnglish": "regeneracioun",
+        "classicalLatin": "regeneratio",
+        "ancientGreek": "palingenesia (παλιγγενεσία)",
+        "oldFrench": "régénération",
+        "sanskrit": "punarjanma (पुनर्जन्म)"
+      },
+      "driftNotes": "Latin re+generare=to beget again; new birth arising from former life; cyclical renewal",
+      "candidates": [
+        "REGENER",
+        "GENERIS",
+        "PALING"
+      ],
+      "tone": "Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Renaissance",
+      "semanticField": "Rebirth / Revival / Cultural Renewal",
+      "layers": {
+        "pie": "*gen- (to give birth, beget)",
+        "middleEnglish": "renaissance",
+        "classicalLatin": "renascentia",
+        "ancientGreek": "anabiōsis (ἀναβίωσις)",
+        "oldFrench": "renaissance",
+        "sanskrit": "punarjīvana (पुनर्जीवन)"
+      },
+      "driftNotes": "French renaissance=rebirth; Latin renasci=to be born again; spiritual and cultural rebirth",
+      "candidates": [
+        "RENAIS",
+        "NASCIS",
+        "ANABIOX"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Renewal",
+      "semanticField": "Restoration / Freshening / New Again",
+      "layers": {
+        "pie": "*newo- (new)",
+        "middleEnglish": "renewel",
+        "classicalLatin": "renovatio",
+        "ancientGreek": "ananeōsis (ἀνανέωσις)",
+        "oldFrench": "renouvellement",
+        "sanskrit": "navīkaraṇa (नवीकरण)"
+      },
+      "driftNotes": "Latin re+novus=new again; the making fresh of what had grown old or worn",
+      "candidates": [
+        "RENEW",
+        "NOVATIO",
+        "ANANEOS"
+      ],
+      "tone": "Latin/Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Resilience",
+      "semanticField": "Rebounding / Elasticity / Recovery",
+      "layers": {
+        "pie": "*sel-4 (to jump, leap)",
+        "middleEnglish": "resilience",
+        "vulgarLatin": "resilire",
+        "ancientGreek": "anakinēsis (ἀνακίνησις)",
+        "oldFrench": "résilience",
+        "sanskrit": "pratyāsthāna (प्रत्यास्थान)"
+      },
+      "driftNotes": "Latin re+salire=to spring back; the elastic rebound after being pressed or broken",
+      "candidates": [
+        "RESIL",
+        "SALIRE",
+        "ANAKIN"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Resolve",
+      "semanticField": "Determination / Will / Decision",
+      "layers": {
+        "pie": "*leu-1 (to loosen)",
+        "middleEnglish": "resolven",
+        "classicalLatin": "resolvere",
+        "ancientGreek": "krisis (κρίσις)",
+        "oldFrench": "résoudre",
+        "sanskrit": "saṅkalpa (संकल्प)"
+      },
+      "driftNotes": "Latin re+solvere=to loosen again; a problem resolved=untangled; decision as clarity through release",
+      "candidates": [
+        "RESOLV",
+        "SOLVERE",
+        "KRISIS"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Resonance",
+      "semanticField": "Echo / Harmony / Vibration",
+      "layers": {
+        "pie": "*swen-2 (to sound)",
+        "middleEnglish": "resonance",
+        "classicalLatin": "resonantia",
+        "ancientGreek": "antēchēsis (ἀντήχησις)",
+        "oldFrench": "résonance",
+        "sanskrit": "pratidhvani (प्रतिध्वनि)"
+      },
+      "driftNotes": "Latin re+sonare=to sound again; vibration that echoes back in sympathetic harmony",
+      "candidates": [
+        "RESON",
+        "SONARE",
+        "ANTECHOS"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Resplendent",
+      "semanticField": "Brilliant / Glorious / Shining",
+      "layers": {
+        "pie": "*spel-1 (to shine)",
+        "middleEnglish": "resplendent",
+        "vulgarLatin": "resplendere",
+        "ancientGreek": "eklampon (ἐκλάμπον)",
+        "oldFrench": "resplendissant",
+        "sanskrit": "tejasvin (तेजस्विन्)"
+      },
+      "driftNotes": "Latin re+splendere=to shine back with full glory; radiating brilliance outward in all directions",
+      "candidates": [
+        "RESPLEND",
+        "SPLENDOR",
+        "EKLAMN"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Revelation",
+      "semanticField": "Unveiling / Disclosure / Discovery",
+      "layers": {
+        "pie": "*kel-4 (to cover) neg.",
+        "middleEnglish": "revelacioun",
+        "classicalLatin": "revelatio",
+        "ancientGreek": "apokalupsis (ἀποκάλυψις)",
+        "oldFrench": "révélation",
+        "sanskrit": "prakāśana (प्रकाशन)",
+        "hebrew": "gālāh (גָּלָה)"
+      },
+      "driftNotes": "Hebrew gālāh and Greek apokalupsis both=uncovering; lifting the veil from what was hidden",
+      "candidates": [
+        "REVEAL",
+        "VELAMEN",
+        "APOKAL"
+      ],
+      "tone": "Latin/Hebrew",
+      "syllables": 4
+    },
+    {
+      "word": "Sagacity",
+      "semanticField": "Wisdom / Keen Perception / Sharp Mind",
+      "layers": {
+        "pie": "*sag- (to seek out, perceive)",
+        "middleEnglish": "sagacite",
+        "classicalLatin": "sagacitas",
+        "ancientGreek": "phronēsis (φρόνησις)",
+        "oldFrench": "sagacité",
+        "sanskrit": "viveka (विवेक)"
+      },
+      "driftNotes": "Latin sagax=of keen scent; sagacity as tracking wisdom like a hound hunts by nose",
+      "candidates": [
+        "SAGAC",
+        "SAGACIS",
+        "PHRONES"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Samadhi",
+      "semanticField": "Deep Meditation / Union / Stillness",
+      "layers": {
+        "pie": "*dhē-1 (to put, place)",
+        "sanskrit": "samādhi (समाधि)"
+      },
+      "driftNotes": "Sanskrit sam+ā+dhā=complete placing together; the complete settling of mind into perfect stillness",
+      "candidates": [
+        "SAMADH",
+        "SAMADHIS",
+        "DHANUS"
+      ],
+      "tone": "Sanskrit",
+      "syllables": 3
+    },
+    {
+      "word": "Satori",
+      "semanticField": "Sudden Awakening / Insight / Clarity",
+      "layers": {
+        "sanskrit": "satori (悟り)"
+      },
+      "driftNotes": "Japanese satoru=to understand suddenly; Zen Buddhist sudden awakening and seeing-through",
+      "candidates": [
+        "SATORI",
+        "SATORU",
+        "ZENSHO"
+      ],
+      "tone": "Japanese",
+      "syllables": 3
+    },
+    {
+      "word": "Scintillating",
+      "semanticField": "Sparkling / Brilliant / Vivid",
+      "layers": {
+        "pie": "*sken-2 (to cut, leap)",
+        "middleEnglish": "scintillant",
+        "classicalLatin": "scintillare",
+        "ancientGreek": "stilbōn (στίλβων)",
+        "oldFrench": "scintillant"
+      },
+      "driftNotes": "Latin scintilla=spark; to scintillate=to emit rapid sparks; brilliant wit as mental sparking",
+      "candidates": [
+        "SCINT",
+        "SCINTILL",
+        "STILBON"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Seminal",
+      "semanticField": "Founding / Generative / Seed-like",
+      "layers": {
+        "pie": "*sē-1 (to sow)",
+        "middleEnglish": "seminal",
+        "classicalLatin": "seminalis",
+        "ancientGreek": "spermatikos (σπερματικός)",
+        "oldFrench": "séminal",
+        "sanskrit": "bījabhūta (बीजभूत)",
+        "hebrew": "zera' (זֶרַע)"
+      },
+      "driftNotes": "Latin semen=seed; seminal=of or like seed; ideas that plant themselves and grow invisibly",
+      "candidates": [
+        "SEMIN",
+        "SEMINIS",
+        "SPERMIK"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Seraphic",
+      "semanticField": "Heavenly / Burning / Divinely Pure",
+      "layers": {
+        "middleEnglish": "seraphic",
+        "oldFrench": "séraphique",
+        "hebrew": "śərāp̄îm (שְׂרָפִים)"
+      },
+      "driftNotes": "Hebrew śāraph=to burn; seraphim=the burning ones; angelic fire as the quality of purification",
+      "candidates": [
+        "SERAPH",
+        "SARAPH",
+        "SERAPHIN"
+      ],
+      "tone": "Hebrew",
+      "syllables": 3
+    },
+    {
+      "word": "Serenity",
+      "semanticField": "Calm / Stillness / Peace / Clear Sky",
+      "layers": {
+        "pie": "*ksei-1 (to burn, shine; serene sky)",
+        "middleEnglish": "serenite",
+        "classicalLatin": "serenitas",
+        "ancientGreek": "galēnē (γαλήνη)",
+        "oldFrench": "sérénité",
+        "sanskrit": "śāntatā (शान्तता)"
+      },
+      "driftNotes": "Latin serenus=clear, calm sky; serenity=the undisturbed clarity of perfect open sky",
+      "candidates": [
+        "SEREN",
+        "SERENUS",
+        "GALENE"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Skill",
+      "semanticField": "Ability / Mastery / Craft",
+      "layers": {
+        "pie": "*skel-1 (to cut, divide)",
+        "protoGermanic": "*skillją",
+        "oldNorse": "skil (distinction, discernment)",
+        "middleEnglish": "skille",
+        "classicalLatin": "ars, calliditas",
+        "ancientGreek": "technē (τέχνη)",
+        "sanskrit": "kauśala (कौशल)"
+      },
+      "driftNotes": "Old Norse skil=distinction; skill=the ability to cut fine distinctions; discernment made dexterous",
+      "candidates": [
+        "SKIL",
+        "SKILJA",
+        "TECHON"
+      ],
+      "tone": "Norse",
+      "syllables": 1
+    },
+    {
+      "word": "Sovereign",
+      "semanticField": "Supreme / Independent / Royal",
+      "layers": {
+        "pie": "*uper (over)",
+        "middleEnglish": "soveraigne",
+        "vulgarLatin": "superanus",
+        "ancientGreek": "autokratōr (αὐτοκράτωρ)",
+        "oldFrench": "soverain",
+        "sanskrit": "rājan (राजन्)"
+      },
+      "driftNotes": "Vulgar Latin superanus=the one above all; sovereignty as being above every constraint",
+      "candidates": [
+        "SOVRAN",
+        "SUPERAN",
+        "AUTOKR"
+      ],
+      "tone": "French/Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Sovereignty",
+      "semanticField": "Supreme Power / Self-rule / Authority",
+      "layers": {
+        "pie": "*uper (over)",
+        "middleEnglish": "soverainete",
+        "ancientGreek": "kyriotes (κυριότης)",
+        "oldFrench": "souveraineté",
+        "sanskrit": "sārvasvā (सार्वस्व)"
+      },
+      "driftNotes": "The quality of being sovereign; absolute authority and complete self-determination",
+      "candidates": [
+        "SOVRANTY",
+        "SUPRANIS",
+        "KYRIO"
+      ],
+      "tone": "French/Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Splendor",
+      "semanticField": "Brilliance / Magnificence / Glory",
+      "layers": {
+        "pie": "*spel-1 (to shine)",
+        "middleEnglish": "splendour",
+        "classicalLatin": "splendor",
+        "ancientGreek": "lampotēs (λαμπότης)",
+        "oldFrench": "splendeur",
+        "sanskrit": "pratāpa (प्रताप)"
+      },
+      "driftNotes": "Latin splendere=to shine; splendor=the quality of shining brilliantly; visual magnificence",
+      "candidates": [
+        "SPLEND",
+        "SPLENDOR",
+        "LAMPOS"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Sprint",
+      "semanticField": "Fast Run / Burst of Speed",
+      "layers": {
+        "pie": "*sprengh- (to move hastily)",
+        "protoGermanic": "*sprentan",
+        "oldNorse": "sprinta (to sprint)",
+        "middleEnglish": "sprenten"
+      },
+      "driftNotes": "Old Norse/Middle Low German; a short maximal burst of speed; Germanic speed-word",
+      "candidates": [
+        "SPRINT",
+        "SPRINTA",
+        "SPRENGUR"
+      ],
+      "tone": "Germanic/Norse",
+      "syllables": 1
+    },
+    {
+      "word": "Stewardship",
+      "semanticField": "Care / Management / Trusted Guardianship",
+      "layers": {
+        "pie": "*wer-4 (to perceive, watch)",
+        "protoGermanic": "*wardaz",
+        "oldEnglish": "stīweard (hall-ward)",
+        "middleEnglish": "stewardshipe",
+        "ancientGreek": "oikonomia (οἰκονομία)",
+        "sanskrit": "gṛhasthya (गृहस्थ्य)"
+      },
+      "driftNotes": "Old English stī+weard=hall-guardian; the trusted keeper of an inner space",
+      "candidates": [
+        "STEWARD",
+        "STIWARD",
+        "OIKNO"
+      ],
+      "tone": "Germanic",
+      "syllables": 3
+    },
+    {
+      "word": "Strength",
+      "semanticField": "Power / Force / Vigor",
+      "layers": {
+        "pie": "*strenk- (tight, narrow, firm)",
+        "protoGermanic": "*strengiz",
+        "oldEnglish": "strengþu / strencþ",
+        "oldNorse": "styrkr (strength)",
+        "middleEnglish": "strencthe",
+        "classicalLatin": "robur",
+        "ancientGreek": "alkē (ἀλκή)",
+        "sanskrit": "bala (बल)"
+      },
+      "driftNotes": "Pure Old English root; tight-coiled tension becoming force; the most native English power-word",
+      "candidates": [
+        "STRENG",
+        "STRENGR",
+        "STYRKIN"
+      ],
+      "tone": "Germanic",
+      "syllables": 1
+    },
+    {
+      "word": "Success",
+      "semanticField": "Achievement / Favorable Outcome",
+      "layers": {
+        "pie": "*ked-1 (to go, yield)",
+        "middleEnglish": "succes",
+        "classicalLatin": "successus",
+        "ancientGreek": "eutychia (εὐτυχία)",
+        "oldFrench": "succès",
+        "sanskrit": "safala (सफल)"
+      },
+      "driftNotes": "Latin sub+cedere=to come after; success=the good result that follows from the effort",
+      "candidates": [
+        "SUCCES",
+        "CESSOR",
+        "EUTYCH"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Summit",
+      "semanticField": "Peak / Highest Point / Crown",
+      "layers": {
+        "pie": "*uper (over, above)",
+        "middleEnglish": "somet",
+        "classicalLatin": "summum",
+        "ancientGreek": "koruphē (κορυφή)",
+        "oldFrench": "sommet",
+        "sanskrit": "śikhara (शिखर)"
+      },
+      "driftNotes": "Latin summum=the highest; the mathematical supremum; the absolute crown of a form",
+      "candidates": [
+        "SUMMIT",
+        "SUMMUM",
+        "KORUPH"
+      ],
+      "tone": "French/Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Summum",
+      "semanticField": "Highest / Supreme Good",
+      "layers": {
+        "pie": "*uper (over, above)",
+        "middleEnglish": "summum",
+        "classicalLatin": "summum bonum",
+        "ancientGreek": "to ariston (τὸ ἄριστον)",
+        "sanskrit": "paramamaṅgala (परममंगल)"
+      },
+      "driftNotes": "Latin summum bonum=the highest good; philosophical term for the ultimate value",
+      "candidates": [
+        "SUMMUM",
+        "SUMMUS",
+        "ARISTON"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Supernal",
+      "semanticField": "Heavenly / Above / Divine",
+      "layers": {
+        "pie": "*uper (over, above)",
+        "middleEnglish": "supernal",
+        "vulgarLatin": "supernalis",
+        "ancientGreek": "ouranios (οὐράνιος)",
+        "oldFrench": "suprême",
+        "sanskrit": "divya (दिव्य)"
+      },
+      "driftNotes": "Medieval Latin supernalis from super=above; of the realm above; divine elevation of quality",
+      "candidates": [
+        "SUPERN",
+        "SUPERNUS",
+        "OURANX"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Superorganism",
+      "semanticField": "Collective Being / Meta-entity",
+      "layers": {
+        "pie": "*uper (over) + *werg-1",
+        "ancientGreek": "hyperorganismos (ὑπερόργανισμός)",
+        "oldFrench": "superorganisme",
+        "sanskrit": "mahājīva (महाजीव)"
+      },
+      "driftNotes": "Latin super + Greek organism; an organism made of organisms; collective intelligence as life",
+      "candidates": [
+        "SUPERORG",
+        "HYPERJIV",
+        "MEGORG"
+      ],
+      "tone": "Latin/Greek",
+      "syllables": 5
+    },
+    {
+      "word": "Support",
+      "semanticField": "Hold / Sustain / Help / Uplift",
+      "layers": {
+        "pie": "*per-1 (to carry through)",
+        "middleEnglish": "supporte",
+        "vulgarLatin": "supportare",
+        "ancientGreek": "hyposterizō (ὑποστηρίζω)",
+        "oldFrench": "supporter",
+        "sanskrit": "ādhāra (आधार)"
+      },
+      "driftNotes": "Latin sub+portare=to carry from below; support as holding from underneath",
+      "candidates": [
+        "SUPPOR",
+        "PORTARE",
+        "HYPOST"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Swiftness",
+      "semanticField": "Speed / Quickness / Agility",
+      "layers": {
+        "pie": "*swei-2 (to bend, swerve)",
+        "protoGermanic": "*swiftaz",
+        "oldEnglish": "swift",
+        "middleEnglish": "swiftnesse",
+        "classicalLatin": "velocitas",
+        "ancientGreek": "tachytes (ταχύτης)",
+        "sanskrit": "tīvratā (तीव्रता)"
+      },
+      "driftNotes": "Old English swift; the bending/curving motion of something moving at high speed",
+      "candidates": [
+        "SWIFT",
+        "SWYFTE",
+        "TACHOS"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Symbiosis",
+      "semanticField": "Mutual Living / Interdependence",
+      "layers": {
+        "pie": "*gwei- (to live)",
+        "middleEnglish": "symbiose",
+        "ancientGreek": "symbiōsis (συμβίωσις)",
+        "oldFrench": "symbiose",
+        "sanskrit": "sahajīvana (सहजीवन)"
+      },
+      "driftNotes": "Greek sym+biōsis=living together; coined 1879 by Heinrich Anton de Bary; mutual benefit",
+      "candidates": [
+        "SYMBIO",
+        "SYMBIOX",
+        "SAHAJIV"
+      ],
+      "tone": "Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Synthesis",
+      "semanticField": "Combination / Unity-making",
+      "layers": {
+        "pie": "*dhē-1 (to put, place)",
+        "middleEnglish": "synthese",
+        "ancientGreek": "synthesis (σύνθεσις)",
+        "oldFrench": "synthèse",
+        "sanskrit": "samāhāra (समाहार)"
+      },
+      "driftNotes": "Greek syn+thesis=a placing together; the combination of separate parts into a new whole",
+      "candidates": [
+        "SYNTH",
+        "SYNTHEIS",
+        "SAMAH"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Synthesize",
+      "semanticField": "Combine / Integrate / Unify",
+      "layers": {
+        "pie": "*dhē-1 (to put, place)",
+        "ancientGreek": "syntithenai (συντιθέναι)",
+        "oldFrench": "synthétiser",
+        "sanskrit": "samāhṛ (समाहृ)"
+      },
+      "driftNotes": "Verb form of synthesis; to actively perform the synthesis of separate elements",
+      "candidates": [
+        "SYNTHEZ",
+        "SYNTHET",
+        "SAMAHR"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Telos",
+      "semanticField": "Purpose / End / Goal / Final Cause",
+      "layers": {
+        "pie": "*kwel-1 (to revolve, complete)",
+        "middleEnglish": "telos",
+        "ancientGreek": "telos (τέλος)",
+        "sanskrit": "lakṣya (लक्ष्य)"
+      },
+      "driftNotes": "Greek telos=end, completion, purpose; Aristotle's final cause; the 'why' of every thing",
+      "candidates": [
+        "TELOS",
+        "TELIKON",
+        "TELOST"
+      ],
+      "tone": "Greek",
+      "syllables": 2
+    },
+    {
+      "word": "Thriving",
+      "semanticField": "Flourishing / Growing / Prospering",
+      "layers": {
+        "pie": "*trep-2 (to turn, transform)",
+        "protoGermanic": "*þriban",
+        "oldNorse": "þrífa (to grasp, thrive)",
+        "middleEnglish": "thriving",
+        "sanskrit": "samṛddha (समृद्ध)"
+      },
+      "driftNotes": "Old Norse þrífa=to grasp/seize; to thrive=to grasp growth; Viking word for prospering",
+      "candidates": [
+        "THRIV",
+        "THRIFA",
+        "TRIFAN"
+      ],
+      "tone": "Norse",
+      "syllables": 2
+    },
+    {
+      "word": "Titanic",
+      "semanticField": "Immense / Overwhelming / Primal Power",
+      "layers": {
+        "middleEnglish": "titanic",
+        "ancientGreek": "Titanikos (Τιτανικός)",
+        "oldFrench": "titanique"
+      },
+      "driftNotes": "From the Titans, elder gods of Greek myth; pre-Olympian primal power; beyond human measure",
+      "candidates": [
+        "TITAN",
+        "TITANIS",
+        "TITANIC"
+      ],
+      "tone": "Greek",
+      "syllables": 3
+    },
+    {
+      "word": "Trailblazer",
+      "semanticField": "Pioneer / Innovator / Pathfinder",
+      "layers": {
+        "pie": "*trag- + *bhel- (to shine)",
+        "oldNorse": "blesi (white mark)",
+        "middleEnglish": "trailblazer"
+      },
+      "driftNotes": "Old Norse blesi=white spot; blazing=marking trees with white cuts to show the path",
+      "candidates": [
+        "TRAILBL",
+        "BLAZON",
+        "BLESIN"
+      ],
+      "tone": "Germanic/Norse",
+      "syllables": 3
+    },
+    {
+      "word": "Trailblazing",
+      "semanticField": "Pioneering / Path-making",
+      "layers": {
+        "pie": "*trag- + *bhel-"
+      },
+      "driftNotes": "Active form of trailblazer; the continuous act of marking a new path for those who follow",
+      "candidates": [
+        "TRAILBLAZ",
+        "BLASING",
+        "BLESK"
+      ],
+      "tone": "Germanic/Norse",
+      "syllables": 4
+    },
+    {
+      "word": "Transcend",
+      "semanticField": "Rise Above / Go Beyond / Surpass",
+      "layers": {
+        "pie": "*skand- (to spring, climb)",
+        "middleEnglish": "transcenden",
+        "classicalLatin": "transcendere",
+        "ancientGreek": "hyperechein (ὑπερέχειν)",
+        "oldFrench": "transcender",
+        "sanskrit": "atikrama (अतिक्रम)"
+      },
+      "driftNotes": "Latin trans+scandere=to climb across and over; ascending beyond all previous limits",
+      "candidates": [
+        "TRANSCEN",
+        "SCANDIS",
+        "HYPEREX"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Transcendence",
+      "semanticField": "Beyondness / Rising Above Limits",
+      "layers": {
+        "pie": "*skand- (to spring, climb)",
+        "middleEnglish": "transcendence",
+        "classicalLatin": "transcendentia",
+        "ancientGreek": "hyperochē (ὑπεροχή)",
+        "oldFrench": "transcendance",
+        "sanskrit": "atīndriya (अतीन्द्रिय)"
+      },
+      "driftNotes": "The state of transcending; being fundamentally beyond the limits of ordinary experience",
+      "candidates": [
+        "TRANSCEND",
+        "SCANDENTIA",
+        "HYPERON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Transformation",
+      "semanticField": "Change / Metamorphosis / New Form",
+      "layers": {
+        "pie": "*bher-1 (to carry) + form-",
+        "middleEnglish": "transformacioun",
+        "classicalLatin": "transformatio",
+        "ancientGreek": "metamorphōsis (μεταμόρφωσις)",
+        "oldFrench": "transformation",
+        "sanskrit": "pariṇāma (परिणाम)"
+      },
+      "driftNotes": "Latin trans+formare=to change shape across a threshold; carrying form through change",
+      "candidates": [
+        "TRANSFORM",
+        "FORMATIO",
+        "METAMOR"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Transformative",
+      "semanticField": "Change-making / Altering / Renewing",
+      "layers": {
+        "pie": "*bher-1 + form-",
+        "oldFrench": "transformatif",
+        "sanskrit": "pariṇāmī (परिणामी)"
+      },
+      "driftNotes": "Adjective of transformation; having the inherent capacity to fundamentally alter nature",
+      "candidates": [
+        "TRANSFOR",
+        "FORMANS",
+        "MORPHIK"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Triumph",
+      "semanticField": "Victory / Celebration / Conquest",
+      "layers": {
+        "pie": "*dhreibh-? / Etruscan",
+        "middleEnglish": "triumphe",
+        "classicalLatin": "triumphus",
+        "ancientGreek": "thriambos (θρίαμβος)",
+        "oldFrench": "triomphe",
+        "sanskrit": "vijaya (विजय)"
+      },
+      "driftNotes": "Latin triumphus possibly from Etruscan or Greek thriambos (hymn to Dionysus); processional victory",
+      "candidates": [
+        "TRIUMPH",
+        "TRIUMPHOR",
+        "THRIAM"
+      ],
+      "tone": "Latin/Etruscan",
+      "syllables": 2
+    },
+    {
+      "word": "Trust",
+      "semanticField": "Confidence / Faith / Reliance",
+      "layers": {
+        "pie": "*deru- (firm, solid, oak, true)",
+        "protoGermanic": "*traustą",
+        "oldNorse": "traust (confidence)",
+        "middleEnglish": "trust",
+        "classicalLatin": "fides",
+        "ancientGreek": "pistis (πίστις)",
+        "sanskrit": "viśvāsa (विश्वास)"
+      },
+      "driftNotes": "Old Norse traust=confidence; trust as the firmness of oak wood; faith as durability",
+      "candidates": [
+        "TRAUST",
+        "TRAUSTIR",
+        "PISTIS"
+      ],
+      "tone": "Norse",
+      "syllables": 1
+    },
+    {
+      "word": "Unassailable",
+      "semanticField": "Invincible / Secure / Impenetrable",
+      "layers": {
+        "pie": "*sel-4 (to jump) neg.",
+        "middleEnglish": "unassaillable",
+        "classicalLatin": "inexpugnabilis",
+        "ancientGreek": "aheires (ἄεirεs)",
+        "oldFrench": "inassaillable",
+        "sanskrit": "atakṣya (अतक्ष्य)"
+      },
+      "driftNotes": "Old French assaillir=to jump upon; un+assailable=cannot be jumped upon or attacked",
+      "candidates": [
+        "UNASSAL",
+        "SALIERENT",
+        "AHEIRES"
+      ],
+      "tone": "French/Latin",
+      "syllables": 5
+    },
+    {
+      "word": "Understanding",
+      "semanticField": "Comprehension / Grasp / Deep Knowing",
+      "layers": {
+        "pie": "*sta-1 (to stand)",
+        "protoGermanic": "*standaną",
+        "oldEnglish": "understandan",
+        "oldNorse": "skilja (to understand)",
+        "middleEnglish": "understonden",
+        "classicalLatin": "intelligentia",
+        "ancientGreek": "synesis (σύνεσις)",
+        "sanskrit": "bodha (बोध)"
+      },
+      "driftNotes": "Old English understandan=to stand in the midst of; to understand by being surrounded by",
+      "candidates": [
+        "UNDERST",
+        "STANDAN",
+        "SYNEIS"
+      ],
+      "tone": "Germanic",
+      "syllables": 4
+    },
+    {
+      "word": "Unify",
+      "semanticField": "Make One / Combine / Bring Together",
+      "layers": {
+        "pie": "*oi-no- (one)",
+        "middleEnglish": "unifien",
+        "classicalLatin": "unificare",
+        "ancientGreek": "henoun (ἑνοῦν)",
+        "oldFrench": "unifier",
+        "sanskrit": "ekīkaraṇa (एकीकरण)",
+        "hebrew": "yāḥad (יָחַד)"
+      },
+      "driftNotes": "Latin unus+facere=to make one; the active combining of many into a single unity",
+      "candidates": [
+        "UNIFY",
+        "UNIFIS",
+        "HENOUN"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Unity",
+      "semanticField": "Oneness / Wholeness / Togetherness",
+      "layers": {
+        "pie": "*oi-no- (one)",
+        "middleEnglish": "unite",
+        "classicalLatin": "unitas",
+        "ancientGreek": "henotes (ἑνότης)",
+        "oldFrench": "unité",
+        "sanskrit": "ekatā (एकता)",
+        "arabic": "waḥda (وحدة)",
+        "hebrew": "echad (אֶחָד)",
+        "celtic": "aon (Old Irish: one)"
+      },
+      "driftNotes": "Latin unitas from unus=one; the PIE *oi-no gives one, unique, union, unit; primordial oneness",
+      "candidates": [
+        "UNITY",
+        "UNITAK",
+        "HENOTES"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Unparalleled",
+      "semanticField": "Matchless / Unique / Incomparable",
+      "layers": {
+        "pie": "*par- (equal)",
+        "middleEnglish": "unparalleled",
+        "classicalLatin": "incomparabilis",
+        "ancientGreek": "asymmetros (ἀσύμμετρος)",
+        "oldFrench": "sans pareil",
+        "sanskrit": "anupama (अनुपम)"
+      },
+      "driftNotes": "Latin un+parallelus=not beside the other; nothing runs alongside it; alone in its kind",
+      "candidates": [
+        "UNPAR",
+        "PARALLAX",
+        "ANUPAM"
+      ],
+      "tone": "Latin/Greek",
+      "syllables": 4
+    },
+    {
+      "word": "Uplift",
+      "semanticField": "Elevate / Raise / Inspire / Lighten",
+      "layers": {
+        "pie": "*upo (up) + *legwh- (light)",
+        "protoGermanic": "*up + *liftijaną",
+        "oldEnglish": "up + lyft (air)",
+        "oldNorse": "upp + lyfta",
+        "middleEnglish": "uplifte",
+        "sanskrit": "unnati (उन्नति)"
+      },
+      "driftNotes": "Germanic compound; lyft=air/sky; the air beneath a thing raises it; uplift as buoyancy",
+      "candidates": [
+        "UPLIFT",
+        "UPPLIFTE",
+        "UNNATI"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Utopia",
+      "semanticField": "Ideal / Perfect Place / Vision",
+      "layers": {
+        "pie": "*ou- (not) + *top- (place)",
+        "ancientGreek": "outopia (οὐτοπία)",
+        "oldFrench": "utopie"
+      },
+      "driftNotes": "Coined by Thomas More 1516; Greek ou+topos=no-place; the ideal that exists nowhere yet",
+      "candidates": [
+        "UTOP",
+        "OUTOPIA",
+        "ATOPOS"
+      ],
+      "tone": "Greek (coinage)",
+      "syllables": 3
+    },
+    {
+      "word": "Vanguard",
+      "semanticField": "Leading Edge / Forefront / First",
+      "layers": {
+        "pie": "*wer-4 (perceive, watch) + ab ante",
+        "oldFrench": "avant-garde",
+        "sanskrit": "agragāmī (अग्रगामी)",
+        "arabic": "ṭalīʿa (طليعة)",
+        "persian": "pīshāhang (پیشاهنگ)"
+      },
+      "driftNotes": "Middle French avant-garde=before-guard; those who go first to watch ahead for others",
+      "candidates": [
+        "VANGRD",
+        "AVANGAR",
+        "AGRAGAM"
+      ],
+      "tone": "French",
+      "syllables": 2
+    },
+    {
+      "word": "Velocity",
+      "semanticField": "Speed / Swiftness / Rate of Motion",
+      "layers": {
+        "pie": "*wel-3 (to turn, roll)",
+        "middleEnglish": "velocite",
+        "classicalLatin": "velocitas",
+        "ancientGreek": "tachytes (ταχύτης)",
+        "oldFrench": "vélocité",
+        "sanskrit": "tīvragati (तीव्रगति)"
+      },
+      "driftNotes": "Latin velox=swift; possibly from volvere=to roll; speed imagined as rolling forward",
+      "candidates": [
+        "VELOC",
+        "VELOX",
+        "TACHOS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Verdancy",
+      "semanticField": "Greenness / Freshness / Vitality",
+      "layers": {
+        "pie": "*wei-1 (to wither) neg.",
+        "middleEnglish": "verdauncy",
+        "classicalLatin": "viriditas",
+        "ancientGreek": "chlōrotēs (χλωρότης)",
+        "oldFrench": "verdeur",
+        "sanskrit": "haritā (हरिता)"
+      },
+      "driftNotes": "Latin viridis=green; virere=to be green; fresh green as the visible color of living growth",
+      "candidates": [
+        "VERDAN",
+        "VIRIDIS",
+        "CHLOROT"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Verve",
+      "semanticField": "Enthusiasm / Energy / Spirited Flair",
+      "layers": {
+        "pie": "*wer-6 (to speak)",
+        "classicalLatin": "verba (words)",
+        "oldFrench": "verve (fancy, caprice)",
+        "sanskrit": "ūrjā (ऊर्जा)"
+      },
+      "driftNotes": "French verve from Latin verba=words; verve=the inspired verbal spirit; energy as expression",
+      "candidates": [
+        "VERVE",
+        "VERVAK",
+        "URJAS"
+      ],
+      "tone": "French/Latin",
+      "syllables": 1
+    },
+    {
+      "word": "Victory",
+      "semanticField": "Win / Triumph / Conquest",
+      "layers": {
+        "pie": "*weik-3 (to fight, conquer)",
+        "middleEnglish": "victorie",
+        "classicalLatin": "victoria",
+        "ancientGreek": "nikē (νίκη)",
+        "oldFrench": "victoire",
+        "sanskrit": "vijaya (विजय)"
+      },
+      "driftNotes": "Latin vincere=to conquer; victoria=goddess of victory; Greek Nike=same concept",
+      "candidates": [
+        "VICTOR",
+        "VINCERE",
+        "NIKON"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Vigor",
+      "semanticField": "Vitality / Energy / Liveliness",
+      "layers": {
+        "pie": "*weg-1 (to be strong, lively)",
+        "middleEnglish": "vigour",
+        "classicalLatin": "vigor",
+        "ancientGreek": "tonos (τόνος)",
+        "oldFrench": "vigueur",
+        "sanskrit": "ojas (ओजस्)"
+      },
+      "driftNotes": "Latin vigor from vigere=to be lively; the active liveliness present in a fully living body",
+      "candidates": [
+        "VIGOR",
+        "VIGORIS",
+        "TONOS"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Vision",
+      "semanticField": "Sight / Foresight / Dream / Ideal",
+      "layers": {
+        "pie": "*weid-1 (to see)",
+        "middleEnglish": "visioun",
+        "classicalLatin": "visio",
+        "ancientGreek": "horasin (ὅρασιν)",
+        "oldFrench": "vision",
+        "sanskrit": "dṛṣṭi (दृष्टि)",
+        "arabic": "ruʾya (رُؤْيَا)",
+        "hebrew": "hazon (חָזוֹן)"
+      },
+      "driftNotes": "Latin videre=to see; Hebrew hazon=prophetic vision; sight as both physical and beyond-physical",
+      "candidates": [
+        "VISIO",
+        "VIDERE",
+        "HORASIN"
+      ],
+      "tone": "Latin",
+      "syllables": 2
+    },
+    {
+      "word": "Visionary",
+      "semanticField": "Seer / Dreamer / Prophet / Pioneer",
+      "layers": {
+        "pie": "*weid-1 (to see)",
+        "middleEnglish": "visionarye",
+        "ancientGreek": "prophētēs (προφήτης)",
+        "oldFrench": "visionnaire",
+        "sanskrit": "dṛṣṭā (दृष्टा)",
+        "hebrew": "nabī (נָבִיא)"
+      },
+      "driftNotes": "Extended form; one whose vision surpasses the ordinary and sees what does not yet exist",
+      "candidates": [
+        "VISION",
+        "VIDEROS",
+        "PROPHET"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Vitality",
+      "semanticField": "Life-force / Energy / Full Aliveness",
+      "layers": {
+        "pie": "*gwei- (to live)",
+        "middleEnglish": "vitalite",
+        "classicalLatin": "vitalitas",
+        "ancientGreek": "zōē (ζωή)",
+        "oldFrench": "vitalité",
+        "sanskrit": "prāṇa-śakti (प्राणशक्ति)",
+        "hebrew": "hayyim (חַיִּים)"
+      },
+      "driftNotes": "Latin vita=life; vitality=the quality of being fully alive and thriving in every capacity",
+      "candidates": [
+        "VITAL",
+        "VITALIS",
+        "ZOEIS"
+      ],
+      "tone": "Latin",
+      "syllables": 4
+    },
+    {
+      "word": "Vitalize",
+      "semanticField": "Energize / Bring to Life / Animate",
+      "layers": {
+        "pie": "*gwei- (to live)",
+        "vulgarLatin": "vitalizare",
+        "ancientGreek": "zōopoiein (ζῳοποιεῖν)",
+        "oldFrench": "vitaliser",
+        "sanskrit": "prāṇita (प्राणित)"
+      },
+      "driftNotes": "Verb: to give life to; to fill with vital force; animating what was formerly inert",
+      "candidates": [
+        "VITALIZ",
+        "VITANS",
+        "ZOOPOIX"
+      ],
+      "tone": "Latin",
+      "syllables": 3
+    },
+    {
+      "word": "Wholeness",
+      "semanticField": "Completeness / Health / Unity",
+      "layers": {
+        "pie": "*kailo- (whole, uninjured, good omen)",
+        "protoGermanic": "*hailaz",
+        "oldEnglish": "hāl (whole, healthy)",
+        "oldNorse": "heill (whole, healthy)",
+        "middleEnglish": "holnesse",
+        "classicalLatin": "integritas",
+        "ancientGreek": "holoklēria (ὁλοκληρία)",
+        "sanskrit": "pūrṇatā (पूर्णता)"
+      },
+      "driftNotes": "OE hāl; same root as hale, heal, health, holy; wholeness and holiness are a single root",
+      "candidates": [
+        "HAELTH",
+        "HAILAZ",
+        "HOLOKL"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Wisdom",
+      "semanticField": "Knowledge / Understanding / Insight",
+      "layers": {
+        "pie": "*weid-1 (to see, know)",
+        "protoGermanic": "*wissą",
+        "oldEnglish": "wīsdōm",
+        "oldNorse": "vísdomr",
+        "middleEnglish": "wisdom",
+        "classicalLatin": "sapientia",
+        "ancientGreek": "sophia (σοφία)",
+        "oldFrench": "sapience",
+        "sanskrit": "prajñā (प्रज्ञा)",
+        "arabic": "ḥikma (حِكْمَة)",
+        "hebrew": "ḥokmāh (חָכְמָה)"
+      },
+      "driftNotes": "OE wīsdōm=knowledge-judgment; Greek sophia; Hebrew ḥokmāh; Sanskrit prajñā; all cultures named this",
+      "candidates": [
+        "WISDO",
+        "VISDOME",
+        "SOPHIA"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Wondrous",
+      "semanticField": "Amazing / Marvelous / Astonishing",
+      "layers": {
+        "pie": "*wun-2 (to strive for)",
+        "protoGermanic": "*wundrą",
+        "oldEnglish": "wundor (marvel)",
+        "oldNorse": "undr (wonder)",
+        "middleEnglish": "wondrous",
+        "classicalLatin": "mirabilis",
+        "ancientGreek": "thaumasios (θαυμάσιος)",
+        "oldFrench": "merveilleux",
+        "sanskrit": "āścarya (आश्चर्य)"
+      },
+      "driftNotes": "Pure Old English wundor; the striving toward that which exceeds explanation",
+      "candidates": [
+        "WUNDR",
+        "WUNDRE",
+        "THAUMAX"
+      ],
+      "tone": "Germanic",
+      "syllables": 2
+    },
+    {
+      "word": "Zenith",
+      "semanticField": "Highest Point / Peak / Crown",
+      "layers": {
+        "middleEnglish": "cenyth",
+        "oldFrench": "zénith",
+        "arabic": "samt (سمت)"
+      },
+      "driftNotes": "Arabic samt ar-raʾs=direction of the head; the point directly overhead; the ultimate height",
+      "candidates": [
+        "ZENIT",
+        "SAMTIR",
+        "SEMIT"
+      ],
+      "tone": "Arabic",
+      "syllables": 2
+    }
+  ]
+}

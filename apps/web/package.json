@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@etymalia/ai": "workspace:*",
+    "@etymalia/asset-forge": "workspace:*",
+    "@etymalia/availability": "workspace:*",
+    "@etymalia/exporters": "workspace:*",
+    "@etymalia/name-engine": "workspace:*",
     "@etymalia/tokens": "workspace:*",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.4",

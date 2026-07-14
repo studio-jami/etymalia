@@ -89,7 +89,14 @@ export default async function WorkspacePage({
                 </div>
                 {workspaceBrands.length ? (
                   <ul className="brand-list">
-                    {workspaceBrands.map((brand) => <li key={brand.id}><strong>{brand.name}</strong><span>{brand.status}</span></li>)}
+                    {workspaceBrands.map((brand) => (
+                      <li key={brand.id}>
+                        <Link href={`/workspace/${workspace.id}/brand/${brand.id}`} className="brand-list__link">
+                          <strong>{brand.name}</strong>
+                          <span>{brand.status}</span>
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 ) : <p className="workspace-card__empty">No brands yet. Start with a concise brief.</p>}
                 <form action={createBrand} className="inline-form">

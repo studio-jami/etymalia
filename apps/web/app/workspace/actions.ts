@@ -42,15 +42,19 @@ export async function createBrand(formData: FormData) {
   const workspaceId = value(formData, "workspaceId", 36);
   await currentUserId();
   const supabase = await createClient();
-  const { error } = await supabase.from("brands").insert({
-    workspace_id: workspaceId,
-    name,
-  });
+  const { data, error } = await supabase
+    .from("brands")
+    .insert({
+      workspace_id: workspaceId,
+      name,
+    })
+    .select("id")
+    .single();
 
-  if (error) {
+  if (error || !data) {
     redirect("/workspace?error=brand");
   }
 
   revalidatePath("/workspace");
-  redirect("/workspace");
+  redirect(`/workspace/${workspaceId}/brand/${data.id}`);
 }

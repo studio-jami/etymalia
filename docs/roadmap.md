@@ -33,16 +33,16 @@ Etymalia is evolving from a native Android brand-asset app into a **professional
 Phased per the master plan:
 
 - **Phase 0 — Foundations:** ✅ Turborepo + pnpm workspace and package skeletons (`apps/web`, `@etymalia/{ai,tokens,name-engine,availability,asset-forge,exporters}`); ✅ additive workspace/brand schema + membership RLS migration; ✅ Google AI Studio/Vertex provider port, Studio credential store, and allowlisted Node-runtime smoke route. Next: configure a Studio user ID and verify the live Google smoke call; then add the Vault-backed production credential store.
-- **Phase 1 — MVP:** Etymaria naming (keyword → blended candidates + provenance → **RDAP** domain availability) · OKLCH palette (contrast-checked) · one logo → vectorize → variant matrix · favicons · **zip export**.
+- **Phase 1 — MVP:** 🟩 *Implemented (pending live verification).* Brand workspace route (`/workspace/[workspaceId]/brand/[brandId]`) with brief intake into `brands.brief`; **Etymaria naming** (270-entry curated corpus → blended candidates + provenance + composite scoring, saved to `name_candidates`) with on-demand **RDAP** domain checks; **OKLCH palette** (culori, WCAG-AA contrast-verified) saved as DTCG `brand_tokens`; one **logo direction** + variant matrix (SVG, `currentColor` mono) and **SVG favicon**; **zip export** (fflate) with manifest, tokens, names, and a `<head>` snippet. Raster (PNG/ICO) derivation is deferred to the Phase 2 durable-jobs asset pipeline.
 - **Phase 2 — Full kit:** social kits (satori) · brand guide book (**prototype Typst *and* react-pdf**) · reference import (Uppy) · **Trigger.dev** orchestration for full-kit generation.
 - **Phase 3 — Deliverable depth + monetization:** email signature (MJML) · digital business card + branded QR + vCard · letterhead · templates gallery · **Stripe** subscription over BYOK · social/SEO availability behind flags · registrar **buy-through + affiliate**.
 - **Phase 4 — Scale:** multi-member workspaces · brand-audit loop · premium templates · export API.
 
 ## Track C — Etymaria name engine (signature moat)
-1. **Re-export the source corpus** (`docs/references/etymology_brand_table…`) to clean UTF-8 — current CSV has mangled Greek/diacritics.
-2. Load into **Postgres + pgvector** (roots, semantic fields, cross-linguistic layers, drift notes, tone, syllables, candidates).
-3. Blending engine (portmanteau/affixation/compounding across language families) + scoring (meaning fit × pronounceability × availability × brevity).
-4. Grow the curated corpus beyond the initial 281 rows — the editorial layer is the defensible asset.
+1. ✅ **Corpus converted & bundled** — the 270-row curated seed (`docs/references/etymology-table/…csv`, clean UTF-8) is parsed by `packages/name-engine/scripts/build-corpus.mjs` into `packages/name-engine/src/corpus.json` and consumed by the deterministic blend/score engine (curated · affixation · portmanteau · compounding · truncation across language families, with provenance).
+2. Load into **Postgres + pgvector** (roots, semantic fields, cross-linguistic layers, drift notes, tone, syllables, candidates) for semantic retrieval at scale.
+3. Add **AI polish** (`generateObject`) over the deterministic candidates, and CMUdict-based pronounceability.
+4. Grow the curated corpus beyond the initial rows — the editorial layer is the defensible asset.
 
 ---
 
