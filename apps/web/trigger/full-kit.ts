@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
 import { createClient } from "@supabase/supabase-js";
 import WebSocket from "ws";
 import { task } from "@trigger.dev/sdk/v3";
@@ -59,6 +61,9 @@ export const generateFullKit = task({
       onPrimary: colorOn(tokens, "primary", "#ffffff"),
     });
     const brief = brand.brief && typeof brand.brief === "object" ? brand.brief as { description?: unknown } : {};
+    const taskFont = await readFile(
+      resolve(process.cwd(), "trigger/fonts/inter-latin-400-normal.woff"),
+    );
     const assets = await renderSocialKit({
       name: brand.name,
       tagline: typeof brief.description === "string" ? brief.description : "",
@@ -67,7 +72,7 @@ export const generateFullKit = task({
       ink: colorHex(tokens, "ink", "#182028"),
       paper: colorHex(tokens, "paper", "#f3f1eb"),
       monogram: identity.monogram,
-    });
+    }, taskFont);
 
     const prefix = storagePrefix(workspaceId, brandId);
     const records: Array<Record<string, unknown>> = [];

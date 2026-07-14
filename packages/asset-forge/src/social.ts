@@ -48,7 +48,9 @@ const SOCIAL_SPECS: SocialSpec[] = [
   { id: "open-graph", platform: "Web", kind: "og", width: 1200, height: 630 },
 ];
 
-const fontDataPromise = readFile(new URL("./fonts/inter-latin-400-normal.woff", import.meta.url));
+async function defaultFontData(): Promise<Buffer> {
+  return readFile(new URL("./fonts/inter-latin-400-normal.woff", import.meta.url));
+}
 
 function clampText(value: string, limit: number): string {
   const trimmed = value.trim();
@@ -111,8 +113,11 @@ function assetElement(input: SocialKitInput, spec: SocialSpec) {
 }
 
 /** Render platform-ready social artwork from a brand's deterministic identity. */
-export async function renderSocialKit(input: SocialKitInput): Promise<SocialAsset[]> {
-  const font = await fontDataPromise;
+export async function renderSocialKit(
+  input: SocialKitInput,
+  fontData?: Buffer | ArrayBuffer,
+): Promise<SocialAsset[]> {
+  const font = fontData ?? await defaultFontData();
 
   return Promise.all(SOCIAL_SPECS.map(async (spec) => {
     const svg = await satori(assetElement(input, spec), {
