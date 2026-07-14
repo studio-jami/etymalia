@@ -27,7 +27,8 @@ export interface KitSwatch {
 
 /** A server-authorized persisted derivative to include in the kit. */
 export interface KitGeneratedAsset {
-  path: string;
+  directory: "social" | "logo" | "favicon";
+  filename: string;
   bytes: Uint8Array;
 }
 
@@ -86,7 +87,9 @@ function readme(input: BrandKitInput): string {
     "- `tokens/` — DTCG design tokens (`tokens.json`) and CSS custom properties (`tokens.css`).",
     "- `names/` — shortlisted name candidates with provenance.",
     "- `palette/` — colour swatches with HEX and OKLCH values.",
-    ...(input.generatedAssets?.length ? ["- `social/` — rendered platform-ready social assets."] : []),
+    ...(input.generatedAssets?.some((asset) => asset.directory === "social") ? ["- `social/` — rendered platform-ready social assets."] : []),
+    ...(input.generatedAssets?.some((asset) => asset.directory === "logo") ? ["- `logo/` — persisted SVG and PNG identity derivatives."] : []),
+    ...(input.generatedAssets?.some((asset) => asset.directory === "favicon") ? ["- `favicon/` — standards-ready browser and platform icon artifacts."] : []),
     "",
     "## Palette",
     "",
@@ -125,7 +128,7 @@ export function buildBrandKit(input: BrandKitInput): BrandKitOutput {
   files["names/names.json"] = strToU8(json(input.names));
   files["palette/palette.json"] = strToU8(json(input.palette));
   for (const asset of input.generatedAssets ?? []) {
-    const path = safeGeneratedAssetPath(asset.path);
+    const path = safeGeneratedAssetPath(asset.directory, asset.filename);
     if (path) files[path] = asset.bytes;
   }
   files["README.md"] = strToU8(readme(input));
@@ -143,8 +146,7 @@ export function buildBrandKit(input: BrandKitInput): BrandKitOutput {
   return { filename: `${input.slug || "brand"}-kit.zip`, bytes, manifest };
 }
 
-function safeGeneratedAssetPath(path: string): string | null {
-  const filename = path.split("/").at(-1);
-  if (!filename || !/^[a-z0-9][a-z0-9._-]*$/i.test(filename)) return null;
-  return `social/${filename}`;
+function safeGeneratedAssetPath(directory: KitGeneratedAsset["directory"], filename: string): string | null {
+  if (!/^[a-z0-9][a-z0-9._-]*$/i.test(filename)) return null;
+  return `${directory}/${filename}`;
 }

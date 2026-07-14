@@ -3,7 +3,9 @@
 // colour and a single-colour (currentColor) variant. Monochrome variants use
 // `currentColor` so inverted/black/white lockups are free CSS recolours rather
 // than re-renders. Vector output is resolution-independent; raster derivation
-// (PNG/ICO) belongs to the later durable-jobs asset pipeline.
+// is exposed by the dedicated in-memory raster and favicon utilities below.
+
+
 
 export interface IdentityInput {
   name: string;

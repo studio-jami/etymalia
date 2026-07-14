@@ -38,10 +38,12 @@ A July 14 handoff records live Supabase verification of this flow. This audit ve
 ### Web platform — Phase 2 partial slice
 
 - Satori + Resvg social renderer with 12 social deliverables.
-- `generate-full-kit` Trigger.dev task that loads a brand/tokens server-side, renders PNGs, writes private Storage objects, and upserts `assets` records.
+- `generate-full-kit` Trigger.dev task that loads a brand/tokens server-side, renders social, SVG/PNG identity, and standards-complete favicon artifacts, writes private Storage objects, and upserts `assets` records.
+- RLS-scoped `generation_jobs` lifecycle records for queued/running/completed/failed durable work; failure records contain only a bounded safe summary.
 - UI action to queue the task only after a DTCG palette exists.
+- Trigger Cloud production deployment **`20260714.7`** is verified live with the `generate-full-kit` task detected. The associated additive `generation_jobs` migration was applied to the linked remote Supabase database.
 
-The repository contains conflicting historical claims about whether the Trigger worker was deployed. The current code proves the task is configured; this audit could not obtain a CLI identity because the installed Trigger executable hangs before emitting output. Persisted social assets are now loaded through RLS, rendered with short-lived signed previews, individually downloadable, and included in authenticated ZIP exports once a job completes.
+Persisted assets are loaded through RLS, rendered with short-lived signed previews, individually downloadable, and included in authenticated ZIP exports once a job completes. An actual post-deployment production task run and its Storage/database artifact counts remain to be verified.
 
 ### Android application
 
@@ -110,7 +112,7 @@ The repository contains conflicting historical claims about whether the Trigger 
 | `pnpm check` | Passed: all seven TypeScript typechecks and the optimized Next.js production build. |
 | `./gradlew :app:testDebugUnitTest` (before test repair) | Failed because stale template screenshot references did not compile. Production Kotlin compiled first. |
 | `supabase status` | Not available locally: Docker Desktop Linux engine was not running. This does not establish remote migration state. |
-| `pnpm exec trigger whoami` | Timed out without an authenticated result; Trigger deployment state is therefore unverified in this audit. |
+| `trigger whoami` / `trigger deploy apps/web --config trigger.config.ts --env-file .env` | Passed after the audit: authenticated CLI identity verified and Trigger Cloud production version `20260714.7` deployed. |
 | Editor diagnostics (before changes) | No diagnostics reported by the editor integration. |
 
 ## Documentation policy

@@ -44,11 +44,22 @@ export async function GET(
   const supabase = await createClient();
   const generatedAssets = await Promise.all(
     loaded.assets
-      .filter((asset) => asset.kind === "social" && asset.format === "png")
-      .map(async (asset) => {
+      .map((asset) => ({
+        asset,
+        directory: asset.kind === "social" ? "social" as const
+          : asset.kind === "identity" ? "logo" as const
+          : asset.kind === "favicon" ? "favicon" as const
+          : null,
+      }))
+      .filter((entry): entry is { asset: typeof entry.asset; directory: "social" | "logo" | "favicon" } => entry.directory !== null)
+      .map(async ({ asset, directory }) => {
         const { data, error } = await supabase.storage.from("etymalia").download(asset.storagePath);
         if (error || !data) return null;
-        return { path: asset.storagePath, bytes: new Uint8Array(await data.arrayBuffer()) };
+        return {
+          directory,
+          filename: asset.storagePath.split("/").at(-1) ?? "",
+          bytes: new Uint8Array(await data.arrayBuffer()),
+        };
       }),
   );
 

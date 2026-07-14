@@ -5,7 +5,9 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./social": "./src/social.ts"
+    "./social": "./src/social.ts",
+    "./raster": "./src/raster.ts",
+    "./favicon": "./src/favicon.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

@@ -21,7 +21,7 @@ Etymalia is becoming a professional brand-identity platform. The web app is the 
 | Monorepo, Supabase workspace schema/RLS, Google AI adapters | Implemented in source. |
 | Vault-backed Google credential store | Implemented server-side only; no user-facing BYOK flow. |
 | Phase 1 web: names, palette, SVG identity, SVG favicon, ZIP export | Implemented; historical live verification exists but was not re-run in this audit. |
-| Phase 2 social renderer and Trigger task | Implemented in source; deployment/run completion is unverified. Persisted social assets have RLS-scoped previews/downloads and are included in authenticated ZIP exports after generation. |
+| Phase 2 social renderer and Trigger task | Trigger Cloud production version `20260714.7` is deployed; the durable task now emits social, identity, and favicon artifacts with RLS-scoped lifecycle records. A post-deployment successful task run still needs artifact-count verification. Persisted assets have previews/downloads and authenticated ZIP export support. |
 | Android Compose / Room client | Implemented as a prototype; AI proxy authentication and hardening are release blockers. |
 | Phase 3 and Phase 4 product capabilities | Not implemented, except the Phase 4 membership schema/RLS foundation. |
 
@@ -37,11 +37,9 @@ Etymalia is becoming a professional brand-identity platform. The web app is the 
 
 ### Web delivery proof
 
-1. Authenticate the intended Trigger.dev account and verify the configured project.
-2. Deploy/confirm `generate-full-kit` with scoped Supabase runtime credentials.
-3. Run a real job for an authenticated brand with valid DTCG tokens.
-4. Verify its terminal status, 12 private Storage files, and 12 `assets` rows.
-5. Confirm the workspace gallery/listing and ZIP-export path against the verified production output.
+1. Run a real job for an authenticated brand with valid DTCG tokens against deployed Trigger version `20260714.7`.
+2. Verify its terminal status, expected stored artifact count, and matching `assets` rows.
+3. Confirm the workspace gallery/listing and ZIP-export path against the verified production output.
 
 ### Verification foundation
 
