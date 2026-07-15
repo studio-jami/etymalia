@@ -75,7 +75,7 @@
       "workflows": [
         {
           "binding": "FULL_KIT_WORKFLOW",
-          "name": "etymalia-full-kit-staging",
+          "name": "etymalia-full-kit-staging-v2",
           "class_name": "FullKitWorkflow"
         }
       ],
