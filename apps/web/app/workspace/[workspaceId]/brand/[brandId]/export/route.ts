@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { dtcgToCss, readColors } from "@etymalia/tokens";
-import { buildBrandKit, type KitName } from "@etymalia/exporters";
+import { buildBrandKit, type KitGeneratedAsset, type KitName } from "@etymalia/exporters";
 import { loadBrand } from "@/lib/brand/load";
 import { buildIdentity } from "@/lib/brand/identity";
 import { createClient } from "@/lib/supabase/server";
@@ -42,8 +42,10 @@ export async function GET(
   }));
 
   const supabase = await createClient();
-  const generatedAssets = await Promise.all(
-    loaded.assets
+  let generatedAssets: KitGeneratedAsset[];
+  try {
+    generatedAssets = await Promise.all(
+      loaded.assets
       .map((asset) => ({
         asset,
         directory: asset.kind === "social" ? "social" as const
@@ -54,14 +56,22 @@ export async function GET(
       .filter((entry): entry is { asset: typeof entry.asset; directory: "social" | "logo" | "favicon" } => entry.directory !== null)
       .map(async ({ asset, directory }) => {
         const { data, error } = await supabase.storage.from("etymalia").download(asset.storagePath);
-        if (error || !data) return null;
+        if (error || !data) {
+          throw new Error(`Selected asset is unavailable: ${asset.id}`);
+        }
         return {
           directory,
           filename: asset.storagePath.split("/").at(-1) ?? "",
           bytes: new Uint8Array(await data.arrayBuffer()),
         };
       }),
-  );
+    );
+  } catch {
+    return NextResponse.json(
+      { error: "A selected generated asset is unavailable. Regenerate the asset before exporting." },
+      { status: 409 },
+    );
+  }
 
   const kit = buildBrandKit({
     brandName: brand.name,
@@ -83,7 +93,7 @@ export async function GET(
       hex: color.hex,
       oklch: color.oklch,
     })),
-    generatedAssets: generatedAssets.filter((asset): asset is NonNullable<typeof asset> => asset !== null),
+    generatedAssets,
   });
 
   const body = new Blob([new Uint8Array(kit.bytes)], { type: "application/zip" });

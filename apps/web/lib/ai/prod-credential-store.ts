@@ -9,12 +9,16 @@ import type {
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
-function requiredUserId(userId: string | undefined): string {
-  const value = userId?.trim();
-  if (!value) {
-    throw new Error("A user ID is required for production credentials.");
+async function authenticatedUserId(expectedUserId?: string): Promise<string> {
+  const sessionClient = await createClient();
+  const { data, error } = await sessionClient.auth.getUser();
+  if (error || !data.user) {
+    throw new Error("You must be signed in to use a production credential.");
   }
-  return value;
+  if (expectedUserId && expectedUserId !== data.user.id) {
+    throw new Error("Production credentials can only be resolved for the authenticated user.");
+  }
+  return data.user.id;
 }
 
 /**
@@ -37,7 +41,7 @@ export class ProductionCredentialStore implements CredentialStore {
 
     const { data, error } = await createAdminClient().rpc(
       "get_user_google_ai_credential",
-      { target_user_id: requiredUserId(args.userId) },
+      { target_user_id: await authenticatedUserId(args.userId) }
     );
 
     if (error) {

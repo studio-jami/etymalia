@@ -1,0 +1,140 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "etymalia-generation",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-15",
+  "workers_dev": false,
+  "observability": {
+    "enabled": true
+  },
+  "dev": {
+    "enable_containers": false
+  },
+  "migrations": [
+    {
+      "tag": "v1-renderer-container",
+      "new_sqlite_classes": ["RendererContainer"]
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      { "name": "RENDERER_CONTAINER", "class_name": "RendererContainer" }
+    ]
+  },
+  "containers": [
+    {
+      "name": "etymalia-generation-renderer",
+      "class_name": "RendererContainer",
+      "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:production",
+      "instance_type": "lite",
+      "max_instances": 1,
+      "ssh": { "enabled": false }
+    }
+  ],
+  "queues": {
+    "producers": [
+      { "binding": "GENERATION_QUEUE", "queue": "etymalia-generation" }
+    ],
+    "consumers": [
+      {
+        "queue": "etymalia-generation",
+        "max_batch_size": 10,
+        "max_batch_timeout": 30,
+        "max_retries": 3,
+        "dead_letter_queue": "etymalia-generation-dlq",
+        "retry_delay": 60
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "binding": "FULL_KIT_WORKFLOW",
+      "name": "etymalia-full-kit",
+      "class_name": "FullKitWorkflow"
+    }
+  ],
+  "env": {
+    "staging": {
+      "name": "etymalia-generation-staging",
+      "vars": { "ENVIRONMENT": "staging" },
+      "queues": {
+        "producers": [
+          { "binding": "GENERATION_QUEUE", "queue": "etymalia-generation-staging" }
+        ],
+        "consumers": [
+          {
+            "queue": "etymalia-generation-staging",
+            "max_batch_size": 10,
+            "max_batch_timeout": 30,
+            "max_retries": 3,
+            "dead_letter_queue": "etymalia-generation-staging-dlq",
+            "retry_delay": 60
+          }
+        ]
+      },
+      "workflows": [
+        {
+          "binding": "FULL_KIT_WORKFLOW",
+          "name": "etymalia-full-kit-staging",
+          "class_name": "FullKitWorkflow"
+        }
+      ],
+      "durable_objects": {
+        "bindings": [
+          { "name": "RENDERER_CONTAINER", "class_name": "RendererContainer" }
+        ]
+      },
+      "containers": [
+        {
+          "name": "etymalia-generation-renderer-staging",
+          "class_name": "RendererContainer",
+          "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:staging",
+          "instance_type": "lite",
+          "max_instances": 1,
+          "ssh": { "enabled": false }
+        }
+      ]
+    },
+    "production": {
+      "name": "etymalia-generation-production",
+      "vars": { "ENVIRONMENT": "production" },
+      "queues": {
+        "producers": [
+          { "binding": "GENERATION_QUEUE", "queue": "etymalia-generation-production" }
+        ],
+        "consumers": [
+          {
+            "queue": "etymalia-generation-production",
+            "max_batch_size": 10,
+            "max_batch_timeout": 30,
+            "max_retries": 3,
+            "dead_letter_queue": "etymalia-generation-production-dlq",
+            "retry_delay": 60
+          }
+        ]
+      },
+      "workflows": [
+        {
+          "binding": "FULL_KIT_WORKFLOW",
+          "name": "etymalia-full-kit-production",
+          "class_name": "FullKitWorkflow"
+        }
+      ],
+      "durable_objects": {
+        "bindings": [
+          { "name": "RENDERER_CONTAINER", "class_name": "RendererContainer" }
+        ]
+      },
+      "containers": [
+        {
+          "name": "etymalia-generation-renderer-production",
+          "class_name": "RendererContainer",
+          "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:production",
+          "instance_type": "lite",
+          "max_instances": 1,
+          "ssh": { "enabled": false }
+        }
+      ]
+    }
+  }
+}

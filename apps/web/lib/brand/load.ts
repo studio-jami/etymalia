@@ -39,12 +39,23 @@ export interface BrandAssetRecord {
   signedUrl: string | null;
 }
 
+export interface BrandGenerationJobRecord {
+  id: string;
+  status: "queued" | "running" | "completed" | "failed";
+  errorSummary: string | null;
+  createdAt: string;
+  startedAt: string | null;
+  completedAt: string | null;
+}
+
 export interface LoadedBrand {
   userId: string;
+  workspaceRole: "owner" | "editor" | "viewer";
   brand: BrandRecord;
   tokens: DtcgDocument | null;
   candidates: NameCandidateRecord[];
   assets: BrandAssetRecord[];
+  jobs: BrandGenerationJobRecord[];
 }
 
 const UUID = /^[0-9a-fA-F-]{36}$/;
@@ -73,7 +84,7 @@ export async function loadBrand(
 
   if (brandError || !brand) return null;
 
-  const [{ data: tokenRow }, { data: candidateRows }, { data: assetRows }] = await Promise.all([
+  const [{ data: tokenRow }, { data: candidateRows }, { data: assetRows }, { data: jobRows }, { data: membership }] = await Promise.all([
     supabase.from("brand_tokens").select("dtcg_json").eq("brand_id", brandId).maybeSingle(),
     supabase
       .from("name_candidates")
@@ -85,6 +96,18 @@ export async function loadBrand(
       .select("id, kind, variant, lockup, format, storage_path, meta, created_at")
       .eq("brand_id", brandId)
       .order("created_at", { ascending: false }),
+    supabase
+      .from("generation_jobs")
+      .select("id, status, error_summary, created_at, started_at, completed_at")
+      .eq("brand_id", brandId)
+      .order("created_at", { ascending: false })
+      .limit(10),
+    supabase
+      .from("memberships")
+      .select("role")
+      .eq("workspace_id", workspaceId)
+      .eq("user_id", auth.user.id)
+      .maybeSingle(),
   ]);
 
   const workspace = brand.workspaces as { name?: string } | { name?: string }[] | null;
@@ -107,8 +130,21 @@ export async function loadBrand(
     isShortlisted: Boolean(row.is_shortlisted),
   }));
 
+  const workspaceRole = membership?.role;
+  if (workspaceRole !== "owner" && workspaceRole !== "editor" && workspaceRole !== "viewer") return null;
+
+  const jobs: BrandGenerationJobRecord[] = (jobRows ?? []).map((row) => ({
+    id: row.id as string,
+    status: row.status as BrandGenerationJobRecord["status"],
+    errorSummary: typeof row.error_summary === "string" ? row.error_summary : null,
+    createdAt: row.created_at as string,
+    startedAt: typeof row.started_at === "string" ? row.started_at : null,
+    completedAt: typeof row.completed_at === "string" ? row.completed_at : null,
+  }));
+
   return {
     userId: auth.user.id,
+    workspaceRole,
     brand: {
       id: brand.id as string,
       workspaceId: brand.workspace_id as string,
@@ -120,6 +156,7 @@ export async function loadBrand(
     tokens,
     candidates,
     assets,
+    jobs,
   };
 }
 

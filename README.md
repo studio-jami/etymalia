@@ -1,48 +1,30 @@
 # Etymalia
 
-Etymalia is a brand-identity platform with two product surfaces:
+Etymalia is a web-first brand-identity workspace. It helps authenticated users turn a brand brief into etymology-driven name candidates, a contrast-checked token palette, deterministic identity assets, and an exportable brand kit.
 
-- a native Android app (Kotlin + Jetpack Compose) for local brand profiles and AI-assisted asset workflows; and
-- a web app (Next.js + Supabase) that is building the Etymaria etymology-driven brand generator.
+The repository is a pnpm/Turborepo workspace centred on the Next.js application in [`apps/web`](./apps/web). Supabase provides authentication, product data, and private asset storage. The former Android prototype has been removed; its source history is preserved under [`docs/history`](./docs/history/README.md).
 
-The web product is the primary roadmap track. Its Phase 1 deterministic flow—names, palette, SVG identity, and ZIP export—is implemented. Phase 2 social-kit orchestration is present in source but requires final authenticated deployment/run verification before it can be called operational. See the [current audited status](./docs/CURRENT_STATUS.md).
-
-## Security model
-
-Provider credentials belong on the server only. The Android build includes only the public `SUPABASE_URL` and `SUPABASE_ANON_KEY` configuration; it does not package values from `.env` indiscriminately. The Android AI gateway still requires authentication, authorization, validation, and rate limiting before production release—see the release blockers in [`docs/CURRENT_STATUS.md`](./docs/CURRENT_STATUS.md).
-
-## Local development
-
-### Web
+## Start here
 
 ```sh
 pnpm install
 pnpm check
 ```
 
-For local interactive web work, follow [`apps/web/README.md`](./apps/web/README.md) to configure `apps/web/.env.local`.
+For interactive work, configure `apps/web/.env.local` as described in the [web development runbook](./docs/runbooks/web-development.md), then run:
 
-### Android
-
-1. Open this repository (`etymaria`) in Android Studio.
-2. Configure only the public Supabase settings needed by the Android client in the ignored root `.env`:
-
-   ```env
-   SUPABASE_URL=https://<project-ref>.supabase.co
-   SUPABASE_ANON_KEY=<public-anon-or-publishable-key>
-   ```
-
-3. Run the `app` configuration on an emulator or device.
-
-Do not put Gemini, Supabase service-role, database, OAuth, Vercel, Trigger, or other private credentials in Android configuration. The app currently requires a production-safe authenticated proxy before its AI actions should be released.
+```sh
+pnpm --filter etymalia-web dev
+```
 
 ## Documentation
 
-- **[Current audited status](./docs/CURRENT_STATUS.md)** — implementation truth, blockers, validation, and ordered next work.
-- **[Roadmap](./docs/roadmap.md)** — concise phase plan aligned to the audited baseline.
-- **[Web platform](./docs/WEB_APP.md)** — web architecture and local deployment configuration.
-- **[Web platform master plan](./docs/research/webapp_master_plan.md)** — forward architecture proposals; not an implementation inventory.
-- **[Android audit](./docs/AUDIT.md)** — Android architecture and quality/security gaps.
-- **[App signing](./docs/APP_SIGNING.md)** and **[IDE guide](./docs/IDE_GUIDE.md)**.
+- [Documentation map](./docs/README.md)
+- [Product: current source-backed state](./docs/product.md)
+- [Web platform architecture](./docs/architecture/web-platform.md)
+- [Generation contract](./docs/architecture/generation-contract.md)
+- **[Delivery plan: current work](./docs/plan.md)**
+- [Roadmap: product arc](./docs/roadmap.md)
+- [Historical records and superseded proposals](./docs/history/README.md)
 
-Dated `SESSION_*` handoffs and `.changelog/` entries are historical records. Verify their claims against current code and `docs/CURRENT_STATUS.md` before acting on them.
+Provider and service credentials are server-only. Never expose service-role, provider, OAuth, Trigger, or other private credentials to the browser or repository.

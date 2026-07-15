@@ -69,8 +69,10 @@ export function rasterizeSvg(svg: string, options: RasterizeSvgOptions): Uint8Ar
 
   if (height !== undefined && intrinsic !== undefined) {
     const expectedHeight = width * intrinsic.height / intrinsic.width;
-    if (Math.abs(expectedHeight - height) > 0.01) {
-      throw new RangeError("width and height must preserve the SVG aspect ratio");
+    // Raster dimensions are whole pixels, so accept the nearest-pixel rounding
+    // of a valid aspect-ratio-preserving height while rejecting distortion.
+    if (Math.abs(expectedHeight - height) > 0.5) {
+      throw new RangeError(`width and height must preserve the SVG aspect ratio (expected ${expectedHeight}, received ${height})`);
     }
   }
 

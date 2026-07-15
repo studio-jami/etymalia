@@ -1,0 +1,38 @@
+name: Publish generation renderer image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - apps/generation-worker/container/**
+      - apps/generation-worker/package.json
+      - pnpm-lock.yaml
+      - .github/workflows/publish-generation-renderer.yml
+
+permissions:
+  contents: read
+
+jobs:
+  publish-staging-image:
+    name: Publish staging renderer image
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build and push Cloudflare Container image
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: pnpm --filter etymalia-generation-worker exec wrangler containers build ./container --tag etymalia-generation-renderer:staging --push

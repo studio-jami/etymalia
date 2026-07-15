@@ -1,6 +1,6 @@
 // DTCG (Design Tokens Community Group) serialization. The brand_tokens row
 // stores this document as the single regenerable source of truth for a brand's
-// color system; Style Dictionary can later transform it into web/Android/iOS.
+// color system; downstream tooling can transform it into delivery-specific formats.
 
 import type { BrandPalette, ContrastCheck, PaletteColor } from "./palette";
 

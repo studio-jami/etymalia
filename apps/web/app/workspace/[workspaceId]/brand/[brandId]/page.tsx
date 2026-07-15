@@ -26,7 +26,8 @@ const ERRORS: Record<string, string> = {
   select: "We could not select that name.",
   palette: "Palette generation failed. Please try again.",
   "export-needs-palette": "Generate a palette before exporting the kit.",
-  "full-kit": "The full-kit job could not be queued. Please try again."
+  "full-kit": "The full-kit job could not be queued. Please try again.",
+  forbidden: "You need editor access to change this brand."
 };
 
 export default async function BrandPage({
@@ -34,7 +35,7 @@ export default async function BrandPage({
   searchParams,
 }: {
   params: Promise<{ workspaceId: string; brandId: string }>;
-  searchParams: Promise<{ error?: string; "full-kit"?: string }>;
+  searchParams: Promise<{ error?: string; job?: string }>;
 }) {
   const { workspaceId, brandId } = await params;
   const supabase = await createClient();
@@ -43,10 +44,11 @@ export default async function BrandPage({
   const loaded = await loadBrand(workspaceId, brandId);
   if (!loaded) redirect("/workspace");
 
-  const { brand, tokens, candidates, assets } = loaded;
-  const { error, "full-kit": fullKit } = await searchParams;
+  const { brand, tokens, candidates, assets, jobs, workspaceRole } = loaded;
+  const { error, job: requestedJob } = await searchParams;
   const errorMessage = error ? ERRORS[error] : null;
-  const fullKitQueued = fullKit === "queued";
+  const canEdit = workspaceRole === "owner" || workspaceRole === "editor";
+  const currentJob = requestedJob ? jobs.find((job) => job.id === requestedJob) ?? jobs[0] : jobs[0];
 
   const hidden = (
     <>
@@ -91,7 +93,12 @@ export default async function BrandPage({
       </section>
 
       {errorMessage ? <p className="status status--warning">{errorMessage}</p> : null}
-      {fullKitQueued ? <p className="status">Full-kit generation is queued. Social assets will appear when the durable job finishes.</p> : null}
+      {!canEdit ? <p className="status">Viewer access: you can review and download this brand, but only owners and editors can make changes.</p> : null}
+      {currentJob ? (
+        <p className={`status${currentJob.status === "failed" ? " status--warning" : ""}`}>
+          Generation job {currentJob.status}{currentJob.errorSummary ? `: ${currentJob.errorSummary}` : ""}
+        </p>
+      ) : null}
 
       <section className="brand-block" id="brief" aria-labelledby="brief-title">
         <div className="brand-block__head">
@@ -124,7 +131,7 @@ export default async function BrandPage({
             </div>
           </div>
           <div className="form-actions">
-            <button className="button button--primary" type="submit">Save brief</button>
+            <button className="button button--primary" type="submit" disabled={!canEdit}>Save brief</button>
           </div>
         </form>
       </section>
@@ -137,7 +144,7 @@ export default async function BrandPage({
         </div>
         <form action={generateNames} className="form-actions">
           {hidden}
-          <button className="button button--primary" type="submit">
+          <button className="button button--primary" type="submit" disabled={!canEdit}>
             {candidates.length ? "Regenerate names" : "Generate names"}
           </button>
         </form>
@@ -150,6 +157,7 @@ export default async function BrandPage({
                 candidate={candidate}
                 selected={candidate.term === brand.name}
                 hidden={hidden}
+                canEdit={canEdit}
               />
             ))}
           </ul>
@@ -166,7 +174,7 @@ export default async function BrandPage({
         </div>
         <form action={generateBrandPalette} className="form-actions">
           {hidden}
-          <button className="button button--primary" type="submit">
+          <button className="button button--primary" type="submit" disabled={!canEdit}>
             {tokens ? "Regenerate palette" : "Generate palette"}
           </button>
         </form>
@@ -240,7 +248,7 @@ export default async function BrandPage({
               </a>
               <form action={generateFullKit}>
                 {hidden}
-                <button className="button" type="submit">Generate full social kit</button>
+                <button className="button" type="submit" disabled={!canEdit}>Generate full social kit</button>
               </form>
               <span className="hint">
                 {candidates.some((candidate) => candidate.isShortlisted)
@@ -261,10 +269,12 @@ function NameCard({
   candidate,
   selected,
   hidden,
+  canEdit,
 }: {
   candidate: NameCandidateRecord;
   selected: boolean;
   hidden: ReactNode;
+  canEdit: boolean;
 }) {
   const scores = candidate.scores;
   const availability = candidate.availability;
@@ -289,7 +299,7 @@ function NameCard({
         <form action={useName}>
           {hidden}
           <input name="term" type="hidden" value={candidate.term} />
-          <button className="chip-button" type="submit" disabled={selected}>
+          <button className="chip-button" type="submit" disabled={selected || !canEdit}>
             {selected ? "Selected" : "Use name"}
           </button>
         </form>
@@ -297,7 +307,7 @@ function NameCard({
           {hidden}
           <input name="candidateId" type="hidden" value={candidate.id} />
           <input name="shortlist" type="hidden" value={String(!candidate.isShortlisted)} />
-          <button className={`chip-button${candidate.isShortlisted ? " chip-button--active" : ""}`} type="submit">
+          <button className={`chip-button${candidate.isShortlisted ? " chip-button--active" : ""}`} type="submit" disabled={!canEdit}>
             {candidate.isShortlisted ? "Shortlisted" : "Shortlist"}
           </button>
         </form>
@@ -305,7 +315,7 @@ function NameCard({
           {hidden}
           <input name="candidateId" type="hidden" value={candidate.id} />
           <input name="term" type="hidden" value={candidate.term} />
-          <button className="chip-button" type="submit">Check .com</button>
+          <button className="chip-button" type="submit" disabled={!canEdit}>Check .com</button>
         </form>
       </div>
     </li>

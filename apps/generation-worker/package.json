@@ -1,0 +1,24 @@
+{
+  "name": "etymalia-generation-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --env staging",
+    "build": "wrangler deploy --dry-run --env staging",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "cf:types": "wrangler types",
+    "cf:types:check": "wrangler types --check",
+    "cf:dry-run": "wrangler deploy --dry-run --env staging"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.18.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10",
+    "wrangler": "^4.98.0"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "^0.3.7"
+  }
+}

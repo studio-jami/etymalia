@@ -5,8 +5,6 @@
 // than re-renders. Vector output is resolution-independent; raster derivation
 // is exposed by the dedicated in-memory raster and favicon utilities below.
 
-
-
 export interface IdentityInput {
   name: string;
   primary: string;
@@ -62,12 +60,13 @@ function iconSvg(input: IdentityInput, monogram: string, variant: IdentityVarian
   const stroke = variant === "main" ? "none" : "currentColor";
   const textFill = variant === "main" ? input.onPrimary : "currentColor";
   const accent = variant === "main" ? input.accent : "currentColor";
+  const fontFamily = escapeXml(font);
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="${escapeXml(input.name)} icon">`,
     `<title>${escapeXml(input.name)}</title>`,
     `<rect x="8" y="8" width="112" height="112" rx="22" fill="${fill}" stroke="${stroke}" stroke-width="${variant === "main" ? 0 : 4}"/>`,
     `<rect x="8" y="92" width="112" height="10" fill="${accent}" opacity="${variant === "main" ? 0.9 : 0.5}"/>`,
-    `<text x="64" y="72" text-anchor="middle" dominant-baseline="middle" font-family="${font}" font-size="58" font-weight="600" letter-spacing="-2" fill="${textFill}">${escapeXml(monogram)}</text>`,
+    `<text x="64" y="72" text-anchor="middle" dominant-baseline="middle" font-family="${fontFamily}" font-size="58" font-weight="600" letter-spacing="-2" fill="${textFill}">${escapeXml(monogram)}</text>`,
     `</svg>`,
   ].join("");
 }
@@ -77,10 +76,11 @@ function wordmarkSvg(input: IdentityInput, variant: IdentityVariant, font: strin
   const height = 88;
   const textFill = variant === "main" ? input.ink : "currentColor";
   const accent = variant === "main" ? input.accent : "currentColor";
+  const fontFamily = escapeXml(font);
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeXml(input.name)}">`,
     `<title>${escapeXml(input.name)}</title>`,
-    `<text x="24" y="${height / 2}" dominant-baseline="middle" font-family="${font}" font-size="46" font-weight="500" letter-spacing="-1.5" fill="${textFill}">${escapeXml(input.name)}</text>`,
+    `<text x="24" y="${height / 2}" dominant-baseline="middle" font-family="${fontFamily}" font-size="46" font-weight="500" letter-spacing="-1.5" fill="${textFill}">${escapeXml(input.name)}</text>`,
     `<rect x="24" y="${height - 18}" width="${Math.min(width - 48, input.name.length * 26)}" height="4" fill="${accent}" opacity="${variant === "main" ? 0.85 : 0.5}"/>`,
     `</svg>`,
   ].join("");
@@ -93,12 +93,13 @@ function lockupSvg(input: IdentityInput, monogram: string, variant: IdentityVari
   const iconStroke = variant === "main" ? "none" : "currentColor";
   const monoFill = variant === "main" ? input.onPrimary : "currentColor";
   const textFill = variant === "main" ? input.ink : "currentColor";
+  const fontFamily = escapeXml(font);
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeXml(input.name)} logo">`,
     `<title>${escapeXml(input.name)}</title>`,
     `<rect x="16" y="16" width="88" height="88" rx="18" fill="${iconFill}" stroke="${iconStroke}" stroke-width="${variant === "main" ? 0 : 4}"/>`,
-    `<text x="60" y="62" text-anchor="middle" dominant-baseline="middle" font-family="${font}" font-size="44" font-weight="600" letter-spacing="-2" fill="${monoFill}">${escapeXml(monogram)}</text>`,
-    `<text x="132" y="${height / 2}" dominant-baseline="middle" font-family="${font}" font-size="44" font-weight="500" letter-spacing="-1.5" fill="${textFill}">${escapeXml(input.name)}</text>`,
+    `<text x="60" y="62" text-anchor="middle" dominant-baseline="middle" font-family="${fontFamily}" font-size="44" font-weight="600" letter-spacing="-2" fill="${monoFill}">${escapeXml(monogram)}</text>`,
+    `<text x="132" y="${height / 2}" dominant-baseline="middle" font-family="${fontFamily}" font-size="44" font-weight="500" letter-spacing="-1.5" fill="${textFill}">${escapeXml(input.name)}</text>`,
     `</svg>`,
   ].join("");
 }
@@ -114,7 +115,7 @@ export function synthesizeIdentity(input: IdentityInput): Identity {
     asset("icon-main", "Icon", "icon", "main", 128, 128, iconSvg(input, monogram, "main", font)),
     asset("icon-mono", "Icon (mono)", "icon", "mono", 128, 128, iconSvg(input, monogram, "mono", font)),
     asset("wordmark-main", "Wordmark", "wordmark", "main", 220, 88, wordmarkSvg(input, "main", font)),
-    asset("wordmark-mono", "Wordmark (mono)", "wordmark", "mono", 220, 88, wordmarkSvg(input, "mono", font)),
+    asset("wordmark-mono", "Wordmark (mono)", "wordmark", "mono", 220, 88, wordmarkSvg(input, "mono", font))
   ];
 
   return { monogram, assets };
@@ -136,11 +137,12 @@ function asset(
 export function faviconSvg(input: IdentityInput): string {
   const monogram = monogramFor(input.name);
   const font = input.displayFont ?? DEFAULT_FONT;
+  const fontFamily = escapeXml(font);
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="${escapeXml(input.name)}">`,
     `<title>${escapeXml(input.name)}</title>`,
     `<rect width="64" height="64" rx="12" fill="${input.primary}"/>`,
-    `<text x="32" y="37" text-anchor="middle" dominant-baseline="middle" font-family="${font}" font-size="34" font-weight="600" letter-spacing="-1" fill="${input.onPrimary}">${escapeXml(monogram)}</text>`,
+    `<text x="32" y="37" text-anchor="middle" dominant-baseline="middle" font-family="${fontFamily}" font-size="34" font-weight="600" letter-spacing="-1" fill="${input.onPrimary}">${escapeXml(monogram)}</text>`,
     `</svg>`,
   ].join("");
 }

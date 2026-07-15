@@ -1,21 +1,16 @@
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
 import { createClient } from "@supabase/supabase-js";
 import WebSocket from "ws";
 import { task } from "@trigger.dev/sdk/v3";
-import { faviconSvg, synthesizeIdentity } from "@etymalia/asset-forge";
-import { createFaviconSet } from "@etymalia/asset-forge/favicon";
-import { renderPngDerivatives } from "@etymalia/asset-forge/raster";
-import { renderSocialKit } from "@etymalia/asset-forge/social";
+import { renderFullKit } from "@etymalia/asset-forge/full-kit";
 import { colorHex, colorOn, isDtcgDocument } from "@etymalia/tokens";
 import {
-  createQueuedGenerationJob,
+  attachRunnerRun,
+  loadGenerationJob,
   updateGenerationJob,
 } from "../lib/brand/jobs";
 
 interface FullKitPayload {
-  workspaceId: string;
-  brandId: string;
+  jobId: string;
 }
 
 function adminClient() {
@@ -55,7 +50,7 @@ async function storeAsset(
     upsert: true,
   });
   if (error) throw new Error(`Unable to store ${input.path}: ${error.message}`);
-  records.push({
+  const record = {
     brand_id: input.brandId,
     kind: input.kind,
     variant: input.variant ?? "",
@@ -63,26 +58,26 @@ async function storeAsset(
     format: input.format,
     storage_path: input.path,
     meta: input.meta,
+  };
+  const { error: assetError } = await supabase.from("assets").upsert(record, {
+    onConflict: "brand_id,storage_path",
   });
+  if (assetError) throw new Error(`Unable to register ${input.path}: ${assetError.message}`);
+  records.push(record);
 }
 
 export const generateFullKit = task({
   id: "generate-full-kit",
   retry: { maxAttempts: 3 },
-  run: async ({ workspaceId, brandId }: FullKitPayload, { ctx }) => {
+  run: async ({ jobId }: FullKitPayload, { ctx }) => {
     const supabase = adminClient();
-    const job = {
-      workspaceId,
-      brandId,
-      type: "full_kit" as const,
-      triggerRunId: ctx.run.id,
-      attempt: ctx.attempt.number,
-    };
+    const job = await loadGenerationJob(supabase, jobId);
+    const { workspaceId, brandId } = job;
 
-    await createQueuedGenerationJob(supabase, job);
+    await attachRunnerRun(supabase, jobId, "trigger", ctx.run.id);
 
     try {
-      await updateGenerationJob(supabase, job, "running");
+      await updateGenerationJob(supabase, jobId, "running");
       const { data: brand, error: brandError } = await supabase
         .from("brands")
         .select("id, workspace_id, name, brief")
@@ -101,103 +96,38 @@ export const generateFullKit = task({
       }
 
       const tokens = tokenRow.dtcg_json;
-      const identityInput = {
-        name: brand.name,
-        primary: colorHex(tokens, "primary", "#315d7c"),
-        accent: colorHex(tokens, "accent", "#8fb8d3"),
-        ink: colorHex(tokens, "ink", "#182028"),
-        paper: colorHex(tokens, "paper", "#f3f1eb"),
-        onPrimary: colorOn(tokens, "primary", "#ffffff"),
-      };
-      const identity = synthesizeIdentity(identityInput);
       const brief = brand.brief && typeof brand.brief === "object" ? brand.brief as { description?: unknown } : {};
-      const taskFont = await readFile(
-        resolve(process.cwd(), "trigger/fonts/inter-latin-400-normal.woff"),
-      );
-      const assets = await renderSocialKit({
+      const artifacts = await renderFullKit({
         name: brand.name,
         tagline: typeof brief.description === "string" ? brief.description : "",
         primary: colorHex(tokens, "primary", "#315d7c"),
         accent: colorHex(tokens, "accent", "#8fb8d3"),
         ink: colorHex(tokens, "ink", "#182028"),
         paper: colorHex(tokens, "paper", "#f3f1eb"),
-        monogram: identity.monogram,
-      }, taskFont);
+        onPrimary: colorOn(tokens, "primary", "#ffffff"),
+      });
 
       const records: Array<Record<string, unknown>> = [];
-      const socialPrefix = storagePrefix(workspaceId, brandId, "social");
-      for (const asset of assets) {
+      for (const artifact of artifacts) {
         await storeAsset(supabase, records, {
           brandId,
-          path: `${socialPrefix}/${asset.id}.png`,
-          data: asset.png,
-          contentType: "image/png",
-          kind: "social",
-          variant: asset.platform.toLowerCase(),
-          lockup: asset.kind,
-          format: "png",
-          meta: { width: asset.width, height: asset.height, source: "satori-resvg" },
-        });
-      }
-
-      const logoPrefix = storagePrefix(workspaceId, brandId, "logo");
-      for (const asset of identity.assets) {
-        await storeAsset(supabase, records, {
-          brandId,
-          path: `${logoPrefix}/${asset.id}.svg`,
-          data: new TextEncoder().encode(asset.svg),
-          contentType: "image/svg+xml",
-          kind: "identity",
-          variant: asset.variant,
-          lockup: asset.kind,
-          format: "svg",
-          meta: { width: asset.width, height: asset.height, source: "deterministic-svg", sourceAssetId: asset.id },
-        });
-        for (const derivative of renderPngDerivatives(asset.svg, asset.id, [asset.width, asset.width * 2, asset.width * 3])) {
-          await storeAsset(supabase, records, {
-            brandId,
-            path: `${logoPrefix}/${derivative.filename}`,
-            data: derivative.png,
-            contentType: derivative.contentType,
-            kind: "identity",
-            variant: asset.variant,
-            lockup: asset.kind,
-            format: "png",
-            meta: { width: derivative.width, height: derivative.height, source: derivative.source, sourceAssetId: asset.id },
-          });
-        }
-      }
-
-      const faviconPrefix = storagePrefix(workspaceId, brandId, "favicon");
-      const favicons = createFaviconSet(faviconSvg(identityInput), {
-        name: brand.name,
-        shortName: brand.name.slice(0, 12),
-        themeColor: identityInput.primary,
-        backgroundColor: identityInput.paper,
-      });
-      for (const artifact of favicons.artifacts) {
-        const format = artifact.filename.endsWith(".svg") ? "svg"
-          : artifact.filename.endsWith(".png") ? "png"
-          : artifact.filename.endsWith(".ico") ? "ico" : "other";
-        await storeAsset(supabase, records, {
-          brandId,
-          path: `${faviconPrefix}/${artifact.filename}`,
+          path: `${storagePrefix(workspaceId, brandId, artifact.category)}/${artifact.filename}`,
           data: artifact.data,
           contentType: artifact.contentType,
-          kind: "favicon",
-          variant: artifact.purpose,
-          format,
-          meta: { width: artifact.width, height: artifact.height, source: "deterministic-favicon" },
+          kind: artifact.kind,
+          variant: artifact.variant,
+          lockup: artifact.lockup,
+          format: artifact.format,
+          meta: artifact.meta,
         });
       }
 
-      const { error: assetError } = await supabase.from("assets").upsert(records, { onConflict: "brand_id,storage_path" });
-      if (assetError) throw new Error(`Unable to register full-kit assets: ${assetError.message}`);
+      const prefixes = ["social", "logo", "favicon"].map((category) => storagePrefix(workspaceId, brandId, category as "social" | "logo" | "favicon"));
 
-      await updateGenerationJob(supabase, job, "completed");
-      return { count: records.length, prefixes: [socialPrefix, logoPrefix, faviconPrefix] };
+      await updateGenerationJob(supabase, jobId, "completed");
+      return { count: records.length, prefixes };
     } catch (error) {
-      await updateGenerationJob(supabase, job, "failed", error).catch(() => undefined);
+      await updateGenerationJob(supabase, jobId, "failed", error).catch(() => undefined);
       throw error;
     }
   },

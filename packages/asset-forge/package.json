@@ -7,7 +7,8 @@
     ".": "./src/index.ts",
     "./social": "./src/social.ts",
     "./raster": "./src/raster.ts",
-    "./favicon": "./src/favicon.ts"
+    "./favicon": "./src/favicon.ts",
+    "./full-kit": "./src/full-kit.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
