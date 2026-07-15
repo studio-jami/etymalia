@@ -12,6 +12,7 @@ Etymalia is a web-first professional brand-identity platform. The Android applic
 - Every AI request is authenticated, authorized, validated, rate/usage limited, observable, and attributable.
 - Brand tokens are the source of truth; all rendered deliverables derive deterministically from them.
 - Long-running media work is durable, idempotent, observable, and reflected in both the UI and the export package.
+- Guided build accelerates users without constraining them: every stage must also support direct editing, selective generation, comparison, and individual or collection export.
 - Claims of deployment, availability, and vendor support are evidence-bound—not inferred from source configuration.
 
 ## Current baseline
@@ -27,7 +28,7 @@ Etymalia is a web-first professional brand-identity platform. The Android applic
 
 ## 0. Release integrity — do first
 
-
+See [`GENERATION_SYSTEM.md`](./GENERATION_SYSTEM.md) for the portable request/job/asset/export contracts and runner decision criteria.
 
 ### Web delivery proof
 
@@ -43,7 +44,8 @@ Etymalia is a web-first professional brand-identity platform. The Android applic
 
 ## 1. Web Phase 2 — complete the full kit
 
-- Reference import with explicit MIME/size limits, private Storage paths, deletion, and palette/vibe extraction.
+- Reference import with explicit MIME/size limits, private Storage paths, deletion, and palette/vibe extraction—plus manual application of extracted suggestions.
+- Selective and collection generation controls for identity, favicons, social assets, and exports; complete-kit generation remains a convenience composition.
 - Real raster derivatives: PNG/ICO and a standards-complete favicon package.
 - Prototype the brand guide in Typst and React-PDF, assess output/operations/accessibility, and record one chosen renderer.
 - Include social assets, guide, and raster identity derivatives in the export manifest and ZIP.

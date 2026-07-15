@@ -32,6 +32,7 @@ We are explicitly benchmarking against the best payment-gated products in this s
 - **Reuse > reduce > recycle.** Every capability below maps to a mature OSS library or an industry standard. We write *glue and taste*, not primitives. See §15.
 - **Ports & adapters (hexagonal).** AI, domain-availability, social-availability, storage, and billing are all *ports* with swappable adapters. No feature code imports a vendor SDK directly.
 - **Simple elegance.** A capability ships only when its output is *drop-in correct*. A half-correct favicon set is worse than none.
+- **Human-directed, system-assisted.** The guided build is an accelerator, never a cage. Every guided stage must preserve direct editing, selective generation, comparison, regeneration, and export. The system supplies breadth and iteration; the user supplies judgment, feeling, and taste.
 
 ---
 
@@ -84,7 +85,7 @@ We are explicitly benchmarking against the best payment-gated products in this s
  └──────────────────┘        └────────────────────────┘
 ```
 
-**Deployment:** Vercel (web + serverless/edge route handlers) · Supabase (Postgres, Auth, Storage, Vault, Edge Functions) · Trigger.dev (durable background jobs for long AI/media pipelines). All secrets server-side per `AGENTS.md`.
+**Deployment direction:** Vercel (web + server routes) · Supabase (Postgres, Auth, Storage, Vault) · a durable runner adapter for background work. Trigger.dev is the current implementation; dedicated AWS, Google Cloud, or Cloudflare compute remains an intentional option for high-cost media. See [`GENERATION_SYSTEM.md`](../GENERATION_SYSTEM.md).
 
 ---
 
@@ -247,11 +248,13 @@ Everything below runs as **Trigger.dev** durable jobs (§10) so long pipelines s
 
 ## 10. Background Jobs & Orchestration
 
-AI + media pipelines exceed serverless request budgets and need retries/progress.
+The production job architecture is defined in [`GENERATION_SYSTEM.md`](../GENERATION_SYSTEM.md).
 
-- **Decision: Trigger.dev v3** is the orchestration end-shape now. **Start on Trigger.dev Cloud** (dev tier — already keyed, zero ops) for Phase 0–2; the *same task code* runs unchanged on a **self-hosted** instance, which we adopt when it pays off: **cost at scale**, **payload data-residency/privacy** (user uploads), or **private-network access**. No lock-in either direction (migration = re-point API URL + key).
-- Keep job payloads small — pass **Supabase storage references**, not raw blobs — so sensitive bytes stay out of the runner and Cloud stays viable longer.
-- Supabase Queues (`pgmq`) remain available for trivial, single-step jobs; orchestration lives in Trigger.dev.
+- A request may create one asset, a collection, a custom selection, or a complete kit. Bulk is convenience, never the only path.
+- Jobs carry IDs, version references, and bounded options—not media bytes or secrets.
+- Work is classed by latency and cost: immediate deterministic updates, bounded provider calls, durable asset rendering, long provider operations, and dedicated high-cost media compute.
+- Trigger.dev is the current web-native runner implementation. It is not a blanket commitment for GPU/video, heavy native processing, or broad batch work.
+- Any runner must implement the same request, job, asset, and export contracts so the product is portable across Trigger, Cloudflare, AWS, or Google Cloud.
 
 ---
 

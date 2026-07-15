@@ -2,7 +2,7 @@
 
 **Canonical state for the product and operations.**
 
-Use this document for what is true now. Use [`roadmap.md`](./roadmap.md) for what comes next. Dated handoffs and changelog entries are historical records only.
+Use this document for what is true now. Use [`roadmap.md`](./roadmap.md) for what comes next and [`GENERATION_SYSTEM.md`](./GENERATION_SYSTEM.md) for the production creation/job/export contract. Dated handoffs and changelog entries are historical records only.
 
 ## Product
 
