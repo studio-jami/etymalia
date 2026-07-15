@@ -19,6 +19,10 @@
     "wrangler": "^4.98.0"
   },
   "dependencies": {
-    "@cloudflare/containers": "^0.3.7"
+    "@cloudflare/containers": "^0.3.7",
+    "@etymalia/asset-forge": "workspace:*",
+    "@etymalia/tokens": "workspace:*",
+    "@supabase/supabase-js": "^2.49.4",
+    "tsx": "^4.21.0"
   }
 }

@@ -32,6 +32,9 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - name: Assemble standalone renderer deployment
+        run: pnpm --filter etymalia-generation-worker deploy --prod apps/generation-worker/container/app
+
       - name: Build and push Cloudflare Container image
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
