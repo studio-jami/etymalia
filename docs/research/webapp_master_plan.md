@@ -85,7 +85,7 @@ We are explicitly benchmarking against the best payment-gated products in this s
  └──────────────────┘        └────────────────────────┘
 ```
 
-**Deployment direction:** Vercel (web + server routes) · Supabase (Postgres, Auth, Storage, Vault) · Cloudflare Workflows + Queues (durable SaaS orchestration) · provider OAuth for the personal-generation lane. Trigger.dev is transitional. AWS is the designated future heavyweight compute lane while its current EC2/open-weight GPU capacity is protected; GCP is the Vertex media lane. See [`GENERATION_SYSTEM.md`](../GENERATION_SYSTEM.md).
+**Deployment direction:** Vercel (web + server routes) · Supabase (Postgres, Auth, Storage, Vault) · Cloudflare Workflows + Queues (durable SaaS orchestration) · provider OAuth for the personal-generation lane. Trigger.dev is transitional. AWS is the preferred compute platform, with its current EC2/open-weight GPU runway protected; GCP is the Vertex media lane. See [`GENERATION_SYSTEM.md`](../GENERATION_SYSTEM.md).
 
 ---
 
@@ -344,7 +344,7 @@ Keeps `AGENTS.md`'s manual-DI / no-Hilt ethos: composition over frameworks, smal
 - Social kits (satori) across platform spec table.
 - Brand Guide Book (Typst) bound to tokens.
 - Reference import (Uppy) + palette/vibe extraction.
-- Trigger.dev orchestration for full-kit generation with progress.
+- Cloudflare Workflows + Queues orchestration for selective and complete-kit generation with progress.
 
 ### Phase 3 — Deliverable Depth + Monetization (4–6 wks)
 - Additionals: email signature (MJML), digital business card + QR + vCard, letterhead.
@@ -361,12 +361,12 @@ Keeps `AGENTS.md`'s manual-DI / no-Hilt ethos: composition over frameworks, smal
 
 ### ✅ Locked (July 2026)
 1. **Guide book renderer:** prototype **both** Typst *and* react-pdf in Phase 2, then choose.
-2. **Job runner:** **Trigger.dev** as orchestration end-shape — start on Cloud (dev tier, already keyed), self-host later if cost/privacy/scale justify it; identical code either way (§10).
+2. **Job runner:** Cloudflare Workflows + Queues for SaaS orchestration; Trigger.dev is transitional only. See [`GENERATION_SYSTEM.md`](../GENERATION_SYSTEM.md).
 3. **Social/SEO availability:** domains ship first (RDAP, clean); social-handle + SEO are ToS-gated and data-provider-paid, so they land later behind adapters + flags (§6.3).
 4. **Registrar strategy:** pursue **buy-through + affiliate** (Porkbun/Namecheap/Cloudflare reseller/affiliate programs) alongside Domainr for search.
 5. **Etymaria data hosting:** **Postgres + pgvector** for semantic search over the corpus.
 6. **Moat:** the curated cross-linguistic corpus + blending engine (not raw etymology) — see §6.1.
-7. **AI credentials:** three-mode resolver (**OAuth-linked / BYOK key / pooled**) across Google, OpenAI, xAI, with two lanes (Studio vs Prod); provider-direct SDKs default, Gateway optional (§5.1). OAuth-to-API verified live for all three (July 2026).
+7. **Personal generation:** OpenAI OAuth and xAI/Grok OAuth are the first provider integrations. Provider-specific entitlement, scope, and API validation are implementation gates, not open product decisions (§5.1).
 
 ### ⏳ Still open
 - **Guide-book winner** — decide after the Phase 2 prototype bake-off.

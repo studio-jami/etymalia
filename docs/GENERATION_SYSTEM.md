@@ -196,14 +196,14 @@ flowchart LR
 | --- | --- | --- |
 | Personal model generation | OpenAI OAuth and xAI/Grok OAuth | The provider account does the model/media work; Etymalia owns the creative workflow, artifacts, and experience. |
 | SaaS durable orchestration | Cloudflare Workflows + Queues | Selected control plane for durable steps, retries, waits, queueing, DLQ, and pull consumers. |
-| Heavyweight future compute | AWS Step Functions Standard + SQS + ECS/Fargate or AWS Batch | Designated future heavyweight lane; preserve current AWS capacity for the EC2/open-weight GPU workload. |
+| Heavy compute | AWS | Preferred compute platform; current EC2/open-weight GPU runway is preserved while Cloudflare handles SaaS jobs. |
 | Vertex media | Vertex plus the appropriate GCP execution adapter | Preferred GCP media lane; do not assume Cloud Run credit eligibility until verified against the current account program. |
 
 **Locked decision:**
 
 1. **Cloudflare Workflows + Queues** are the primary durable-work control plane. Workflows own orchestration, state, retries, waits, and lifecycle; Queues provide buffering, retry, dead-letter, and pull-consumer capability.
 2. **Supabase remains the product system of record** for Auth, Postgres/RLS, private brand storage, job/asset/export ledgers, and signed delivery. Cloudflare does not create a second product database or storage truth.
-3. **AWS is the designated heavyweight compute lane.** Current AWS capacity is protected for the established EC2/open-weight GPU workload; when production media needs grow, AWS services such as Step Functions, SQS, Fargate/Batch, or MediaConvert are the planned expansion path.
+3. **AWS is the preferred compute platform.** Its current EC2/open-weight GPU runway is protected; Cloudflare handles SaaS job orchestration now.
 4. **GCP is reserved** for Vertex media generation. Treat Cloud Run or other GCP-credit eligibility as unconfirmed until verified against the account's current program terms; do not budget product compute on an assumed credit entitlement.
 5. Trigger remains deployed only as a transitional reference until Cloudflare-backed full-kit execution is production-proven, then it leaves the application request path.
 6. Keep the request, job, asset, and export contracts unchanged so a runner migration changes adapters, not product behavior.

@@ -21,7 +21,7 @@ This is one coherent foundation package—not a collection of disconnected featu
 | Product data and delivery | Supabase Auth, Postgres/RLS, private Storage, job/asset/export ledgers, and signed URLs remain authoritative. |
 | Trigger.dev | Transitional implementation only. Do not add product features to it. Retire it from the application request path only after Cloudflare production verification succeeds. |
 | Personal generation | OpenAI OAuth and xAI/Grok OAuth are the first provider integrations. Providers perform model/media work; Cloudflare orchestrates the SaaS lifecycle around it. |
-| AWS | Designated future heavyweight compute lane. Protect the existing EC2/open-weight GPU capacity now; extend into AWS heavy services when the product workload requires it. |
+| AWS | Preferred compute platform. Preserve the existing EC2/open-weight GPU runway now; Cloudflare handles current SaaS jobs. |
 | GCP | Vertex media lane. Do not assume Cloud Run credit eligibility without current account-program confirmation. |
 | Payloads | IDs, version references, bounded options, and idempotency keys only—never media bytes or secrets. |
 | Docker | Do not use local Docker as a development or verification dependency. |
@@ -58,7 +58,19 @@ Create small provider and runner ports in the web application. The provider port
 
 Do not let pages, server actions, exports, or asset code import a runner SDK directly.
 
-### B. Provision Cloudflare through IaC/configuration
+### B. Implement personal OAuth before provider-backed generation
+
+Use the providers’ current official OAuth/API documentation at implementation time. Build OpenAI and xAI/Grok as separate adapters behind the provider port.
+
+Required acceptance:
+
+- authorization-code + PKCE callback flow;
+- encrypted server-side token persistence, refresh, revocation, and disconnect;
+- no token material in browser storage, logs, exports, or ordinary database rows;
+- one verified bounded text-generation capability per provider before enabling media capability; and
+- explicit reconnect behavior for revoked or expired access.
+
+### C. Provision Cloudflare through IaC/configuration
 
 Use the official Cloudflare tooling and current vendor documentation. Before changing account resources, inspect the existing account/project state and use the intended authenticated account.
 
@@ -73,7 +85,7 @@ Provision/configure:
 
 Do not migrate Supabase Storage to R2 in this package. Existing private Storage and its RLS model are correct product boundaries.
 
-### C. Migrate the full-kit path
+### D. Migrate the full-kit path
 
 Replace the application’s Trigger enqueue call with the runner port and Cloudflare adapter.
 
@@ -96,7 +108,7 @@ Initial priority classes:
 | Background | full kit / export rebuild | low |
 | Heavy | video, vectorization, large extraction | separate adapter; not the Cloudflare default without capability validation |
 
-### D. Complete the workspace generation UX
+### E. Complete the workspace generation UX
 
 The workspace must expose:
 
@@ -110,7 +122,7 @@ The workspace must expose:
 
 The guided flow and direct controls must update the same brand/token/reference state and produce the same asset records.
 
-### E. Reference import foundation
+### F. Reference import foundation
 
 After the Cloudflare full-kit path is proven, add image-only reference import first:
 

@@ -55,18 +55,17 @@ Completed artifacts appear in the workspace and are included in its authenticate
 ### Ready
 
 - Deterministic web Phase 1 workflow.
-- Full-kit source, remote schema, and Trigger deployment.
-- Persisted asset viewing, downloads, and ZIP packaging once a full-kit job completes.
+- Full-kit source, remote schema, and persisted asset viewing, downloads, and ZIP packaging once a job completes.
 
 ### Not ready
 
-- Full-kit delivery cannot be called production-verified until the accepted Trigger run executes and its artifacts are confirmed.
+- Cloudflare-backed full-kit delivery is not production-verified until a Cloudflare job executes and its artifacts are confirmed.
 - Reference import, brand guide, templates/stationery, production BYOK settings, billing, invitations, brand-audit loop, and public export API are not implemented.
 - Social/SEO availability and registrar integrations are not implemented.
 
 ## Immediate operating gate
 
-Resolve the Trigger Cloud queue condition for the accepted full-kit run. Then verify one completed production run has:
+Implement and verify one completed Cloudflare-backed full-kit run with:
 
 1. a completed `generation_jobs` record;
 2. the expected private Storage objects;
