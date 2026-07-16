@@ -101,7 +101,8 @@ createServer(async (request, response) => {
     const result = await generate(input.jobId, input.idempotencyKey, input.runnerRunId);
     response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(result));
   } catch (error) {
-    console.error("Renderer request failed", error);
-    response.writeHead(500, { "content-type": "application/json" }); response.end(JSON.stringify({ error: "Renderer failed" }));
+    const failure = error instanceof Error ? error.message.slice(0, 240) : "Unknown renderer failure";
+    console.error("Renderer request failed", failure);
+    response.writeHead(500, { "content-type": "application/json" }); response.end(JSON.stringify({ error: failure }));
   }
 }).listen(port, "0.0.0.0");
