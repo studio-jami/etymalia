@@ -2,7 +2,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { config as loadEnv } from "dotenv";
 import { defineConfig } from "@trigger.dev/sdk/v3";
-import { syncEnvVars } from "@trigger.dev/build/extensions/core";
+import { additionalFiles, syncEnvVars } from "@trigger.dev/build/extensions/core";
 
 loadEnv({ path: resolve(dirname(fileURLToPath(import.meta.url)), "../../.env") });
 
@@ -15,6 +15,7 @@ function requiredEnv(name: "SUPABASE_URL" | "SUPABASE_SERVICE_ROLE_KEY"): string
 export default defineConfig({
   project: "proj_wcurzuyxcrbsvfaxoymh",
   dirs: ["./trigger"],
+  legacyDevProcessCwdBehaviour: false,
   runtime: "node",
   maxDuration: 300,
   logLevel: "log",
@@ -22,6 +23,7 @@ export default defineConfig({
   build: {
     external: ["@resvg/resvg-js", "ws"],
     extensions: [
+      additionalFiles({ files: ["./trigger/fonts/**"] }),
       syncEnvVars(async () => [
         { name: "SUPABASE_URL", value: requiredEnv("SUPABASE_URL") },
         { name: "SUPABASE_SERVICE_ROLE_KEY", value: requiredEnv("SUPABASE_SERVICE_ROLE_KEY") },

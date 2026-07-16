@@ -112,6 +112,9 @@ export async function updateGenerationJob(
   const update = status === "failed"
     ? {
         status,
+        // An enqueue failure can occur before the runner records `running`.
+        // Failed jobs nevertheless satisfy the durable lifecycle invariant.
+        started_at: now(),
         completed_at: now(),
         error_type: safeErrorType(error),
         error_summary: FAILURE_SUMMARY,

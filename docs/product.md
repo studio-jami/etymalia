@@ -46,4 +46,4 @@ The deterministic brief-to-name-to-palette-to-identity-to-ZIP workflow is the cu
 
 ## External state
 
-Remote verification on 2026-07-16 confirmed that the billing migrations through `20260716061000` are applied; the signed Stripe webhook route is deployed to the live URL and returned a successful signature-verified smoke response. The isolated Cloudflare staging foundation is also deployed; its evidence is in the [delivery plan](./plan.md). OAuth enablement and completed production generation remain separately unverified.
+Remote verification on 2026-07-16 confirmed that the billing migrations through `20260716061000` are applied; the signed Stripe webhook route is deployed to the live URL and returned a successful signature-verified smoke response. Supabase Auth now uses and allows `https://etymalia.jami.studio`, and successful Google OAuth returns to `/workspace`. The transitional Trigger-backed production full-kit path is verified with 45 private assets; Cloudflare-backed production generation remains separately unverified. The isolated Cloudflare staging foundation evidence is in the [delivery plan](./plan.md).

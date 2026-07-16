@@ -8,6 +8,8 @@ export type FullKitArtifactFormat = "svg" | "png" | "ico" | "other";
 
 export interface FullKitRenderInput extends IdentityInput {
   tagline: string;
+  /** Optional runner-provided font data for environments that package assets separately. */
+  fontData?: Buffer | ArrayBuffer;
 }
 
 /** A persisted-artifact-ready value with no runner, storage, or database concern. */
@@ -40,7 +42,7 @@ export async function renderFullKit(input: FullKitRenderInput): Promise<FullKitA
     ink: input.ink,
     paper: input.paper,
     monogram: identity.monogram,
-  });
+  }, input.fontData);
 
   for (const asset of socialAssets) {
     artifacts.push({

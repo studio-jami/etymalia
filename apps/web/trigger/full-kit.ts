@@ -1,4 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import WebSocket from "ws";
 import { task } from "@trigger.dev/sdk/v3";
 import { renderFullKit } from "@etymalia/asset-forge/full-kit";
@@ -97,6 +99,7 @@ export const generateFullKit = task({
 
       const tokens = tokenRow.dtcg_json;
       const brief = brand.brief && typeof brand.brief === "object" ? brand.brief as { description?: unknown } : {};
+      const fontData = await readFile(join(process.cwd(), "trigger", "fonts", "inter-latin-400-normal.woff"));
       const artifacts = await renderFullKit({
         name: brand.name,
         tagline: typeof brief.description === "string" ? brief.description : "",
@@ -105,6 +108,7 @@ export const generateFullKit = task({
         ink: colorHex(tokens, "ink", "#182028"),
         paper: colorHex(tokens, "paper", "#f3f1eb"),
         onPrimary: colorOn(tokens, "primary", "#ffffff"),
+        fontData,
       });
 
       const records: Array<Record<string, unknown>> = [];

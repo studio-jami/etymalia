@@ -11,6 +11,10 @@ export async function POST(request: Request) {
   if (!plan) return NextResponse.json({ error: "Unknown billing plan." }, { status: 400 });
   const session = await stripe().checkout.sessions.create({
     mode: "subscription",
+    // A one-time 100%-off annual promotion should be completable without a
+    // payment method. Stripe will still collect one whenever the first invoice
+    // requires payment.
+    payment_method_collection: "if_required",
     line_items: [{ price: plan.priceId, quantity: 1 }],
     allow_promotion_codes: true,
     client_reference_id: user.id,

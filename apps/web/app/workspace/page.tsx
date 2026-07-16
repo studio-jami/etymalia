@@ -31,19 +31,21 @@ export default async function WorkspacePage({
   const { data: auth, error: authError } = await supabase.auth.getUser();
   if (authError || !auth.user) redirect("/");
 
-  const [{ data: workspaceData, error: workspaceError }, { data: brandData, error: brandError }, { data: creditRows, error: creditError }, { data: billingCustomer, error: billingError }] = await Promise.all([
+  const [{ data: workspaceData, error: workspaceError }, { data: brandData, error: brandError }, { data: creditRows, error: creditError }, { data: billingCustomer, error: billingError }, { data: billingSubscription, error: subscriptionError }] = await Promise.all([
     supabase.from("workspaces").select("id, name, plan").order("updated_at", { ascending: false }),
     supabase.from("brands").select("id, workspace_id, name, status").order("updated_at", { ascending: false }),
     supabase.from("credit_ledger").select("amount"),
     supabase.from("billing_customers").select("user_id").eq("user_id", auth.user.id).maybeSingle(),
+    supabase.from("billing_subscriptions").select("plan_key, status").in("status", ["active", "trialing"]).order("updated_at", { ascending: false }).limit(1).maybeSingle(),
   ]);
 
-  if (workspaceError || brandError || creditError || billingError) {
+  if (workspaceError || brandError || creditError || billingError || subscriptionError) {
     throw new Error("Unable to load your workspace library.");
   }
 
   const workspaces = (workspaceData ?? []) as Workspace[];
   const brands = (brandData ?? []) as Brand[];
+  const entitlementPlan = typeof billingSubscription?.plan_key === "string" ? billingSubscription.plan_key : null;
   const { error } = await searchParams;
 
   return (
@@ -89,7 +91,7 @@ export default async function WorkspacePage({
               <article className="workspace-card" key={workspace.id}>
                 <div className="workspace-card__heading">
                   <div>
-                    <p className="eyebrow">{workspace.plan} plan</p>
+                    <p className="eyebrow">{entitlementPlan ?? workspace.plan} plan</p>
                     <h2>{workspace.name}</h2>
                   </div>
                   <span className="workspace-card__count">{workspaceBrands.length} brands</span>
