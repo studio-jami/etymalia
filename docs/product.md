@@ -12,7 +12,11 @@ The product is designed around one shared brand state: guided creation helps use
 - Workspace, membership, and brand records protected by Supabase RLS.
 - Brand brief capture: description, industry, audience, keywords, and tone.
 - Deterministic Etymaria name candidates with provenance, scoring, shortlists, and on-demand `.com` RDAP checks.
-- Deterministic OKLCH palette generation, DTCG token persistence, and contrast checks.
+- Naming-studio controls for language eras, construction strategies, result volume, syllable limits, and manually added candidates; generated candidates retain their root provenance.
+- Deterministic OKLCH palette generation, direct semantic-color editing, DTCG token-version persistence, and contrast checks.
+- Named creative-direction snapshots: an editor can save the current brief, names, and tokens as a draft, then restore a saved direction through an authorization-checked transaction. Migration `20260716100000_add_brand_directions.sql` is applied remotely; deployed-workspace verification remains pending.
+- Editable deterministic identity recipes: mark shape, wordmark voice, and tracking are persisted on the shared brand and drive live SVG identity previews. Migration `20260716110000_add_identity_recipe.sql` is applied remotely; deployed-workspace verification remains pending.
+- The Cloudflare-backed production full-kit path is live: a server-only enqueue adapter calls an authenticated Worker `/enqueue` boundary with only job ID/idempotency key. On 2026-07-16, production job `2c46411d-33cd-4afe-a3a7-202607161200` completed with Cloudflare runner lineage and 45 matching private asset/storage records.
 - Deterministic SVG lockup, wordmark, icon, and monochrome identity variants.
 - Authenticated ZIP export of deterministic assets, with persisted generated artifacts included when available; exports fail closed when a selected persisted artifact is unavailable.
 - A request-first generation ledger with source-version snapshot, idempotency key, runner metadata, and authorized job-state read model.
@@ -46,4 +50,4 @@ The deterministic brief-to-name-to-palette-to-identity-to-ZIP workflow is the cu
 
 ## External state
 
-Remote verification on 2026-07-16 confirmed that the billing migrations through `20260716061000` are applied; the signed Stripe webhook route is deployed to the live URL and returned a successful signature-verified smoke response. Supabase Auth now uses and allows `https://etymalia.jami.studio`, and successful Google OAuth returns to `/workspace`. The transitional Trigger-backed production full-kit path is verified with 45 private assets; Cloudflare-backed production generation remains separately unverified. The isolated Cloudflare staging foundation evidence is in the [delivery plan](./plan.md).
+Remote verification on 2026-07-16 confirmed that migrations through `20260716130000` are applied, including `brand_directions`, `activate_brand_direction(uuid)`, and the identity-recipe column; deployed-workspace verification remains pending. The signed Stripe webhook route is deployed to the live URL and returned a successful signature-verified smoke response. Supabase Auth now uses and allows `https://etymalia.jami.studio`, and successful Google OAuth returns to `/workspace`. The Cloudflare-backed production full-kit path is verified with 45 private assets; Trigger remains transitional fallback only. The isolated Cloudflare staging foundation evidence is in the [delivery plan](./plan.md).

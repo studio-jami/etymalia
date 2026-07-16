@@ -29,4 +29,13 @@ describe("identity synthesis", () => {
     expect(identity.assets.find((asset) => asset.id === "wordmark-main")?.svg).toContain("North &amp; &quot;Co&quot;");
     expect(faviconSvg(input)).toContain("North &amp; &quot;Co&quot;");
   });
+
+  it("applies an editable identity recipe to the generated mark", () => {
+    const identity = synthesizeIdentity({ ...input, recipe: { mark: "circle", lockup: "stacked", type: "grotesk", tracking: "wide" } });
+    const lockup = identity.assets.find((asset) => asset.id === "lockup-main");
+    const icon = identity.assets.find((asset) => asset.id === "icon-main");
+    expect(lockup?.height).toBe(190);
+    expect(lockup?.svg).toContain('text-anchor="middle"');
+    expect(icon?.svg).toContain('rx="56"');
+  });
 });

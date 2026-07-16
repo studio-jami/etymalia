@@ -2,6 +2,7 @@ import "server-only";
 
 import { tasks } from "@trigger.dev/sdk/v3";
 import type { GenerationJobReference, GenerationRunner } from "@etymalia/generation";
+import { configuredCloudflareRunner } from "./cloudflare-runner";
 
 export class TriggerGenerationRunner implements GenerationRunner {
   async enqueue(reference: GenerationJobReference): Promise<{ runId: string }> {
@@ -13,5 +14,5 @@ export class TriggerGenerationRunner implements GenerationRunner {
 }
 
 export function generationRunner(): GenerationRunner {
-  return new TriggerGenerationRunner();
+  return configuredCloudflareRunner() ?? new TriggerGenerationRunner();
 }

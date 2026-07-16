@@ -25,6 +25,13 @@ export interface FullKitArtifact {
   meta: Record<string, unknown>;
 }
 
+/** Select persisted artifacts by product-facing logical intent. */
+export function selectFullKitArtifacts(artifacts: FullKitArtifact[], requested: Array<{ kind: string; variant?: string; lockup?: string; format?: string }>): FullKitArtifact[] {
+  if (requested.some((item) => item.kind === "full-kit")) return artifacts;
+  const categories = new Set(requested.flatMap((item) => item.kind === "identity" || item.kind === "logo" ? ["logo"] : item.kind === "favicon" ? ["favicon"] : item.kind === "social" ? ["social"] : []));
+  return artifacts.filter((artifact) => categories.has(artifact.category));
+}
+
 /**
  * Render the complete deterministic brand kit in memory. Callers own job
  * lifecycle, storage paths, and artifact persistence so this remains portable

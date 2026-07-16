@@ -7,11 +7,12 @@ import {
   type Identity,
   type IdentityInput,
 } from "@etymalia/asset-forge";
+import type { BrandRecord } from "./load";
 
 const DISPLAY_FONT = 'Georgia, "Times New Roman", "Iowan Old Style", serif';
 
 /** Map a brand's DTCG tokens into the asset-forge identity input. */
-export function identityInput(name: string, tokens: DtcgDocument): IdentityInput {
+export function identityInput(name: string, tokens: DtcgDocument, recipe?: BrandRecord["identityRecipe"]): IdentityInput {
   return {
     name,
     primary: colorHex(tokens, "primary", "#315d7c"),
@@ -20,6 +21,7 @@ export function identityInput(name: string, tokens: DtcgDocument): IdentityInput
     paper: colorHex(tokens, "paper", "#f3f1eb"),
     onPrimary: colorOn(tokens, "primary", "#ffffff"),
     displayFont: DISPLAY_FONT,
+    recipe,
   };
 }
 
@@ -31,8 +33,8 @@ export interface BrandIdentityBundle {
 }
 
 /** Build the full identity bundle (logos, favicon, manifest, head) for a brand. */
-export function buildIdentity(name: string, tokens: DtcgDocument): BrandIdentityBundle {
-  const input = identityInput(name, tokens);
+export function buildIdentity(name: string, tokens: DtcgDocument, recipe?: BrandRecord["identityRecipe"]): BrandIdentityBundle {
+  const input = identityInput(name, tokens, recipe);
   const primary = input.primary;
   const paper = input.paper;
 

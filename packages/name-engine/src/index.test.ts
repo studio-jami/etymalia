@@ -22,4 +22,17 @@ describe("name generation", () => {
     expect(names.length).toBeLessThanOrEqual(40);
     expect(corpusMeta.entryCount).toBeGreaterThan(0);
   });
+
+  it("honors deliberate construction and era preferences", () => {
+    const names = generateNames({
+      keywords: ["light", "craft"],
+      count: 12,
+      preferredLayers: ["classicalLatin"],
+      strategies: ["curated", "affixation"],
+    });
+
+    expect(names.length).toBeGreaterThan(0);
+    expect(names.every((name) => ["curated", "affixation"].includes(name.provenance.strategy))).toBe(true);
+    expect(names.every((name) => name.provenance.roots[0]?.language === "Latin")).toBe(true);
+  });
 });

@@ -30,6 +30,11 @@ export interface NameBrief {
   tone?: string[];
   maxSyllables?: number;
   count?: number;
+  /** Prefer roots from these corpus language layers (for example classicalLatin). */
+  preferredLayers?: string[];
+  /** Limit output to deliberate construction approaches. */
+  strategies?: NameStrategy[];
+  exclusions?: string[];
 }
 
 export interface NameProvenanceRoot {
@@ -135,9 +140,12 @@ interface RootPick {
   gloss: string;
 }
 
-function rootsFor(entry: CorpusEntry): RootPick[] {
+function rootsFor(entry: CorpusEntry, preferredLayers: readonly string[] = []): RootPick[] {
   const picks: RootPick[] = [];
-  for (const layerKey of LAYER_PRIORITY) {
+  // An explicit era selection is a constraint, not a cosmetic ranking hint:
+  // users asking for Classical Latin should not receive a fallback Old Norse root.
+  const layers = preferredLayers.length ? preferredLayers : LAYER_PRIORITY;
+  for (const layerKey of layers) {
     const form = entry.layers[layerKey];
     if (!form) continue;
     const stem = toStem(form);
@@ -266,6 +274,12 @@ export function generateNames(brief: NameBrief): GeneratedName[] {
   const keywordTokens = [...new Set(brief.keywords.flatMap(tokenize))];
   const maxSyllables = brief.maxSyllables ?? 4;
   const count = Math.max(1, Math.min(brief.count ?? 12, 40));
+  const preferredLayers = [...new Set(brief.preferredLayers ?? [])]
+    .filter((layer) => LAYER_PRIORITY.includes(layer));
+  const allowedStrategies = brief.strategies?.length
+    ? new Set(brief.strategies)
+    : null;
+  const exclusions = new Set((brief.exclusions ?? []).map(normalizeLetters).filter(Boolean));
 
   const ranked = entries
     .map((entry) => ({ entry, score: relevance(entry, keywordTokens) }))
@@ -291,7 +305,8 @@ export function generateNames(brief: NameBrief): GeneratedName[] {
   // Single-root strategies: curated marks, affixation, truncation.
   for (const { entry, score } of pool) {
     for (const candidate of entry.candidates) {
-      const primary = rootsFor(entry)[0];
+      const primary = rootsFor(entry, preferredLayers)[0];
+      if (preferredLayers.length && !primary) continue;
       add(makeName(
         candidate,
         "curated",
@@ -303,7 +318,7 @@ export function generateNames(brief: NameBrief): GeneratedName[] {
       ));
     }
 
-    const [root] = rootsFor(entry);
+    const [root] = rootsFor(entry, preferredLayers);
     if (root) {
       const suffix = bestSuffix(root.stem);
       add(makeName(
@@ -335,8 +350,8 @@ export function generateNames(brief: NameBrief): GeneratedName[] {
     for (let j = i + 1; j < blendPool.length; j += 1) {
       const a = blendPool[i];
       const b = blendPool[j];
-      const [rootA] = rootsFor(a.entry);
-      const [rootB] = rootsFor(b.entry);
+      const [rootA] = rootsFor(a.entry, preferredLayers);
+      const [rootB] = rootsFor(b.entry, preferredLayers);
       if (!rootA || !rootB) continue;
 
       const meaningFit = (a.score + b.score) / 2;
@@ -370,6 +385,8 @@ export function generateNames(brief: NameBrief): GeneratedName[] {
 
   return [...results.values()]
     .filter((name) => name.syllables <= maxSyllables)
+    .filter((name) => !allowedStrategies || allowedStrategies.has(name.provenance.strategy))
+    .filter((name) => !exclusions.has(name.slug) && ![...exclusions].some((term) => name.slug.includes(term)))
     .sort((left, right) => right.scores.composite - left.scores.composite)
     .slice(0, count)
     .map((name) => ({ ...name, scores: round(name.scores) }));

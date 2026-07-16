@@ -1,6 +1,6 @@
 import { createServer } from "node:http";
 import { createClient } from "@supabase/supabase-js";
-import { renderFullKit } from "@etymalia/asset-forge/full-kit";
+import { renderFullKit, selectFullKitArtifacts } from "@etymalia/asset-forge/full-kit";
 import { colorHex, colorOn, isDtcgDocument } from "@etymalia/tokens";
 
 const url = process.env.SUPABASE_URL?.trim();
@@ -37,7 +37,7 @@ async function generate(jobId: string, idempotencyKey: string, runnerRunId: stri
   const supabase = client();
   const { data: job, error: jobError } = await supabase
     .from("generation_jobs")
-    .select("id, workspace_id, brand_id, type, status, idempotency_key")
+    .select("id, workspace_id, brand_id, type, status, idempotency_key, request_json")
     .eq("id", jobId)
     .maybeSingle();
   if (jobError || !job || job.type !== "full_kit" || job.idempotency_key !== idempotencyKey) {
@@ -64,12 +64,14 @@ async function generate(jobId: string, idempotencyKey: string, runnerRunId: stri
     }
     const brief = brand.brief && typeof brand.brief === "object" ? brand.brief as { description?: unknown } : {};
     const tokens = tokenRow.dtcg_json;
-    const artifacts = await renderFullKit({
+    const rendered = await renderFullKit({
       name: brand.name,
       tagline: typeof brief.description === "string" ? brief.description : "",
       primary: colorHex(tokens, "primary", "#315d7c"), accent: colorHex(tokens, "accent", "#8fb8d3"),
       ink: colorHex(tokens, "ink", "#182028"), paper: colorHex(tokens, "paper", "#f3f1eb"), onPrimary: colorOn(tokens, "primary", "#ffffff"),
     });
+    const request = job.request_json && typeof job.request_json === "object" ? job.request_json as { requested?: Array<{ kind: string; variant?: string; lockup?: string; format?: string }> } : {};
+    const artifacts = selectFullKitArtifacts(rendered, Array.isArray(request.requested) ? request.requested : [{ kind: "full-kit" }]);
     for (const artifact of artifacts) {
       const path = `${storagePrefix(job.workspace_id, job.brand_id, artifact.category)}/${artifact.filename}`;
       const contentType = artifact.filename.endsWith(".webmanifest") ? "application/json" : artifact.contentType;

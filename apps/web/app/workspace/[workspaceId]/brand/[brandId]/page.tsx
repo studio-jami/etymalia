@@ -9,9 +9,20 @@ import { loadBrand, type NameCandidateRecord } from "@/lib/brand/load";
 import { buildIdentity } from "@/lib/brand/identity";
 import {
   checkDomain,
+  addManualName,
+  activateDirection,
+  archiveDirection,
+  duplicateDirection,
+  renameDirection,
+  deleteReference,
+  uploadReference,
   generateBrandPalette,
   generateFullKit,
+  generateSelection,
   generateNames,
+  savePalette,
+  saveDirection,
+  saveIdentityRecipe,
   saveBrief,
   toggleShortlist,
   useName,
@@ -27,6 +38,8 @@ const ERRORS: Record<string, string> = {
   palette: "Palette generation failed. Please try again.",
   "export-needs-palette": "Generate a palette before exporting the kit.",
   "full-kit": "The full-kit job could not be queued. Please try again.",
+  direction: "We could not save or activate that direction. Please try again.",
+  identity: "We could not save that identity direction. Please try again.",
   forbidden: "You need editor access to change this brand."
 };
 
@@ -44,7 +57,7 @@ export default async function BrandPage({
   const loaded = await loadBrand(workspaceId, brandId);
   if (!loaded) redirect("/workspace");
 
-  const { brand, tokens, candidates, assets, jobs, workspaceRole } = loaded;
+  const { brand, tokens, candidates, assets, jobs, directions, references, workspaceRole } = loaded;
   const { error, job: requestedJob } = await searchParams;
   const errorMessage = error ? ERRORS[error] : null;
   const canEdit = workspaceRole === "owner" || workspaceRole === "editor";
@@ -57,7 +70,7 @@ export default async function BrandPage({
     </>
   );
 
-  const identity = tokens ? buildIdentity(brand.name, tokens) : null;
+  const identity = tokens ? buildIdentity(brand.name, tokens, brand.identityRecipe) : null;
   const swatches = tokens ? readColors(tokens) : [];
   const contrast = tokens ? readContrast(tokens) : [];
   const lockup = identity?.identity.assets.find((asset) => asset.id === "lockup-main");
@@ -100,6 +113,43 @@ export default async function BrandPage({
         </p>
       ) : null}
 
+      <section className="brand-block" id="directions" aria-labelledby="directions-title">
+        <div className="brand-block__head">
+          <p className="eyebrow">Creative workspace</p>
+          <h2 id="directions-title">Directions &amp; drafts</h2>
+          <p className="brand-block__lede">Capture this working state as a named direction before you take another route. Activating a direction restores its brief, selected name board, and token system.</p>
+        </div>
+        <form action={saveDirection} className="inline-form studio-manual-name">
+          {hidden}
+          <label htmlFor="direction-name">Save this direction</label>
+          <input id="direction-name" name="name" maxLength={120} placeholder="Editorial / restrained / warm" />
+          <button className="button button--primary" type="submit" disabled={!canEdit || !tokens}>Save draft</button>
+        </form>
+        {directions.length ? (
+          <ul className="direction-listing">
+            {directions.map((direction) => (
+              <li key={direction.id} className={direction.isActive ? "direction-listing__active" : ""}>
+                <div><strong>{direction.name}</strong><span>{direction.status}{direction.isActive ? " · active" : ""}</span></div>
+                <form action={activateDirection}>
+                  {hidden}
+                  <input name="directionId" type="hidden" value={direction.id} />
+                  <button className="chip-button" type="submit" disabled={!canEdit || direction.isActive || direction.status === "archived"}>{direction.isActive ? "Active" : "Open direction"}</button>
+                </form>
+                <form action={duplicateDirection}>{hidden}<input name="directionId" type="hidden" value={direction.id} /><button className="chip-button" type="submit" disabled={!canEdit}>Duplicate</button></form>
+                <form action={renameDirection}>{hidden}<input name="directionId" type="hidden" value={direction.id} /><input className="direction-listing__rename" name="name" defaultValue={direction.name} maxLength={120} aria-label={`Rename ${direction.name}`} /><button className="chip-button" type="submit" disabled={!canEdit}>Rename</button></form>
+                <form action={archiveDirection}>{hidden}<input name="directionId" type="hidden" value={direction.id} /><button className="chip-button" type="submit" disabled={!canEdit || direction.isActive || direction.status === "archived"}>Archive</button></form>
+              </li>
+            ))}
+          </ul>
+        ) : <p className="brand-block__empty">No saved directions yet. Your current workspace remains editable; save it when you want a return point.</p>}
+      </section>
+
+      <section className="brand-block" id="references" aria-labelledby="references-title">
+        <div className="brand-block__head"><p className="eyebrow">Creative direction</p><h2 id="references-title">Reference images</h2><p className="brand-block__lede">Upload up to twelve JPEG, PNG, or WebP references (10 MB each). They remain private and are never applied automatically.</p></div>
+        <form action={uploadReference} className="inline-form" encType="multipart/form-data">{hidden}<label htmlFor="reference">Add image reference</label><input id="reference" name="reference" type="file" accept="image/jpeg,image/png,image/webp" required /><button className="button" type="submit" disabled={!canEdit}>Store reference</button></form>
+        {references.length ? <ul className="direction-listing">{references.map((reference) => <li key={reference.id}><div><strong>{reference.title || "Untitled reference"}</strong><span>{reference.mimeType}{reference.byteSize ? ` · ${Math.round(reference.byteSize / 1024)} KB` : ""}</span></div><form action={deleteReference}>{hidden}<input name="referenceId" type="hidden" value={reference.id} /><button className="chip-button" type="submit" disabled={!canEdit}>Delete</button></form></li>)}</ul> : null}
+      </section>
+
       <section className="brand-block" id="brief" aria-labelledby="brief-title">
         <div className="brand-block__head">
           <p className="eyebrow">Step 01</p>
@@ -140,13 +190,40 @@ export default async function BrandPage({
         <div className="brand-block__head">
           <p className="eyebrow">Step 02</p>
           <h2 id="names-title">Names</h2>
-          <p className="brand-block__lede">Blended from a curated cross-linguistic corpus, each with real provenance and a composite score.</p>
+          <p className="brand-block__lede">Explore rooted names deliberately: choose language eras, construction approaches, rhythm, and volume—then save a generated or hand-written direction.</p>
         </div>
-        <form action={generateNames} className="form-actions">
+        <form action={generateNames} className="studio-controls">
           {hidden}
-          <button className="button button--primary" type="submit" disabled={!canEdit}>
-            {candidates.length ? "Regenerate names" : "Generate names"}
-          </button>
+          <fieldset>
+            <legend>Language eras</legend>
+            <label><input type="checkbox" name="eras" value="ancientGreek" /> Ancient Greek</label>
+            <label><input type="checkbox" name="eras" value="classicalLatin" /> Classical Latin</label>
+            <label><input type="checkbox" name="eras" value="oldNorse" /> Old Norse</label>
+            <label><input type="checkbox" name="eras" value="oldEnglish" /> Old English</label>
+            <label><input type="checkbox" name="eras" value="sanskrit" /> Sanskrit</label>
+            <label><input type="checkbox" name="eras" value="arabic" /> Arabic</label>
+          </fieldset>
+          <fieldset>
+            <legend>Construction</legend>
+            <label><input type="checkbox" name="strategies" value="curated" /> Root word</label>
+            <label><input type="checkbox" name="strategies" value="affixation" /> Affixed</label>
+            <label><input type="checkbox" name="strategies" value="portmanteau" /> Blend</label>
+            <label><input type="checkbox" name="strategies" value="compound" /> Compound</label>
+            <label><input type="checkbox" name="strategies" value="truncation" /> Short form</label>
+          </fieldset>
+          <div className="field-row">
+            <div className="field"><label htmlFor="name-count">Directions</label><input id="name-count" name="count" type="number" min="6" max="40" defaultValue="16" /></div>
+            <div className="field"><label htmlFor="max-syllables">Maximum syllables</label><input id="max-syllables" name="maxSyllables" type="number" min="2" max="6" defaultValue="4" /></div>
+          </div>
+          <div className="field"><label htmlFor="name-exclusions">Exclude terms <span className="hint">comma-separated</span></label><input id="name-exclusions" name="exclusions" placeholder="names or roots you do not want" /></div>
+          <div className="form-actions"><button className="button button--primary" type="submit" disabled={!canEdit}>{candidates.length ? "Explore new names" : "Generate names"}</button></div>
+        </form>
+
+        <form action={addManualName} className="inline-form studio-manual-name">
+          {hidden}
+          <label htmlFor="manual-name">Add a name you want to test</label>
+          <input id="manual-name" name="term" maxLength={160} placeholder="A direction from your own notebook" />
+          <button className="button" type="submit" disabled={!canEdit}>Add to board</button>
         </form>
 
         {candidates.length ? (
@@ -170,7 +247,7 @@ export default async function BrandPage({
         <div className="brand-block__head">
           <p className="eyebrow">Step 03</p>
           <h2 id="palette-title">Palette &amp; tokens</h2>
-          <p className="brand-block__lede">OKLCH colours, contrast-checked for WCAG AA and saved as DTCG design tokens.</p>
+          <p className="brand-block__lede">A real token system, not a locked suggestion. Start from a generated palette, then swap any semantic color while retaining contrast feedback and a versioned DTCG source.</p>
         </div>
         <form action={generateBrandPalette} className="form-actions">
           {hidden}
@@ -201,6 +278,19 @@ export default async function BrandPage({
                 </li>
               ))}
             </ul>
+            <form action={savePalette} className="token-editor">
+              {hidden}
+              <div className="token-editor__grid">
+                {swatches.map((swatch) => (
+                  <label key={swatch.role}>
+                    <span>{swatch.role}</span>
+                    <input name={swatch.role} type="color" defaultValue={swatch.hex} aria-label={`${swatch.role} color`} />
+                    <code>{swatch.hex}</code>
+                  </label>
+                ))}
+              </div>
+              <div className="form-actions"><button className="button" type="submit" disabled={!canEdit}>Save color direction</button><span className="hint">Unsaved edits are local to this form; saved edits create a new token version.</span></div>
+            </form>
           </>
         ) : (
           <p className="brand-block__empty">No palette yet. Generate one from the brief.</p>
@@ -242,6 +332,16 @@ export default async function BrandPage({
               <div className="identity-preview__stage" dangerouslySetInnerHTML={{ __html: lockup.svg }} />
               <div className="identity-preview__stage identity-preview__stage--icon" dangerouslySetInnerHTML={{ __html: icon.svg }} />
             </div>
+            <form action={saveIdentityRecipe} className="studio-controls">
+              {hidden}
+              <div className="field-row">
+                <div className="field"><label htmlFor="mark">Mark shape</label><select id="mark" name="mark" defaultValue={brand.identityRecipe.mark}><option value="rounded">Rounded</option><option value="square">Square</option><option value="circle">Circle</option></select></div>
+                <div className="field"><label htmlFor="type">Wordmark voice</label><select id="type" name="type" defaultValue={brand.identityRecipe.type}><option value="editorial">Editorial</option><option value="modern">Modern</option><option value="grotesk">Grotesk</option></select></div>
+                <div className="field"><label htmlFor="tracking">Letter spacing</label><select id="tracking" name="tracking" defaultValue={brand.identityRecipe.tracking}><option value="tight">Tight</option><option value="normal">Normal</option><option value="wide">Wide</option></select></div>
+                <div className="field"><label htmlFor="lockup">Lockup</label><select id="lockup" name="lockup" defaultValue={brand.identityRecipe.lockup}><option value="horizontal">Horizontal</option><option value="stacked">Stacked</option></select></div>
+              </div>
+              <div className="form-actions"><button className="button" type="submit" disabled={!canEdit}>Save logo direction</button></div>
+            </form>
             <div className="form-actions">
               <a className="button button--primary" href={`/workspace/${workspaceId}/brand/${brandId}/export`}>
                 Download brand kit (.zip)
@@ -250,6 +350,9 @@ export default async function BrandPage({
                 {hidden}
                 <button className="button" type="submit" disabled={!canEdit}>Generate full social kit</button>
               </form>
+              <form action={generateSelection}><>{hidden}<input name="selection" type="hidden" value="identity" /><button className="button" type="submit" disabled={!canEdit}>Generate logo set</button></></form>
+              <form action={generateSelection}><>{hidden}<input name="selection" type="hidden" value="social" /><button className="button" type="submit" disabled={!canEdit}>Generate social set</button></></form>
+              <form action={generateSelection}><>{hidden}<input name="selection" type="hidden" value="favicon" /><button className="button" type="submit" disabled={!canEdit}>Generate favicon set</button></></form>
               <span className="hint">
                 {candidates.some((candidate) => candidate.isShortlisted)
                   ? "Includes shortlisted names."

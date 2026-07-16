@@ -44,6 +44,8 @@ export interface PaletteInput {
   baseHex?: string;
 }
 
+export type PaletteHexes = Record<ColorRole, string>;
+
 interface Oklch {
   mode: "oklch";
   l: number;
@@ -169,6 +171,49 @@ export function generatePalette(input: PaletteInput = {}): BrandPalette {
   return { seedHue, colors, contrast: checks };
 }
 
+/**
+ * Build a palette from direct semantic color choices. The values are normalized
+ * to sRGB and the same contrast report used by generated palettes is retained
+ * with the resulting tokens, so deliberate edits stay reviewable.
+ */
+export function paletteFromHexes(input: Partial<PaletteHexes>, seed = "etymalia"): BrandPalette {
+  const generated = generatePalette({ seed });
+  const hexes = Object.fromEntries(generated.colors.map((color) => [color.role, color.hex])) as PaletteHexes;
+  for (const role of Object.keys(hexes) as ColorRole[]) {
+    const candidate = input[role];
+    if (!candidate) continue;
+    const normalized = normalizeHex(candidate);
+    if (!normalized) throw new Error(`Invalid ${role} color.`);
+    hexes[role] = normalized;
+  }
+
+  const ink = hexes.ink;
+  const paper = hexes.paper;
+  const colors: PaletteColor[] = ([
+    ["primary", "Primary"], ["secondary", "Secondary"], ["accent", "Accent"],
+    ["ink", "Ink"], ["paper", "Paper"], ["muted", "Muted"],
+  ] as const).map(([role, name]) => ({
+    role,
+    name,
+    hex: hexes[role],
+    oklch: toOklchString(hexes[role]),
+    onColor: bestOn(hexes[role], ink, paper),
+  }));
+
+  return {
+    seedHue: extractHue(hexes.primary),
+    colors,
+    contrast: [
+      check("Ink on Paper", ink, paper, AA_BODY, "AA"),
+      check("Primary on Paper", hexes.primary, paper, AA_LARGE, "AA-large"),
+      check("Secondary on Paper", hexes.secondary, paper, AA_LARGE, "AA-large"),
+      check("Muted on Paper", hexes.muted, paper, AA_LARGE, "AA-large"),
+      check("On-Primary on Primary", bestOn(hexes.primary, ink, paper), hexes.primary, AA_BODY, "AA"),
+      check("On-Accent on Accent", bestOn(hexes.accent, ink, paper), hexes.accent, AA_BODY, "AA"),
+    ],
+  };
+}
+
 function color(role: ColorRole, name: string, value: Oklch, onColor: string): PaletteColor {
   return { role, name, hex: toHex(value), oklch: oklchString(value), onColor };
 }
@@ -181,4 +226,19 @@ function check(pair: string, fg: string, bg: string, threshold: number, level: C
 function extractHue(baseHex: string): number {
   const parsed = oklch(baseHex);
   return parsed?.h ?? 250;
+}
+
+function normalizeHex(value: string): string | null {
+  const trimmed = value.trim();
+  if (!/^#[0-9a-f]{6}$/i.test(trimmed)) return null;
+  return formatHex(oklch(trimmed)) ?? null;
+}
+
+function toOklchString(hex: string): string {
+  const color = oklch(hex);
+  if (!color) return "";
+  const l = Math.round(color.l * 1000) / 10;
+  const c = Math.round(color.c * 1000) / 1000;
+  const h = Math.round((color.h ?? 0) * 10) / 10;
+  return `oklch(${l}% ${c} ${h})`;
 }

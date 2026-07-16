@@ -6,6 +6,7 @@ import {
   generatePalette,
   isDtcgDocument,
   paletteToDtcg,
+  paletteFromHexes,
   readColors,
   readContrast,
 } from "./index";
@@ -30,5 +31,13 @@ describe("brand tokens", () => {
 
   it("uses a fallback for an invalid explicit base color", () => {
     expect(generatePalette({ baseHex: "not-a-color" }).seedHue).toBe(250);
+  });
+
+  it("preserves direct semantic color choices and reports their contrast", () => {
+    const palette = paletteFromHexes({ primary: "#124e78", accent: "#e8a317" }, "manual direction");
+
+    expect(palette.colors.find((color) => color.role === "primary")?.hex).toBe("#124e78");
+    expect(palette.colors.find((color) => color.role === "accent")?.hex).toBe("#e8a317");
+    expect(palette.contrast).toHaveLength(6);
   });
 });

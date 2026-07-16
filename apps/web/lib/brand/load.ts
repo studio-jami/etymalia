@@ -16,6 +16,7 @@ export interface BrandRecord {
   name: string;
   status: string;
   brief: BrandBriefData;
+  identityRecipe: { mark: "rounded" | "square" | "circle"; lockup: "horizontal" | "stacked"; type: "editorial" | "modern" | "grotesk"; tracking: "tight" | "normal" | "wide" };
 }
 
 export interface NameCandidateRecord {
@@ -48,6 +49,15 @@ export interface BrandGenerationJobRecord {
   completedAt: string | null;
 }
 
+export interface BrandDirectionRecord {
+  id: string;
+  name: string;
+  status: "draft" | "approved" | "archived";
+  isActive: boolean;
+  updatedAt: string;
+}
+export interface BrandReferenceRecord { id: string; title: string; mimeType: string; byteSize: number | null; createdAt: string; }
+
 export interface LoadedBrand {
   userId: string;
   workspaceRole: "owner" | "editor" | "viewer";
@@ -56,6 +66,8 @@ export interface LoadedBrand {
   candidates: NameCandidateRecord[];
   assets: BrandAssetRecord[];
   jobs: BrandGenerationJobRecord[];
+  directions: BrandDirectionRecord[];
+  references: BrandReferenceRecord[];
 }
 
 const UUID = /^[0-9a-fA-F-]{36}$/;
@@ -77,14 +89,14 @@ export async function loadBrand(
 
   const { data: brand, error: brandError } = await supabase
     .from("brands")
-    .select("id, workspace_id, name, status, brief, workspaces(name)")
+    .select("id, workspace_id, name, status, brief, identity_recipe, workspaces(name)")
     .eq("id", brandId)
     .eq("workspace_id", workspaceId)
     .maybeSingle();
 
   if (brandError || !brand) return null;
 
-  const [{ data: tokenRow }, { data: candidateRows }, { data: assetRows }, { data: jobRows }, { data: membership }] = await Promise.all([
+  const [{ data: tokenRow }, { data: candidateRows }, { data: assetRows }, { data: jobRows }, { data: membership }, { data: directionRows }, { data: referenceRows }] = await Promise.all([
     supabase.from("brand_tokens").select("dtcg_json").eq("brand_id", brandId).maybeSingle(),
     supabase
       .from("name_candidates")
@@ -108,6 +120,12 @@ export async function loadBrand(
       .eq("workspace_id", workspaceId)
       .eq("user_id", auth.user.id)
       .maybeSingle(),
+    supabase
+      .from("brand_directions")
+      .select("id, name, status, is_active, updated_at")
+      .eq("brand_id", brandId)
+      .order("updated_at", { ascending: false }),
+    supabase.from("brand_references").select("id, title, mime_type, byte_size, created_at").eq("brand_id", brandId).order("created_at", { ascending: false }),
   ]);
 
   const workspace = brand.workspaces as { name?: string } | { name?: string }[] | null;
@@ -142,6 +160,15 @@ export async function loadBrand(
     completedAt: typeof row.completed_at === "string" ? row.completed_at : null,
   }));
 
+  const directions: BrandDirectionRecord[] = (directionRows ?? []).map((row) => ({
+    id: row.id as string,
+    name: row.name as string,
+    status: row.status as BrandDirectionRecord["status"],
+    isActive: Boolean(row.is_active),
+    updatedAt: row.updated_at as string,
+  }));
+  const references: BrandReferenceRecord[] = (referenceRows ?? []).map((row) => ({ id: row.id as string, title: row.title as string, mimeType: row.mime_type as string, byteSize: typeof row.byte_size === "number" ? row.byte_size : null, createdAt: row.created_at as string }));
+
   return {
     userId: auth.user.id,
     workspaceRole,
@@ -152,11 +179,24 @@ export async function loadBrand(
       name: brand.name as string,
       status: brand.status as string,
       brief: parseBriefRecord(brand.brief),
+      identityRecipe: parseIdentityRecipe(brand.identity_recipe),
     },
     tokens,
     candidates,
     assets,
     jobs,
+    directions,
+    references,
+  };
+}
+
+function parseIdentityRecipe(value: unknown): BrandRecord["identityRecipe"] {
+  const record = value && typeof value === "object" ? value as Record<string, unknown> : {};
+  return {
+    mark: record.mark === "square" || record.mark === "circle" ? record.mark : "rounded",
+    lockup: record.lockup === "stacked" ? "stacked" : "horizontal",
+    type: record.type === "modern" || record.type === "grotesk" ? record.type : "editorial",
+    tracking: record.tracking === "normal" || record.tracking === "wide" ? record.tracking : "tight",
   };
 }
 

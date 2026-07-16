@@ -615,7 +615,8 @@ h3 {
 
 .stack-form textarea,
 .stack-form input,
-.field input {
+.field input,
+.field select {
   width: 100%;
   min-height: 2.5rem;
   padding: var(--space-2) var(--space-3);
@@ -643,6 +644,146 @@ h3 {
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-top: var(--space-4);
+}
+
+.studio-controls,
+.token-editor {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 52rem;
+}
+
+.studio-controls fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.studio-controls legend {
+  padding: 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.studio-controls fieldset label {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.studio-controls input[type="checkbox"] {
+  accent-color: var(--color-accent);
+}
+
+.studio-manual-name {
+  max-width: 52rem;
+  margin-top: var(--space-5);
+}
+
+.direction-listing {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 52rem;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.direction-listing li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.direction-listing__active {
+  border-color: var(--color-accent) !important;
+  background: var(--color-surface-selected) !important;
+}
+
+.direction-listing li > div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.direction-listing strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.direction-listing span {
+  color: var(--color-text-subtle);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.direction-listing__rename {
+  width: 10rem;
+  min-height: 2rem;
+  padding: 0 var(--space-2);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-canvas);
+  color: var(--color-text);
+}
+
+.token-editor {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.token-editor__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-3);
+}
+
+.token-editor__grid label {
+  display: grid;
+  grid-template-columns: auto 2.2rem;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.token-editor__grid label > span {
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.token-editor__grid input[type="color"] {
+  width: 2.2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.token-editor__grid code {
+  grid-column: 1 / -1;
+  color: var(--color-text-subtle);
+  font-size: 0.72rem;
 }
 
 .candidate-list {

@@ -3,7 +3,7 @@
   "name": "etymalia-generation",
   "main": "src/index.ts",
   "compatibility_date": "2026-07-15",
-  "workers_dev": false,
+  "workers_dev": true,
   "observability": {
     "enabled": true
   },
@@ -25,7 +25,7 @@
     {
       "name": "etymalia-generation-renderer",
       "class_name": "RendererContainer",
-      "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:production",
+          "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:staging-v10",
       "instance_type": "lite",
       "max_instances": 1,
       "ssh": { "enabled": false }
@@ -97,6 +97,7 @@
               },
               "production": {
       "name": "etymalia-generation-production",
+      "workers_dev": true,
       "vars": { "ENVIRONMENT": "production" },
       "queues": {
         "producers": [
@@ -129,7 +130,7 @@
         {
           "name": "etymalia-generation-renderer-production",
           "class_name": "RendererContainer",
-          "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:production",
+          "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:staging-v10",
           "instance_type": "lite",
           "max_instances": 1,
           "ssh": { "enabled": false }

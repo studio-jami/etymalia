@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { renderFullKit } from "./full-kit";
+import { renderFullKit, selectFullKitArtifacts } from "./full-kit";
 
 const input = {
   name: "Northwind Studio",
@@ -26,5 +26,11 @@ describe("full-kit rendering", () => {
       sourceAssetId: "lockup-main",
     });
     expect(artifacts.find((artifact) => artifact.filename === "favicon.ico")?.contentType).toBe("image/x-icon");
+  }, 15_000);
+
+  it("selects only a requested collection", async () => {
+    const selected = selectFullKitArtifacts(await renderFullKit(input), [{ kind: "favicon" }]);
+    expect(selected.length).toBeGreaterThan(0);
+    expect(selected.every((artifact) => artifact.category === "favicon")).toBe(true);
   }, 15_000);
 });

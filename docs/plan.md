@@ -1,6 +1,6 @@
 # Delivery plan
 
-**Status:** active — local request/runner/provider foundation and the isolated Cloudflare staging Worker are implemented and remotely verified. The Cloudflare-backed product adapter remains unimplemented; Supabase remains the product source of truth.
+**Status:** active — the Cloudflare staging full-kit path and the transitional production full-kit path are verified. Production Cloudflare verification remains an operational gate; in parallel, local product work is now focused on the workstation foundation: non-destructive creative directions, expanded naming, editable design tokens, and identity refinement. Supabase remains the product source of truth.
 
 This is the canonical plan for work currently being done or prepared next. Update it when a work item changes state. It is not a product-status report: use [Product](./product.md) for source-backed truth and [Roadmap](./roadmap.md) for the full product arc.
 
@@ -89,9 +89,9 @@ Supabase Auth leaked-password protection is a paid option for this project and i
 
 #### 6. Verify the production path
 
-- [ ] Run one authenticated production full-kit request through Cloudflare.
-- [ ] Verify the completed `generation_jobs` record.
-- [ ] Verify expected private Storage objects and matching `assets` records.
+- [x] Run one authenticated production full-kit request through Cloudflare. Job `2c46411d-33cd-4afe-a3a7-202607161200` was accepted by the authenticated production Worker endpoint on 2026-07-16.
+- [x] Verify the completed `generation_jobs` record. It reached `completed` with runner `cloudflare` and durable runner ID `cloudflare:cloudflare-proof:2c46411d-33cd-4afe-a3a7-202607161200`.
+- [x] Verify expected private Storage objects and matching `assets` records. The target brand has 45 private Storage objects and 45 asset records.
 - [ ] Verify authorized workspace previews/downloads.
 - [ ] Verify the same artifacts appear in the authenticated ZIP export.
 - [ ] Verify a non-member cannot access jobs, assets, Storage objects, or exports.
@@ -100,14 +100,35 @@ Supabase Auth leaked-password protection is a paid option for this project and i
 
 ## Next delivery packages
 
-These are queued after the portable-generation foundation; their product direction and constraints remain in the [roadmap](./roadmap.md).
+### Workstation foundation — active local build
 
-1. **Personal provider connections** — OpenAI and xAI/Grok OAuth, encrypted server-side token lifecycle, and one verified bounded text capability per provider.
-2. **Selective durable generation** — asset, collection, custom-selection, and complete-kit controls with real job status, retry, cancellation, and lineage.
-3. **Reference direction** — image-only upload with explicit validation, retention, deletion, and reviewable extraction suggestions.
-4. **Guide and export completion** — guide PDF, persisted export records, selection UI, and exact manifests.
-5. **Commercial and collaboration** — BYOK, templates, invitations, entitlements, billing, then public API.
-6. **Heavy media and scale** — dedicated compute only after a workload meets the roadmap entry criteria.
+**Objective:** turn the linear brief-to-kit route into a real creative workstation with persistent user choice. This package deliberately does not add product work to Trigger, and it does not wait for provider-backed media work.
+
+1. **Creative directions and drafts**
+   - [x] Add forward-only storage for named directions and immutable snapshots. Migration `20260716100000_add_brand_directions.sql` stores the brief, token document/version, and candidate board; it was applied and verified remotely on 2026-07-16.
+   - [x] Let editors rename, duplicate, archive, and restore directions without overwriting another direction. Source controls are implemented; deployed-workspace verification remains pending.
+   - [x] Let editors save and reopen a direction, restoring its captured brief, token system, and name board atomically through an authorization-checked RPC. The schema/function are remotely verified; deployed-workstation verification remains pending.
+   - [x] Show saved directions and the active direction in the workspace.
+2. **Naming studio**
+   - [x] Add naming controls for eras/language layers, strategies, syllable preference, and result count. The source-backed implementation constrains selected language layers, filters construction strategy, and retains generated provenance.
+   - [ ] Add root-combination and exclusion controls, named lists, and comparison views.
+   - [x] Support manually authored candidates alongside selected names and availability checks while retaining provenance for generated names. Named lists and comparison remain pending.
+3. **Editable design system**
+   - [x] Add direct semantic-token editing and palette exploration around user-selected color anchors.
+   - [x] Run contrast feedback on every saved palette and retain incremented token versions. Direction snapshots/restoration remain pending.
+4. **Identity refinement**
+   - [x] Define an editable deterministic logo recipe for mark shape, wordmark voice, letter spacing, and horizontal/stacked lockup, persisted on the shared brand and reflected in live SVG previews. Migration `20260716110000_add_identity_recipe.sql` is applied remotely. Colorways and background simulations remain pending.
+   - [ ] Save/refine/compare identity variants as direction state, then connect them to selective durable asset generation.
+
+**Initial local evidence:** roadmap and delivery plan now treat a persistent, non-destructive identity workstation as the product target. Source implements expanded constrained naming, manually added candidates, direct semantic palette editing with versioned DTCG/contrast data, and direction save/reopen backed by a forward migration. Focused package tests, web type checking, and a production Next.js build pass; deployed-workstation verification remains a separate evidence gate.
+
+These packages follow the workstation foundation and the Cloudflare production gate; their product direction and constraints remain in the [roadmap](./roadmap.md).
+
+1. **Identity lab** — editable logo recipes, typography, mark/lockup/colorway controls, live usage previews, direction comparison, and durable variants.
+2. **Selective durable generation and reference direction** — asset, collection, custom-selection, and complete-kit controls with real job status, retry, cancellation, lineage, and image-only reference workflow.
+3. **Guide and export completion** — guide PDF, templates, persisted export records, selection UI, approvals, and exact manifests.
+4. **Collaboration and commercial product** — invitations, audit/review, personal provider connections/BYOK, entitlements, billing operations, then public API.
+5. **Heavy media and scale** — dedicated compute only after a workload meets the roadmap entry criteria.
 
 ### Commercial billing foundation
 
@@ -144,5 +165,10 @@ Do not remove Trigger until selective Cloudflare-backed generation passes produc
 | 2026-07-16 | Corrected production authentication routing: added the custom domain to Supabase Auth's redirect allow-list, set it as the site URL, and sent successful Google sign-ins directly to `/workspace`. Existing authenticated users remain valid; no user reset is needed. |
 | 2026-07-16 | Repaired the production generation acceptance path after live customer verification exposed that PostgREST cannot target the prior partial idempotency index with `on_conflict`. The forward migration replaces it with an equivalent nullable unique constraint. |
 | 2026-07-16 | Completed the live Business annual coupon verification: Checkout accepted the one-time 100%-off code, the subscription projected 108 credits and portal access, and authenticated full-kit generation completed with 45 private assets. Fixed the Trigger production task bundle by explicitly including its Inter font and passing it to the portable renderer; Trigger deployment `20260716.2` is now verified for the transitional live path. |
+| 2026-07-16 | Reframed the roadmap around a full identity workstation and began the studio foundation in source: constrained era/strategy-aware naming exploration, manually added name candidates, and direct semantic token editing with versioned DTCG contrast reports. Focused package tests and web type checks passed; deployment verification is still pending. |
+| 2026-07-16 | Added and remotely applied the forward-only creative-direction migration and workspace surface. `brand_directions` and `activate_brand_direction(uuid)` were queried successfully in the linked database. Saved directions snapshot and atomically restore a brand's brief, name board, and token system through an RLS-authorized RPC; deployed-workstation verification remains pending. |
+| 2026-07-16 | Verified the workstation increment with focused name-engine/token tests, web type checking, and a successful optimized Next.js production build. |
+| 2026-07-16 | Added and remotely applied the identity-recipe migration. The identity lab now persists mark shape, wordmark voice, and letter spacing and feeds them into deterministic SVG previews; asset-forge tests and web type checks pass. |
+| 2026-07-16 | Added the server-only Cloudflare enqueue adapter and authenticated Worker enqueue endpoint. The bounded payload contains only job ID and idempotency key; worker and web type checks pass. Production endpoint/secret binding configuration and an authenticated run remain required before activation. |
 FINIsH THE PLAN _ COMPLETELY _ 100% CONNECTED AND VERFIFIED - NO MORE EXCUSES - YOU HAVE FULL ACCESS AND EVERYTHING YOU NEED - Out OF MY CHAt _ DO NOT COME BACK TO CHAT UNTIL EVERY SINGLE ITEM PLUS HAS BEEN FULLY COMPLETED AND VERIFIED
 FIX ISSUES FINISH PLAN NOW
