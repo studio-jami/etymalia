@@ -15,7 +15,7 @@ export class FullKitWorkflow extends WorkflowEntrypoint<Env, GenerationQueueMess
 
 
     const result = await step.do("render full kit", async () => {
-      const container = this.env.RENDERER_CONTAINER.getByName(`renderer-v6:${event.payload.jobId}`);
+      const container = this.env.RENDERER_CONTAINER.getByName(`renderer-v9:${event.payload.jobId}`);
       await container.startAndWaitForPorts({
         startOptions: {
           envVars: {
