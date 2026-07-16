@@ -88,7 +88,7 @@
         {
           "name": "etymalia-generation-renderer-staging",
           "class_name": "RendererContainer",
-          "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:staging-v8",
+          "image": "registry.cloudflare.com/c294df364db8742bc02db57c046043ef/etymalia-generation-renderer:staging-v9",
           "instance_type": "lite",
           "max_instances": 2,
                     "ssh": { "enabled": false }

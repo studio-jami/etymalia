@@ -72,7 +72,8 @@ async function generate(jobId: string, idempotencyKey: string, runnerRunId: stri
     });
     for (const artifact of artifacts) {
       const path = `${storagePrefix(job.workspace_id, job.brand_id, artifact.category)}/${artifact.filename}`;
-      const { error: uploadError } = await supabase.storage.from("etymalia").upload(path, artifact.data, { contentType: artifact.contentType, upsert: true });
+      const contentType = artifact.filename.endsWith(".webmanifest") ? "application/json" : artifact.contentType;
+            const { error: uploadError } = await supabase.storage.from("etymalia").upload(path, artifact.data, { contentType, upsert: true });
       if (uploadError) throw new Error(`Unable to store ${path}: ${uploadError.message}`);
       const { error: assetError } = await supabase.from("assets").upsert({ brand_id: job.brand_id, kind: artifact.kind, variant: artifact.variant ?? "", lockup: artifact.lockup ?? "", format: artifact.format, storage_path: path, meta: artifact.meta }, { onConflict: "brand_id,storage_path" });
       if (assetError) throw new Error(`Unable to register ${path}: ${assetError.message}`);
