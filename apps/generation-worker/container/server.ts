@@ -101,6 +101,7 @@ createServer(async (request, response) => {
     const result = await generate(input.jobId, input.idempotencyKey, input.runnerRunId);
     response.writeHead(200, { "content-type": "application/json" }); response.end(JSON.stringify(result));
   } catch (error) {
+    console.error("Renderer request failed", error);
     response.writeHead(500, { "content-type": "application/json" }); response.end(JSON.stringify({ error: "Renderer failed" }));
   }
 }).listen(port, "0.0.0.0");
