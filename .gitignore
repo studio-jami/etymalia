@@ -6,6 +6,7 @@
 node_modules/
 .next/
 .turbo/
+apps/generation-worker/container/app/
 
 # Internal, non-public ops notes (account/credit-pool mappings, etc.)
 /docs/internal/

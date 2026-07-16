@@ -34,7 +34,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Assemble standalone renderer deployment
-        run: pnpm --filter etymalia-generation-worker deploy --legacy --prod apps/generation-worker/container/app
+        run: rm -rf apps/generation-worker/container/app && pnpm --filter etymalia-generation-worker deploy --legacy --prod apps/generation-worker/container/app
 
       - name: Build and push Cloudflare Container image
         env:
