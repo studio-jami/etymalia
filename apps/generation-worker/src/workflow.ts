@@ -33,7 +33,11 @@ export class FullKitWorkflow extends WorkflowEntrypoint<Env, GenerationQueueMess
           runnerRunId: `cloudflare:${event.payload.idempotencyKey}`,
         }),
       });
-      if (!response.ok) throw new Error(`Renderer request failed with status ${response.status}`);
+      if (!response.ok) {
+        const failure = await response.json().catch(() => null) as { error?: unknown } | null;
+        const message = typeof failure?.error === "string" ? failure.error : `status ${response.status}`;
+        throw new Error(`Renderer request failed: ${message}`);
+      }
       const payload = await response.json() as { count?: unknown; skipped?: unknown };
       if (typeof payload.count !== "number" || typeof payload.skipped !== "boolean") {
         throw new Error("Renderer returned an invalid completion result");
