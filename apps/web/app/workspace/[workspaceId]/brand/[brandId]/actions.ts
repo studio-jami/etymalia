@@ -316,7 +316,7 @@ export async function generateFullKit(formData: FormData) {
 
   try {
     const { runId } = await generationRunner().enqueue({ jobId: job.id, idempotencyKey: request.idempotencyKey });
-    await attachRunnerRun(admin, job.id, "trigger", runId);
+    await attachRunnerRun(admin, job.id, configuredCloudflareRunner() ? "cloudflare" : "trigger", runId);
   } catch (error) {
     await updateGenerationJob(admin, job.id, "failed", error).catch(() => undefined);
     await refundGenerationCredit(admin, userId, job.id).catch(() => undefined);
@@ -352,7 +352,7 @@ export async function generateSelection(formData: FormData) {
   const target = ids(formData);
   const { supabase, brand, userId } = await requireEditableBrand(target);
   const selection = String(formData.get("selection") ?? "");
-  const requested = selection === "identity" ? [{ kind: "identity" }] : selection === "social" ? [{ kind: "social" }] : selection === "favicon" ? [{ kind: "favicon" }] : null;
+  const requested = selection === "identity" ? [{ kind: "identity" }] : selection === "social" ? [{ kind: "social" }] : selection === "favicon" ? [{ kind: "favicon" }] : selection === "media" ? [{ kind: "media" }] : null;
   if (!requested) done(target, "?error=full-kit#identity");
   const { data: tokenRow } = await supabase.from("brand_tokens").select("version").eq("brand_id", target.brandId).maybeSingle();
   if (!tokenRow) done(target, "?error=export-needs-palette#identity");

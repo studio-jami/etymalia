@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { corpusMeta, generateNames } from "./index";
+import { catalogueMeta, corpusMeta, generateNames, searchCatalogue } from "./index";
 
 describe("name generation", () => {
   it("returns a deterministic, ranked set with provenance", () => {
@@ -21,6 +21,15 @@ describe("name generation", () => {
     expect(names.length).toBeGreaterThan(0);
     expect(names.length).toBeLessThanOrEqual(40);
     expect(corpusMeta.entryCount).toBeGreaterThan(0);
+  });
+
+  it("keeps every source-language and curated-candidate cell discoverable", () => {
+    const allTerms = searchCatalogue();
+    expect(corpusMeta.entryCount).toBe(270);
+    expect(corpusMeta.languageFormCount).toBeGreaterThan(1_500);
+    expect(catalogueMeta.termCount).toBe(allTerms.length);
+    expect(allTerms.filter((term) => term.kind === "language-form")).toHaveLength(corpusMeta.languageFormCount);
+    expect(allTerms.some((term) => term.kind === "curated-candidate")).toBe(true);
   });
 
   it("honors deliberate construction and era preferences", () => {

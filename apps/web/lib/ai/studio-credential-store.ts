@@ -74,7 +74,7 @@ export class StudioCredentialStore implements CredentialStore {
       clientEmail: serviceAccount.client_email,
       privateKey: serviceAccount.private_key,
       project: serviceAccount.project_id,
-      location: this.environment.GOOGLE_VERTEX_LOCATION?.trim() || "us-central1",
+      location: this.environment.GOOGLE_VERTEX_LOCATION?.trim() || "global",
     };
   }
 }

@@ -353,6 +353,7 @@ export default async function BrandPage({
               <form action={generateSelection}><>{hidden}<input name="selection" type="hidden" value="identity" /><button className="button" type="submit" disabled={!canEdit}>Generate logo set</button></></form>
               <form action={generateSelection}><>{hidden}<input name="selection" type="hidden" value="social" /><button className="button" type="submit" disabled={!canEdit}>Generate social set</button></></form>
               <form action={generateSelection}><>{hidden}<input name="selection" type="hidden" value="favicon" /><button className="button" type="submit" disabled={!canEdit}>Generate favicon set</button></></form>
+              <form action={generateSelection}><>{hidden}<input name="selection" type="hidden" value="media" /><button className="button" type="submit" disabled={!canEdit}>Generate visual concepts</button></></form>
               <span className="hint">
                 {candidates.some((candidate) => candidate.isShortlisted)
                   ? "Includes shortlisted names."

@@ -56,7 +56,7 @@
   "env": {
     "staging": {
       "name": "etymalia-generation-staging",
-      "vars": { "ENVIRONMENT": "staging" },
+      "vars": { "ENVIRONMENT": "staging", "GOOGLE_VERTEX_LOCATION": "global" },
       "queues": {
         "producers": [
           { "binding": "GENERATION_QUEUE", "queue": "etymalia-generation-staging" }
@@ -98,7 +98,7 @@
               "production": {
       "name": "etymalia-generation-production",
       "workers_dev": true,
-      "vars": { "ENVIRONMENT": "production" },
+      "vars": { "ENVIRONMENT": "production", "GOOGLE_VERTEX_LOCATION": "global" },
       "queues": {
         "producers": [
           { "binding": "GENERATION_QUEUE", "queue": "etymalia-generation-production" }

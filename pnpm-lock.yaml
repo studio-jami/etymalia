@@ -20,6 +20,9 @@ importers:
       '@cloudflare/containers':
         specifier: ^0.3.7
         version: 0.3.7
+      '@etymalia/ai':
+        specifier: workspace:*
+        version: link:../../packages/ai
       '@etymalia/asset-forge':
         specifier: workspace:*
         version: link:../../packages/asset-forge

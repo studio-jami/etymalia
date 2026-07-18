@@ -9,13 +9,14 @@
 // package has no build step and no CSV parser dependency at runtime.
 
 import { readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const SOURCE = resolve(
   here,
-  "../../../docs/references/etymology-table/etymology_brand_table - Etymology Source.csv",
+  "../../../docs/references/etymology/source-table/etymology_brand_table - Etymology Source.csv",
 );
 const OUTPUT = resolve(here, "../src/corpus.json");
 
@@ -141,8 +142,15 @@ for (const columns of rows.slice(1)) {
 }
 
 const corpus = {
-  version: 1,
+  version: 2,
   generatedAt: new Date().toISOString().slice(0, 10),
+  source: {
+    path: "docs/references/etymology/source-table/etymology_brand_table - Etymology Source.csv",
+    sha256: createHash("sha256").update(await readFile(SOURCE)).digest("hex"),
+    rowCount: entries.length,
+    populatedLanguageCells: entries.reduce((count, entry) => count + Object.keys(entry.layers).length, 0),
+    curatedCandidateCount: entries.reduce((count, entry) => count + entry.candidates.length, 0),
+  },
   layerLabels: LAYER_LABELS,
   entries,
 };

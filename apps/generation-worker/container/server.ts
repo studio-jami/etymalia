@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { createClient } from "@supabase/supabase-js";
 import { renderFullKit, selectFullKitArtifacts } from "@etymalia/asset-forge/full-kit";
 import { colorHex, colorOn, isDtcgDocument } from "@etymalia/tokens";
+import { CredentialResolver, generateBrandMedia, type CredentialStore } from "@etymalia/ai";
 
 const url = process.env.SUPABASE_URL?.trim();
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
@@ -12,8 +13,27 @@ function client() {
   return createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
 }
 
-function storagePrefix(workspaceId: string, brandId: string, category: "social" | "logo" | "favicon") {
+function storagePrefix(workspaceId: string, brandId: string, category: "social" | "logo" | "favicon" | "media") {
   return `workspace/${workspaceId}/brand/${brandId}/${category}`;
+}
+
+function mediaCredentials(): CredentialResolver {
+  const store: CredentialStore = {
+    async getSource({ provider }) {
+      if (provider === "google") {
+        const apiKey = process.env.GEMINI_API_KEY?.trim();
+        if (!apiKey) throw new Error("Gemini media credentials are not configured.");
+        return { type: "apiKey", provider, apiKey };
+      }
+      const raw = process.env.GOOGLE_VERTEX_SERVICE_ACCOUNT_JSON?.trim();
+      if (!raw) throw new Error("Vertex media credentials are not configured.");
+      let account: { client_email?: unknown; private_key?: unknown; project_id?: unknown };
+      try { account = JSON.parse(raw) as typeof account; } catch { throw new Error("Vertex service account is invalid."); }
+      if (typeof account.client_email !== "string" || typeof account.private_key !== "string" || typeof account.project_id !== "string") throw new Error("Vertex service account is incomplete.");
+      return { type: "serviceAccount", provider, clientEmail: account.client_email, privateKey: account.private_key, project: account.project_id, location: process.env.GOOGLE_VERTEX_LOCATION?.trim() || "global" };
+    },
+  };
+  return new CredentialResolver(store);
 }
 
 function errorType(error: unknown) {
@@ -55,23 +75,26 @@ async function generate(jobId: string, idempotencyKey: string, runnerRunId: stri
   await updateJob(jobId, "running");
   try {
     const { data: brand, error: brandError } = await supabase.from("brands")
-      .select("id, workspace_id, name, brief").eq("id", job.brand_id).eq("workspace_id", job.workspace_id).maybeSingle();
+      .select("id, workspace_id, name, brief, identity_recipe").eq("id", job.brand_id).eq("workspace_id", job.workspace_id).maybeSingle();
     if (brandError || !brand) throw new Error("Brand no longer exists in the requested workspace.");
     const { data: tokenRow, error: tokenError } = await supabase.from("brand_tokens")
       .select("dtcg_json").eq("brand_id", job.brand_id).maybeSingle();
     if (tokenError || !tokenRow || !isDtcgDocument(tokenRow.dtcg_json)) {
       throw new Error("A valid DTCG palette is required before a full kit can be generated.");
     }
-    const brief = brand.brief && typeof brand.brief === "object" ? brand.brief as { description?: unknown } : {};
+    const brief = brand.brief && typeof brand.brief === "object" ? brand.brief as { description?: unknown; industry?: unknown; keywords?: unknown; tone?: unknown } : {};
     const tokens = tokenRow.dtcg_json;
+    const recipe = brand.identity_recipe && typeof brand.identity_recipe === "object" ? brand.identity_recipe as { mark?: "rounded" | "square" | "circle"; lockup?: "horizontal" | "stacked"; type?: "editorial" | "modern" | "grotesk"; tracking?: "tight" | "normal" | "wide" } : {};
     const rendered = await renderFullKit({
       name: brand.name,
       tagline: typeof brief.description === "string" ? brief.description : "",
       primary: colorHex(tokens, "primary", "#315d7c"), accent: colorHex(tokens, "accent", "#8fb8d3"),
       ink: colorHex(tokens, "ink", "#182028"), paper: colorHex(tokens, "paper", "#f3f1eb"), onPrimary: colorOn(tokens, "primary", "#ffffff"),
+      recipe: { mark: recipe.mark === "square" || recipe.mark === "circle" ? recipe.mark : "rounded", lockup: recipe.lockup === "stacked" ? "stacked" : "horizontal", type: recipe.type === "modern" || recipe.type === "grotesk" ? recipe.type : "editorial", tracking: recipe.tracking === "normal" || recipe.tracking === "wide" ? recipe.tracking : "tight" },
     });
     const request = job.request_json && typeof job.request_json === "object" ? job.request_json as { requested?: Array<{ kind: string; variant?: string; lockup?: string; format?: string }> } : {};
-    const artifacts = selectFullKitArtifacts(rendered, Array.isArray(request.requested) ? request.requested : [{ kind: "full-kit" }]);
+    const requested = Array.isArray(request.requested) ? request.requested : [{ kind: "full-kit" }];
+    const artifacts = selectFullKitArtifacts(rendered, requested);
     for (const artifact of artifacts) {
       const path = `${storagePrefix(job.workspace_id, job.brand_id, artifact.category)}/${artifact.filename}`;
       const contentType = artifact.filename.endsWith(".webmanifest") ? "application/json" : artifact.contentType;
@@ -80,8 +103,27 @@ async function generate(jobId: string, idempotencyKey: string, runnerRunId: stri
       const { error: assetError } = await supabase.from("assets").upsert({ brand_id: job.brand_id, kind: artifact.kind, variant: artifact.variant ?? "", lockup: artifact.lockup ?? "", format: artifact.format, storage_path: path, meta: artifact.meta }, { onConflict: "brand_id,storage_path" });
       if (assetError) throw new Error(`Unable to register ${path}: ${assetError.message}`);
     }
+    if (requested.some((item) => item.kind === "full-kit" || item.kind === "media")) {
+      const media = await generateBrandMedia(mediaCredentials(), { lane: "studio" }, {
+        name: brand.name,
+        description: typeof brief.description === "string" ? brief.description : "",
+        industry: typeof brief.industry === "string" ? brief.industry : "",
+        keywords: Array.isArray(brief.keywords) ? brief.keywords.filter((value): value is string => typeof value === "string") : [],
+        tone: Array.isArray(brief.tone) ? brief.tone.filter((value): value is string => typeof value === "string") : [],
+        palette: { primary: colorHex(tokens, "primary", "#315d7c"), accent: colorHex(tokens, "accent", "#8fb8d3"), paper: colorHex(tokens, "paper", "#f3f1eb") },
+        aspectRatio: "1:1",
+      });
+      for (const image of media) {
+        const extension = image.mimeType === "image/jpeg" ? "jpg" : image.mimeType === "image/webp" ? "webp" : "png";
+        const path = `${storagePrefix(job.workspace_id, job.brand_id, "media")}/${image.lane}-concept.${extension}`;
+        const { error: uploadError } = await supabase.storage.from("etymalia").upload(path, image.bytes, { contentType: image.mimeType, upsert: true });
+        if (uploadError) throw new Error(`Unable to store ${path}: ${uploadError.message}`);
+        const { error: assetError } = await supabase.from("assets").upsert({ brand_id: job.brand_id, kind: "media", variant: image.lane, lockup: "concept", format: extension === "jpg" ? "other" : extension, storage_path: path, meta: { source: `google-${image.lane}`, model: image.model.id, modelVersion: image.model.version } }, { onConflict: "brand_id,storage_path" });
+        if (assetError) throw new Error(`Unable to register ${path}: ${assetError.message}`);
+      }
+    }
     await updateJob(jobId, "completed");
-    return { count: artifacts.length, skipped: false };
+    return { count: artifacts.length + (requested.some((item) => item.kind === "full-kit" || item.kind === "media") ? 2 : 0), skipped: false };
   } catch (error) {
     await updateJob(jobId, "failed", error).catch(() => undefined);
     throw error;

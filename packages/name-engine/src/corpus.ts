@@ -15,6 +15,7 @@ interface CorpusFile {
   generatedAt: string;
   layerLabels: Record<string, string>;
   entries: CorpusEntry[];
+  source?: { rowCount: number; populatedLanguageCells: number; curatedCandidateCount: number; sha256: string };
 }
 
 const corpus = corpusData as unknown as CorpusFile;
@@ -26,6 +27,9 @@ export const corpusMeta = {
   version: corpus.version,
   generatedAt: corpus.generatedAt,
   entryCount: corpus.entries.length,
+  languageFormCount: corpus.source?.populatedLanguageCells ?? 0,
+  curatedCandidateCount: corpus.source?.curatedCandidateCount ?? 0,
+  sourceSha256: corpus.source?.sha256 ?? "",
 } as const;
 
 /** Human-readable language label for a corpus layer key. */

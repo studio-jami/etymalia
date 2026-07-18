@@ -1,6 +1,13 @@
 {
-  "version": 1,
-  "generatedAt": "2026-07-14",
+  "version": 2,
+  "generatedAt": "2026-07-18",
+  "source": {
+    "path": "docs/references/etymology/source-table/etymology_brand_table - Etymology Source.csv",
+    "sha256": "b6f594778cb8ea0f2fd3fe4a4d9ca944b7156d526e1708dcaad570d7bb7e76d6",
+    "rowCount": 270,
+    "populatedLanguageCells": 1561,
+    "curatedCandidateCount": 810
+  },
   "layerLabels": {
     "pie": "Proto-Indo-European",
     "protoGermanic": "Proto-Germanic",

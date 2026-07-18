@@ -66,6 +66,71 @@ export interface GeneratedName {
   scores: NameScores;
 }
 
+/** A searchable source-backed term. Every modern-word, language-form, and
+ * hand-curated candidate cell in the source table is represented here. */
+export interface CatalogueTerm {
+  term: string;
+  language: string;
+  layer: string;
+  sourceWord: string;
+  semanticField: string;
+  tone: string;
+  driftNotes: string;
+  kind: "source-word" | "language-form" | "curated-candidate";
+}
+
+const catalogue = entries.flatMap<CatalogueTerm>((entry) => [
+  {
+    term: entry.word,
+    language: "Modern English",
+    layer: "modernEnglish",
+    sourceWord: entry.word,
+    semanticField: entry.semanticField,
+    tone: entry.tone,
+    driftNotes: entry.driftNotes,
+    kind: "source-word",
+  },
+  ...Object.entries(entry.layers).map(([layer, term]) => ({
+    term,
+    language: languageLabel(layer),
+    layer,
+    sourceWord: entry.word,
+    semanticField: entry.semanticField,
+    tone: entry.tone,
+    driftNotes: entry.driftNotes,
+    kind: "language-form" as const,
+  })),
+  ...entry.candidates.map((term) => ({
+    term,
+    language: "Curated candidate",
+    layer: "candidate",
+    sourceWord: entry.word,
+    semanticField: entry.semanticField,
+    tone: entry.tone,
+    driftNotes: entry.driftNotes,
+    kind: "curated-candidate" as const,
+  })),
+]);
+
+export const catalogueMeta = { termCount: catalogue.length, entryCount: entries.length } as const;
+
+/**
+ * Search the complete checked-in etymology catalogue without dropping rows for
+ * a relevance cap. Consumers may paginate the result for presentation, but the
+ * search domain is always the whole source table.
+ */
+export function searchCatalogue(query = "", options: { layers?: string[]; limit?: number } = {}): CatalogueTerm[] {
+  const tokens = tokenize(query);
+  const layers = options.layers?.length ? new Set(options.layers) : null;
+  const limit = Math.max(1, Math.min(options.limit ?? catalogue.length, catalogue.length));
+  return catalogue
+    .filter((term) => !layers || layers.has(term.layer))
+    .filter((term) => !tokens.length || tokens.every((token) =>
+      tokenize([term.term, term.sourceWord, term.semanticField, term.tone, term.driftNotes].join(" ")).some((value) => stemMatch(value, token)),
+    ))
+    .slice(0, limit);
+}
+
 const STOPWORDS = new Set([
   "the", "a", "an", "and", "or", "of", "to", "for", "with", "in", "on", "at",
   "by", "is", "are", "be", "our", "your", "we", "that", "this", "from", "as",
@@ -286,11 +351,13 @@ export function generateNames(brief: NameBrief): GeneratedName[] {
     .filter((match) => match.score > 0)
     .sort((left, right) => right.score - left.score);
 
+  // Do not discard the long tail of the licensed source catalogue. Scoring
+  // orders every relevant entry; the final result cap is applied only after
+  // all source material has had a chance to contribute a candidate.
   const pool = ranked.length
-    ? ranked.slice(0, 16)
+    ? ranked
     : [...entries]
         .sort((left, right) => brandability(right) - brandability(left))
-        .slice(0, 12)
         .map((entry) => ({ entry, score: 0.4 }));
 
   const results = new Map<string, GeneratedName>();
@@ -345,7 +412,7 @@ export function generateNames(brief: NameBrief): GeneratedName[] {
   }
 
   // Cross-family blends: recombine roots from two different source entries.
-  const blendPool = pool.slice(0, 9);
+  const blendPool = pool;
   for (let i = 0; i < blendPool.length; i += 1) {
     for (let j = i + 1; j < blendPool.length; j += 1) {
       const a = blendPool[i];

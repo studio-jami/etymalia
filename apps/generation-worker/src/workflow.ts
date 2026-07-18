@@ -21,6 +21,9 @@ export class FullKitWorkflow extends WorkflowEntrypoint<Env, GenerationQueueMess
           envVars: {
             SUPABASE_URL: this.env.SUPABASE_URL,
             SUPABASE_SERVICE_ROLE_KEY: this.env.SUPABASE_SERVICE_ROLE_KEY,
+            GEMINI_API_KEY: this.env.GEMINI_API_KEY,
+            GOOGLE_VERTEX_SERVICE_ACCOUNT_JSON: this.env.GOOGLE_VERTEX_SERVICE_ACCOUNT_JSON,
+            GOOGLE_VERTEX_LOCATION: this.env.GOOGLE_VERTEX_LOCATION ?? "global",
           },
         },
       });

@@ -7,7 +7,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/health") {
-      return Response.json({ status: "ok", service: "etymalia-generation", enqueueSecretLength: env.GENERATION_ENQUEUE_SECRET?.length ?? 0 });
+      return Response.json({ status: "ok", service: "etymalia-generation" });
     }
     if (request.method === "POST" && url.pathname === "/enqueue") {
       const authorization = request.headers.get("authorization");

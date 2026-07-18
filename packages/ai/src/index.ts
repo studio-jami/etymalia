@@ -107,13 +107,13 @@ interface VertexModelResponse {
     name?: string;
     displayName?: string;
     versionId?: string;
-    supportedActions?: string[];
+    supportedActions?: unknown;
   }>;
   publisherModels?: Array<{
     name?: string;
     displayName?: string;
     versionId?: string;
-    supportedActions?: string[];
+    supportedActions?: unknown;
   }>;
   nextPageToken?: string;
 }
@@ -200,7 +200,8 @@ export class LiveProviderModelCatalog {
     const models: ProviderModel[] = [];
     let pageToken: string | undefined;
     do {
-      const url = new URL(`https://${credential.location}-aiplatform.googleapis.com/v1beta1/publishers/google/models`);
+      const host = credential.location === "global" ? "aiplatform.googleapis.com" : `${credential.location}-aiplatform.googleapis.com`;
+      const url = new URL(`https://${host}/v1beta1/publishers/google/models`);
       if (pageToken) url.searchParams.set("pageToken", pageToken);
       const response = await this.request(url, { headers: { authorization: `Bearer ${token}` } });
       const body = (await response.json()) as VertexModelResponse;
@@ -211,7 +212,10 @@ export class LiveProviderModelCatalog {
           id,
           displayName: model.displayName ?? id,
           version: model.versionId,
-          supports: model.supportedActions ?? [],
+          // Vertex's publisher catalogue currently omits this field for many
+          // Google image models. Keep that absence distinct from an explicit
+          // unsupported action so capability selection can handle it safely.
+          supports: Array.isArray(model.supportedActions) ? model.supportedActions.filter((action): action is string => typeof action === "string") : [],
           discoveredAt: new Date().toISOString(),
         });
       }
@@ -270,4 +274,131 @@ export async function generateBrandDirection(port: AiPort, brief: BrandBrief, co
     prompt: ["Create a concise, credible first brand direction.", "Use real, explainable etymology for name candidates; do not invent provenance.", "Return only values matching the supplied schema.", `Brief: ${JSON.stringify(brief)}`].join("\n\n"),
   });
   return result.object;
+}
+
+export type MediaLane = "gemini" | "vertex";
+
+export interface BrandMediaRequest {
+  name: string;
+  description: string;
+  industry: string;
+  keywords: string[];
+  tone: string[];
+  palette: { primary: string; accent: string; paper: string };
+  aspectRatio: "1:1" | "4:5" | "16:9";
+}
+
+export interface GeneratedBrandMedia {
+  lane: MediaLane;
+  model: ProviderModel;
+  mimeType: string;
+  bytes: Uint8Array;
+}
+
+interface GeminiImageResponse {
+  candidates?: Array<{ content?: { parts?: Array<{ inlineData?: { mimeType?: string; data?: string } }> } }>;
+}
+
+interface VertexImageResponse {
+  predictions?: Array<{ bytesBase64Encoded?: string; mimeType?: string }>;
+}
+
+/**
+ * Generate one usable visual per configured Google lane. Model IDs are chosen
+ * from the provider's live catalogue; callers never send model identifiers.
+ */
+export async function generateBrandMedia(
+  resolver: CredentialResolver,
+  context: AiContext,
+  request: BrandMediaRequest,
+  lanes: readonly MediaLane[] = ["gemini", "vertex"],
+): Promise<GeneratedBrandMedia[]> {
+  const prompt = mediaPrompt(request);
+  const generated: GeneratedBrandMedia[] = [];
+  for (const lane of lanes) {
+    if (lane === "gemini") {
+      const credential = await resolver.resolve({ ...context, provider: "google" });
+      if (credential.provider !== "google") throw new Error("Gemini credential resolution failed.");
+      const catalog = new LiveProviderModelCatalog(resolver);
+      const model = selectLiveImageModel(await catalog.list(context, "google"), "gemini");
+      generated.push({ lane, model, ...await generateGeminiImage(credential, model, prompt, request.aspectRatio) });
+    } else {
+      const credential = await resolver.resolve({ ...context, provider: "google-vertex" });
+      if (credential.provider !== "google-vertex") throw new Error("Vertex credential resolution failed.");
+      const catalog = new LiveProviderModelCatalog(resolver);
+      const model = selectLiveImageModel(await catalog.list(context, "google-vertex"), "vertex");
+      generated.push({ lane, model, ...await generateVertexImage(credential, model, prompt, request.aspectRatio) });
+    }
+  }
+  return generated;
+}
+
+function selectLiveImageModel(models: ProviderModel[], lane: MediaLane): ProviderModel {
+  const model = models
+    .filter((candidate) => /(?:image|imagen)/i.test(`${candidate.id} ${candidate.displayName}`))
+    .filter((candidate) => lane === "gemini"
+      ? candidate.supports.includes("generateContent")
+      // The Vertex catalogue omits supportedActions on current Gemini image
+      // models. Their documented generation method is generateContent; Imagen
+      // models use predict. Both are selected by capability family, never an ID.
+      : /^(?:gemini)|imagen/i.test(candidate.id))
+    .sort((left, right) => compareVersion(right.version, left.version) || right.id.localeCompare(left.id))[0];
+  if (!model) throw new Error(`No live ${lane} image-generation model is available for this account.`);
+  return model;
+}
+
+function mediaPrompt(request: BrandMediaRequest): string {
+  return [
+    `Create a premium brand visual for ${request.name}.`,
+    `Business: ${request.description || request.industry}.`,
+    `Keywords: ${request.keywords.join(", ") || "craft, clarity"}. Tone: ${request.tone.join(", ") || "refined"}.`,
+    `Palette: primary ${request.palette.primary}, accent ${request.palette.accent}, paper ${request.palette.paper}.`,
+    "Art direction: original, editorial, sophisticated, minimal composition, no stock photography, no gradients, no mockup devices, no readable text, no letters, no logos, no watermarks.",
+  ].join("\n");
+}
+
+async function generateGeminiImage(
+  credential: Extract<ResolvedCredential, { provider: "google" }>,
+  model: ProviderModel,
+  prompt: string,
+  aspectRatio: BrandMediaRequest["aspectRatio"],
+): Promise<{ mimeType: string; bytes: Uint8Array }> {
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model.id)}:generateContent?key=${encodeURIComponent(credential.apiKey)}`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: prompt }] }], generationConfig: { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio } } }),
+  });
+  if (!response.ok) throw new Error(`Gemini media request failed: ${response.status}`);
+  const data = await response.json() as GeminiImageResponse;
+  const image = data.candidates?.flatMap((candidate) => candidate.content?.parts ?? []).map((part) => part.inlineData).find((part) => part?.data && part.mimeType?.startsWith("image/"));
+  if (!image?.data || !image.mimeType) throw new Error("Gemini returned no image data.");
+  return { mimeType: image.mimeType, bytes: Uint8Array.from(Buffer.from(image.data, "base64")) };
+}
+
+async function generateVertexImage(
+  credential: Extract<ResolvedCredential, { provider: "google-vertex" }>,
+  model: ProviderModel,
+  prompt: string,
+  aspectRatio: BrandMediaRequest["aspectRatio"],
+): Promise<{ mimeType: string; bytes: Uint8Array }> {
+  const auth = new GoogleAuth({ credentials: { client_email: credential.clientEmail, private_key: credential.privateKey }, scopes: ["https://www.googleapis.com/auth/cloud-platform"] });
+  const token = await auth.getAccessToken();
+  if (!token) throw new Error("Unable to authenticate the Vertex media request.");
+  const isGemini = /^gemini/i.test(model.id);
+  const host = credential.location === "global" ? "aiplatform.googleapis.com" : `${credential.location}-aiplatform.googleapis.com`;
+  const url = `https://${host}/v1beta1/projects/${credential.project}/locations/${credential.location}/publishers/google/models/${encodeURIComponent(model.id)}:${isGemini ? "generateContent" : "predict"}`;
+  const response = await fetch(url, { method: "POST", headers: { authorization: `Bearer ${token}`, "content-type": "application/json" }, body: JSON.stringify(isGemini
+    ? { contents: [{ role: "user", parts: [{ text: prompt }] }], generationConfig: { responseModalities: ["TEXT", "IMAGE"], imageConfig: { aspectRatio } } }
+    : { instances: [{ prompt }], parameters: { sampleCount: 1, aspectRatio } }) });
+  if (!response.ok) throw new Error(`Vertex media request failed: ${response.status}`);
+  if (isGemini) {
+    const data = await response.json() as GeminiImageResponse;
+    const image = data.candidates?.flatMap((candidate) => candidate.content?.parts ?? []).map((part) => part.inlineData).find((part) => part?.data && part.mimeType?.startsWith("image/"));
+    if (!image?.data || !image.mimeType) throw new Error("Vertex returned no image data.");
+    return { mimeType: image.mimeType, bytes: Uint8Array.from(Buffer.from(image.data, "base64")) };
+  }
+  const data = await response.json() as VertexImageResponse;
+  const image = data.predictions?.find((prediction) => prediction.bytesBase64Encoded);
+  if (!image?.bytesBase64Encoded) throw new Error("Vertex returned no image data.");
+  return { mimeType: image.mimeType?.startsWith("image/") ? image.mimeType : "image/png", bytes: Uint8Array.from(Buffer.from(image.bytesBase64Encoded, "base64")) };
 }

@@ -2,4 +2,7 @@ interface Env {
   SUPABASE_URL: string;
   SUPABASE_SERVICE_ROLE_KEY: string;
   GENERATION_ENQUEUE_SECRET: string;
+  GEMINI_API_KEY: string;
+  GOOGLE_VERTEX_SERVICE_ACCOUNT_JSON: string;
+  GOOGLE_VERTEX_LOCATION?: string;
 }
